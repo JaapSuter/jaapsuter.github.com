@@ -254,8 +254,8 @@ skeptical and/or indifferent the majority view is.
 
 Consider a parallel universe where suddenly overnight tomorrow, everybody would
 actually agree that it's coming, and that it's coming soon. Still permitting some
-unpredictability, but really just variations on a theme/blend of Kurtzweil, Eliezier, Hanson,
-Bostrom, Goertzel, De Grey, et al.
+unpredictability, but really just variations on a theme/blend of Kurzweil, Yudkowsky, Hanson,
+Bostrom, Goertzel, Sandberg, De Grey, et al.
 
 Would you not imagine that things would look a little different?
 
@@ -2087,7 +2087,7 @@ Ok, rapture.
 Quoting from my email...
 
 ### Jaap
-"Namely, that if my life has to end anyway, I’d rather that happens as part of a
+"Namely, that if my life has to end anyway, Iï¿½d rather that happens as part of a
 big interesting transformational (if not catastrophic) event, than it happening
 as just another mundane death like the majority of deaths that have occurred before
 mine."
