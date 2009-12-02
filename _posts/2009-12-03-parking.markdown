@@ -1,0 +1,15 @@
+---
+layout: post
+title: "Parking"
+---
+
+# {{ page.title }}
+
+ * Sphere of knowledge.
+ * Debate at the PDF level.
+ * Confidence
+ * Objective <-> Subjective
+ * Meta blog
+ * Philosophy, Math, Fun
+ * Basics: Bayes, ...?
+ * Analyzing Critique
