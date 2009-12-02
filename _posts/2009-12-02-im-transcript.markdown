@@ -140,7 +140,7 @@ Doesn't mean it's okay to do it that way, but we can certainly foresee that some
 might.
 
 ### Jaap
-Exactly, myself included; I'm immune to it.
+Exactly, myself included; I'm certainly not immune to it.
 
 But I make a modest effort to recognize a general principle, and I'm willing to admit
 past mistakes, and then change my future behaviour, or submit to my evolutionary
