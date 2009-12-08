@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "The Sampling Problem"
+title: "Sampling Bias"
+subtitle: "The cause of all other biases."
 ---
 
 # {{ page.title }}
@@ -8,7 +9,7 @@ title: "The Sampling Problem"
 ### Jaap
 Ping?
 
-### Mike
+### Michael
 Pong?
 
 ### Jaap
@@ -22,7 +23,7 @@ realized that it was too strong of a statement, and therefore replaced it with b
 - yet leaving the a in (through said syntax) to indicate that I actually think about
 what I type before I submit it.")
 
-### Mike
+### Michael
 Man, you know me well... :) :) 
 
 I'm fighting a cold. Back in Cranbrook again.
@@ -32,13 +33,13 @@ Ah, right on. Once again disconnected from the reality we call the intertubes, a
 thus forced to exercise your own brain due to lack of blog stimuli. Damn, that must
 suck. Sorry to hear about your cold.
 
-### Mike
+### Michael
 Your sympathy is not misplaced. I'm kicking its ass...    :-)
 
 ### Jaap
 Hahaha, nice. Hey, are you familiar with Dempster-Schafer Theory?
 
-### Mike
+### Michael
 Not off-hand. Wikipediaing. Interesting. Oddly, reminds me of Kalman filters.
 
 ### Jaap
@@ -49,14 +50,14 @@ both come up alongside Dempster-Schafer.
 Of course, given how Bayes lies much closer to the root of the scientific method than
 almost any other theorem, one could argue that Bayes is likely to show up in a lot of places.
 
-### Mike
+### Michael
 Oh, reading further.
 
 ### Jaap
 I just thought it was kinda neat how two fairly distinct interests of mine overlapped
 today.
 
-### Mike
+### Michael
 Looks kind of like meta-probability...
 
 ### Jaap
@@ -69,14 +70,14 @@ philosophy of thought, and philosophy of the universe. I'm sort of glad to see t
 worried for a bit that a crystal-hippie interpretation of Godel would lead philosophers
 to drift away from math.
 
-### Mike
+### Michael
 Did you catch the thing on Reddit the other day about "Why your friends have more
 friends than you do..."?
 
 ### Jaap
 No, searching... Got it.
 
-### Mike
+### Michael
 Jason and I were chatting about that article last weekend. Lots of things fall into
 the same category. For example, the proposition that the best thing you can do in
 traffic is to change lanes. Sample bias is *very* cool.
@@ -84,22 +85,22 @@ traffic is to change lanes. Sample bias is *very* cool.
 ### Jaap
 Hey, that's a *great* article.
 
-### Mike
+### Michael
 :)
 
 ### Jaap
 Thanks for sharing.
 
-### Mike
+### Michael
 No problemo. Was thinking of you when we were discussing it this weekend.
 
 ### Jaap
 Are you saying I'm biased? You'd better be... ;-)
 
-### Mike
+### Michael
 LOL. Was just about to say the same regarding my statement!
 
-### Mike
+### Michael
 Sample bias is one of these things that occupies a substantial part of my cognitive
 load, I'd say. Not like I'm always thinking about it, but it really seems to come
 up quite often.
@@ -108,7 +109,7 @@ up quite often.
 When you say it's part of your cognitive load, you mean mostly regarding to identifying
 it? Or to overcome it? And in other people, or in yourself, or in abstract?
 
-### Mike
+### Michael
 At the moment, mainly identifying it. Not sure it's possible, strictly, to overcome
 it, although one certainly can learn to recognize sample bias. For now, perhaps
 the best description of my involvement is that it makes me giggle every time I see
@@ -117,7 +118,7 @@ it.
 ### Jaap
 A particular interesting form of sampling bias comes up a lot in the Doomsday argument.
 
-### Mike
+### Michael
 ?
 
 ### Jaap
@@ -126,14 +127,14 @@ Let me find a good reference... http://www.anthropic-principle.com/primer1.html
 And the particular paper that explicitly talks about sampling bias (in this case,
 "the self-indication-assumption"): http://www.anthropic-principle.com/preprints/olum/sia.pdf
 
-### Mike
+### Michael
 Reading...
 
 ### Jaap
 Out of curiousity, is it sampling bias in particular that you are intruiged by,
 or other forms of bias as well?
 
-### Mike
+### Michael
 Well, sampling bias seems to be at the bottom of many bias issues. What else do
 you have in mind?
 
@@ -145,7 +146,7 @@ it's obvious to say that sampling bias is at the bottom of many other bias issue
 such that it could be seen as a sampling bias.) That could be a fun exercise. ....
 Actually, I take my comment about the obviousness back.
 
-### Mike
+### Michael
 That's quite a list! I'd certainly be careful about saying that sampling bias was
 at the bottom of all of those.
 
@@ -164,7 +165,7 @@ but the notion that bias is *always* a sampling issue if you dig deep enough rea
 appeals to me. It's like a Kalman filter - there's a sampling error, and you try
 to overcome it.
 
-### Mike
+### Michael
 Yeah. I'm curious about it, actually.
 
 ### Jaap
@@ -172,14 +173,14 @@ From "I'm not sure if it's obvious to say that sampling bias is at the bottom of
 many other bias issues." to the complete opposite in less than ten MSN messages.
 Nice!
 
-### Mike
+### Michael
 :) :)
 
 ### Jaap
 And only just now did I notice your comment: "I'd certainly be careful about saying
 that sampling bias was at the bottom of all of those." LOL, did we just flip stances?
 
-### Mike
+### Michael
 I think I may be back on the sample bandwagon. The first bias I picked - the base
 rate fallacy - is certainly a sampling issue. Jason and I had actually discussed
 that one in terms of false-positive AIDS tests. :) :)
@@ -189,7 +190,7 @@ The space between "false positive AIDS tests" and ":):)" is too large for me to
 infer what you were laughing about. The sheer amount of (in-)appropriate comments
 I could make about AIDS make the whole thing rather intractable. ;)
 
-### Mike
+### Michael
 lol. "The sheer amount of jokes I could make about AIDS make the whole thing rather
 intractable." -> There's sample bias in there somewhere, I'm sure.
 
@@ -197,14 +198,14 @@ intractable." -> There's sample bias in there somewhere, I'm sure.
 "There's sample bias in there somewhere, I'm sure." -> Are you saying I have chlamydia?
 Snap! Padamtam tjing!
 
-### Mike
+### Michael
 LOL
 
 ### Jaap
 I think theoretical AI that operates on the fringe of both math and philosophy is
 very much about finding statistical representations for cognitive biases.
 
-### Mike
+### Michael
 You know, though... For example: http://en.wikipedia.org/wiki/Denomination_effect
 A lot of cognitive biases seem more related to psychology than to statistical anomalies.
 It [~would/will] be really interesting to see what cognitive biases are exhibited
@@ -221,29 +222,33 @@ last night sound like moronicness. :)... I often feel there's a correlation betw
 how deep something sounds, and (provided it's not crystal-worshipping ambigious
 trite) how utterly obivous it is once you see it.
 
-### Mike
+### Michael
 Hey, interesting point.
 
 ### Jaap
 At any rate, imagine an AI that plays finite games of Pacman (finite meaning there's
 only N levels so you can "beat" the game - and yes, the Monte Carlo AIXI prompted
-this example...) Then as long as you can increase the IO bandwidth (from only being
+this example...)
+
+Then as long as you can increase the IO bandwidth (from only being
 able to see one 'tile' forward and backward, to seeing the whole level and positions
 of ghosts, to knowing all possible paths that ghosts could take, and simulating
 those (sort of like Deep Blue plays chess, once you use "ghosts-don't-bang-their-heads-into-the-wall"
 heuristics)), you can reach a point where there'll be no sampling bias anymore.
+
 Note that not until Pacman can read the proverbial ghost's mind (e.g., have access
 to the pseudo-random-number-generator that determines their paths) is all sampling
 bias removed entirely. There's a sharp distinction between knowing what chess Grand
-Master's are *likely* to do, and actually reading Kasparov's mind. Further note
-that even in the presence of reading minds, Pacman has not yet become God. Without
-the "game-is-beatable" guarantee, it seems possible for a particular ghost pattern
+Master's are *likely* to do, and actually reading Kasparov's mind.
+
+Further note that even in the presence of reading minds, Pacman has not yet become
+God. Without the "game-is-beatable" guarantee, it seems possible for a particular ghost pattern
 to inevitably corner Pacman. In the abscence of super-natural powers (i.e., that
 transcend the original game, like walking through walls) it *will* be game over.
 That's just a long way of saying that AI would still have to obey the laws of physics
 (the actual ones, not our current descriptions thereof.)
 
-### Mike
+### Michael
 This feels related to my belief that even AI would be fundamentally throttled by
 its interaction with the real world. For example, it doesn't have an inside track
 on physical theory, really, so has to do experimentation just like anyone else (although
@@ -253,7 +258,7 @@ I think we can expect its theories to be more powerful).
 Of course, I don't have to mention to you that when I say IO port, I'm obviously
 referring to your eyes and ears and skin and so forth just as much as anything.
 
-### Mike
+### Michael
 :) :) Of course.
 
 ### Jaap
@@ -265,5 +270,5 @@ with....
 Hey, I'm gonna run to the cafetaria and get a snack, you gonna be here for a bit,
 or leaving soon?
 
-### Mike
+### Michael
 I'll be here, I think.

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Singularity Shrugs"
+subtitle: "When nobody cares I may be wrong."
 ---
 
 # {{ page.title }}
@@ -14,7 +15,7 @@ The first is that the singularity is a great excuse to avoid the present. Why ca
 Secondly, my record shows I have built-in desire to look for (what I at a particular point consider) the rational minority. It's not always
 clear how much of that is just to be contrary for contrary's sake, and how much is a genuine and sincere desire to learn. 
 
-### Mike
+### Michael
     
 Ack... :-)
 
@@ -31,7 +32,7 @@ bother.
 
 Any thoughts on my concern? Let me know if you're busy...
 
-### Mike
+### Michael
 No, I have a few minutes at least. Heading out with Jason and
 Carmen sometime, but waiting on their call. Otherwise, just surfing
 Haskell stuff.
@@ -40,7 +41,7 @@ Haskell stuff.
 I suppose that we're BASE jumpers and still alive lends some credence to the fact
 that we can approach minority views without being idiots.
 
-### Mike
+### Michael
 Nice... :)
 
 Referring to the singularity as another minority view, I assume.
@@ -48,7 +49,7 @@ Referring to the singularity as another minority view, I assume.
 ### Jaap
 Yes.
 
-### Mike
+### Michael
 Well... my lack of concern is fueled mainly by the argument of resources.
 
 It seems to me that real-world acquisition of resources slows things down *a lot*.
@@ -60,7 +61,7 @@ Oh, wait - you're talking about **FOOM**. I should clarify; I've broadened the
 topic from the specific risk of AI whiping out the species to any and all consequences
 of some kind of singularity (such as nanotech, robotics, uploading, longevity, etc.)
 
-### Mike
+### Michael
 Ah, I see...     :) :)
 
 Roger.
@@ -81,7 +82,7 @@ These are things that *are* on my radar.
 
 But I think it's safe to say I have a pretty tight "*relevance*" filter, in some ways.
 
-### Mike
+### Michael
 I have a feeling the singularity itself will also be slowed somewhat by resource
 acquisition.
 
@@ -116,7 +117,7 @@ Bostrom, Goertzel, Sandberg, De Grey, et al.
 
 Would you not imagine that things would look a little different?
 
-### Mike
+### Michael
 (Reading...)
 
 Well, sure it would look different. But if you imagine a parallel universe populated
@@ -143,7 +144,7 @@ people would have made a few decisions differently than they actually did.
 
 You might say; but the world didn't know that...
 
-### Mike
+### Michael
 Fair enough. I think the problem, from my standpoint, is that the singularity is,
 basically by definition, unknowable. And if we can't know it, then we are spending
 energy preparing for a very speculative future.
@@ -154,7 +155,7 @@ happen. But that doesn't change the fact that probabilistic assesments/beliefs a
 possible future outcomes (be it on a five minute scale or a five decade scale) *do*
 affect our decision making; even that of the most idiotic person.
 
-### Mike
+### Michael
 Speculating about that future, and trying to work out probabilities, is interesting,
 but not to the point that it changes my actions today.
 
@@ -170,7 +171,7 @@ I guess I'm asking whether or not you agree that there is a dissonance between t
 actual public's awareness on the topic, and the effect the possible significance
 of a future outcome could have on the public today.
 
-### Mike
+### Michael
 On the five minute/five year scale, I feel like I have a handle on what will happen.
 
 On the fifty year scale, not so much.
@@ -178,7 +179,7 @@ On the fifty year scale, not so much.
 ### Jaap
 True enough...
 
-### Mike
+### Michael
 
 I think if we *knew* what would happen, or even had a reasonably good idea, then
 it might affect things. But even basic propositions like, "*AI will eventually supercede
@@ -189,7 +190,7 @@ it seems a bit pointless to prepare for one particular vision of it.
 
 Gotta run. Back later, though, and have really been enjoying these chats.
 
-TTYL!
+Talk to you later.
 
 ### Jaap
-Cya!
+Cheers...

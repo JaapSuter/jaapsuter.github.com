@@ -29,7 +29,7 @@ But contrary to the lives of children, the debate on reason has't settled yet. W
 our rational faculty justify anything, certainly not a claim that rationality itself is bad. So far, it's **the** 
 mechanism to reason about reality, with unsurpassed effectiveness.
 
-### Mike
+### Michael
 And, in fact, I might argue that most things in day-to-day life can be understood
 rationally.
 
@@ -56,7 +56,7 @@ is through sound application of rational principles.
 Certainly more effective than waiting until some newspaper's astrology prediction
 aligns with the sacred crystals I hide under my pillow.
 
-### Mike
+### Michael
 Totally, exactly what I'm thinking. The thing is, rational principles can be applied to understand
 a huge range of things.
 
@@ -80,7 +80,7 @@ explains the desire to belief *X*. Therefore it is okay to belief *X*...?
 
 That kind of reasoning is used to justify so many apalling behavior.
 
-### Mike
+### Michael
 See, this is why I like you.
 
 I think we can understand the desire to believe *X*, but it doesn't imply that *X* is

@@ -1,55 +1,63 @@
-* {
-  margin: 0;
-  padding: 0;
+body
+{
+	font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
+	font-size: 16px;
+	width: 500px;	
+	padding-top: 100px;
+	padding-left: 100px;
+	color: #000000;
+	background-color:#ffffff;
 }
 
-html, body {
-  height: 100%;
+h1
+{
+	text-shadow: 5px 5px 4px #cccccc;
 }
 
-body {
-  background-color: white;
+a:link { background-color: #ffffff; color: #000000; }
+a:visited { background-color: #ffffff; color: #000000; }
+a:hover {background-color:#000000; color:#eeeeee; text-decoration:none;}
+a:active { background-color: #ffffff; color: #000000; }
+
+h3
+{
+	text-align: right;
+	padding: 6px 6px 20px 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
+h3#jaap
+{
+	background-color: #444444;
+	color:#eeeeee
 }
 
-h1 {
-  margin-bottom: 1em;
+h3#michael
+{
+	background-color: #eeeeee;
+	color:#444444
 }
 
-p {
-  margin: 1em 0;
+p.entry
+{
+	color:#dddddd
 }
 
-a {
-  color: #00a;
+p.entry:hover
+{
+	color:#444444	
 }
 
-a:hover {
-  color: black;
+a.entry
+{
+	color:#000000;
+	text-decoration:none;
 }
 
-a:visited {
-  color: #a0a;
-}
-
-table {
-  font-size: inherit;
-  font: 100%;
+a.entry:hover
+{
+	color:#000000;
+	background-color:#ffffff;
+	text-decoration:underline;
 }
 
 
-ul.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
-}
-
-ul.posts li {
-line-height: 1.75em;
-}
-
-ul.posts span {
-color: #aaa;
-}

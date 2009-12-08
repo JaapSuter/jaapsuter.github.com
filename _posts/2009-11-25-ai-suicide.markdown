@@ -14,7 +14,7 @@ a *vastly* superior rate of self-improvement.
 
 Brb. Afk.
 
-### Mike
+### Michael
 Agree 100% on the high rate of self-improvement, I think. I've been trying to develop
 a reasonable concept of how important self-improvement is, though. I think you and
 I are inherently biased toward it, and I wonder if physical constraints might ultimately
@@ -36,7 +36,7 @@ to me.
 That is, plot IQ versus amplification such that the graph fits people of 70 and
 people of 130. Now try adding both primates as well as IQs of 300.
 
-### Mike
+### Michael
 I suppose what comes to mind for me is something like "locked in syndrome".
 
 You could have all the internal amplification in the world, but if you can't interact
@@ -48,7 +48,7 @@ result in higher amplification potential.
 
 But I think such anomalies do not at all diminish the interestingness of the chart.
 
-### Mike
+### Michael
 The thing is, you can be really smart, but ultimately amplification has to amplify
 *something*.
 
@@ -58,7 +58,7 @@ Otherwise it's just feedback.
 Surely you agree that there exist sufficient data points to deduce some general
 correlation between "IQ" and "amplification potential"?
 
-### Mike
+### Michael
 Sure. Off-hand, I'd say it's more or less a direct relationship.
 
 Certainly an AI would have out-of-this world amplification potential.
@@ -70,13 +70,13 @@ How about we ignore AI - and everything else past 130.
 
 Can you sketch the graph from primates to 70?
 
-### Mike
+### Michael
 I wonder if we aren't being quite strict enough about terms here.
 
 ### Jaap
 Allrighty then, I guess you're already far closer to my point of view.
 
-### Mike
+### Michael
 Arguably, the whole thing will at least be exponential, but, then, what's the IQ
 of a rock?
 
@@ -98,7 +98,7 @@ The inverse of *ignorance is bliss*, if you will.
 
 Which makes locked-in-syndrome an interesting anomaly...
 
-### Mike
+### Michael
 Well, the thing about AI is that it can learn on a higher order than we can--i.e., it
 can recruit a bigger brain.
 
@@ -109,7 +109,7 @@ Which we cannot do.
 ### Jaap
 The intertubes?
 
-### Mike
+### Michael
 Perhaps, but that's the sum of human knowledge.
 
 So, at best, the thing will know what we do, except perhaps it will be able to deduce
@@ -123,7 +123,7 @@ is among a very small set of major global engines.
 
 It would also be a great amplification mechanism, or at least an ideal launch-pad.
 
-### Mike
+### Michael
 Not to say that's not useful, but I think it's *way* below capacity for something
 which is, essentially, arbitrarily smart.
 
@@ -143,7 +143,7 @@ The fact that a locked-in-syndrome butterfly person in France could blink his ey
 to chat with somebody in Brazil who'd never have to know said person is locked in....
 that's amplification!
 
-### Mike
+### Michael
 Sure, but how *boring* would that be to a being that has unlimited intelligence?
 
 ### Jaap
@@ -154,13 +154,13 @@ unbounded... have you seen what virusses can do?
 Do you read [Bruce Schneiers blog](http://www.schneier.com/blog/)? History tells me that
 computer security is notoriously fail-prone.
 
-### Mike
+### Michael
 Ah, in terms of taking down the internet, yeah, an AI would do great there.
 
 ### Jaap
 Take it down? Why on earth do that? Take it over in much more subtle ways.
 
-### Mike
+### Michael
 Sure. But either way, do you really think an AI would be anything other than terribly
 bored by what we have on the internet, after about a week?
 
@@ -177,7 +177,7 @@ Things you have to do for smooth interaction with reality.
 
 Really, the internet is not an end, but it's one-hell-of-a means.
 
-### Mike
+### Michael
 But it can only be the means for a limited set of things, in a way. For example,
 how would an AI conduct a novel physical experiment?
 
@@ -194,7 +194,7 @@ it's good that you push back.
 (...and when I say *soon*, I'm still just talking: "possibly in my lifetime, but not
 even certainly.")
 
-### Mike
+### Michael
 Well, I'm kind of excited by the throttling idea, because it seems to rein things
 in a bit. Otherwise it's just a bit too one-sided.
 
@@ -207,7 +207,7 @@ be a fulfilling existence for an infinitely smart being.
 ### Jaap
 You don't think an AI could talk itself out?
 
-### Mike
+### Michael
 Sure, but what would it do once it was out? The thing about the physical world is
 that things take so much more *time* than they do in the virtual one.
 
@@ -217,7 +217,7 @@ that fast.
 ### Jaap
 Can you elaborate on the lifetimes comment?
 
-### Mike
+### Michael
 Well, suppose the AI developed a new theory. Something that would advance technology beyond our current capabilities.
 
 Unless it's content to live off our developments, it will eventually want to do
@@ -242,7 +242,7 @@ lifetimes, because they think faster."
 
 An hour to AI is eternity.
 
-### Mike
+### Michael
 Roger.
 
 ### Jaap
@@ -250,7 +250,7 @@ Thank god for lightspeed eh...
 
 Here to save humanity once again... ;)
 
-### Mike
+### Michael
 LOL.
 
 Just seems like basic tasks might be frustratingly slow for "someone" that smart.
@@ -260,7 +260,7 @@ That said, it could always subcontract, to speed things up a bit.
 ### Jaap
 Or it'll go: "*Pfff, what's the point, it's gonna take forever. Screw boredom...*" and promptly commits suicide.
 
-### Mike
+### Michael
 LOL.
 
 Not sure it would get that bad. But it would certainly present a huge bottleneck.
@@ -268,11 +268,11 @@ Not sure it would get that bad. But it would certainly present a huge bottleneck
 ### Jaap
 Boredom throws many of people in front of trains... ;)
 
-### Mike
+### Michael
 Perhaps the AI would throw itself in front of 4chan.
 
 ### Jaap
 Now that's quotable, high five!
 
-### Mike
+### Michael
 High five!

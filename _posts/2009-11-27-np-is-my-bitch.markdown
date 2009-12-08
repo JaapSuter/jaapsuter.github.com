@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "NP Is My Bitch"
+subtitle: "Instruction set and introspection trade-off."
 ---
 
 # {{ page.title }}
@@ -14,13 +15,13 @@ risk?
 
 3, 2, 1, cya - right?       ;-)
 
-### Mike
+### Michael
 Cooper's law strikes again.
 
 ### Jaap
 Damn, we're so screwed... :P
 
-### Mike
+### Michael
 How we might get where?
 
 ### Jaap
@@ -30,14 +31,14 @@ I'll seed the topic...
 
 We'll stay in the realm of intuitive computing paradigms.
 
-### Mike
+### Michael
 Ah, yes.
 
 ### Jaap
 E.g., ignoring quantum computing for a minute (then again, qubits look more *Turing-like*
 and less *NP-is-my-bitch* every day)...
 
-### Mike
+### Michael
 Agreed, quantum computing is a long ways out, and seems relatively specialized at
 this point.
 
@@ -45,7 +46,7 @@ this point.
 Let's ignore consequences of an AI ordering or manufacturing new hardware for itself. So we have some fixed size
 address space, and IO ports with fixed bandwidth and latency.
 
-### Mike
+### Michael
 Interesting...
 
 I like your parameterization.
@@ -59,7 +60,7 @@ slow variation of an N times faster single computer.
 
 By the way, I must say that *NP-is-my-bitch* would be an awesome band name.
 
-### Mike
+### Michael
 LOL. Great band name, agreed.
 
 Well, there's something. In principle, it seems like we can boil this down to Turing machines.
@@ -74,7 +75,7 @@ Because building things "wider" gives us exponential growth, whereas building th
 As a result? You mean a practical result, not a theoretical result? I.e., embarrasingly parallel algorithms are 
 trivially sped up by adding more hardware side-by-side.
 
-### Mike
+### Michael
 Roger.
 
 ### Jaap
@@ -87,7 +88,7 @@ Insert obligatory *code is data is code* Lisp truism here.
 We can execute the code on a turing machine, but you're going to need one hell of
 a long tape (large address space) and one hell of a fast tape reader/writer/mover.
 
-### Mike
+### Michael
 Exactly.
 
 ### Jaap
@@ -103,7 +104,7 @@ My intuition offers two plausible statements:
 
  2 Recursive self-improvement of a constant size bit string is difficult proportional to instruction set size.
 
-### Mike
+### Michael
 Interesting thought.
 
 ### Jaap
@@ -128,7 +129,7 @@ Our address space is 1000 units.
  * Recursively self improving x86 executable: 20 for the current program, 580
 for storing how an x86 host machine works, 400 left to work with.
 
-### Mike
+### Michael
 :)
 
 ### Jaap
@@ -146,7 +147,7 @@ There are lots of holes in this idea I'm sure; and the numbers are worse than bo
 trying to illustrate a curious thought here, which is that increases in computing-efficiency (through specialization in
 CPU instruction dialects) may decrease computing-introspectability.
 
-### Mike
+### Michael
 Catching up...
 
 ### Jaap

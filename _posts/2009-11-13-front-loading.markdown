@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Front Loading"  
+title: "Front Loading"
+subtitle: "Bear with me to avoid a register spill."
 ---
 
 # {{ page.title }}
@@ -8,7 +9,7 @@ title: "Front Loading"
 ### Jaap
 Hey, have we talked about front-loading sentences before?
 
-### Mike
+### Michael
 Hmm, the term seems familiar.
 
 ### Jaap
@@ -38,7 +39,7 @@ point out a flaw in a concluding point before all constraint bits have been comm
 The very people who urge me to: "*...get to the point*" are the people that make it difficult to
 get to the point.
 
-### Mike
+### Michael
 Agreed that there is an inverse correlation between someone's attention span, and
 their interest in refuting your point.
 
