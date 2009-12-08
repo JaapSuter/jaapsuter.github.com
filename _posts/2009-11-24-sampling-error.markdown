@@ -1,10 +1,7 @@
 ---
 layout: post
-title: "Sampling Bias"
-subtitle: "The cause of all other biases."
+title: "Sampling Error"
 ---
-
-# {{ page.title }}
 
 ### Jaap
 Ping?

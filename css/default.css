@@ -2,16 +2,17 @@ body
 {
 	font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
 	font-size: 16px;
-	width: 500px;	
-	padding-top: 100px;
-	padding-left: 100px;
+	width: 620px;	
+	padding-top: 50px;
+	padding-left: 130px;
 	color: #000000;
 	background-color:#ffffff;
 }
 
 h1
 {
-	text-shadow: 5px 5px 4px #cccccc;
+	text-shadow: 5px 5px 4px #aaaaaa;
+	font-size: 47px;
 }
 
 a:link { background-color: #ffffff; color: #000000; }
@@ -23,12 +24,15 @@ h3
 {
 	text-align: right;
 	padding: 6px 6px 20px 20px;
+	font-size: 100%;
+	background-color: #666666;
+	color: #ffffff
 }
 
 h3#jaap
 {
 	background-color: #444444;
-	color:#eeeeee
+	font-size: 100%;
 }
 
 h3#michael

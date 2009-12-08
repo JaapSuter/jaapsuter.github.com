@@ -1,10 +1,7 @@
 ---
 layout: post
 title: "Ad Brutus Vis Moore"
-subtitle: "The one with the most computing power needs the least intelligence."
 ---
-
-# {{ page.title }}
 
 ### Michael
 I suspect that we'll see AI more or less when it's inevitable.
@@ -25,14 +22,13 @@ So, to me, 20 to 30 years seems like the timeline. I suspect we will first see A
 simply as a result of a self-improving system run on a sufficiently powerful computer.
 
 ### Jaap
-Wait long enough, and you can always argue **Ad Brutus Vis Moore** - appeal to brute force using Moore's law.
+Wait long enough, and you can always argue **Ad Brutus Vis Moore** -- appeal to brute force using Moore's law.
 
 ### Michael
 Maybe someone develops a system for finding faces for cameras, and it's *particularly*
 good.
 
-### Michael
-Ad Brutus Vis Moore...    :-)
+Ad Brutus Vis Moore -- nice...
 
 I really think the main problem right now is a lack of horsepower.
 
@@ -139,10 +135,11 @@ Agreed.
 ### Jaap
 So why not you?
 
-### Jaap
+### Michael
 See, I have a good excuse...
 
 I don't want to destroy the world.
 
 ### Jaap
-That's good point...   ;-)
+Ah... good reason.
+

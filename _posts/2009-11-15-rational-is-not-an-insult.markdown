@@ -3,9 +3,6 @@ layout: post
 title: "Rational Is Not An Insult"
 ---
 
-# {{ page.title }}
-
-
 ### Jaap
 In regards to "rational" getting a bad-rep, see this article for an **anecdotal**
 data point:

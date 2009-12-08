@@ -1,8 +1,7 @@
 ---
 layout: default
-title: Jaap Suter
 ---
-
-{%for post in site.posts reversed%}
-  <p class="entry"><span class="entry">{{post.date | date_to_string}} - </span><a href="{{post.url}}" class="entry">{{post.title}}</a> - {{post.subtitle}}</p>
+<h1>Jaap Suter</h1>
+{%for post in site.posts%}
+  <p><a href="{{post.url}}" class="entry">{{post.title}}</a></p>
 {%endfor%}

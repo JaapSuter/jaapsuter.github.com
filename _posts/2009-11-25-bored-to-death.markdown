@@ -1,10 +1,7 @@
 ---
 layout: post
-title: "AI Suicide"
+title: "Bored To Death"
 ---
-
-# {{ page.title }}
-
 
 ### Jaap
 "...even AI would be fundamentally throttled by its interaction with the real world."

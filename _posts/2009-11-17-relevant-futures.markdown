@@ -1,10 +1,7 @@
 ---
 layout: post
-title: "Singularity Shrugs"
-subtitle: "When nobody cares I may be wrong."
+title: "Relevant Futures"
 ---
-
-# {{ page.title }}
 
 ### Jaap
 You know, I'm accutely aware of how much I'm seduced by this flavor of futurism. I can think of 

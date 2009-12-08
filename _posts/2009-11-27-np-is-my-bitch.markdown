@@ -1,10 +1,7 @@
 ---
 layout: post
 title: "NP Is My Bitch"
-subtitle: "Instruction set and introspection trade-off."
 ---
-
-# {{ page.title }}
 
 ### Jaap
 Let's put aside for a moment the existential risk from AI. I'd like to hear your thoughts
@@ -13,37 +10,32 @@ on how we might actually get there in the first place.
 Because hey, what's the point of discussing extinction if we don't even run the
 risk?
 
-3, 2, 1, cya - right?       ;-)
+Three, two, one, see ya... -- right?
 
 ### Michael
 Cooper's law strikes again.
 
 ### Jaap
-Damn, we're so screwed... :P
+Damn, we're so screwed... ;-)
 
 ### Michael
 How we might get where?
 
 ### Jaap
-Recursive self-optimization.
+Recursive self-optimization. I'll seed the topic...
 
-I'll seed the topic...
+We'll stay in the realm of traditional intuitive computing paradigms. E.g., we ignore quantum computing et al. for a minute.
 
-We'll stay in the realm of intuitive computing paradigms.
-
-### Michael
-Ah, yes.
-
-### Jaap
-E.g., ignoring quantum computing for a minute (then again, qubits look more *Turing-like*
-and less *NP-is-my-bitch* every day)...
+Then again, a lot of qubits are **more Turing less NP-is-my-bitch** every day...    ;-)
 
 ### Michael
 Agreed, quantum computing is a long ways out, and seems relatively specialized at
 this point.
 
 ### Jaap
-Let's ignore consequences of an AI ordering or manufacturing new hardware for itself. So we have some fixed size
+Furthermore, let's ignore the consequences of an AI ordering or manufacturing new hardware for itself.
+
+So we have some fixed size
 address space, and IO ports with fixed bandwidth and latency.
 
 ### Michael
@@ -61,7 +53,7 @@ slow variation of an N times faster single computer.
 By the way, I must say that *NP-is-my-bitch* would be an awesome band name.
 
 ### Michael
-LOL. Great band name, agreed.
+Haha -- great band name, agreed.
 
 Well, there's something. In principle, it seems like we can boil this down to Turing machines.
 
@@ -100,17 +92,11 @@ But, this gain comes from sacrificing code-generality through hardwired instruct
 
 My intuition offers two plausible statements:
 
- 1 Recursive self-improvement of hardware is more difficult than it is for software.
+ 1. Recursive self-improvement is easier is for software than for hardware.
+ 
+ 2. The difficulity of self-improving a constant size bit-string is proportional to the instruction set size.
 
- 2 Recursive self-improvement of a constant size bit string is difficult proportional to instruction set size.
-
-### Michael
-Interesting thought.
-
-### Jaap
-In other words, as you climb up the instruction set complexity (and *usefulness* I
-might argue) hierarchy, you *lower* yourself down the ease-of-self-improvability
-hierarchy.
+In other words, **as the complexity (and *usefulness* for some definition thereof) of your instruction set goes up, the ease with which said instructions can introspect and self-improve goes down.**
 
 I'm not confident enough to try and formalize this, but instinctively I think it's easier
 to analyse and evolve simple Turing tape programs than it is to analyse and evolve x86
@@ -121,16 +107,16 @@ would require you to fill part of your address space with x86 definitions.
 
 Let's see if I can put some bogus numbers on this to give an idea....
 
-Our address space is 1000 units.
+Take an address space of 1000 units. Then...
 
- * Recursively self-improving Turing tape program: 200 for the current program,
+ * ...recursively self-improving Turing tape program: 200 for the current program,
 10 for storing how the host turing machine works, 790 left to work with.
 
- * Recursively self improving x86 executable: 20 for the current program, 580
+ * ...recursively self improving x86 executable: 20 for the current program, 580
 for storing how an x86 host machine works, 400 left to work with.
 
 ### Michael
-:)
+Interesting thought.
 
 ### Jaap
 

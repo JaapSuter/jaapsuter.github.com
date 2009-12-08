@@ -1,10 +1,7 @@
 ---
 layout: post
 title: "Front Loading"
-subtitle: "Bear with me to avoid a register spill."
 ---
-
-# {{ page.title }}
 
 ### Jaap
 Hey, have we talked about front-loading sentences before?

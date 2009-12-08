@@ -1,10 +1,7 @@
 ---
 layout: post
-title: "Frozen When The World Ends"
-subtitle: "How cryonics makes the future less dangerous."
+title: "Frozen Futures"
 ---
-
-# {{ page.title }}
 
 ### Michael
 I'm having a really hard time getting work done in Cranbrook. I think a familiar
@@ -35,31 +32,27 @@ Tricky, there's a lot in your two initial sentences that can be either reverted
 
 Alas, details.
 
-What are you trying to work on then, DirectAid stuff?
+What are you trying to get done then -- is it related to work?
 
-And why are you in Cranbrook again, or still? Your dad's health iirc?
+And you're in Cranbrook again? I seem to recall you were there recently.
 
 ### Michael
-Elisa's dad died earlier this week. Funeral's on Tuesday.
+Elisa's dad died earlier this week. The funeral's on Tuesday.
 
 So we're hanging out until then. Came down just before to see him.
 
 Previously, he'd taken ill, so we came down to see him.
 
 ### Jaap
-Ah, that sucks. My condolences, please forward to Elisa as well.
+Ah, that sucks. My condolences, to Elisa as well.
 
-### Michael
-Will do.
-
-### Jaap
 Is that the first of one of your and Elisa's parents to pass away?
 
 ### Michael
 Yep. Probably the hardest, too.
 
 ### Jaap
-Really sorry mate...        :(
+Really sorry mate...
 
 ### Michael
 Elisa was really attached to her dad.
@@ -88,7 +81,6 @@ Damn... how old?
 ### Michael
 70.
 
-### Michael
 So, not super young, but not that old, either.
 
 But it made me think, at some point in the future (who knows how long), this would
@@ -112,7 +104,7 @@ can you do?
 Well, you can make backups, for one.
 
 ### Jaap
-I'll be curious if this event will change the strategy for you and/or Elisa, a little
+I'll be curious if this event will change the strategy for you or Elisa, a little
 ways down, once the immediacy of emotional and practical (e.g., funeral,
 etc.) consequences has worn off a little.
 
@@ -130,9 +122,7 @@ Probably a genetic handicap towards far-mode thinking, in favor of near-mode thi
 
 ### Michael
 
-Ooh... I saw something you will be interested in.
-
- * [St. Petersburg Paradox](http://en.wikipedia.org/wiki/St._Petersburg_paradox)
+Ooh... I saw something you will be interested in: [St. Petersburg Paradox](http://en.wikipedia.org/wiki/St._Petersburg_paradox)
 
 Thought of you when I read this, and here's why...
 
@@ -150,11 +140,9 @@ I'm familiar with the St. Petersburg paradox, yes.
 ### Michael
 Right. So...
 
-### Michael
 There are a couple of theories I've read on how it is resolved, and I'm not really
 keen on either.
 
-### Michael
 One is marginal utility.
 
 Bah.
@@ -179,12 +167,14 @@ Here's what I'm thinking...
 Suppose buy-in was a million dollars.
 
 ### Jaap
-The risk-aversion explanation is that you'd run the risk of bottoming out your available
+Risk-aversion should account for the risk of bottoming out your available
 money.
 
 ### Michael
 Expected payout is infinite, so we're still good. But, would you put a million on
 the line for a very small (albeit profitable) chance to win more?
+
+### Jaap
 
 I think marginal utility is a ancestral genetic trait, related to near/far-mode
 thinking.
@@ -471,12 +461,12 @@ Secondly, I wonder what effect this perception has on my interest in, e.g., cryo
 ### Jaap
 Good point - increase the viability of cryonics, and I'd be more inclined to let it sit.
 
-**The last thing you want to do before getting frozen is piss off a lot of people.**
+The last thing you want to do before getting frozen is piss off a lot of people.
 
 I think the button's temptation boils down to curiousity.
 
-You can sort of see it as a bandwidth issue. The more shit happens before I
-die, the more stuff I can cram through my own IO ports, the closer I get to the intellectual
+You can sort of see it as a bandwidth issue. The more things happen in my local universe before I
+die, the more I can cram through my own IO ports, and the closer I get to the intellectual
 finish line.
 
 We're talking about moving a millimeter forward on a lightyear long scale, but I
@@ -488,5 +478,5 @@ Keep your hands off that button Jaap.
 
 ### Jaap
 
-Interesting, how cryonics contributes to world safety. The longer you live, the higher your stake in preserving high quality futures.
+Interesting -- cryonics helps preserve the world. The longer you live, the higher your stake in realizing high quality futures.
 
