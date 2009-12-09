@@ -289,7 +289,7 @@ day.*"
 Not everybody gets to that realization....
 
 ### Michael
-Right... :)
+Right... \:-)
 
 ### Jaap
 So the odds you're playing are that life-extension will come while you are still

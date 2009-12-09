@@ -83,7 +83,7 @@ traffic is to change lanes. Sample bias is *very* cool.
 Hey, that's a *great* article.
 
 ### Michael
-:)
+\:-)
 
 ### Jaap
 Thanks for sharing.
@@ -171,7 +171,7 @@ many other bias issues." to the complete opposite in less than ten MSN messages.
 Nice!
 
 ### Michael
-:) :)
+\:-)
 
 ### Jaap
 And only just now did I notice your comment: "I'd certainly be careful about saying
@@ -205,7 +205,7 @@ very much about finding statistical representations for cognitive biases.
 ### Michael
 You know, though... For example: http://en.wikipedia.org/wiki/Denomination_effect
 A lot of cognitive biases seem more related to psychology than to statistical anomalies.
-It [~would/will] be really interesting to see what cognitive biases are exhibited
+It \[~would/will\] be really interesting to see what cognitive biases are exhibited
 by an AI.
 
 ### Jaap
@@ -256,7 +256,7 @@ Of course, I don't have to mention to you that when I say IO port, I'm obviously
 referring to your eyes and ears and skin and so forth just as much as anything.
 
 ### Michael
-:) :) Of course.
+\:-) Of course.
 
 ### Jaap
 I point out that I don't have to point that out, to momentarily relish in the fact

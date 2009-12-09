@@ -54,7 +54,7 @@ The same way that evolution - if you zoom out far enough - is actually pretty da
 simple. And "*just another way*" of creating intelligence.
 
 A rather inefficient one I suspect, but arguably so far the only one that has been
-shown to work... :)
+shown to work... \:-)
 
 ### Michael
 Right. That said, I don't think we'll ever look back and thing, "*If only we had

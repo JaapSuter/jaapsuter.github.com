@@ -235,7 +235,7 @@ The physical world can only be hurried so much.
 
 ### Jaap
 Ah, when you say: "*would take lifetimes*", you mean: "*would feel as several of their
-lifetimes, because they think faster."
+lifetimes, because they think faster.*"
 
 An hour to AI is eternity.
 
