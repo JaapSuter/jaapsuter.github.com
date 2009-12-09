@@ -7,208 +7,193 @@ title: "Recompression Oh Nein"
                 
         EXT. CAMP ELPHINSTONE - DAY
         
-                                                                    LONG SHOT:
+                                                         LONG SHOT:
         
 > Dew shimmers on the long grass of Elphinstone center field. The sky is 
 > blue, the sun is orange, and snow-capped mountains on the horizon 
 > give birth to a technicolor rainbow. Calmly grazing underneath stands 
 > a unicorn, blissfully unaware that yesteryears' `CHIRPING OF BIRDS` is 
 > gradually overtaken by `SOUNDS OF CRACKERS`.
-            
+
     CUT TO:
 
         INT. UNIDENTIFIED WALL - 11:59 AM
         
-                                                                    CLOSE UP:
+                                                          CLOSE UP:
         
 > On the wall hangs an old antique Cuckoo clock. It's large; enormous in
 > fact. It's one of the early Swiss prototypes, from before its inventor
 > had settled on a species.
             
-                                                                SLOW MOTION:
+                                                        SLOW MOTION:
         
 > With great effort, as if it's the last thing it'll ever do, the minute
 > hand waves the eleventh hour goodbye, and makes its way to noon.
-            
+
     CUT TO:
 
         INT. PORNGE HEADQUARTERS - NOON
         
-                                                                FISH EYE ROOM:
-                                                                
+                                                      FISH EYE ROOM:
+
 > Several people sit and stand around a table, apparently having
 > some kind of meeting. People look stressed.
 
-Suddenly they all stop talking...
+> Suddenly they all stop talking...
 
-The doors of the Cuckoo clock open, and a large platform on wheels
-emerges. Perched on top sits a lazy hippopotamus, wrapped in a fun
-fur coat, defiantly orange, arrogantly pink. Taking all the time
-in the world, the hippo opens its mouth. From deep inside, sounds
-emerge:
+> The doors of the Cuckoo clock open, and a large platform on wheels
+> emerges. Perched on top sits a lazy hippopotamus, wrapped in a fun
+> fur coat, defiantly orange, arrogantly pink. Taking all the time
+> in the world, the hippo opens its mouth. From deep inside, sounds
+> emerge:
             
-                                    HIPPOPOTAMUS
-                                    
-Cuuuuuuuuuuckooooooooooooooooo
-
-Cuuuuuuuuuuckooooooooooooooooo
-
-Cuuuuuuuuuuckooooooooooooooooo
-
-Cuuuuuuuuuuckooooooooooooooooo
-
-Cuuuuuuuuuuckooooooooooooooooo
+                            HIPPOPOTAMUS
+                              
+>>> *Cuuuuuuuuuuckooooooooooooooooo*
+<img class="outline" src="/images/recompression-oh-nein/sphere-top.jpg" alt="Sphere Top" width="600" height="100"/>
+>>> *Cuuuuuuuuuuckooooooooooooooooo*
+<img class="outline" src="/images/recompression-oh-nein/sphere-middle.jpg" alt="Sphere Middle" width="600" height="100"/>
+>>> *Cuuuuuuuuuuckooooooooooooooooo*
+<img class="outline" src="/images/recompression-oh-nein/sphere-bottom.jpg" alt="Sphere Bottom" width="600" height="100"/>
+>>> *Cuuuuuuuuuuckooooooooooooooooo*
                             
-The hippopotamus sighs, and decides its done enough. It lies down as 
-the platform rolls back into the clock and doors close.
-            
-                                                                CUT TO:
+> The hippopotamus sighs, and decides its done enough. It lies down as 
+> the platform rolls back into the clock and doors close.
+
+    CUT TO:
 
         INT. PORNGE HEADQUARTERS - 12:01 PM
                     
         CLOSE UP:
         
-                               JAAP
+                            BRUCE
         
-Goddammit, it's fucking noon and that lazy
-Cuckoo's cunt won't even give us twelve 
-cucks and koos?
+>>> *Goddammit, it's fucking noon and that lazy Cuckoo's cunt won't even give us twelve cucks and koos?*
                     
-Jaap sighs...
-            
+> Bruce sighs...
+
+<img src="/images/recompression-oh-nein/space-hippo.png" alt="Space Hippo" width="600" height="150"/>
+
         MEDIUM SHOT:
         
                  
-                            JAAP
+                            BRUCE
                     
-Whatever, let's stay focused. You were saying?
+>>> *Whatever, let's stay focused. You were saying?*
                     
                             STEPHANIE
 
-I'm going to follow you around as my personal 
-entertainment resource all fucking weekend.
+>>>*I'm going to follow you around as my personal *
+>>>*entertainment resource all fucking weekend.*
                     
-                            JAAP
+                            BRUCE
 
-Mmmmmmmm... Not bad, not bad at all...
+>>>*Mmmmmmmm... Not bad, not bad at all...*
                     
-Yes, I definitely like where this is going.
+>>>*Yes, I definitely like where this is going.*
                     
-Jaap looks around
+> Bruce looks around
              
-                            JAAP
+                            BRUCE
 
-And where is this going, anybody?
+>>>*And where is this going, anybody?*
                     
                             FIRST NONDESCRIPT OFFICE DUDE
                             
-                    Recompression, sir!
+>>>*Recompression, sir!*
                     
-                            JAAP
+                            BRUCE
 
-                    That's right, Recompression. Okay, eh..... what 
-                    the fuck day is today?
+>>>*That's right, Recompression. Okay, eh..... what the fuck day is today?*
                     
                             SECOND NONDESCRIPT OFFICE DUDE
                             
-                    Wednesday, sir!
+>>>*Wednesday, sir!*
                     
-                            JAAP
+                            BRUCE
                             
-                    Perfect, there might just be enough time left, but we
-                    must act quickly...
+>>>*Perfect, there might just be enough time left, but wemust act quickly...*
 
-                    How attached is our sales department to
-                    this design?
+>>>*How attached is our sales department to this design?*
 
-                    And what about marketing, have they locked in 
-                    already, or can we shuffle?
+>>>*And what about marketing, have they locked in already, or can we shuffle?*
                     
-            Jaap turns to Peter
+> Bruce turns to Peter
             
-                            JAAP
+                            BRUCE
 
-                    Peter, get Alistair from sales on the phone right now!
+>>>*Peter, get Alistair from sales on the phone right now!*
                     
-            Jaap swivels 180 degrees in his chair
+> Bruce swivels 180 degrees in his chair
             
-                            JAAP
+                            BRUCE
                             
-                    Taylor?
+>>>*Taylor?*
+<img class="outline" src="/images/recompression-oh-nein/signs-top.jpg" alt="Signs Top" width="600" height="100"/>
+>>>>*Taylor - ....*
+<img class="outline" src="/images/recompression-oh-nein/signs-middle.jpg" alt="Signs Middle" width="600" height="100"/>
+>>>>>*Taylor?...?*
+<img class="outline" src="/images/recompression-oh-nein/signs-bottom.jpg" alt="Signs Bottom" width="600" height="100"/>
+                              
+> Swiveling back...
+            
+                            BRUCE
 
-                            Taylor - ....
+>>>*Where the fuck is Taylor?*
+                      
+> Standing up, angry, shouting:
+            
+                            BRUCE
 
-                                    Taylor?
+>>>*Goddammit, can one of you screw-heads find Taylor and tell him of the ungodly firestorm of napalm I will rain on his ass if he's not here within ten minutes?*
                                     
-            Swiveling back...
+> Frustrated, Bruce sits down, shaking his head.
             
-                            JAAP
+                            BRUCE   
 
-                      Where the fuck is Taylor?
+>>>*Fuck, what happened to work ethic and being a professional?*
                       
-            Standing up, angry, shouting:
+>>>*Peter, any word from Alistair how much wiggle room the schedule has?*
+                      
+> Bruce turns to woman standing in the back
             
-                            JAAP
+                            BRUCE
 
-                      Goddammit, can one of you screw-heads find Taylor
-                      and tell him of the ungodly firestorm of napalm I will 
-                      rain on his ass if he's not here within ten minutes.
+>>>*Hey Rebecca darling, can you swing by Home Depot and pick up some extra vowels?*
                       
-                      Let him know that at 12:15 pm sharp I'm going to look
-                      down at my growth region and I fully expect to see his
-                      unshaven chin giving my left nutsack a deep soft tissue
-                      massage, like his contract with the company stipulates.
-                      
-            Frustrated, Jaap sits down, shaking his head.
+> Bruce points to random office guy
+                
+                            BRUCE
+
+>>>*...and ehm.... You there, with the  shirt...*
+
+>>>>*What's your name again?*
+
+>>>>>*Right..... Henry - whatever.*
+
+>>>*Can you run down and grab a bag of consonants from the basement?*
+
+>>>>*Hurry up, we've got work to do.*
+
+>>>>>*It's shuffle time...*
+
+> Bruce walks over to the whiteboard and grabs a pen.
             
-                            JAAP   
+                            BRUCE
 
-                      Fuck, what happened to work ethic and being a professional?
-                      
-                      Peter, any word from Alistair how much wiggle room 
-                      the schedule has?
-                      
-            Jaap turns to woman standing in the back
-            
-                            JAAP
-
-                      Hey Rebecca darling, can you swing by Home Depot and
-                      pick up some extra vowels?
-
-                      Thanks love, you're the best. Did I mention those jeans
-                      really show what a great ass you have?
-                      
-            Jaap points to random office guy
-            
-                            JAAP
-
-                       ...and ehm.... You there, with the ugly shirt...
-
-                             What's your name again?
+>>>*I like the concept people. Nothing wrong with *
+>>>*having personal entertainment resources available*
+>>>*the entire fucking weekend, but with a minor tweak...*
                         
-                                    Right..... Henry - whatever.
-                                    
-                       Can you run down and grab a bag of consonants
-                       from the basement?
-
-                       Hurry up, we've got work to do.
-                       
-                                    It's shuffle time...
-                       
-            Jaap walks over to the whiteboard and grabs a pen.
+> Bruce starts writing on the whiteboard, big bold letters:
             
-                            JAAP
+                            BRUCE
 
-                        I like the concept people. Nothing wrong with 
-                        having personal entertainment resources available
-                        the entire fucking weekend, but with a minor tweak...
+>>>*How about this folks?*
                         
-            Jaap starts writing on the whiteboard, big bold letters:
-            
-                            JAAP
-
-                        How about this folks?
-                        
-            Written on the whiteboard we see:
+> Written on the whiteboard we see...
             
     CROSSFADE TO TITLE SCREEN:
+
+<img class="outline" src="/images/recompression-oh-nein/movie-poster.jpg" alt="Movie Poster" width="600" height="700"/>
+

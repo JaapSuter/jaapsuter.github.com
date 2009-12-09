@@ -1,3 +1,4 @@
+
 body
 {
 	font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
@@ -7,6 +8,21 @@ body
 	padding-left: 130px;
 	color: #000000;
 	background-color:#ffffff;
+}
+
+img.outline
+{
+	margin: 0 auto;
+	display: block; 
+	text-align: center;
+}
+
+img.outline
+{
+	border: solid 2px #000000;
+	margin: 0 auto;
+	display: block; 
+	text-align: center;
 }
 
 h1
@@ -69,5 +85,3 @@ a.entry:hover
 	background-color:#ffffff;
 	text-decoration:underline;
 }
-
-
