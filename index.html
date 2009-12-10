@@ -1,7 +1,12 @@
 ---
 layout: default
 ---
+<div id="index"/>
+<div id="main">
+<div class="frame">
 <h1>Jaap Suter</h1>
 {%for post in site.posts%}
 	<p>{{post.date|date_to_string}} - <a href="{{post.url}}" class="entry">{{post.title}}</a></p>
 {%endfor%}
+</div>
+</div>

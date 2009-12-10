@@ -1,5 +1,5 @@
 html { margin: 0px; height: 100%; padding: 0px; }
-* { /* border: solid 1px red; */ margin: 0px; padding: 0px; }
+* { /* border: solid 1px red; /**/ margin: 0px; padding: 0px; }
 
 body
 {
@@ -13,13 +13,23 @@ body
 	color: #000000;
 }
 
-#main { position: absolute; left: 100px; top: 50px; width: 700px; height: auto; }
-.index
+.frame { border: solid 3px #000000; padding: 10px, 10px, 10px, 10px; margin: 10px 10px 10px 10px; }
+
+#main { border: solid 3px #000000; position: absolute; left: 100px; top: 50px; width: 700px; height: auto; }
+
+#index
 { 
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    float: left;
+    right: 0%;
+	bottom: 0%;
     background-image: url("/images/pentacorn.jpg");
 	background-repeat: no-repeat;
 	background-position: right bottom;	
-	background-color:#ffffff;
+	background-color:#ffffff;	
+	border: solid 3px #000000;
 }
 	
 p { margin: 1em; }
