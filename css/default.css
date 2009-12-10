@@ -12,16 +12,8 @@ body
 
 img.outline
 {
-	margin: 0 auto;
-	display: block; 
-	text-align: center;
-}
-
-img.outline
-{
-	border: solid 2px #000000;
-	margin: 0 auto;
-	display: block; 
+	border: solid 3px #000000;
+	margin: 2px 2px 2px 2px;
 	text-align: center;
 }
 

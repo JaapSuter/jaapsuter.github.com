@@ -24,11 +24,17 @@ title: "Recompression Oh Nein"
 > On the wall hangs an old antique Cuckoo clock. It's large; enormous in
 > fact. It's one of the early Swiss prototypes, from before its inventor
 > had settled on a species.
-            
+
                                                         SLOW MOTION:
         
 > With great effort, as if it's the last thing it'll ever do, the minute
 > hand waves the eleventh hour goodbye, and makes its way to noon.
+
+<p>
+<img class="outline" src="/images/recompression-oh-nein/sphere-top.jpg" alt="Sphere Top" width="600" height="100"/>
+<img class="outline" src="/images/recompression-oh-nein/sphere-middle.jpg" alt="Sphere Middle" width="600" height="100"/>
+<img class="outline" src="/images/recompression-oh-nein/sphere-bottom.jpg" alt="Sphere Bottom" width="600" height="100"/>
+</p>
 
     CUT TO:
 
@@ -50,11 +56,9 @@ title: "Recompression Oh Nein"
                             HIPPOPOTAMUS
                               
 >>> *Cuuuuuuuuuuckooooooooooooooooo*
-<img class="outline" src="/images/recompression-oh-nein/sphere-top.jpg" alt="Sphere Top" width="600" height="100"/>
+
 >>> *Cuuuuuuuuuuckooooooooooooooooo*
-<img class="outline" src="/images/recompression-oh-nein/sphere-middle.jpg" alt="Sphere Middle" width="600" height="100"/>
->>> *Cuuuuuuuuuuckooooooooooooooooo*
-<img class="outline" src="/images/recompression-oh-nein/sphere-bottom.jpg" alt="Sphere Bottom" width="600" height="100"/>
+
 >>> *Cuuuuuuuuuuckooooooooooooooooo*
                             
 > The hippopotamus sighs, and decides its done enough. It lies down as 
@@ -68,14 +72,18 @@ title: "Recompression Oh Nein"
         
                             BRUCE
         
->>> *Goddammit, it's fucking noon and that lazy Cuckoo's cunt won't even give us twelve cucks and koos?*
+>>> *Goddammit, it's noon and that lazy Cuckoo won't even give us twelve cucks and koos?*
                     
 > Bruce sighs...
 
-<img src="/images/recompression-oh-nein/space-hippo.png" alt="Space Hippo" width="600" height="150"/>
+<p style="text-align: center;">
+<img class="outline" src="/images/recompression-oh-nein/space-hippo-0.jpg" alt="Space Hippo" width="120 " height="120"/>
+<img class="outline" src="/images/recompression-oh-nein/space-hippo-1.jpg" alt="Space Hippo" width="120" height="120"/>
+<img class="outline" src="/images/recompression-oh-nein/space-hippo-2.jpg" alt="Space Hippo" width="120" height="120"/>
+<img class="outline" src="/images/recompression-oh-nein/space-hippo-3.jpg" alt="Space Hippo" width="120" height="120"/>
+</p>
 
-        MEDIUM SHOT:
-        
+        MEDIUM SHOT:        
                  
                             BRUCE
                     
@@ -129,11 +137,10 @@ title: "Recompression Oh Nein"
                             BRUCE
                             
 >>>*Taylor?*
-<img class="outline" src="/images/recompression-oh-nein/signs-top.jpg" alt="Signs Top" width="600" height="100"/>
+
 >>>>*Taylor - ....*
-<img class="outline" src="/images/recompression-oh-nein/signs-middle.jpg" alt="Signs Middle" width="600" height="100"/>
+
 >>>>>*Taylor?...?*
-<img class="outline" src="/images/recompression-oh-nein/signs-bottom.jpg" alt="Signs Bottom" width="600" height="100"/>
                               
 > Swiveling back...
             
@@ -152,7 +159,13 @@ title: "Recompression Oh Nein"
                             BRUCE   
 
 >>>*Fuck, what happened to work ethic and being a professional?*
-                      
+
+<p>
+<img class="outline" src="/images/recompression-oh-nein/signs-top.jpg" alt="Signs Top" width="600" height="100"/>
+<img class="outline" src="/images/recompression-oh-nein/signs-middle.jpg" alt="Signs Middle" width="600" height="100"/>
+<img class="outline" src="/images/recompression-oh-nein/signs-bottom.jpg" alt="Signs Bottom" width="600" height="100"/>
+</p>
+
 >>>*Peter, any word from Alistair how much wiggle room the schedule has?*
                       
 > Bruce turns to woman standing in the back
@@ -195,5 +208,5 @@ title: "Recompression Oh Nein"
             
     CROSSFADE TO TITLE SCREEN:
 
-<img class="outline" src="/images/recompression-oh-nein/movie-poster.jpg" alt="Movie Poster" width="600" height="700"/>
+<p><img class="outline" src="/images/recompression-oh-nein/movie-poster.jpg" alt="Movie Poster" width="600" height="700"/></p>
 
