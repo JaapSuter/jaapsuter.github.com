@@ -1,14 +1,29 @@
+html { margin: 0px; height: 100%; padding: 0px; }
+* { /* border: solid 1px red; */ margin: 0px; padding: 0px; }
 
 body
 {
 	font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
 	font-size: 16px;
-	width: 620px;	
-	padding-top: 50px;
-	padding-left: 130px;
+	margin: 0px; 
+    padding: 0px;
+	width: 100%;
+	height: 100%;
+	position: relative;	
 	color: #000000;
+}
+
+#main { position: absolute; left: 100px; top: 50px; width: 700px; height: auto; }
+.index
+{ 
+    background-image: url("/images/pentacorn.jpg");
+	background-repeat: no-repeat;
+	background-position: right bottom;	
 	background-color:#ffffff;
 }
+	
+p { margin: 1em; }
+h1, h2, h3 { margin-bottom: 1em; }
 
 img.outline
 {
