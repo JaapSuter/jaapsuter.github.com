@@ -1,35 +1,33 @@
 html { margin: 0px; height: 100%; padding: 0px; }
-* { /* border: solid 1px red; /**/ margin: 0px; padding: 0px; }
+* { margin: 0px; padding: 0px; /* border: solid 1px red; /**/ }
 
 body
 {
 	font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
 	font-size: 16px;
-	margin: 0px; 
-    padding: 0px;
 	width: 100%;
 	height: 100%;
-	position: relative;	
+	position: absolute;	
 	color: #000000;
 }
 
-.frame { border: solid 3px #000000; padding: 10px, 10px, 10px, 10px; margin: 10px 10px 10px 10px; }
-
-#main { border: solid 3px #000000; position: absolute; left: 100px; top: 50px; width: 700px; height: auto; }
-
-#index
+div#main
+{
+    margin: 100px;
+    width: 700px;
+}
+   
+body#index
 { 
     height: 100%;
     width: 100%;
     position: fixed;
-    float: left;
     right: 0%;
 	bottom: 0%;
     background-image: url("/images/pentacorn.jpg");
 	background-repeat: no-repeat;
 	background-position: right bottom;	
 	background-color:#ffffff;	
-	border: solid 3px #000000;
 }
 	
 p { margin: 1em; }
@@ -44,7 +42,7 @@ img.outline
 
 h1
 {
-	text-shadow: 5px 5px 4px #aaaaaa;
+    text-shadow: 5px 5px 4px #aaaaaa;
 	font-size: 47px;
 }
 
