@@ -1,0 +1,7 @@
+* { outline: solid 0px #000; }
+* * { outline: dotted 1px #f00; }
+* * * { outline: dotted 1px #0f0; }
+* * * * { outline: dotted 1px #00f; }
+* * * * * { outline: dashed 2px #ff0; }
+* * * * * * { outline: dashed 2px #f0f; }
+* * * * * * * { outline: dashed 2px #0ff; }

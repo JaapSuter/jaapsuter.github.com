@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ad Brutus Vis Moore"
+title: "Brutus Vis Moore"
 ---
 
 ### Michael

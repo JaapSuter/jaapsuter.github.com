@@ -1,5 +1,6 @@
+/* @import url("/css/border-debug.css"); */
 html { margin: 0px; height: 100%; padding: 0px; }
-* { margin: 0px; padding: 0px; /* border: solid 1px red; /**/ }
+* { margin: 0px; padding: 0px; } 
 
 body
 {
@@ -46,10 +47,10 @@ h1
 	font-size: 47px;
 }
 
-a:link { background-color: #ffffff; color: #000000; }
-a:visited { background-color: #ffffff; color: #000000; }
-a:hover {background-color:#000000; color:#eeeeee; text-decoration:none;}
-a:active { background-color: #ffffff; color: #000000; }
+a:link { background-color: transparent ; color: #333333; }
+a:visited { background-color: transparent ; color: #000000; }
+a:hover { background-color: transparent; color:#222222; text-decoration:none; }
+a:active { background-color: transparent; color: #000000; }
 
 h3
 {
@@ -76,27 +77,4 @@ h3#jason
 {
 	background-color: #eeeeee;
 	color:#444444
-}
-
-p.entry
-{
-	color:#dddddd
-}
-
-p.entry:hover
-{
-	color:#444444	
-}
-
-a.entry
-{
-	color:#000000;
-	text-decoration:none;
-}
-
-a.entry:hover
-{
-	color:#000000;
-	background-color:#ffffff;
-	text-decoration:underline;
 }
