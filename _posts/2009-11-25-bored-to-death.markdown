@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Bored To Death"
+tags: [conversation, future, ai]
 ---
 
 ### Jaap

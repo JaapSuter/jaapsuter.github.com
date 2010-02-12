@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Rational Is Not An Insult"
+tags: [conversation]
 ---
 
 ### Jaap

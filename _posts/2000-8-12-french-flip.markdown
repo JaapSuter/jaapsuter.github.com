@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "French Flip"
+tags: [image, nonsense]
 ---
 
 <img class="outline" src="/images/2000-8-12-french-flip/french-flip.jpg" alt="French Flip" width="960" height="540"/>

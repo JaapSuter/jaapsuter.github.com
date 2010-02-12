@@ -1,8 +1,35 @@
 ---
 layout: default
 ---
-<center>
-{% for post in site.posts %}
-    <p><span class="date">{{ post.date | date_to_string }}</span><span class="entry"><a href="{{post.url}}">{{ post.title }}</a></span></p>
+<h3>Most Recent</h3>
+{% for post in site.posts limit:3 %}
+    <p><tt>{{ post.date | date_to_string }} </tt><a href="{{post.url}}">{{ post.title }}</a></p>
 {% endfor %}
-</center>
+<h3>In Conversation</h3>
+{% for post in site.posts %}
+    {% if post.tags contains "conversation" %}
+        <p><tt>{{ post.date | date_to_string }} </tt><a href="{{post.url}}">{{ post.title }}</a></p>
+    {% endif %}
+{% endfor %}
+<h3>On Programming</h3>
+{% for post in site.posts %}
+    {% if post.tags contains "code" %}
+        <p><tt>{{ post.date | date_to_string }} </tt><a href="{{post.url}}">{{ post.title }}</a></p>
+    {% endif %}
+{% endfor %}
+<h3>Pictures</h3>
+{% for post in site.posts %}
+    {% if post.tags contains "image" %}
+        <p><tt>{{ post.date | date_to_string }} </tt><a href="{{post.url}}">{{ post.title }}</a></p>
+    {% endif %}
+{% endfor %}
+<h3>Miscellaneous</h3>
+{% for post in site.posts %}
+    {% if post.tags contains "nonsense" %}
+        <p><tt>{{ post.date | date_to_string }} </tt><a href="{{post.url}}">{{ post.title }}</a></p>
+    {% endif %}
+{% endfor %}
+<h3>Everything</h3>
+{% for post in site.posts %}
+    <p><tt>{{ post.date | date_to_string }} </tt><a href="{{post.url}}">{{ post.title }}</a></p>
+{% endfor %}

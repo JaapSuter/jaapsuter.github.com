@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Brutus Vis Moore"
+tags: [conversation, future, ai]
 ---
 
 ### Michael

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "NP Is My Bitch"
+tags: [conversation, future]
 ---
 
 ### Jaap

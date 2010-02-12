@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Relevant Futures"
+tags: [conversation, future]
 ---
 
 ### Jaap

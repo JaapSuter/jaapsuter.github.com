@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Sub Zero Collision"
+tags: [base]
 ---
 
 ### Prepared

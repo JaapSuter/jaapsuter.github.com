@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Thousand Words"
+tags: [conversation, code]
 ---
 
 ###Jaap

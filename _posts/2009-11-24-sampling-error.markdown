@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Sampling Error"
+tags: [conversation, future, ai]
 ---
 
 ### Jaap

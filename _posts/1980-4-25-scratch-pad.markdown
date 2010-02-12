@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Scratch Pad"
+tags: []
 ---
 
 ### Notes

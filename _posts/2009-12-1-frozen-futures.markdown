@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Frozen Futures"
+tags: [conversation, longevity, cryonics, future]
 ---
 
 ### Michael

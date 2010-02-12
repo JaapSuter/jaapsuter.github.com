@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Octree Forest"
+tags: [code]
 ---
 
 Hidden surface removal is among the biggest problems when writing a 3D engine.

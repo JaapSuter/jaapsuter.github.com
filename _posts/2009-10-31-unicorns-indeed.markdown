@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Unicorns Indeed"
+tags: [image, nonsense]
 ---
 
 <p>
