@@ -4,8 +4,8 @@ title: "French Flip"
 tags: [image, nonsense]
 ---
 
-<img class="outline" src="/images/2000-8-12-french-flip/french-flip.jpg" alt="French Flip" width="960" height="540"/>
+<img class="outline" src="/images/2000-8-12-french-flip/french-flip.jpg" alt="French Flip" width="700" height="400"/>
 
-This is a picture taken from my last vacation in Les Deux Alpes, France. I went snowboarding for three weeks there and as you can see I'm upside down, in the middle of a frontloop, about 3 metres above the snow, jumping about 15 metres far. Anyway, I'm back in Holland again (sigh), and I'm currently picking up my work (a new project, which I'm very enthousiastic about), I started studying again, and drank lots of beer (and applejuice) with friends I haven't seen for a while. I'm sorry to those I couldn't reply for three weeks, but hopefully I replied everybodies mail by now. 
+This picture is from my last vacation in Les Deux Alpes, France. I went snowboarding for three weeks, and as you can see I'm upside down, in the middle of a front loop, a few meters above the snow, jumping about fifteen meters far. Anyway, I'm back in Holland again, and I'm currently picking up work again - a new project I'm very enthusiastic about. I started studying again, and had some apple juice with friends I haven't seen for a while. I'm sorry I've been unable to respond promptly to emails the past little while, but hopefully I've caught up by now.
 
 See you later...

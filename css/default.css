@@ -1,2 +1,5 @@
-#index { border-left: 1px solid #000; padding-left: 4px; }
 blockquote { text-indent: 10px; color: #446; }
+#index { border-left: 1px solid #000; padding-left: 10px; }
+.gray { background-color: #ddd; }
+.blue { background-color: #ddf; }
+.center { text-align: center; }
