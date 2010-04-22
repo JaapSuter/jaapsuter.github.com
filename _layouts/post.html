@@ -1,26 +1,25 @@
 ---
 layout: default
 ---
-<div class="grid_3 alpha center">
-    {% if page.previous %}
-        <a rel="prev" href="{{ page.previous.url }}" title="View {{ page.previous.title }}">Previous: {{ page.previous.title }}</a>
-    {% else %}
-        &nbsp;
-    {% endif %}
+<h1>{{page.title}}</h1>
+
+<p class="smill" style="text-align: right;">{{page.date | date_to_string}} - <a href="/" rel="index">JaapSuter.com</a></p>
+
+{{content}}
+
+<hr />
+<div class="smill" style="text-align: center;">
+    <div style="display:inline; float:left;">
+        {% if page.previous %}
+            Previous: <a rel="prev" href="{{page.previous.url}}">{{page.previous.title}}</a>
+        {% endif %}
+    </div>
+    <div style="display:inline;">
+        Copyright {{page.date | date: "%Y"}} <a href="/" rel="index">JaapSuter.com</a>
+    </div>
+    <div style="display:inline; float:right;">
+        {% if page.next %}
+            Next: <a rel="next" href="{{page.next.url}}">{{page.next.title}}</a>
+        {% endif %}
+    </div>
 </div>
-<div class="grid_6 center">
-<h1 style="margin-bottom: 2px">{{page.title}}</h1>
-<a href="/" rel="index">Jaap Suter</a> - {{page.date | date_to_string}}
-</div>
-<div class="grid_3 omega center">
-    {% if page.next %}
-        <a rel="next" href="{{ page.next.url }}" title="View {{ page.next.title }}">Next: {{ page.next.title }}</a>
-    {% else %}
-        &nbsp;
-    {% endif %}
-</div>
-<div class="clear">&nbsp;</div>
-<div class="grid_12">
-{{ content }}
-</div>
-    

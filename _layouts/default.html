@@ -5,28 +5,12 @@
     <meta name="description" content="Jaap Suter" />
     <meta name="author" content="Jaap Suter" />
     <title>Jaap Suter</title>
-    <link rel="stylesheet" href="/css/960/reset.css" />
-    <link rel="stylesheet" href="/css/960/text.css" />
-    <link rel="stylesheet" href="/css/960/960.css" />
     <link rel="stylesheet" href="/css/default.css" />
 </head>
 <body>
-<div class="container_16">
-    <div class="grid_16">
-        &nbsp;
-    </div>
-    <div class="grid_12">
+    <div id="main">
         {{content}}
     </div>
-    <div class="grid_4">
-        <div id="index">
-            <h3>Everything</h3>
-            {% for post in site.posts %}
-                <a href="{{post.url}}">{{ post.title }}</a><br />
-            {% endfor %}
-        </div>
-    </div>
-</div>
 </body>
 </html>
 

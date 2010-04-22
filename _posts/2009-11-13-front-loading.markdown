@@ -4,13 +4,12 @@ title: "Front Loading"
 tags: [conversation]
 ---
 
-### Jaap
 Hey, have we talked about front-loading sentences before?
 
-### Michael
+<div markdown="1" class="quote">
 Hmm, the term seems familiar.
 
-### Jaap
+</div>
 Where in talking with a person, you know said person is inclined to interrupt
 you the moment they discover a flaw in your reasoning, and you thus frontload
 all necessary constraints in your sentences. You can't delay constraints, because
@@ -37,11 +36,11 @@ point out a flaw in a concluding point before all constraint bits have been comm
 The very people who urge me to: "*...get to the point*" are the people that make it difficult to
 get to the point.
 
-### Michael
+<div markdown="1" class="quote">
 Agreed that there is an inverse correlation between someone's attention span, and
 their interest in refuting your point.
 
-### Jaap
+</div>
 I'll admit there are times when I could possibly optimize my wordiness, but I think
 one great strategy for doing so is to defer constraints. Which per my point above, is only
 possible when two people are constructively reaching a goal (i.e., there is some level of

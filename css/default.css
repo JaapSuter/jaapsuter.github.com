@@ -1,5 +1,31 @@
-blockquote { text-indent: 10px; color: #446; }
-#index { border-left: 1px solid #000; padding-left: 10px; }
-.gray { background-color: #ddd; }
-.blue { background-color: #ddf; }
-.center { text-align: center; }
+body
+{
+    text-align: center;
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+
+div#main
+{
+    width: 31em;
+    margin: 0px auto;
+    text-align: justify; 
+}
+
+.smill
+{
+    font-style:italic;
+    font-size: small;
+}
+
+.quote
+{
+    color: #009;
+    border-left: 2px solid #000;
+    background-color: #eee;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    margin-left: 1.5em;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    font-size: 90%;
+}

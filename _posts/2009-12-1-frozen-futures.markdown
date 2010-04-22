@@ -4,20 +4,20 @@ title: "Frozen Futures"
 tags: [conversation, longevity, cryonics, future]
 ---
 
-### Michael
+<div markdown="1" class="quote">
 I'm having a really hard time getting work done in Cranbrook. I think a familiar
 environment may be important...     :P
 
-### Jaap
+</div>
 Mweh, by that token I should be hyper productive this very second.
 
-### Michael
+<div markdown="1" class="quote">
 Well, not to say the converse is true.
 
-### Jaap
+</div>
 Right, you list familiarity as a necessary, not a sufficient requirement.
 
-### Michael
+<div markdown="1" class="quote">
 Nice, I think you've said it better than I did.
 
 In fact, this is not a "converse" thing at all. And in any case, the only sensible thing
@@ -27,7 +27,7 @@ Gah.
 
 Ah, the inverse, perhaps.
 
-### Jaap
+</div>
 Tricky, there's a lot in your two initial sentences that can be either reverted
 (converted) or inverted - without landing at the premise I posed.
 
@@ -37,31 +37,31 @@ What are you trying to get done then -- is it related to work?
 
 And you're in Cranbrook again? I seem to recall you were there recently.
 
-### Michael
+<div markdown="1" class="quote">
 Elisa's dad died earlier this week. The funeral's on Tuesday.
 
 So we're hanging out until then. Came down just before to see him.
 
 Previously, he'd taken ill, so we came down to see him.
 
-### Jaap
+</div>
 Ah, that sucks. My condolences, to Elisa as well.
 
 Is that the first of one of your and Elisa's parents to pass away?
 
-### Michael
+<div markdown="1" class="quote">
 Yep. Probably the hardest, too.
 
-### Jaap
+</div>
 Really sorry mate...
 
-### Michael
+<div markdown="1" class="quote">
 Elisa was really attached to her dad.
 
 Not that I'm not attached to my parents, but I *think* I take a slightly different
 view on their deaths. I suppose we'll see, eventually.
 
-### Jaap
+</div>
 I usually wouldn't bring this up in such a context \[1\], but I think you can handle
 this; what are your thoughts on the possibility that Elisa's dad will have just
 missed the boat in terms of longevity?
@@ -69,17 +69,17 @@ missed the boat in terms of longevity?
 \[1\]: Meaning that I'm well aware that a funeral is not the right moment to approach family and friends
 to say: "*Boy, wish he had signed up for cryonics now, eh?*"
 
-### Michael
+<div markdown="1" class="quote">
 Well, I was thinking about that quite a lot. Two months ago, he was A-okay, and
 then in the last 3 weeks or so, he just got taken down by an incredibly aggressive
 lymphoma.
 
 Was quite interesting to watch.
 
-### Jaap
+</div>
 Damn... how old?
 
-### Michael
+<div markdown="1" class="quote">
 70.
 
 So, not super young, but not that old, either.
@@ -91,11 +91,11 @@ It's his freakin' body that died.
 
 And that's not really the part Elisa cared for.
 
-### Jaap
+</div>
 Dude, you so totally nailed it. No Alzheimer's here, that guy had a fully functional
 brain.
 
-### Michael
+<div markdown="1" class="quote">
 It really underscored for me, I think, the extent to which we lose information when
 someone dies like that.
 
@@ -104,24 +104,24 @@ can you do?
 
 Well, you can make backups, for one.
 
-### Jaap
+</div>
 I'll be curious if this event will change the strategy for you or Elisa, a little
 ways down, once the immediacy of emotional and practical (e.g., funeral,
 etc.) consequences has worn off a little.
 
-### Michael
+<div markdown="1" class="quote">
 An interesting question. For me, it doesn't quite reach the threshold of changing
 things (emotional/practical matters being more or less complete for me).
 
 Trying to think why that is.
 
-### Jaap
+</div>
 Yeah, I've been trying to figure out the disconnect between my convincement that
 cryonics makes sense, and my paralysis towards actually signing up.
 
 Probably a genetic handicap towards far-mode thinking, in favor of near-mode thinking.
 
-### Michael
+<div markdown="1" class="quote">
 
 Ooh... I saw something you will be interested in: [St. Petersburg Paradox](http://en.wikipedia.org/wiki/St._Petersburg_paradox)
 
@@ -135,10 +135,10 @@ It's a game with infinite expected payoff, but which almost nobody would play.
 Well, that is, nobody would play it at a high price, despite the infinite expected
 payoff.
 
-### Jaap
+</div>
 I'm familiar with the St. Petersburg paradox, yes.
 
-### Michael
+<div markdown="1" class="quote">
 Right. So...
 
 There are a couple of theories I've read on how it is resolved, and I'm not really
@@ -148,10 +148,10 @@ One is marginal utility.
 
 Bah.
 
-### Jaap
+</div>
 Please continue, I like where you are going.
 
-### Michael
+<div markdown="1" class="quote">
 The other is risk-aversion. But they seem to frame it oddly...
 
 Looking for the place where I saw that one explained, but having a hard time finding
@@ -167,20 +167,20 @@ Here's what I'm thinking...
 
 Suppose buy-in was a million dollars.
 
-### Jaap
+</div>
 Risk-aversion should account for the risk of bottoming out your available
 money.
 
-### Michael
+<div markdown="1" class="quote">
 Expected payout is infinite, so we're still good. But, would you put a million on
 the line for a very small (albeit profitable) chance to win more?
 
-### Jaap
+</div>
 
 I think marginal utility is a ancestral genetic trait, related to near/far-mode
 thinking.
 
-### Michael
+<div markdown="1" class="quote">
 Ah, you know, risk aversion might be closer to what I think, then.
 
 It may have been poorly explained where I read it. To me, the marginal utility is not an issue.
@@ -191,11 +191,11 @@ accumulated winnings.
 It's simply that if I have a million dollars in my pocket, I can think of better
 ways to use it than to gamble it on winning 10 million.
 
-### Jaap
+</div>
 I wouldn't play because the time/expected-pay-off ratio is poor. If I spent that
 time working, I'll make more money.
 
-### Michael
+<div markdown="1" class="quote">
 Sure.
 
 Coming around to the original point...
@@ -206,18 +206,18 @@ payout is very high (arguably infinite), I stop short for similar reasons.
 The thing is, I'm really enjoying my life right now, and in order to invest in cryonics,
 I would need to take something away from that.
 
-### Jaap
+</div>
 But I think that's mostly because of a genetic blindspot towards putting value on
 life extension.
 
-### Michael
+<div markdown="1" class="quote">
 I don't think so. I put huge value on it.
 
 It is, to me, an infinite payout.
 
 But it's an infinite payout *in the future* which I have to pay into now.
 
-### Jaap
+</div>
 Right, you don't "feel" it.
 
 Now consider, if you were told that you were going to die tomorrow.
@@ -230,20 +230,20 @@ Note that your price affects how much money you'll have left the remainder of yo
 question distinct from the gut-reaction that you'd pay all the money you'd own because it's worthless after
 death anyway.
 
-### Michael
+<div markdown="1" class="quote">
 Hmm... an interesting question.
 
 Another M days after when? 
 
 (I think this question itself may be more telling than the answer to it.)
 
-### Jaap
+</div>
 After today (I know that isn't the case for cryonics).
 
-### Michael
+<div markdown="1" class="quote">
 So, I'm going to die for sure tomorrow unless I shell out some cash.
 
-### Jaap
+</div>
 The short-circuit argument to that is along the: "I don't negotiate with terrorists,"
 because they're imaginging they're being mugged in a dark alley and have to pay
 100 bucks...
@@ -251,7 +251,7 @@ because they're imaginging they're being mugged in a dark alley and have to pay
 But that's not what I mean. Zoom out far enough and our bodies (/evolution) becomes
 the terrorist.
 
-### Michael
+<div markdown="1" class="quote">
 Are we bartering, or is the rate fixed?
 
 If we're bartering, then I'll give you $100 a day.
@@ -266,7 +266,7 @@ That is, I'll give you my entire accumulated wealth - at that rate.
 If I knew I was gong to die tomorrow if I didn't spend the money, then I think it
 would be pointless to hang onto the cash, which won't do me any good when I'm wormfood.
 
-### Jaap
+</div>
 So **if** it was proven that Cryonics works, you'd pay $100 a day for its effects?
 
 Note the oddity about Cryonics being proven to work. The minute it works, you won't need it
@@ -274,14 +274,14 @@ anymore (presumably because regeneration is available the instant your body shut
 use of cryonics for boredom induced time travel notwithstanding). Interesting how an
 experiments success instantly renders it obsolete - it's usually the other way around.
 
-### Michael
+<div markdown="1" class="quote">
 $100 is my starting price, not my limit.
 
 But, it's also contingent on my knowing that, otherwise, I'll die tomorrow.
 
 If I don't know when I'm going to die, then for now, I'm inclined to play the odds.
 
-### Jaap
+</div>
 Yeah, the mugging argument doesn't tranlate entirely. But it forces one to momentarily
 think and realize: "*Wait a second, I don't want to die, I'd pay a shitload of money
 (everything I have, because when I'm dead, it's not worth anything) to live another
@@ -289,29 +289,29 @@ day.*"
 
 Not everybody gets to that realization....
 
-### Michael
+<div markdown="1" class="quote">
 Right... \:-)
 
-### Jaap
+</div>
 So the odds you're playing are that life-extension will come while you are still
 alive...
 
-### Michael
+<div markdown="1" class="quote">
 More or less. I see a probability of my surviving N days.
 
-### Jaap
+</div>
 Those are non-unrealistic odds, and they bring me to my current standing opinion
 on the future - my distilled view on the singularity:
 
  * My life is not likely to end from old age.
 
-### Michael
+<div markdown="1" class="quote">
 Indeed. More or less my problem, I think.
 
 Not that I think there's a high chance I will die, e.g., BASE jumping, but were
 it to happen, cryonics would be pointless.
 
-### Jaap
+</div>
 The options are:
 
  1. Death from accident.
@@ -325,7 +325,7 @@ And the dreaded...
  
 Question is; is the last option least likely on a rational basis, or because we might dread it?
 
-### Michael
+<div markdown="1" class="quote">
 I certainly feel like the most likely way for me to die in the short term is major
 trauma (car accident, BASE jump, shot in the head by a rogue AI, whatever).
 
@@ -342,33 +342,33 @@ When I get closer to retirement, that becomes an issue.
 
 So, my investment strategy changes.
 
-### Jaap
+</div>
 Wow...
 
 That may go for money, but not for life.
 
-### Michael
+<div markdown="1" class="quote">
 Why not?
 
-### Jaap
+</div>
 Or did I misinterpret?
 
-### Michael
+<div markdown="1" class="quote">
 Well, not that high-risk is the way to go for life.
 
 But that strategy changes depending on the perceived risks.
 
-### Jaap
+</div>
 Because if you have enough life, you can recover from poverty. But if you're out
 of life, you can't recover.
 
-### Michael
+<div markdown="1" class="quote">
 In the case of life, it's the idea that I am unlikely to die of old age in the next
 10 years.
 
 Or, for that matter, from lymphoma.
 
-### Jaap
+</div>
 That's why playing a long enough St. Petersburg isn't appealing to people, because
 they can bottom out and go bankrupt (financial equivalent of dying, you can't recover
 (within the game)).
@@ -379,18 +379,18 @@ The statement: "*...because I'm young, I can BASE jump, because I haven't invest
 a whole lot yet.*" That's true from an outside view (similar to how a gambler has
 an outside view onto his wallet with money)....
 
-### Michael
+<div markdown="1" class="quote">
 Ah, not quite what I meant. (Though perhaps you are not referring to my statements.)
 
-### Jaap
+</div>
 You mean, "*...because I'm young, the kind of death where cryonics may help is not
 likely enough compared to the other future outcomes (e.g., we invent longevity,
 AI's whipe us out, I die from BASE) that it makes it worth the money*".
 
-### Michael
+<div markdown="1" class="quote">
 Or the cognitive load, really.
 
-### Jaap
+</div>
 And that I'm inclined to agree with... Cryonics itself is already a scientific gamble,
 and you're adding a personal gamble on top, that you'll reach death in such a way
 that it'll be amenable to succesful cryonics.
@@ -400,27 +400,27 @@ talking to friends/family, faxing shit.
 
 Sadly, I'm not even being sarcastic...
 
-### Michael
+<div markdown="1" class="quote">
 I figured not...   :-)
 
-### Jaap
+</div>
 But alas, I totally get your point, and I agree.
 
 My "wow" was to my initial (mistaken) interpretation that you translated a gambling
 analogy to life. Utility is cool and all, but I am not the dollar bill in my wallet.
 And corollary; I'm glad my dollar bill isn't conscious.
 
-### Michael
+<div markdown="1" class="quote">
 Agreed 100%.
 
-### Jaap
+</div>
 Did you get an email? Wondering if you have any thoughts on the "*...want to be part of
 the rapture?*" argument.
 
-### Michael
+<div markdown="1" class="quote">
 Are you referring to the transformational event?
 
-### Jaap
+</div>
 Quoting the email...
 
 "*Namely, that if my life has to end anyway, I'd rather that happens as part of a
@@ -428,20 +428,19 @@ big interesting transformational (if not catastrophic) event, than it happening
 as just another mundane death like the majority of deaths that have occurred before
 mine.*"
 
-### Michael
+<div markdown="1" class="quote">
 Roger.
 
-### Jaap
+</div>
 It seems more fun to die when the world ends (i.e., the end station for the species),
 than somewhere along the middle...
 
-### Michael
+<div markdown="1" class="quote">
 Hmmm...
 
-### Michael
 A couple of thoughts come to mind.
 
-### Jaap
+</div>
 Let's say I had a button I could push to make the singularity happen, and my doctor says
 I have only three months to live.
 
@@ -450,7 +449,7 @@ What would I do?
 I think it'd be tempting to push that button. Not even because it may save my life, but to fill
 the last three months with excitement (a temptation most likely suffering from serious Hollywood war-drama romanticism.)
 
-### Michael
+<div markdown="1" class="quote">
 
 First, I'm not completely sure I think it would be more interesting to die in a revolution
 than of old age. I may think it would be more interesting to *live* through a revolution.
@@ -459,7 +458,7 @@ of how I spend my time, as opposed to being forced to take up arms, etc.
 
 Secondly, I wonder what effect this perception has on my interest in, e.g., cryonics.
 
-### Jaap
+</div>
 Good point - increase the viability of cryonics, and I'd be more inclined to let it sit.
 
 The last thing you want to do before getting frozen is piss off a lot of people.
@@ -473,11 +472,11 @@ finish line.
 We're talking about moving a millimeter forward on a lightyear long scale, but I
 got this thing called curiousity, and it's mighty powerful.
 
-### Michael
+<div markdown="1" class="quote">
 
 Keep your hands off that button Jaap.
 
-### Jaap
+</div>
 
 Interesting -- cryonics helps preserve the world. The longer you live, the higher your stake in realizing high quality futures.
 

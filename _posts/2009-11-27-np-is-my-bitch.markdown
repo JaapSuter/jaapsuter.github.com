@@ -4,7 +4,6 @@ title: "NP Is My Bitch"
 tags: [conversation, future]
 ---
 
-### Jaap
 Let's put aside for a moment the existential risk from AI. I'd like to hear your thoughts
 on how we might actually get there in the first place.
 
@@ -13,38 +12,38 @@ risk?
 
 Three, two, one, see ya... -- right?
 
-### Michael
+<div markdown="1" class="quote">
 Cooper's law strikes again.
+</div>
 
-### Jaap
 Damn, we're so screwed... ;-)
 
-### Michael
+<div markdown="1" class="quote">
 How we might get where?
+</div>
 
-### Jaap
 Recursive self-optimization. I'll seed the topic...
 
 We'll stay in the realm of traditional intuitive computing paradigms. E.g., we ignore quantum computing et al. for a minute.
 
 Then again, a lot of qubits are **more Turing less NP-is-my-bitch** every day...    ;-)
 
-### Michael
+<div markdown="1" class="quote">
 Agreed, quantum computing is a long ways out, and seems relatively specialized at
 this point.
+</div>
 
-### Jaap
 Furthermore, let's ignore the consequences of an AI ordering or manufacturing new hardware for itself.
 
 So we have some fixed size
 address space, and IO ports with fixed bandwidth and latency.
 
-### Michael
+<div markdown="1" class="quote">
 Interesting...
 
 I like your parameterization.
 
-### Jaap
+</div>
 
 Furthermore, we have a processor with some kind of instruction set.
 
@@ -53,7 +52,7 @@ slow variation of an N times faster single computer.
 
 By the way, I must say that *NP-is-my-bitch* would be an awesome band name.
 
-### Michael
+<div markdown="1" class="quote">
 Haha -- great band name, agreed.
 
 Well, there's something. In principle, it seems like we can boil this down to Turing machines.
@@ -63,15 +62,15 @@ In reality, I think we will see recognizable AI as a result of massive paralleli
 Because building things "wider" gives us exponential growth, whereas building them
 "faster" gives linear growth.
 
-### Jaap
+</div>
 
 As a result? You mean a practical result, not a theoretical result? I.e., embarrasingly parallel algorithms are 
 trivially sped up by adding more hardware side-by-side.
 
-### Michael
+<div markdown="1" class="quote">
 Roger.
 
-### Jaap
+</div>
 The same practicality comes into play when we talk about turing machines, and study the consequences of a fixed size address space.
 
 Barring a revolutionary paradigm shift in computer science, we'll have to fit both code and data in memory.
@@ -81,10 +80,10 @@ Insert obligatory *code is data is code* Lisp truism here.
 We can execute the code on a turing machine, but you're going to need one hell of
 a long tape (large address space) and one hell of a fast tape reader/writer/mover.
 
-### Michael
+<div markdown="1" class="quote">
 Exactly.
 
-### Jaap
+</div>
 In other words, by climbing up on the hierarchy of instruction complexity, we lower
 the storage requirements for code, leaving more storage for data (memory of the
 past, temporary buffers for simulation, etc.)
@@ -116,10 +115,10 @@ Take an address space of 1000 units. Then...
  * ...recursively self improving x86 executable: 20 for the current program, 580
 for storing how an x86 host machine works, 400 left to work with.
 
-### Michael
+<div markdown="1" class="quote">
 Interesting thought.
 
-### Jaap
+</div>
 
  * Perceived running speed of Turing machine, slow.
  * Perceived running speed of x86 machine, fast.
@@ -134,10 +133,10 @@ There are lots of holes in this idea I'm sure; and the numbers are worse than bo
 trying to illustrate a curious thought here, which is that increases in computing-efficiency (through specialization in
 CPU instruction dialects) may decrease computing-introspectability.
 
-### Michael
+<div markdown="1" class="quote">
 Catching up...
 
-### Jaap
+</div>
 Hang on, I worded that poorly.
 
 I mean increases in complexity of models for computing.

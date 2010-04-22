@@ -4,7 +4,6 @@ title: "Relevant Futures"
 tags: [conversation, future]
 ---
 
-### Jaap
 You know, I'm accutely aware of how much I'm seduced by this flavor of futurism. I can think of 
 two reasons for this.
 
@@ -13,11 +12,11 @@ The first is that the singularity is a great excuse to avoid the present. Why ca
 Secondly, my record shows I have built-in desire to look for (what I at a particular point consider) the rational minority. It's not always
 clear how much of that is just to be contrary for contrary's sake, and how much is a genuine and sincere desire to learn. 
 
-### Michael
+<div markdown="1" class="quote">
     
 Ack... :-)
 
-### Jaap
+</div>
 Now my awareness of this, makes me pursue counter-singularity points. So far, I'm not having much
 luck finding compelling cases. But again, perhaps that is because of my own bias, right
 
@@ -30,36 +29,36 @@ bother.
 
 Any thoughts on my concern? Let me know if you're busy...
 
-### Michael
+<div markdown="1" class="quote">
 No, I have a few minutes at least. Heading out with Jason and
 Carmen sometime, but waiting on their call. Otherwise, just surfing
 Haskell stuff.
 
-### Jaap
+</div>
 I suppose that we're BASE jumpers and still alive lends some credence to the fact
 that we can approach minority views without being idiots.
 
-### Michael
+<div markdown="1" class="quote">
 Nice... :)
 
 Referring to the singularity as another minority view, I assume.
 
-### Jaap
+</div>
 Yes.
 
-### Michael
+<div markdown="1" class="quote">
 Well... my lack of concern is fueled mainly by the argument of resources.
 
 It seems to me that real-world acquisition of resources slows things down *a lot*.
 
 Or perhaps it's just a lack of imagination.
 
-### Jaap
+</div>
 Oh, wait - you're talking about **FOOM**. I should clarify; I've broadened the
 topic from the specific risk of AI whiping out the species to any and all consequences
 of some kind of singularity (such as nanotech, robotics, uploading, longevity, etc.)
 
-### Michael
+<div markdown="1" class="quote">
 Ah, I see...     :) :)
 
 Roger.
@@ -80,7 +79,6 @@ These are things that *are* on my radar.
 
 But I think it's safe to say I have a pretty tight "*relevance*" filter, in some ways.
 
-### Michael
 I have a feeling the singularity itself will also be slowed somewhat by resource
 acquisition.
 
@@ -94,8 +92,8 @@ look exponential.
 
 But I think the time it takes to do things in the real world, and to acquire resources,
 will prevent a "true" singularity - in the mathematical sense.
+</div>
 
-### Jaap
 Interesting analogy - though I must admit my Maxwell's equations are a little rusty
 to say if I agree. The domination point seems valid, but really we're just talking
 laws of physics. Like a resistor, an AI would have to obey as well.
@@ -115,14 +113,14 @@ Bostrom, Goertzel, Sandberg, De Grey, et al.
 
 Would you not imagine that things would look a little different?
 
-### Michael
+<div markdown="1" class="quote">
 (Reading...)
 
 Well, sure it would look different. But if you imagine a parallel universe populated
 by unicorns (because I know you do), that would look different too. I guess the
 question is, what of the world where everyone believes the singularity is approaching?
 
-### Jaap
+</div>
 True singularity in the omega point sense. Aside from the potential existential
 risk, that topic does remain firmly in the "*interesting*" part of my brain's bookshelf.
 Meanwhile, topics like cryonics, uploading, AI (in the less fatalistic sense), etc.
@@ -142,18 +140,18 @@ people would have made a few decisions differently than they actually did.
 
 You might say; but the world didn't know that...
 
-### Michael
+<div markdown="1" class="quote">
 Fair enough. I think the problem, from my standpoint, is that the singularity is,
 basically by definition, unknowable. And if we can't know it, then we are spending
 energy preparing for a very speculative future.
 
-### Jaap
+</div>
 Sure, and given that we haven't been to 2057 yet, nobody knows what'll actually
 happen. But that doesn't change the fact that probabilistic assesments/beliefs about
 possible future outcomes (be it on a five minute scale or a five decade scale) *do*
 affect our decision making; even that of the most idiotic person.
 
-### Michael
+<div markdown="1" class="quote">
 Speculating about that future, and trying to work out probabilities, is interesting,
 but not to the point that it changes my actions today.
 
@@ -164,20 +162,20 @@ wager.
 
 There's opportunity cost in the present.
 
-### Jaap
+</div>
 I guess I'm asking whether or not you agree that there is a dissonance between the
 actual public's awareness on the topic, and the effect the possible significance
 of a future outcome could have on the public today.
 
-### Michael
+<div markdown="1" class="quote">
 On the five minute/five year scale, I feel like I have a handle on what will happen.
 
 On the fifty year scale, not so much.
 
-### Jaap
+</div>
 True enough...
 
-### Michael
+<div markdown="1" class="quote">
 
 I think if we *knew* what would happen, or even had a reasonably good idea, then
 it might affect things. But even basic propositions like, "*AI will eventually supercede
@@ -190,5 +188,5 @@ Gotta run. Back later, though, and have really been enjoying these chats.
 
 Talk to you later.
 
-### Jaap
+</div>
 Cheers...

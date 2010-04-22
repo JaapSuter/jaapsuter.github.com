@@ -4,7 +4,6 @@ title: "Rational Is Not An Insult"
 tags: [conversation]
 ---
 
-### Jaap
 In regards to "rational" getting a bad-rep, see this article for an **anecdotal**
 data point:
 
@@ -27,7 +26,7 @@ But contrary to the lives of children, the debate on reason has't settled yet. W
 our rational faculty justify anything, certainly not a claim that rationality itself is bad. So far, it's **the** 
 mechanism to reason about reality, with unsurpassed effectiveness.
 
-### Michael
+<div markdown="1" class="quote">
 And, in fact, I might argue that most things in day-to-day life can be understood
 rationally.
 
@@ -41,7 +40,7 @@ Most of the "irrational" things about love are perfectly predictable, and that,
 to me, means that they should be entirely comprehensible to a rational being, even
 if they cannot be derived from a set of axioms which does not include love itself.
 
-### Jaap
+</div>
 
 I don't think many people argue that you'd have to boil it down to an objective measure. Even
 those who might probably don't have it at the top of their priority list.
@@ -54,7 +53,7 @@ is through sound application of rational principles.
 Certainly more effective than waiting until some newspaper's astrology prediction
 aligns with the sacred crystals I hide under my pillow.
 
-### Michael
+<div markdown="1" class="quote">
 Totally, exactly what I'm thinking. The thing is, rational principles can be applied to understand
 a huge range of things.
 
@@ -68,7 +67,7 @@ offhand at least, seems to be completely irrational.
 Because if you know one or two things about people, I think you could foresee that
 they would follow something like that.
 
-### Jaap
+</div>
 But surely **we shouldn't confuse the social phenomenon with the indivual's beliefs.**
 
 They're related somehow, but one is not a justification for the other.
@@ -78,7 +77,7 @@ explains the desire to belief *X*. Therefore it is okay to belief *X*...?
 
 That kind of reasoning is used to justify so many apalling behavior.
 
-### Michael
+<div markdown="1" class="quote">
 See, this is why I like you.
 
 I think we can understand the desire to believe *X*, but it doesn't imply that *X* is
@@ -87,7 +86,7 @@ a good way to understand things.
 Doesn't mean it's okay to do it that way, but we can certainly foresee that someone
 might.
 
-### Jaap
+</div>
 Exactly, myself included; I'm certainly not immune to it.
 
 But I make a modest effort to recognize a general principle, and I'm willing to admit

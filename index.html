@@ -1,43 +1,7 @@
 ---
 layout: default
 ---
-	<div class="grid_3 alpha">
-        <h3>Most Recent</h3>
-        {% for post in site.posts limit:5 %}
-            <a href="{{post.url}}">{{ post.title }}</a><br />
-        {% endfor %}
-    </div>
-	<div class="grid_3">
-        <h3>Future</h3>
-        {% for post in site.posts %}
-            {% if post.tags contains "conversation" %}
-                <a href="{{post.url}}">{{ post.title }}</a><br />
-            {% endif %}
-        {% endfor %}
-	</div>
-	<div class="grid_3 omega">
-		<h3>Programming</h3>
-        {% for post in site.posts %}
-            {% if post.tags contains "code" %}
-                <a href="{{post.url}}">{{ post.title }}</a><br />
-            {% endif %}
-        {% endfor %}
-	</div>
-    <div class="clear"></div>
-    <div class="grid_3 alpha">
-		<h3>Pictures</h3>
-        {% for post in site.posts %}
-            {% if post.tags contains "image" %}
-                <a href="{{post.url}}">{{ post.title }}</a><br />
-            {% endif %}
-        {% endfor %}
-	</div>
-    <div class="grid_3 push_3 omega">
-		<h3>Nonsense</h3>
-        {% for post in site.posts %}
-            {% if post.tags contains "nonsense" %}
-                <a href="{{post.url}}">{{ post.title }}</a><br />
-            {% endif %}
-        {% endfor %}
-	</div>
-	<div class="clear"></div>
+<h1>Jaap Suter</h1>
+{% for post in site.posts %}
+    <p><a href="{{post.url}}">{{post.title}}</a> - <span class="smill">{{post.date | date_to_string}}</span></p>
+{% endfor %}
