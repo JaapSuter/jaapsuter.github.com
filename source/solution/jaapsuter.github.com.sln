@@ -34,9 +34,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_posts", "_posts", "{852AA5
 		..\..\_posts\2009-12-2-collapse-dimensions.markdown = ..\..\_posts\2009-12-2-collapse-dimensions.markdown
 		..\..\_posts\2009-12-3-thousand-words.markdown = ..\..\_posts\2009-12-3-thousand-words.markdown
 		..\..\_posts\2009-4-1-recompression-oh-nein.markdown = ..\..\_posts\2009-4-1-recompression-oh-nein.markdown
+		..\..\_posts\2009-4-29-why-collect-garbage.markdown = ..\..\_posts\2009-4-29-why-collect-garbage.markdown
 		..\..\_posts\2010-1-30-why-so-hungry.markdown = ..\..\_posts\2010-1-30-why-so-hungry.markdown
 		..\..\_posts\2010-2-14-outsource-valentine.markdown = ..\..\_posts\2010-2-14-outsource-valentine.markdown
 		..\..\_posts\2010-2-26-app-store-refund.markdown = ..\..\_posts\2010-2-26-app-store-refund.markdown
+		..\..\_posts\2010-4-19-why-i-swear.markdown = ..\..\_posts\2010-4-19-why-i-swear.markdown
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{52669984-BA56-48D0-8F64-CAAC0C22A9BE}"
