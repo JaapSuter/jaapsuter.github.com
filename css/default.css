@@ -8,6 +8,8 @@ div#main
 {
     width: 31em;
     margin: 0px auto;
+    padding-left: 1em;
+    padding-right: 1em;
     text-align: justify; 
 }
 

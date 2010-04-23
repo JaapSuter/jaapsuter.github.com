@@ -97,7 +97,6 @@ Are you saying I'm biased? You'd better be... ;-)
 <div markdown="1" class="quote">
 LOL. Was just about to say the same regarding my statement!
 
-<div markdown="1" class="quote">
 Sample bias is one of these things that occupies a substantial part of my cognitive
 load, I'd say. Not like I'm always thinking about it, but it really seems to come
 up quite often.
