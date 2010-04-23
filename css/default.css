@@ -11,6 +11,16 @@ div#main
     text-align: justify; 
 }
 
+h1
+{
+    text-align: center;
+}
+
+.center
+{
+    text-align: center;
+}
+
 .smill
 {
     font-style:italic;
