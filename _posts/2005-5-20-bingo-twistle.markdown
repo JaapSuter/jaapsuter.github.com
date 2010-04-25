@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bingo Twistle"
-tags: [base]
+tags: [Story, BASE]
 ---
 
 ### Three

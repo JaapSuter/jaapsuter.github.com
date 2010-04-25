@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Why Collect Garbage"
-tags: [code]
+tags: [Programming]
 ---
 
 On the **Sweng-GameDev** mailing list, Gil wrote...

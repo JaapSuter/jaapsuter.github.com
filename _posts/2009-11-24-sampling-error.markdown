@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sampling Error"
-tags: [conversation, future, ai]
+tags: [Chat, Future]
 ---
 
 Ping?
@@ -262,9 +262,9 @@ I point out that I don't have to point that out, to momentarily relish in the fa
 that I actually happen to know somebody personally that I have that great privilege
 with....
 
-</div>
 Hey, I'm gonna run to the cafetaria and get a snack, you gonna be here for a bit,
 or leaving soon?
 
 <div markdown="1" class="quote">
 I'll be here, I think.
+</div>

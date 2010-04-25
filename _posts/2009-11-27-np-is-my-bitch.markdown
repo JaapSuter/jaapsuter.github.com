@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NP Is My Bitch"
-tags: [conversation, future]
+tags: [Chat, Future]
 ---
 
 Let's put aside for a moment the existential risk from AI. I'd like to hear your thoughts

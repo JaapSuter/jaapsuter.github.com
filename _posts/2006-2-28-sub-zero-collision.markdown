@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sub Zero Collision"
-tags: [base]
+tags: [Story, BASE]
 ---
 
 ### Prepared

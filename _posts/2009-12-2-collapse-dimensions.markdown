@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collapse Dimensions"
-tags: [conversation, future]
+tags: [Chat, Future]
 ---
 
 <div markdown="1" class="quote">
@@ -52,9 +52,9 @@ When we're born, we're pretty much at zero size. We have a tiny built-in evoluti
 
 And for those who dare, to extend parts of the personal sphere to the outer rim of the collective sphere. That's where you can push on the surface and expand it.
 
-If you're not bored yet, then you'll be happy to hear I can make my point at long last... 
-<div markdown="1" class="quote">
+If you're not bored yet, then you'll be happy to hear I can make my point at long last.
 
+<div markdown="1" class="quote">
 Actually, I'm trying to reconcile your picture with mine. 
 </div>
 
@@ -92,10 +92,9 @@ The notion of "traveling" from the moment your born towards the outer surface of
 First, because it so nicely captures the time and distance it takes (standing on the shoulders of giants past) until you reach the edge - which is where you can push on the wall and go beyond it...  
 
 Second, because growth-rates increase non-linearly with dimension, we instantly recognize that we _must_ always find ways to improve our travel speed.
+
 <div markdown="1" class="quote">
-
-Yeah. Also, the fact that we now spend 20 years in formal schooling to even come close to the edge is helpful. And it helps, for that, that we're living longer. 
-
+Yeah. Also, the fact that we now spend 20 years in formal schooling to even come close to the edge is helpful. And it helps, for that, that we're living longer.
 </div>
 
 Totally hear you on the Schrodinger papers... People internalizing highschool math as a bag-of-tricks notwithstanding, some subset of today's 20-year-olds do internalize math as a language to describe reality to a point beyond Newton's at age 40.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Brutus Vis Moore"
-tags: [conversation, future, ai]
+tags: [Chat, Future]
 ---
 
 <div markdown="1" class="quote">

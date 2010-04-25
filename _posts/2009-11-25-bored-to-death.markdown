@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bored To Death"
-tags: [conversation, future, ai]
+tags: [Chat, Future]
 ---
 
 "...even AI would be fundamentally throttled by its interaction with the real world."
@@ -267,9 +267,10 @@ Boredom throws many of people in front of trains... ;)
 
 <div markdown="1" class="quote">
 Perhaps the AI would throw itself in front of 4chan.
-
 </div>
+
 Now that's quotable, high five!
 
 <div markdown="1" class="quote">
 High five!
+</div>

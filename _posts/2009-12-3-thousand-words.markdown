@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Thousand Words"
-tags: [conversation, code]
+tags: [Chat, Programming, Math]
 ---
 
 Sure, a picture is worth a 1000 words - but which 1000? I think most people don't realize how much information theoretic content fits in 1000 words...

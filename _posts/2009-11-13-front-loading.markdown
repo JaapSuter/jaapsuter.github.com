@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Front Loading"
-tags: [conversation]
+tags: [Chat, Thought]
 ---
 
 Hey, have we talked about front-loading sentences before?

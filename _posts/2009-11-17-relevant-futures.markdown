@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Relevant Futures"
-tags: [conversation, future]
+tags: [Chat, Future]
 ---
 
 You know, I'm accutely aware of how much I'm seduced by this flavor of futurism. I can think of 

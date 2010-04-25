@@ -1,18 +1,18 @@
 ---
 layout: post
 title: "Gameboy Digressed"
-tags: [image, code]
+tags: [Image, Programming]
 ---
 
 Here are some shots of my very first Gameboy Advance (GBA) programming adventure. The past few weeks I've been on vacation in France, and every afternoon I would do some GBA programming on my laptop. Lying by the side of the pool, programming, with a view on the mountains. Very nice! 
 
-<img class="outline" src="/images/2001-8-17-gameboy-digressed/animated.gif" alt="Socrates Demo Screenshots" width="240" height="160"/>
+<img class="outline" src="/images/2001-8-17-gameboy-digressed/animated.gif" alt="Socrates Demo Screenshots" width="640"/>
 
 Anyway, I started working on a project called Socrates. It's an object oriented library for the GBA written completely in C. Object Orientation in C? Yes, it's possible. 
 
 The library is written for MODE-4 graphics. This is the only full-screen video mode that supports double buffering. The only drawback is that it's a 8 bits palettized mode, and that you can only plot two pixels at a time. So if you have to write one pixel, you must read-modify-write. However, this proved to be quite a funny obstacle in my polygon drawing routines. 
 
-<img class="outline" src="/images/2001-8-17-gameboy-digressed/screens.jpg" alt="Socrates Demo Screenshots" width="480" height="800"/>
+<img class="outline" src="/images/2001-8-17-gameboy-digressed/screens.jpg" alt="Socrates Demo Screenshots" width="640"/>
 
 About the images, from top to bottom, left to right.
 

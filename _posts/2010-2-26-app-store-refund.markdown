@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "App Store Refund"
-tags: [code, nonsense]
+tags: [Story]
 ---
 
 Most software in the iTunes App Store costs $0.99, $4.99, $7.99, or gratis - nearly always under ten dollars. Throw in one-click purchasing and you have a recipe for muscle memory impulse buying.

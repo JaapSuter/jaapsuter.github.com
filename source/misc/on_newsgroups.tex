@@ -1,0 +1,308 @@
+\documentclass[twocolumn]{paper}
+\begin{document}
+
+\title{On Newsgroups}
+\author{Jaap Suter}
+\maketitle
+
+\section{Caveat}
+
+I originally started this document with a larger intended audience.
+The very same problems are being addressed by the CTO-X group as
+part of the transparency, open-source and documentation discussions.
+EATech and Frank Russel are also addressing some of the issues
+herein. Alas, in the interest of time of getting this out the door,
+I quickly wrapped the end up with a Criterion focus and we'll take
+it from there.
+
+\section{Introduction}
+
+Communication is a bottleneck in most things we do at EA. Hence,
+it's understandable we keep trying to find better ways to talk to
+each other. In the past few weeks there has been a discussion about
+the need for newsgroups in Criterion. In essence this is a great
+idea, but executed poorly it'll end up on the long list of failed
+attempts to improve communication.
+
+Therefore, we need to identify what we are trying to accomplish and
+learn from past lessons to know what we have to avoid. We can then
+make recommendations on how to move forward.
+
+\section{Why We Need It}
+
+Newsgroups are only a means to an end. Unless we understand what the
+end is and we all agree on it, we can't successfully deploy a new
+communication tool.
+
+\subsection{Active Information}
+
+Many EA employees write great emails on a daily basis. These are
+then send to a small number of people either trough a mail group or
+through a random list of addresses the author chooses himself.
+Assuming the email has great public content --we obviously write a
+great deal of poor emails and emails intended only for a select
+group--, there are two problems with this approach.
+
+\begin{itemize}
+    \item Because we want to make sure we include everybody, we end
+    up sending the email to too many people. The spam effect ensues.
+    \item Because we are afraid of the spam effect, we are afraid to
+    send it to people that might take interest too. So some people
+    miss out on the information.
+\end{itemize}
+
+These two problems come from a larger underlying problem; emails are
+active pieces of information. When an email is sent, it has the urge
+to penetrate into your inbox. You stop whatever it is you were
+doing, and have a sudden urge to read and often reply too. And
+because they are disruptive, people restrict their audience.
+
+You lose both ways; when you do send an email you disturb the
+receiving end, when you don't send it people miss out on important
+information.
+
+\subsection{Passive Information}
+
+The solution is simple; selectively move away from active
+information and make it passive. Put the onus on the reader to find
+information. Assuming information is easily accessible --see below--
+people can adapt their reading patterns around the work they are
+doing, instead of having their work patterns dictated by the flow of
+their inbox.
+
+An often heard objection against passive information is that people
+won't take the effort to find information. This is mostly a cultural
+phenomenon; when people are used to getting information delivered to
+them it takes a while to adapt. Obviously important information can
+and should still be send out actively.
+
+A second excuse for people to ignore the passive information is poor
+accessibility. The technology has to make it easy to gain access.
+Active information, in the form of email and instant messengers, has
+reached the point where it's ubiquitous, uniform, and idiot proof.
+Passive information is lacking in this regard; there are NNTP
+newsgroups, archived mailing lists, many different HHTP-based forum
+systems, different WIKI implementations and an enormous amount of
+different clients to access these different delivery mechanisms.
+
+These problems of passive information are discussed below. Let's
+direct our attention to the benefits for a moment.
+
+\subsection{More Information}
+
+As mentioned above, there is a crucial advantage to passive
+information; the receiving end can decide when and what to read.
+Arguably email allows you to do this, but in practice all incoming
+email is read and often replied to in a schedule that your mail
+client dictates.
+
+Because the reader has control over his consumption patterns,
+contributors don't have to worry about the spam effect. One result
+is that more information is written and the potential audience is a
+lot larger. The second result is that multiple streams of
+information can be combined into one to enable peer review and cross
+pollination.
+
+\subsubsection{Peer Review}
+
+Imagine two engineers discussing a particular algorithm they want to
+use in their project. Often, they'd be discussing this amongst
+themselves over email. Nobody in the company would even know of this
+discussion, let alone be able to contribute to it.
+
+Now imagine a newsgroup, mailing list or forum that is accessible
+everywhere through EA. Suppose the afore mentioned discussion
+happened on there instead, which is ok since there is no risk of the
+spam effect. Now everybody glancing over the newsgroup sees this
+topic being discussed; they can decide to ignore it, they can read
+it and learn from the information, or possibly they have actual
+experience with the algorithm enabling them to contribute.
+
+Instead of two engineers having a private discussion, there are now
+2000 engineers; 1900 of which don't care, 95 that read the thread
+and learn something from it, and five that contribute to a solution
+that is better than what the two engineers alone could have come up
+with.
+
+\subsubsection{Cross Pollination}
+
+The advantage of peer review is a horizontal one. People are exposed
+to discussions on the same level and topics that they are
+experienced with, allowing them to give feedback and contribute.
+
+Cross pollination is a similar advantage, but it works vertically.
+In a company largely comprised of knowledge workers, we have to
+acknowledge that most people can provide valuable input far beyond
+their specific area of expertise.
+
+Imagine two engineers having a discussion that appears to be a
+rendering problem but effectively revolves around an architectural
+design flaw. We can easily imagine an audio programmer or technical
+artist joining the discussion because of their expertise or even
+just common sense.
+
+Many technical issues have a more abstract underlying problem that
+most people at EA can sensibly talk about. Passive delivery of
+information allows us to tap this free potential around the company.
+
+\section{Lessons}
+
+The ideas in this document aren't new. In fact, they've been around
+since the dawn of electronic communication. Yet somehow, many
+attempts to enable passive communication within the company are not
+working. Unless we understand why this is, we risk adding another
+failed attempt.
+
+\subsection{Transitions}
+
+We aren't interested in passive information systems to discuss new
+material. We look into it because we think it'll enable us to talk
+about the same things in different and better ways. Therefore,
+unless the new form of communication replaces the old one, many
+people will continue to use the old methods. The early adopters of
+the new structure realize they can't reach their intended audience
+anymore and quickly they are forced to go back to the old system.
+
+To enable adoption and success, we need to make quick switch from
+the old system to the new system. In EA's case this means disabling
+many existing email groups and installing bounce emails that
+redirect the user to the new source.
+
+Such a transition strategy would raise objections across EA. To
+mitigate that, any new solution has to deliver ease of use and
+traffic. If the new mechanism fails either of these two, the system
+will fail.
+
+\subsection{Ease Of Use}
+
+As mentioned earlier, email and instant messages are idiot proof.
+They are so easy to use that the supporting mechanisms have moved to
+the background completely, allowing us to focus on the content.
+
+Existing passive communication mechanisms have a lot of work to do
+in this area. Newsgroups have been around for a long time but
+unfortunately Outlook doesn't come with a newsreader by default.
+Outlook Express does but not everybody like to use it. Having to use
+a completely different client all together turns many people away.
+Not all mailing-lists and newsgroups come with a web-interface too
+and when they do it's never quite they way most users want it. Some
+people continue to prefer active messages, by email, regardless of
+the passive structure underneath.
+
+Ease of use is absolutely crucial for success. To get there, we need
+to deliver the following
+
+\begin{itemize}
+    \item Proper threading, such that related posts can form a
+    collapsible hierarchy.
+    \item Access through Outlook and Outlook Express.
+    \item An easy to find web-interface with a trivial URL.
+    \item Lightweight access through this web-interface for both reading and
+    posting, Google or GMANE style.
+    \item The ability to send an email somewhere to post on the
+    newsgroup.
+    \item The ability to receive newsgroup messages in your inbox anyway.
+    \item A reliable archive with easy and powerful search
+    capabilities.
+\end{itemize}
+
+\subsection{Traffic}
+
+Newsgroups can be incredibly easy to use, but unless there is actual
+traffic on them there is no point in using them. Traffic is what
+enables peer review and cross pollination to work and that's
+precisely why we are looking into passive communication in the first
+place.
+
+\subsubsection{Start Big}
+
+The worst idea for a newsgroup is to limit its use to a specialized
+topic. People are afraid of the spam effect and decide to create a
+number of small communities so avoid intruding on each others space,
+thereby completely neglecting the notion that newsgroup information
+is passive. It's precisely the point of a newsgroup that one can
+cater to a large community. Readers can easily skim and ignore
+threads they don't care about and focus on the pieces of information
+they do think is interesting.
+
+A newsgroup should start as big as possible. When experience shows
+that a community beings to emerge that warrants splitting off, a new
+group can easily be created. The idea is to start consolidated and
+organically grow a sustainable number of communities.
+
+Interestingly enough, this is the exact opposite of what EATech has
+been doing recently with the small web-based forums dedicated to
+each particular technology and share-point. Traffic will continue to
+be low, and this will limit their chance of success.
+
+\subsubsection{Public Access}
+
+Another great way to reduce the amount of traffic in a community is
+to restrict access. Again, it goes against the idea of peer review
+and cross pollination. By limiting the number of users that can read
+and post on a newsgroup we'll miss out on the greatest benefits.
+Instead, we should cater to the largest audience possible; all of
+Electronic Arts.
+
+One objection is that not all discussions are meant for people
+outside of Criterion. The first counter-argument would be; why is
+that? Not being able to share information says more about the source
+of the information than about the receiving end. If we want to be
+more transparent as a company and use this to generate more buy-in
+and leverage design feedback from other teams, EA worldwide
+accessible newsgroups would be the best first start.
+
+The second counter-argument is that nothing stops us from still
+having an internal conversation. Many non-technical issues are best
+discussed with only a few people anyway and these continue to work
+well using email.
+
+\subsubsection{Maintenance}
+
+The third way to lose traffic is to neglect maintenance. Many people
+assume that a community works by setting up the technical
+infrastructure and then let it run itself. Nothing is farther from
+the truth. A community can only work because a group of dedicated
+people invest time and effort. Closer investigation of any
+successful open-source or other online community shows there are
+always a number of key people that keep traffic flowing, orchestrate
+threads, moderate posts, reply more than average, redirect posts to
+ping other people, etcetera.
+
+Nourishing a newsgroup takes time and effort and while there is no
+need to put this responsibility on particular people --they usually
+emerge automatically-- there does need to be a recognition that this
+is time well spend.
+
+\section{Recommendations}
+
+Based on the above observations and assumptions, I'd like to
+recommend the following.
+\begin{itemize}
+    \item Start a Criterion-Development newsgroup for all technical
+    discussions.
+    \item Eventually we might split off a Criterion-Users group that is
+    intended for questions about existing technology; versus the other
+    that is intended for new development.
+    \item Make the newsgroup available to everybody
+    within EA worldwide for both reading and writing.
+    \item License an Outlook newsgroup plug-in so anybody can read
+    the newsgroups from within their default mail client.
+    \item License NTTP-to-HTTP technology so people can read and
+    post to the newsgroup from a browser
+    \item Dedicate resources to enable email-based posting and
+    reading.
+    \item Dedicate resources to enable powerful and easy searching
+    and archiving.
+    \item Instantly remove all appropriate mailing-groups and have those addresses bounce with the announcement email. Avoid a
+    deprecation strategy.
+    \item Write a detailed announcement email explaining our
+    motivation and rationales. Include some basic guidelines on
+    successful large community posting (use of [tech], etc.) as well
+    as a guide for the Outlook plugin and directions to other
+    clients and the web interface.
+    \item Encourage use of the newsgroup by redirecting appropriate emails you
+    receive to the newsgroup.
+\end{itemize}
+
+\end{document}

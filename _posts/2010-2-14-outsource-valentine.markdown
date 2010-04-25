@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Outsource Valentine"
-tags: [video, nonsense]
+tags: [Video, Odd]
 ---
 
 So it's almost Valentine's day, and you still don't have any good ideas. As panic sets in, you do the obvious thing... procrastinate.

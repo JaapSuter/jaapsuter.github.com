@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tools and Libraries"
-tags: [code]
+tags: [Programming]
 ---
 
 This article presents some non-technical thoughts that affect the process and structure of a tools and libraries group.

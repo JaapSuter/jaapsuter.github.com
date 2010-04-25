@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Beamtrees Faster"
-tags: [code]
+tags: [Programming]
 ---
 
 Talking about summer laziness, I haven't doubleclicked on my visual C++ icon for at least two weeks. I am ashamed. I have been thinking however. Especially after I a chat with Harmless on ICQ. 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Why So Hungry"
-tags: [image, nonsense]
+tags: [Image, Odd]
 ---
 
 <img class="outline" src="/images/2010-1-30-why-so-hungry/thirsty.jpg" alt="Thirsty" width="360" height="200"/>

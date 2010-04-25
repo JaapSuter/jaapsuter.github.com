@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Choice Surprise Focus"
-tags: [video]
+tags: [Video, Programming]
 ---
 
 This is a modified recording of a talk I did at Electronic Arts in April of 2008. The original ran double time, but contained EA proprietary material that I removed.

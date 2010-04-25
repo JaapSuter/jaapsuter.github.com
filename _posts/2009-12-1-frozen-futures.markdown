@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Frozen Futures"
-tags: [conversation, longevity, cryonics, future]
+tags: [Chat, Future]
 ---
 
 <div markdown="1" class="quote">

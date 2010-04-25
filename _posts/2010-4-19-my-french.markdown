@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My French"
-tags: [thought]
+tags: [Thought]
 ---
 
 Pardon.
