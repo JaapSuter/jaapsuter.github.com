@@ -10,6 +10,6 @@ Then while surfing the web and cleaning up some old bookmarks, you stumble upon 
 
 Well, just watch the video.
 
-<object width="640" height="360" class="outline"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=9451077&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=9451077&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=ffffff&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="640" height="360"></embed></object>
+{%assign embed-video-url = 'http://www.youtube.com/v/watch?v=8keAgZbVk-w'%}
+{%include embed-video.markdown%}
 
-And I didn't even have to leave the house.
