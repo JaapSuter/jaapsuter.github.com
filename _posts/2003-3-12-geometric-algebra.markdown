@@ -4,7 +4,7 @@ title: "Geometric Algebra"
 tags: [Math, Programming]
 ---
 
-<a href="/data/2003-3-12-geometric-algebra/geometric-algebra.jpg">Geometric Algebra Primer - PDF 404 kB</a>
+<a href="/data/2003-3-12-geometric-algebra/geometric-algebra.pdf">Geometric Algebra Primer - PDF 404 kB</a>
 
 Adopted with great enthusiasm in physics, geometric algebra slowly emerges
 in computational science. Its elegance and ease of use is unparalleled. By
