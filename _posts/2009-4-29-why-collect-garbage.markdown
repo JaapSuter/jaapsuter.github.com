@@ -67,7 +67,7 @@ If we do that anyway, then why bother with GC...?
 Remember the video where Steve Balmer cares about Developers?
 
 <center>
-<object width="300" height="240"><param name="movie" value="http://www.youtube.com/v/8To-6VIJZRE&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/8To-6VIJZRE&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="300" height="240"></embed></object>
+<object width="300" height="240"><param name="movie" value="http://www.youtube.com/v/8To-6VIJZRE"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/8To-6VIJZRE" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="300" height="240"></embed></object>
 </center>
  
 If you ask me: "*What's the purpose of garbage collection?*", there's a good chance I'll go all Steve Balmer on you and scream: "**Concurrency, Concurrency, Concurrency**"...
