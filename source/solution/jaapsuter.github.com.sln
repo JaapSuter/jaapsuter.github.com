@@ -59,6 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 		..\..\CNAME = ..\..\CNAME
 		..\..\favicon.ico = ..\..\favicon.ico
 		..\..\index.html = ..\..\index.html
+		..\..\README = ..\..\README
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{CFBC9193-5640-47D0-9B36-8A57140176E2}"
