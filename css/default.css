@@ -1,25 +1,23 @@
+@import url("/css/reset.css");
+/*@import url("/css/diagnostic.css");*/
+
 body
 {
-    text-align: center;
-    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    text-align: center;    
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    /* font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif; */
 }
 
-div#main
+.main
 {
     width: 640px;
-    margin: 0px auto;
-    padding-left: 1em;
-    padding-right: 1em;
+    margin: 0 auto;
     text-align: justify; 
 }
 
 h1
 {
-    text-align: center;
-    -moz-text-shadow: 2px 2px 1px #333;
-    -khtml-text-shadow: 2px 2px 1px #333;
-    -webkit-text-shadow: 2px 2px 1px #333;
-    text-shadow: 2px 2px 1px #333;
+    text-align: center;    
 }
 
 .center

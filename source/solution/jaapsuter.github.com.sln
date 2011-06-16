@@ -50,6 +50,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{52669984-BA56-48D0-8F64-CAAC0C22A9BE}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\css\default.css = ..\..\css\default.css
+		..\..\css\diagnostic.css = ..\..\css\diagnostic.css
+		..\..\css\reset.css = ..\..\css\reset.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaapsuter.github.com", "{268607DF-F1FD-4312-9543-365234474E47}"
@@ -63,9 +65,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{CFBC9193-5640-47D0-9B36-8A57140176E2}"
-	ProjectSection(SolutionItems) = preProject
-		..\rebuild-images.cmd = ..\rebuild-images.cmd
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
 	ProjectSection(SolutionItems) = preProject
