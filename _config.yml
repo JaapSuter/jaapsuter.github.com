@@ -1,4 +1,4 @@
 auto: false
 server: false
 permalink: pretty
-exclude: ["source", "disabled"]
+exclude: ["exclude"]
