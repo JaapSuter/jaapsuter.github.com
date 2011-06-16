@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Jaap Suter - Gameboy Digressed</title>
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <div id=".main">
+        <h1>Gameboy Digressed</h1>
+
+<p class="smill" style="text-align: right;">17 Aug 2001 - <a href="/" rel="index">JaapSuter.com</a></p>
+
+<p>Here are some shots of my very first Gameboy Advance (GBA) programming adventure. The past few weeks I&#8217;ve been on vacation in France, and every afternoon I would do some GBA programming on my laptop. Lying by the side of the pool, programming, with a view on the mountains. Very nice!</p>
+<img alt='Socrates Demo Screenshots' class='outline' src='/images/2001-8-17-gameboy-digressed/animated.gif' width='640' />
+<p>Anyway, I started working on a project called Socrates. It&#8217;s an object oriented library for the GBA written completely in C. Object Orientation in C? Yes, it&#8217;s possible.</p>
+
+<p>The library is written for MODE-4 graphics. This is the only full-screen video mode that supports double buffering. The only drawback is that it&#8217;s a 8 bits palettized mode, and that you can only plot two pixels at a time. So if you have to write one pixel, you must read-modify-write. However, this proved to be quite a funny obstacle in my polygon drawing routines.</p>
+<img alt='Socrates Demo Screenshots' class='outline' src='/images/2001-8-17-gameboy-digressed/screens.jpg' width='640' />
+<p>About the images, from top to bottom, left to right.</p>
+
+<ol>
+<li>Crossfading, speeding this up was tricky. It&#8217;s still not at full speed. I probably gonna need some ASM for this.</li>
+
+<li>Shows a couple of flatshaded cubes, with frustum clipping as well.</li>
+
+<li>A couple of flatshaded cubes without frustum clipping.</li>
+
+<li>Title-screen.</li>
+
+<li>Some kind of texturemapping, plasma-ish effect.</li>
+
+<li>Two texturemapped cubes with frustum clipping.</li>
+
+<li>More&#8230;</li>
+
+<li>&#8230;Of</li>
+
+<li>The&#8230;</li>
+
+<li>Same.</li>
+</ol>
+
+<p>The 3D engine is completely fixed point and I&#8217;m quite happy with the speed raw C delivers. Soon I&#8217;ll add some inline ASM to speed thing up, but for now I&#8217;m focusing on getting some more functionality done. Though, Quake like 6DOF is not gonna happen on GBA. Unless somebody proves me wrong.</p>
+
+<p>Currently I&#8217;m working on a voxel landscape on GBA but I&#8217;m rather pessimistic on performance issues. I suppose I&#8217;ll have to start doing some sprite, tile, background scrolling stuff soon.</p>
+
+<p>Overall, I love it. Working for a machine with low performance but a complete set of fixed functionality. No more compatibility issues. Jippie.</p>
+
+<p>By the way, it works on the real thing as well. Thanks DarkFader.</p>
+
+<hr />
+<div class="smill" style="text-align: center;">
+    <div style="display:inline; float:left;">
+        
+            Previous: <a rel="prev" href="/2000/09/22/beamtrees/">Beamtrees</a>
+        
+    </div>
+    <div style="display:inline;">
+        &copy; 2001 <a href="/" rel="index">JaapSuter.com</a>
+    </div>
+    <div style="display:inline; float:right;">
+        
+            Next: <a rel="next" href="/2003/03/01/computer-science/">Computer Science</a>
+        
+    </div>
+</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Jaap Suter - Tools and Libraries</title>
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <div id=".main">
+        <h1>Tools and Libraries</h1>
+
+<p class="smill" style="text-align: right;">02 Oct 2005 - <a href="/" rel="index">JaapSuter.com</a></p>
+
+<p>This article presents some non-technical thoughts that affect the process and structure of a tools and libraries group.</p>
+
+<h3 id='being_a_benchmark'>Being a Benchmark</h3>
+
+<p>A building is only as strong as the foundation it is built on and the tools it is built with. This age old saying may apply to software engineering more than to building construction itself. Game teams are in construction, but they are using the foundations and tools we supply. Tools and library people have the responsibility to offer the best possible technology to enable other teams to work effectively. This may sound obvious, but this idea should be taken to the next step. Not only should our technology be the best, its quality should act as a benchmark that other developers strive for. Libraries are generally better designed and implemented than most game specific code. As such, tools and libraries has ability to increase familiarity with modern patterns and idioms across the company.</p>
+
+<p>If I cook just for myself, I often just throw something in the microwave and be done with it. If I have guests over however, I go above and beyond to make a good impression. The analogy is easily applied to tools and libraries. Because our code is seen by all teams worldwide, we should hold ourselves to a higher standard and demand only good quality software.</p>
+
+<p>This ties in with a sense of pride as well. As the reputation of the software we write improves, we can be prouder of what we do. Not only does this improve morale immensely, it also creates a reinforcing effect that leads to even better software.</p>
+
+<h3 id='transparency'>Transparency</h3>
+
+<p>We need as much transparency as possible in the full decision making process. From the day a library is proposed all discussions need to be made available through a mailing list or newsgroup, preferably the latter; making it easy for any developer worldwide to catch up on the latest progress at his own pace, without his inbox filling up.</p>
+
+<p>I want to take this even further and strongly argue that any developer worldwide should be able to add to and comment in said newsgroup. This creates a level of involvement that can never be achieved through bare minimum requirements gathering.</p>
+
+<p>One might think this would lead to chaos; once every engineer is able to be involved in design and implementation discussions. This does not need to be the case, and we should welcome all contributions.</p>
+
+<p>It is surprising how many engineers do not particularly care about these issues and are too involved in their responsibilities on the game team. For these people, our transparency removes some of our liability, giving us the ability to say in much friendlier words than I do here; &#8220;why didn&#8217;t you complain about this when it was discussed two months ago?&#8221;</p>
+
+<p>Other engineers will welcome the transparency and feel part of the process. Not only does this give us more information to base decisions on, it also provides future buy-in. Finally, the enthusiastically involved people can be headhunted and be potential team-members developers in the future.</p>
+
+<p>To encourage cross pollination of ideas, I recommend minimizing the number of fora. Usually two suffice, one technical one for internal design issues, and a user one for customer support type issues. Developers of different libraries will get to see all discussion on other libraries and have a chance to get involved.</p>
+
+<p>Obviously the merits of face-to-face contact and white-board sessions should not be ignored. These kind of meetings should continue, but we should strive to always publish meeting notes afterwards.</p>
+
+<p>The bottom-line is that every engineer should be considered a potential tools and library developer. The people doing primary development just happen to get paid to work on tools and libraries full time, whereas most other engineers have a game as their first priority and appear mostly as customers.</p>
+
+<h3 id='priorities'>Priorities</h3>
+
+<p>Obviously in-house development is different than voluntary open-source projects. What a library author deems a high priority may not always be what is best for the game studio.</p>
+
+<p>Typically, the product manager is the primary liaison with other teams and involved in requirements gathering and prioritizing tasks. This role is perfectly suited to manage the balance between what the majority of customers wants and what the best priority for a studio is.</p>
+
+<p>Furthermore, the forum is only intended for questions and advice. If a question points out a bug or a feature request, an official report or request still needs to be logged through tracking software. These tasks can be prioritized in the traditional sense. For the sake of transparency, it is recommended to publish a daily task and priority list.</p>
+
+<h3 id='architects'>Architects</h3>
+
+<p>The role of an architect is an odd one. Traditionally, this role is lumped together with the role of technical lead. However, a technical lead has responsibilities beyond those of an architect. He is responsible for scheduling, requirements gathering, splitting up tasks, people management and ultimately for a timely delivery of the promised technology. Unfortunately, the last requirement conflicts directly with the goals of an architect. In the ideal world, the architect has all the time of the world to come up with the best possible architecture.</p>
+
+<p>Obviously this luxury is not available to us, but it is worth splitting off the role of an architect and making him stand alone. This makes what is often an internal dialogue an explicit discussion between people. Design and implementation trade-offs can now be discussed. One group of people is concerned with timely delivery of software, while the other group is responsible for ensuring the quality of the software.</p>
+
+<p>Obviously the chemistry between a technical lead and an architect is more subtle in practice, but the above illustrates the need for architects.</p>
+
+<p>Unfortunately, architects are hard to justify. Their contribution to technology is hard to measure and their productivity can not easily be seen. Nevertheless, we should strive to create a group of dedicated architects whose sole responsibility is to ensure that we publish high quality technology. A single architect can easily cover more than one library, and it wouldn&#8217;t take many of them to cover the current portfolio.</p>
+
+<p>Among other things, the daily tasks of an architect consist of the following activities.</p>
+
+<ul>
+<li>Being involved in all aspects of library design and implementation, offering advice where necessary and asking hard questions where possible.</li>
+
+<li>Mentoring other engineers and encouraging discussion of software engineering and design practices.</li>
+
+<li>Managing formal reviews, making sure the entry level barrier of an accepted library remains high.</li>
+
+<li>Managing forum discourse, moderating them, providing answers or tracking down people that have the answers.</li>
+
+<li>Refactoring of existing technology.</li>
+
+<li>Writing additional tests for existing and new libraries.</li>
+
+<li>Keep an eye on practices and techniques being used in the industry at large and making sure we are aware of what the rest of the world is doing.</li>
+</ul>
+
+<h3 id='formal_reviews'>Formal Reviews</h3>
+
+<p>A library can be in one of two stages; it is being developed or it has been released and is being maintained. The transition between the two stages needs to be more than just a person uploading a zip-file somewhere. An official release is a crucial event that changes the interaction between customers and developers from an informal design and implementation discussion to one where clients have to submit official bug and feature requests which developers must manage and prioritize.</p>
+
+<p>It is therefore important that we establish a release procedure in the form of a formal review process. The formal review separates the libraries that are being developed from those that get the official seal of approval for outstanding quality, ease of use, performance and robustness. Having passed a formal review should be a significant accomplishment for the library authors and offer a sense of pride.</p>
+
+<p>Formal reviews provide a good opportunity for developers outside of the team to have a look at our work, without having to spend too much time on involvement during the earlier design stages. It is a single point in time where we can align all developers and say; here&#8217;s your chance to have a look, complain, request changes and offer suggestions.</p>
+
+<p>To fit the formal review process within the scheduled nature of in-house developed (as opposed to open-source development), formal reviews need to be scheduled well in advance of the actual library re- lease. This way if changes are required coming out of the formal review, they can be addressed before the actual release.</p>
+
+<p>A formal review should answer one question; &#8220;does the quality and usefulness of this library warrant an official release?&#8221; Reviews should comment on the quality of the design, implementation, tests and documentation, as well as the general usefulness and applicability within the organization.</p>
+
+<p>Failing a formal review should be rare occurrence, given libraries undergo extensive informal discussions earlier in their development. However, we should al- low for review failures and this essentially puts a library back into a state of development. This doesn&#8217;t stop other teams from using the library, but it puts some restrictions on the support we offer and their future stability.</p>
+
+<h3 id='testing'>Testing</h3>
+
+<p>If we can only invest time and energy into one area, testing should be it. As a tools and library team only tests allow us to prove to our customers that we can live up to our promises. Without tests we are just releasing interfaces with unknown chunks of bits and bytes that may or may not provide a valid implementation.</p>
+
+<p>Furthermore, as libraries are maintained and up- graded, tests are the only possible way to prove that new features or bug-fixes haven&#8217;t introduced new bugs. The proof is not conclusive, but it&#8217;s the best possible way to gain a level of coincidence. All library development should be done with testability in mind and in many cases we should be writing the tests before implementing the interface. Test driven development guides interface design and generally leads to minimalistic software that doesn&#8217;t over-promise and then under-deliver.</p>
+
+<p>Our tests should be run continuously on dedicated test machines. These machines should do constant updates of our source control development branch and run incremental tests and nightly full tests. Ideally, we have one or more dedicated test engineers that will maintain and streamline these machines. It is still up to library engineers and architects to actually write the tests.</p>
+
+<p>We should publish continuous test results for each platform on a website available to all developers worldwide, not just for libraries that have passed a formal review, but also for libraries that are in development and official libraries that are being upgraded towards a next release. This way teams can decide if it is worth the risk to take a particular snapshot of a library. We should not restrict them to just official releases but offer the trust that they can decide what is best for them. We need to give them the tools for this, and a continuous status of our tests is the most important one.</p>
+
+<h3 id='documentation'>Documentation</h3>
+
+<p>I have generally not been impressed with the documentation that typical in-house libraries offer. What is often lacking is good introductory tutorials that not only provide an easy way into a library, but also allow me to decide whether or not I want to use this library in the first place. Customers like it when they can get a sense of what a library feels like just from looking at the documentation, without having to actually install and try using it.</p>
+
+<p>The second piece of documentation that is an absolute requirement for good libraries is a section dedicated to rationales. It is here where the author can justify his design and implementation decisions. This avoids a large amount of recurring questions that developers otherwise face. As a user of a library I want to know why certain things are done the way they are and such rationales go a long way towards growing sympathy for a library and deciding to use it.</p>
+
+<h3 id='conclusion'>Conclusion</h3>
+
+<p>This document has presented several non-technical ideas on how a tools and library team can establish a favorable reputation towards its clients and develop better tools and libraries. Technical suggestions are left for other articles.</p>
+
+<p>First and foremost, the tools and libraries team itself should hold up a mirror and decide if they are the engineering benchmark they should be worldwide.</p>
+
+<p>Transparency will increase discussions, enthusiasm and buy-in among developers and customers. The help of dedicated architects whose primary focus is quality assurance and fostering discussion among developers will ease the task of technical leads and make the dichotomy between quality and delivery more explicit.</p>
+
+<p>Formal reviews allow us to create a seal of approval that separates libraries whose quality and interface we can blindly trust from libraries that are under more active development. Extensive and continuous test coverage and documentation that offers introductions and rationales will further help us establish a reputation of delivering high quality industrial strength tools and libraries.</p>
+
+<hr />
+<div class="smill" style="text-align: center;">
+    <div style="display:inline; float:left;">
+        
+            Previous: <a rel="prev" href="/2003/03/12/geometric-algebra/">Geometric Algebra</a>
+        
+    </div>
+    <div style="display:inline;">
+        &copy; 2005 <a href="/" rel="index">JaapSuter.com</a>
+    </div>
+    <div style="display:inline; float:right;">
+        
+            Next: <a rel="next" href="/2007/04/10/parallel-fears/">Parallel Fears</a>
+        
+    </div>
+</div>
+    </div>
+</body>
+</html>
