@@ -1,23 +1,70 @@
 @import url("/css/reset.css");
-/*@import url("/css/diagnostic.css");*/
+@import url("/css/fonts.css");
 
 body
 {
-    text-align: center;    
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    /* font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif; */
+    text-align: center;
+    font: 18px/27px 'ProcionoRegular', Arial, sans-serif;
 }
 
-.main
+#container
+{
+	margin: 0 auto;
+	width: 1000px;
+	background: #fff;
+}
+
+#left
+{
+	float: left;
+	width: 160px;
+	padding: 20px 0;
+	margin: 0 20px;
+	display: inline;
+}
+
+#left h1
+{
+    text-align: justify;
+}
+
+#middle
+{
+	float: left;
+	width: 500px;
+	padding: 20px 0;
+	margin: 0 0 0 30px;
+}
+
+#right
+{
+	float: right;
+	width: 200px;
+	padding: 20px 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+#footer
+{
+	clear: left;
+	background: #ccc;
+	text-align: right;
+	padding: 20px;
+	height: 1%;
+}
+
+#main
 {
     width: 640px;
     margin: 0 auto;
-    text-align: justify; 
+    text-align: justify;    
 }
 
 h1
 {
-    text-align: center;    
+    text-align: center;
+    font: 60px/68px 'LeagueGothicRegular', Arial, sans-serif; letter-spacing: 0;
 }
 
 .center

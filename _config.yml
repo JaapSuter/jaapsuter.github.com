@@ -1,4 +1,4 @@
-auto: true
-server: true
+auto: false
+server: false
 permalink: pretty
-exclude: ["source"]
+exclude: ["source", "disabled"]
