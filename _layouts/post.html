@@ -1,14 +1,18 @@
 ---
 layout: default
 ---
-<h1>{{page.title}}</h1>
-
-<p class="smill" style="text-align: right;">{{page.date | date_to_string}} - <a href="/" rel="index">JaapSuter.com</a></p>
+<header>
+    <h1>{{page.title}}</h1>
+    <p class="smill" style="text-align: right;">{{page.date | date_to_string}} - <a href="/" rel="index">JaapSuter.com</a></p>
+</header>
 
 {{content}}
 
-<hr />
-<div class="smill" style="text-align: center;">
+<aside class="comments" id="comments"> 
+	Comments aside...
+</aside>
+
+<footer class="smill" style="text-align: center;">
     <div style="display:inline; float:left;">
         {% if page.previous %}
             Previous: <a rel="prev" href="{{page.previous.url}}">{{page.previous.title}}</a>
@@ -22,4 +26,4 @@ layout: default
             Next: <a rel="next" href="{{page.next.url}}">{{page.next.title}}</a>
         {% endif %}
     </div>
-</div>
+</footer>

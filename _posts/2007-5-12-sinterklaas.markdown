@@ -4,8 +4,8 @@ title: "Sinterklaas"
 tags: [Video, Odd]
 ---
 
-{%assign embed-video-youtube-id = '6S2vWqOsylQ'%}
-{%include embed-video.markdown%}
+{%assign embed-video-id = '6S2vWqOsylQ'%}
+{%include embed-youtube.markdown%}
 
-{%assign embed-video-youtube-id = '9Vly4BGfhj8'%}
-{%include embed-video.markdown%}
+{%assign embed-video-id = '9Vly4BGfhj8'%}
+{%include embed-youtube.markdown%}

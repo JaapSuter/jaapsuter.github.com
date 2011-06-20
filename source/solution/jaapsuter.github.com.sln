@@ -9,42 +9,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_layouts", "_layouts", "{DD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_posts", "_posts", "{852AA507-3D36-4C2E-B415-5A79D4E6D02C}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\_posts\1980-4-25-scratch-pad.markdown = ..\..\_posts\1980-4-25-scratch-pad.markdown
-		..\..\_posts\1996-7-12-cerumen-punk.markdown = ..\..\_posts\1996-7-12-cerumen-punk.markdown
-		..\..\_posts\1997-6-6-the-suitcase.markdown = ..\..\_posts\1997-6-6-the-suitcase.markdown
 		..\..\_posts\1999-4-13-octree-forest.markdown = ..\..\_posts\1999-4-13-octree-forest.markdown
 		..\..\_posts\1999-6-7-beamtrees-faster.markdown = ..\..\_posts\1999-6-7-beamtrees-faster.markdown
 		..\..\_posts\2000-09-22-beamtrees.markdown = ..\..\_posts\2000-09-22-beamtrees.markdown
-		..\..\_posts\2000-8-12-french-flip.markdown = ..\..\_posts\2000-8-12-french-flip.markdown
 		..\..\_posts\2001-8-17-gameboy-digressed.markdown = ..\..\_posts\2001-8-17-gameboy-digressed.markdown
-		..\..\_posts\2003-10-1-ceo-support.markdown = ..\..\_posts\2003-10-1-ceo-support.markdown
 		..\..\_posts\2003-3-1-computer-science.markdown = ..\..\_posts\2003-3-1-computer-science.markdown
 		..\..\_posts\2003-3-12-geometric-algebra.markdown = ..\..\_posts\2003-3-12-geometric-algebra.markdown
 		..\..\_posts\2005-10-2-tools-and-libraries.markdown = ..\..\_posts\2005-10-2-tools-and-libraries.markdown
-		..\..\_posts\2005-5-20-bingo-twistle.markdown = ..\..\_posts\2005-5-20-bingo-twistle.markdown
-		..\..\_posts\2006-2-28-sub-zero-collision.markdown = ..\..\_posts\2006-2-28-sub-zero-collision.markdown
 		..\..\_posts\2007-11-11-lovey-dovey.markdown = ..\..\_posts\2007-11-11-lovey-dovey.markdown
 		..\..\_posts\2007-4-10-parallel-fears.markdown = ..\..\_posts\2007-4-10-parallel-fears.markdown
 		..\..\_posts\2007-4-12-synergistic-hide-and-seek.markdown = ..\..\_posts\2007-4-12-synergistic-hide-and-seek.markdown
 		..\..\_posts\2007-5-12-sinterklaas.markdown = ..\..\_posts\2007-5-12-sinterklaas.markdown
 		..\..\_posts\2008-4-3-choice-surprise-focus.markdown = ..\..\_posts\2008-4-3-choice-surprise-focus.markdown
-		..\..\_posts\2009-10-31-unicorns-indeed.markdown = ..\..\_posts\2009-10-31-unicorns-indeed.markdown
-		..\..\_posts\2009-11-13-front-loading.markdown = ..\..\_posts\2009-11-13-front-loading.markdown
-		..\..\_posts\2009-11-15-rational-is-not-an-insult.markdown = ..\..\_posts\2009-11-15-rational-is-not-an-insult.markdown
-		..\..\_posts\2009-11-17-relevant-futures.markdown = ..\..\_posts\2009-11-17-relevant-futures.markdown
-		..\..\_posts\2009-11-24-sampling-error.markdown = ..\..\_posts\2009-11-24-sampling-error.markdown
-		..\..\_posts\2009-11-25-bored-to-death.markdown = ..\..\_posts\2009-11-25-bored-to-death.markdown
-		..\..\_posts\2009-11-27-np-is-my-bitch.markdown = ..\..\_posts\2009-11-27-np-is-my-bitch.markdown
-		..\..\_posts\2009-11-28-brutus-vis-moore.markdown = ..\..\_posts\2009-11-28-brutus-vis-moore.markdown
-		..\..\_posts\2009-12-1-frozen-futures.markdown = ..\..\_posts\2009-12-1-frozen-futures.markdown
-		..\..\_posts\2009-12-2-collapse-dimensions.markdown = ..\..\_posts\2009-12-2-collapse-dimensions.markdown
-		..\..\_posts\2009-12-3-thousand-words.markdown = ..\..\_posts\2009-12-3-thousand-words.markdown
-		..\..\_posts\2009-4-1-recompression-oh-nein.markdown = ..\..\_posts\2009-4-1-recompression-oh-nein.markdown
 		..\..\_posts\2009-4-29-why-collect-garbage.markdown = ..\..\_posts\2009-4-29-why-collect-garbage.markdown
-		..\..\_posts\2010-1-30-why-so-hungry.markdown = ..\..\_posts\2010-1-30-why-so-hungry.markdown
 		..\..\_posts\2010-2-14-outsource-valentine.markdown = ..\..\_posts\2010-2-14-outsource-valentine.markdown
-		..\..\_posts\2010-2-26-app-store-refund.markdown = ..\..\_posts\2010-2-26-app-store-refund.markdown
-		..\..\_posts\2010-4-19-my-french.markdown = ..\..\_posts\2010-4-19-my-french.markdown
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{52669984-BA56-48D0-8F64-CAAC0C22A9BE}"
@@ -68,7 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{CFBC91
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\_includes\embed-video.markdown = ..\..\_includes\embed-video.markdown
+		..\..\_includes\embed-vimeo.markdown = ..\..\_includes\embed-vimeo.markdown
+		..\..\_includes\embed-youtube.markdown = ..\..\_includes\embed-youtube.markdown
 	EndProjectSection
 EndProject
 Global

@@ -1,23 +1,54 @@
 @import url("/css/reset.css");
 /*@import url("/css/diagnostic.css");*/
+/** { border: 1px solid red !important; }*/
 
-body
+header, footer, aside, nav, article
 {
-    text-align: center;    
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    /* font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif; */
+    display: block;
 }
 
-.main
+html, body
+{
+    height: 100%;
+    font-family: "HelveticaNeue-Light" , "Helvetica Neue Light" , "Helvetica Neue" , Helvetica, Arial, "Lucida Grande" , sans-serif;
+}
+
+#container
 {
     width: 640px;
     margin: 0 auto;
-    text-align: justify; 
+    min-height: 100%;
 }
 
 h1
 {
-    text-align: center;    
+    font-family: 'Droid Serif', Georgia, Times, serif;
+	font-size: 49px;
+	line-height: 65px;
+    text-align: center;
+    padding: 22px 0;
+}
+
+h2
+{
+    font-size: 28px;    
+    line-height: 44px;
+    padding: 22px 0;
+}
+
+h3
+{
+    font-size: 18px;
+    line-height: 22px;
+    padding: 11px 0;
+}
+
+p
+{
+    font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 25px;
+    padding-bottom: 22px;
 }
 
 .center
@@ -27,7 +58,7 @@ h1
 
 .smill
 {
-    font-style:italic;
+    font-style: italic;
     font-size: small;
 }
 

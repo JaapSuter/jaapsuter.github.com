@@ -10,5 +10,5 @@ Then while surfing the web and cleaning up some old bookmarks, you stumble upon 
 
 Well, just watch the video.
 
-{%assign embed-video-youtube-id = '8keAgZbVk-w'%} {%include embed-video.markdown%}
-
+{%assign embed-video-id = '9451077/'%}
+{%include embed-vimeo.markdown%}
