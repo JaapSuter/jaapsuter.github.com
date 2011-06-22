@@ -1,29 +1,17 @@
 ---
 layout: default
 ---
-<header>
-    <h1>{{page.title}}</h1>
-    <p class="smill" style="text-align: right;">{{page.date | date_to_string}} - <a href="/" rel="index">JaapSuter.com</a></p>
+<header class="title">
+    <hgroup>
+        <h2>{{page.title}}</h2>
+        <h3>{{page.date | date_to_string}}</h3>
+    </hgroup>
 </header>
 
 {{content}}
 
+<!--
 <aside class="comments" id="comments"> 
-	Comments aside...
+	Comments aside block...
 </aside>
-
-<footer class="smill" style="text-align: center;">
-    <div style="display:inline; float:left;">
-        {% if page.previous %}
-            Previous: <a rel="prev" href="{{page.previous.url}}">{{page.previous.title}}</a>
-        {% endif %}
-    </div>
-    <div style="display:inline;">
-        &copy; {{page.date | date: "%Y"}} <a href="/" rel="index">JaapSuter.com</a>
-    </div>
-    <div style="display:inline; float:right;">
-        {% if page.next %}
-            Next: <a rel="next" href="{{page.next.url}}">{{page.next.title}}</a>
-        {% endif %}
-    </div>
-</footer>
+-->

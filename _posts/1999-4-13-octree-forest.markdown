@@ -20,21 +20,21 @@ Our virtual world or level is actually nothing more then a soup of polygons. Som
 
 Here it is:
 
-<img class="outline" src="/images/1999-4-13-octree-forest/figure-1.jpg" alt="Some basic geometry..."  width="640"/>
+<img src="/images/1999-4-13-octree-forest/figure-1.jpg" alt="Some basic geometry..."  width="640"/>
 
 Fig 1. Our little level.
 
 
 In the picture I just built a simple level containing no more than 250 polys. Now imagine a cube surrounding the world like in the next image:
 
-<img class="outline" src="/images/1999-4-13-octree-forest/figure-2.jpg" alt="Fit inside a cube."  width="640"/>
+<img src="/images/1999-4-13-octree-forest/figure-2.jpg" alt="Fit inside a cube."  width="640"/>
 
 Fig. 2. Our little level surrounded by a cube.
 
 
 Now it isn't hard to see that this cube can be divided into eight smaller cubes, hence the name octree. Take a look at this picture:
 
-<img class="outline" src="/images/1999-4-13-octree-forest/figure-3.jpg" alt="Subdividing the cube..."  width="640"/>
+<img src="/images/1999-4-13-octree-forest/figure-3.jpg" alt="Subdividing the cube..."  width="640"/>
 
 Fig 3. Our little level with the surrounding cube subdivided.
 
@@ -70,7 +70,7 @@ An octree is actually nothing more then a data structure. It can be used for ver
 
 We will do this in 2d, which therefore resembles a quadtree, but with some imagination it can very easily be extended to 3d. Here we test the cubes (squares) against the viewing frustum. Take a look at the next picture: 
 
-<img class="outline" src="/images/1999-4-13-octree-forest/figure-4.jpg" alt="Top-down octree with viewing frustum"  width="640"/>
+<img src="/images/1999-4-13-octree-forest/figure-4.jpg" alt="Top-down octree with viewing frustum"  width="640"/>
 
 Fig 4. An octree from the top and a viewing frustum.
 

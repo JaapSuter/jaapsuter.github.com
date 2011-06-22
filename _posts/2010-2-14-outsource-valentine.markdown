@@ -11,4 +11,6 @@ Then while surfing the web and cleaning up some old bookmarks, you stumble upon 
 Well, just watch the video.
 
 {%assign embed-video-id = '9451077/'%}
+{%assign embed-video-width = '640'%}
+{%assign embed-video-height = '360'%}
 {%include embed-vimeo.markdown%}

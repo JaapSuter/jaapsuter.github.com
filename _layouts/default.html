@@ -2,25 +2,33 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width maximum-scale=1.0">
 	<title>Jaap Suter - {{page.title}}</title>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/default.css" />
+	<link rel="stylesheet" href="/css/default.css" />
 	<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->    
 </head>
 <body>
-<div id="container"> 
-	<header role="banner">
-		<h1><a href="/">Jaap Suter</a></h1> 
-	</header> 
-	<nav> 
+<div id="container">
+    <header class="banner">
+		<h1><a href="/">JaapSuter.com</a></h1>
+	</header>
+    <!--
+    <nav>
 		<ul> 
-			 <a href="/">Home</a>
-             <a href="/about">About</a>
+			<a href="/">Home</a>
+            <a href="/resume">Resume</a>
+            <a href="/projects">Projects</a>
+            <a href="/other">Other</a>
 		</ul> 
 	</nav>
- 	<article>
-		{{content}}
-	</article> 
+    -->
+    <article>
+        {{content}}
+	</article>
+
+    <footer id="footer">
+        <h4>&copy; {{page.date | date: "%B %Y"}} <a href="/" rel="index">JaapSuter.com</a></h4>
+    </footer>
+</div>
 </div>
 </html>

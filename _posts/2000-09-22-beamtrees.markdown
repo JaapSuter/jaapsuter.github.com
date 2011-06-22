@@ -6,7 +6,7 @@ tags: [Image, Programming]
 
 Take a look at this:
 
-<img class="outline" src="/images/2000-09-22-beamtrees/image.jpg" alt="Beamtrees" width="640"/>
+<img src="/images/2000-09-22-beamtrees/image.jpg" alt="Beamtrees" width="640"/>
 
 ...that's four screenshots from some things I'm busy with currently. They might not be that spectacular at first glance but let me explain. 
 

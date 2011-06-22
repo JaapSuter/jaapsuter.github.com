@@ -6,29 +6,23 @@ tags: [Programming]
 
 On the **Sweng-GameDev** mailing list, Gil wrote...
 
-<div markdown="1" class="quote">
-Seem like the death of C/C++ has been proclaimed for at least 20 years.
+>&#8220;Seem like the death of C/C++ has been proclaimed for at least 20 years. The proposed benefits of higher level languages strike me as naive and
+>theoretical. In practice those benefits don't materialize, in my experience anyway."<br/>
+><br/>
+>Let me just pick on one thing today: Garbage collection. Having made big-budget commercial games both with and without garbage collection, in my experience, these are myths:<br/>
+>* Myth: C++ does not "support" garbage collection.<br/>
+>* Myth: Garbage collection saves development time.<br/>
+>* Myth: Garbage collection reduces bugs.&#8221;
 
-        [...]
+He continues:
 
-The proposed benefits of higher level languages strike me as naive and theoretical. In practice those benefits don't materialize, in my experience anyway.
-
-        [...]
-
-Let me just pick on one thing today: Garbage collection. Having made big-budget commercial games both with and without garbage collection, in my experience, these are myths:
- 
- * Myth: C++ does not "support" garbage collection.
- * Myth: Garbage collection saves development time. 
- * Myth: Garbage collection reduces bugs.
- 
-To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore.
- 
-I feel that having only one answer to the ownership and lifetime question is very limiting on expressive power. In many cases, a different approach to ownership and lifetime will give you a superior design. We sure don't want to live with inferior designs because the language has a dogmatic and limiting view of ownership and lifetime.
- 
-As far as development time and bugs, well in my experience a garbage collection system just gives you different sorts of bugs. With garbage collection, you will spend your debugging time trying to understand what link in super complex dependency chain is problematic, and even when it is identified you are left with only hacky approaches to breaking the undesirable links. Realize that with a console game, an object that does not get destroyed soon enough is just as fatal as an object that gets destroyed too soon, except the former is much harder to track down and fix.
- 
-In the end using garbage collection isn't a huge problem; I'm satisfied with the products I've made that use GC. But I will say that whoever thinks garbage collection offer significant benefits to game development doesn't seem to be facing or solving the same problems that I confront.
-</div>
+>&#8220;To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore.<br/>
+><br/>
+>I feel that having only one answer to the ownership and lifetime question is very limiting on expressive power. In many cases, a different approach to ownership and lifetime will give you a superior design. We sure don't want to live with inferior designs because the language has a dogmatic and limiting view of ownership and lifetime.<br/>
+><br/>
+>As far as development time and bugs, well in my experience a garbage collection system just gives you different sorts of bugs. With garbage collection, you will spend your debugging time trying to understand what link in super complex dependency chain is problematic, and even when it is identified you are left with only hacky approaches to breaking the undesirable links. Realize that with a console game, an object that does not get destroyed soon enough is just as fatal as an object that gets destroyed too soon, except the former is much harder to track down and fix.<br/>
+><br/>
+>In the end using garbage collection isn't a huge problem; I'm satisfied with the products I've made that use GC. But I will say that whoever thinks garbage collection offer significant benefits to game development doesn't seem to be facing or solving the same problems that I confront.&#8221;
  
 I respect Gil's experience, and reading between the lines I suspect his actual stance on GC is quite a bit more nuanced than appears from his email. But this email by itself shows he doesn't understand the fundamental advantage of GC -- one you *will not* get with manual memory management.
  
@@ -36,9 +30,7 @@ Regretfully I don't have time to dissect Gil's email completely; if anybody want
  
 For now, I'm going to comment on one point only. Quoting Gil...
  
-<div markdown="1" class="quote">
-To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore.
-</div>
+>"To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore."
  
 Read the last sentence again.
 
