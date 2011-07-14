@@ -1,4 +1,5 @@
 auto: true
 server: true
-permalink: pretty
+permalink: /:title
 exclude: ["_source"]
+

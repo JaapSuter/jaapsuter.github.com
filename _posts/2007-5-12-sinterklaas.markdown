@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sinterklaas"
-tags: [Video, Odd]
+tags: [Video, Personal]
 ---
 
 {%assign embed-video-id = '6S2vWqOsylQ'%}

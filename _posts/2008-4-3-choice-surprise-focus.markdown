@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Choice Surprise Focus"
-tags: [Video, Programming]
+tags: [Video, Technical, Personal]
 ---
 
 Excerpts of talk I did at Electronic Arts in April of 2008.

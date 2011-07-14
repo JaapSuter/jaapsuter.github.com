@@ -4,6 +4,8 @@
 
 header, footer, nav, article, section, aside, hgroup, menu { display: block; }
 
+article { clear: both; }
+
 body { font-size: 100%; font: normal 16px/1.5 "Gill Sans", "Gill Sans MT", GillSans, Calibri, "Trebuchet MS", sans-serif; }
 html>body { font-size: 16px; } 
 p, ul, blockquote, pre, td, th, label { margin-bottom: 1.5em; font-size: 16px; line-height: 1.5; }
@@ -11,7 +13,7 @@ h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; font-family: Verdan
 h1 { font-size: 4em; margin-bottom: 0.375em; }
 h2 { font-size: 3em; margin-bottom: 0.5em; }
 h3 { font-size: 2em; margin-bottom: 0.75em; }
-.banner h1 { text-align: right; font-size: 2em; margin-bottom: 0.75em; color: #888; }
+.banner h1 { text-align: left; font-size: 2em; margin-bottom: 0.75em; color: #888; }
 
 hgroup { position: relative; }
 
@@ -33,3 +35,7 @@ blockquote { font-style: italic; text-indent: -0.4em; color: #444; }
 blockquote ul { margin-left: 2em; }
 
 footer { text-align: right; }
+
+.not-visual { display: none; }
+.geo { display: none; }
+aside.vcard { float: right; width: 30%; }

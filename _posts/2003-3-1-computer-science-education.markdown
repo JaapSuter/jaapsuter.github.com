@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Computer Science"
-tags: [Programming]
+title: "Computer Science Education"
+tags: [Personal, Technical]
 ---
 
 A commercial disinterest in research is a thing of the past. Corporate funding of university programs is becoming more accepted every day, simply because government budgets are not capable of providing sufficient support. Though a discussion about the government's policy towards education is interesting, I've come to accept that university curricula are no longer defined by universities alone. If we want our students to become corporate-ready IT money makers, instead of letting them study the science of computation, so be it. However, one can only remove a certain amount of fundamental skills and concepts from a teaching program without undermining it. The recent removal of functional programming as a mandatory module in the computer science curriculum at the University of Twente is not only ridiculous, but it finally reveals what seems to be the primary motivation of computer science programs. 

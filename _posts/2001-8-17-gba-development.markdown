@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Gameboy Digressed"
-tags: [Image, Programming]
+title: "GBA Development"
+tags: [Image, Technical]
 ---
 
 Here are some shots of my very first Gameboy Advance (GBA) programming adventure. The past few weeks I've been on vacation in France, and every afternoon I would do some GBA programming on my laptop. Lying by the side of the pool, programming, with a view on the mountains. Very nice! 

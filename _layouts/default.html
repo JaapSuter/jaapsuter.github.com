@@ -10,22 +10,18 @@
 <body>
 <div id="container">
     <header class="banner">
+        {% include vcard-aside.html %}
 		<h1><a href="/">JaapSuter.com</a></h1>
 	</header>
-    <!--
     <nav>
-		<ul> 
-			<a href="/">Home</a>
-            <a href="/resume">Resume</a>
-            <a href="/projects">Projects</a>
-            <a href="/other">Other</a>
+		<ul>
+			<a href="/resume">Resume</a>
+            <a href="https://github.com/JaapSuter">GitHub</a>
 		</ul> 
 	</nav>
-    -->
     <article>
         {{content}}
 	</article>
-
     <footer id="footer">
         <h4>&copy; {{page.date | date: "%B %Y"}} <a href="/" rel="index">JaapSuter.com</a></h4>
     </footer>

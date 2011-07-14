@@ -2,5 +2,5 @@
 layout: default
 ---
 {% for post in site.posts %}
-    <p class="center"><a href="{{post.url}}">{{post.title}}</a><br /><span class="small">{{post.date | date_to_string}} [{{post.tags | join " "}}]</span></p>
+    <p class="center"><a href="{{post.url}}">{{post.title}}</a><br /><span class="small">{{post.date | date_to_string}} [{{ post.tags | join: ', ' }}]</span></p>
 {% endfor %}

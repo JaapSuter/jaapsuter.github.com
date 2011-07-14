@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Lovey Dovey"
-tags: [Video, Odd]
+title: "Romantic Surprise"
+tags: [Video, Personal]
 ---
 
 {%assign embed-video-id = '3ERNOwrKATM'%}

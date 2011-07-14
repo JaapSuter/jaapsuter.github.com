@@ -9,14 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_layouts", "_layouts", "{DD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_posts", "_posts", "{852AA507-3D36-4C2E-B415-5A79D4E6D02C}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\_posts\1999-4-13-octree-forest.markdown = ..\..\_posts\1999-4-13-octree-forest.markdown
-		..\..\_posts\1999-6-7-beamtrees-faster.markdown = ..\..\_posts\1999-6-7-beamtrees-faster.markdown
-		..\..\_posts\2000-09-22-beamtrees.markdown = ..\..\_posts\2000-09-22-beamtrees.markdown
-		..\..\_posts\2001-8-17-gameboy-digressed.markdown = ..\..\_posts\2001-8-17-gameboy-digressed.markdown
-		..\..\_posts\2003-3-1-computer-science.markdown = ..\..\_posts\2003-3-1-computer-science.markdown
+		..\..\_posts\1999-6-7-beamtree-optimizations.markdown = ..\..\_posts\1999-6-7-beamtree-optimizations.markdown
+		..\..\_posts\2000-09-22-beamtree-results.markdown = ..\..\_posts\2000-09-22-beamtree-results.markdown
+		..\..\_posts\2001-8-17-gba-development.markdown = ..\..\_posts\2001-8-17-gba-development.markdown
+		..\..\_posts\2003-3-1-computer-science-education.markdown = ..\..\_posts\2003-3-1-computer-science-education.markdown
 		..\..\_posts\2003-3-12-geometric-algebra.markdown = ..\..\_posts\2003-3-12-geometric-algebra.markdown
 		..\..\_posts\2005-10-2-tools-and-libraries.markdown = ..\..\_posts\2005-10-2-tools-and-libraries.markdown
-		..\..\_posts\2007-11-11-lovey-dovey.markdown = ..\..\_posts\2007-11-11-lovey-dovey.markdown
+		..\..\_posts\2007-11-11-romantic-surprise.markdown = ..\..\_posts\2007-11-11-romantic-surprise.markdown
+		..\..\_posts\2007-4-12-synergistic-hide-and-seek.markdown = ..\..\_posts\2007-4-12-synergistic-hide-and-seek.markdown
 		..\..\_posts\2007-5-12-sinterklaas.markdown = ..\..\_posts\2007-5-12-sinterklaas.markdown
 		..\..\_posts\2008-4-3-choice-surprise-focus.markdown = ..\..\_posts\2008-4-3-choice-surprise-focus.markdown
 		..\..\_posts\2009-4-29-why-collect-garbage.markdown = ..\..\_posts\2009-4-29-why-collect-garbage.markdown
@@ -38,7 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 		..\..\favicon.ico = ..\..\favicon.ico
 		..\..\index.html = ..\..\index.html
 		..\..\README = ..\..\README
-		..\..\resume.markdown = ..\..\resume.markdown
+		..\..\resume.html = ..\..\resume.html
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_source", "_source", "{CFBC9193-5640-47D0-9B36-8A57140176E2}"
@@ -48,7 +48,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_source", "_source", "{CFBC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\_includes\embed-vimeo.markdown = ..\..\_includes\embed-vimeo.markdown
 		..\..\_includes\embed-youtube.markdown = ..\..\_includes\embed-youtube.markdown
+		..\..\_includes\vcard-aside.html = ..\..\_includes\vcard-aside.html
 	EndProjectSection
 EndProject
 Global

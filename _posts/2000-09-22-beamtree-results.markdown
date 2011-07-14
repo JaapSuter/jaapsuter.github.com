@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Beamtrees"
-tags: [Image, Programming]
+title: "Beamtree Results"
+tags: [Image, Technical]
 ---
 
 Take a look at this:
