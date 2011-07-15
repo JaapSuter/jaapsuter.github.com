@@ -1,7 +1,7 @@
-\documentclass[margin, line, 11pt]{resume}
+\documentclass[margin, line]{resume}
 
 \usepackage[cm]{fullpage}
-\usepackage{wrapfig}
+
 \usepackage[usenames, dvipsnames]{color}
 \usepackage[usenames, dvipsnames]{xcolor}
 \usepackage{graphicx}
@@ -10,20 +10,14 @@
 \usepackage{multicol}
 \usepackage{marvosym}
 \usepackage{hyperref}
-\usepackage{fontspec}
 \usepackage{pifont}
 \usepackage{helvetica}
 \usepackage{enumitem}
 
-\setmainfont{Calibri}
 \definecolor{urlcolor}{rgb}{0.2, 0.2, 0.4}
 \definecolor{headingcolor}{rgb}{0.0, 0.0, 0.0}
 \definecolor{verticalcolor}{rgb}{0.92, 0.92, 0.92}
 \hypersetup{colorlinks, urlcolor=urlcolor, linkcolor=urlcolor}
-
-\usetikzlibrary{backgrounds}
-\tikzset{background/.style={fill=verticalcolor}}
-\tikzset{background grid/.style = {thick, draw  = headingcolor, step = .2cm}}
 
 \frenchspacing
 \oddsidemargin -.5in
@@ -31,6 +25,7 @@
 \textwidth=6.0in
 \itemsep=0in
 \parsep=0in
+\pagestyle{empty}
 
 \newenvironment{list1}{
   \begin{list}{\ding{113}}{%
@@ -39,45 +34,45 @@
       \setlength{\topsep}{0in} \setlength{\partopsep}{0in}
       \setlength{\leftmargin}{0.17in}}}{\end{list}}
 
-\newenvironment{list2}{
-%%  \begin{list}{$\bullet$}{%
+\newenvironment{list4}{
+%%  \begin{list}{}{%
 	\begin{list}{\small{\ding{110}}}{%
       \setlength{\itemsep}{0in}
       \setlength{\parsep}{0in} \setlength{\parskip}{0in}
       \setlength{\topsep}{0in} \setlength{\partopsep}{0in}
       \setlength{\leftmargin}{0.2in}}}{\end{list}}
 
+\newlist{list3}{itemize}{1}
+\setlist[list3]{label=\textbullet, labelindent=-.3in, leftmargin=0pt, labelsep=.15in }
+	
+\newlist{list2}{itemize}{1}
+\setlist[list2]{label=\enspace, labelindent=-.5in, leftmargin=0pt, labelsep=.25in }
+
 \begin{document}
 
-%% \begin{tikzpicture}[remember picture, overlay]
-%%  \draw [style=background, xshift=-3.5cm, yshift=-3cm, very thin] (0,-290mm) rectangle (30mm, 0mm);
-%% \end{tikzpicture}
-
-\name{\addfontfeature{Color=headingcolor, LetterSpace=-4}{\Huge{\textsc{Jaap Suter}}} \vspace*{.01in}}
+\name{\huge{\textsc{Jaap Suter}} \vspace*{.03in}}
 
 \begin{resume}
 
-
-\section{\sc Contact}
 \vspace{.05in}
-\begin{tabular}{@{}p{3in}p{4in}}
-1738 Parker Street         		 & \href{mailto:contact@jaapsuter.com }{contact@jaapsuter.com} \\
-Vancouver BC \hspace{1mm}V5L 2K8 & \href{http://www.jaapsuter.com}{www.jaapsuter.com}     	    \\
-Canada                           & \ding{38} +1 604 313 5227 \it{(cell)} 					    \\
+\begin{tabular}{@{}p{2in}p{4in}}
++1 604 313 5227 \it{(cell)} 					          & 1738 Parker Street         		\\
+\href{mailto:contact@jaapsuter.com }{contact@jaapsuter.com} & Vancouver BC \hspace{1mm}V5L 2K8  \\
+\href{http://www.jaapsuter.com}{www.jaapsuter.com}     	 & Canada                            \\
 \end{tabular}
 
 \section{\sc Experience}
 
-{\bf Sabbatical}, Vancouver, Canada
+{\bf Sabbatical} - Vancouver, Canada \hfill {\bf April 2011 - Present}
+\\
+\begin{list3}
+	\item Wrote my own \href{https://github.com/JaapSuter/Pentacorn#readme}{structured light 3D scanner} using a projector and a webcam.
+	\item Implementing a streamlined camera calibration mechanism using graycode and fringe patterns on an LCD monitor.
+	\item \href{https://github.com/JaapSuter/Ten18#readme}{Experimenting} with a custom CLR host and custom C\#/C++ interop layer to allow use of DirectX 11 and Async Await together.
+\end{list3}
 
-\vspace{-.3cm} \hfill {\bf April 2011 - Present}\\
-Wrote my own structured light 3D scanner using a projector and a webcam. Implementing a
-streamlined camera calibration mechanism using graycode and fringe patterns on an LCD 
-monitor. Experimenting with a custom C\#/C++ managed to native interop layer.
+{\bf Electronic Arts} - Burnaby, Canada \hfill {\bf November 2004 - April 2011}
 
-{\bf Electronic Arts}, Burnaby, Canada
-
-\vspace{-.3cm} \hfill {\bf November 2004 - April 2011}\\
 Technical director on the Infrastructure team of EATech, the central
 technology department of EA Worldwide. Responsibilities include the
 direction, design, development and support for a multitude of core
@@ -91,62 +86,55 @@ libraries, various runtime support, and an LLVM-based compiler for ahead-of-time
 primarily wrote the garbage collector, and the C++ interop layer, and also wrote a large portion of the
 compiler.
 
-{\bf Next Level Games}, Vancouver, Canada
+{\bf Next Level Games} - Vancouver, Canada \hfill {\bf October 2004 - October 2005}
 
-\vspace{-.3cm} \hfill {\bf October 2004 - October 2005}\\
 Senior Software Engineer, member of the Super Mario Strikers team.
 Responsible for the architecture, design and implementation of major
 subsystems and guidance and mentoring of junior engineers.
 
-{\bf Electronic Arts}, Burnaby, Canada
+{\bf Electronic Arts} - Burnaby, Canada \hfill {\bf September 2002 - September 2004}
 
-\vspace{-.3cm}
-\hfill {\bf September 2002 - September 2004}\\
 Software engineer, part of the Fifa team, responsible for many
 aspects of several games, including databases, rendering, Xbox SKUs,
 artist tools, and more.
 
-{\bf Overloaded Games}, Amsterdam, The Netherlands
+{\bf Overloaded Games} - Amsterdam, The Netherlands \hfill {\bf March 2002 - September 2002}
 
-\vspace{-.3cm} \hfill {\bf March 2002 - September 2002}\\
 Principal software engineer on three PocketPC \& Symbian games, as well as main contributor to the 
 \emph{MobileCore} base libraries on which these games were built.
 
-{\bf Davilex Games}, Houten, The Netherlands
+{\bf Davilex Games} - Houten, The Netherlands \hfill {\bf September 1999 - January 2002}
 
-\vspace{-.3cm}
-\hfill {\bf September 1999 - January 2002}\\
-Software Engineer in the R\&D department,
-wrote the software rasterizer and 3D engine used in garden and interior design products, and the end-to-end lighting pipeline for several racing games.
+Software Engineer in the R\&D department, wrote the software rasterizer and 3D engine used in garden and interior design products, and the end-to-end lighting pipeline for several racing games.
 
 \pagebreak
 
 \section{\sc Education}
-{\bf Twente University}, Enschede, The Netherlands
+{\bf Twente University}, Enschede, The Netherlands \hfill {\bf September 1998 - September 2002}
 
-\vspace{-.3cm}
-\hfill {\bf September 1998 - September 2002}\\
 B.Sc. in Computer Science
 
 \section{\sc Skills}
-\begin{list2}
+\begin{list3}
 \item Strong and well-rounded software engineer.
 \item Expert knowledge on many programming paradigms including object oriented, generic, functional, meta and generative programming.
 \item Strong advocate of test driven, agile and common sense development.
 \item Demonstrated ability to lead and mentor other engineers
 \item Proven track record architecting and maintaining physical aspects of large scale multi-language projects.
+\\
+\\
 \item Expert C++ programmer, comfortable with the STL, Boost, and C++0x.
 \item Expert C\# programmer, experienced with Linq, Async Await, and Reactive Extensions.
 \item Experienced C and assembly programmer, comfortable writing code for embedded devices with limited memory and performance.
 \item Other languages (experience varies): Python, Java, Lisp, ARM/Neon and SPU Assembly.
+\\
 \item High level of interest in math in all its forms.
 \item Experience with: Win32/64, PS3 (PPU/SPU), Xbox 360, Wii, iPhone, Xbox, PS2, Gamecube, GBA
-\end{list2}
+\end{list3}
 
 \section{\sc Publications}
-\vspace{.5cm}
-Jaap Suter. \textsl{Geometric Algebra Primer}. \url{http://www.jaapsuter.com/geometric-algebra/}
-	
+Suter J. (2003) - \textsl{Geometric Algebra Primer} - Introduction to Clifford Algebra, available\\ online at \url{http://www.jaapsuter.com/geometric-algebra/}.
+
 \section{\sc \href{http://www.mobygames.com/developer/sheet/view/developerId,94489/}{Credits}}
 \begin{multicols}{3}
 \begin{list2}
