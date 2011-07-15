@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 	ProjectSection(SolutionItems) = preProject
 		..\..\404.html = ..\..\404.html
 		..\..\_config.yml = ..\..\_config.yml
+		..\..\atom.xml = ..\..\atom.xml
 		..\..\CNAME = ..\..\CNAME
 		..\..\config.rb = ..\..\config.rb
 		..\..\favicon.ico = ..\..\favicon.ico
@@ -53,6 +54,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "partials", "partials", "{62
 		..\..\sass\partials\_site.scss = ..\..\sass\partials\_site.scss
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_source", "_source", "{BA3D6BFC-68AA-4205-9A84-D705D32D3ACB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resume", "resume", "{2747C3E2-55A1-4DFB-B063-DD26426EBAAC}"
+	ProjectSection(SolutionItems) = preProject
+		..\resume\resume.cls = ..\resume\resume.cls
+		..\resume\resume.tex = ..\resume\resume.tex
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "constants", "constants", "{1C99604D-F30D-4E42-ACAC-0D8A09BD2C12}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\sass\constants\_base.scss = ..\..\sass\constants\_base.scss
+		..\..\sass\constants\_colors.scss = ..\..\sass\constants\_colors.scss
+		..\..\sass\constants\_fonts.scss = ..\..\sass\constants\_fonts.scss
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +78,9 @@ Global
 		{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7} = {268607DF-F1FD-4312-9543-365234474E47}
 		{F24DC583-8E87-4618-88C1-096CF33A3C66} = {268607DF-F1FD-4312-9543-365234474E47}
 		{1043C2CE-91D0-4EA1-BDAC-46056E59EA56} = {268607DF-F1FD-4312-9543-365234474E47}
+		{BA3D6BFC-68AA-4205-9A84-D705D32D3ACB} = {268607DF-F1FD-4312-9543-365234474E47}
 		{62EBD3AB-EE6E-4EE7-ABB0-C1B58CA697C4} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
+		{1C99604D-F30D-4E42-ACAC-0D8A09BD2C12} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
+		{2747C3E2-55A1-4DFB-B063-DD26426EBAAC} = {BA3D6BFC-68AA-4205-9A84-D705D32D3ACB}
 	EndGlobalSection
 EndGlobal

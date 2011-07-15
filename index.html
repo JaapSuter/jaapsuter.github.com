@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+<ul id="index">
 {% for post in site.posts %}
-    <p class="center"><a href="{{post.url}}">{{post.title}}{% if post.starred %} <img src="/images/star.png" width="24px" height="24px"/>{% endif %}</a><br /><span class="small">{{post.date | date_to_string}} [{{ post.tags | join: ', ' }}]</span></p>
+    <li class="index"><a href="{{post.url}}">{{post.title}}{% if post.starred %} <img src="/images/star.png" width="24px" height="24px"/>{% endif %}</a><br /><span class="small">{{post.date | date_to_string}} [{{ post.tags | join: ', ' }}]</span></li>
 {% endfor %}
+</ul>
