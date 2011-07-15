@@ -1,17 +1,16 @@
 ---
 layout: default
 ---
-<header class="title">
-    <hgroup>
-        <h2>{{page.title}}</h2>
-        <h3>{{page.date | date_to_string}}</h3>
-    </hgroup>
-</header>
-
-{{content}}
-
-<!--
-<aside class="comments" id="comments"> 
-	Comments aside block...
-</aside>
--->
+<article>
+    <header class="title">
+        <hgroup>
+            <h3>{{page.date | date_to_string}}</h3>
+            <h2>{{page.title}}</h2>        
+        </hgroup>
+    </header>
+    {{ content }}
+</article>
+<footer id="footer">
+    <h3>&copy; {{page.date | date: "%Y"}} <a href="/" rel="index">Jaap Suter</a></h3>
+</footer>
+    

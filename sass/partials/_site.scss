@@ -1,0 +1,171 @@
+@import "constants/base";
+@import "constants/fonts";
+@import "constants/colors";
+
+@import "modules/mixins";
+@import "modules/debug";
+
+@import "compass/reset";
+@import "compass/typography";
+@import "compass/utilities";
+@import "compass/css3";
+@import "compass/layout";
+
+@include establish-baseline;
+
+header, footer, nav, article, section, aside, hgroup, menu { display: block; }
+
+article { clear: both; }
+
+body { font-size: 100%; font: normal 16px/1.5 "Gill Sans", "Gill Sans MT", GillSans, Calibri, "Trebuchet MS", sans-serif; }
+html>body { font-size: 16px; } 
+p, ul, blockquote, pre, td, th, label, div { margin-bottom: 1.5em; font-size: 16px; line-height: 1.5; clear: both; }
+h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; font-family: Verdana, sans-serif; }
+
+#{headers(all)} {    
+    text-rendering: optimizeLegibility;
+    font-family: $header-font-stack;
+}
+
+h1 { @include scale-font-size-and-set-rhythm(2.58, 0, 0, 0, 0); font-weight: bold; }
+h2 { @include scale-font-size-and-set-rhythm(1.64, 0, 0, 0, 0); font-weight: bold; }
+h3 { @include scale-font-size-and-set-rhythm(1.45, 0, 0, 0, 1); }
+h4 { @include scale-font-size-and-set-rhythm(1.18, 0, 0, 0, 1); }
+
+a, input[type='submit'], input[type='image'], label[for], select, button, .pointer { cursor: pointer; }    
+a {
+    cursor: pointer;
+    color: #000;
+    text-decoration: underline;
+    &:visited {
+        color: #000;
+    }
+    &:hover, &:focus, &:active {
+        color: $second-color; 
+        background-color: $base-color;
+    }
+}
+
+sub {
+    vertical-align: baseline;
+    position: relative;
+    bottom: -0.4em;
+}
+
+sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 1em 1em 3em 1em;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    color: #444;
+    background-color: #eee;
+    ul, ol {
+        list-style: square inside;
+    }
+}
+
+pre, code, kbd, samp, tt {
+    font-family: $mono-font-stack;
+    @include scale-font-size-and-set-rhythm(1, 0, 0, 0, 1);
+}
+
+
+hgroup { position: relative; }
+
+#container { width: 40em; margin: 0 auto; padding: 1.5em 0.5em; background-color: #fff; }
+
+a { color: #333; text-decoration: none; border-bottom: 1px solid #000; }
+a:link { }
+a:visited { border-bottom: 1px dashed #888; }
+a:hover, a:focus, a:active { color: #333; border-bottom: 1px solid #888; }
+
+header {
+    a, a:visited, a:hover, a:focus, a:active { border-bottom: 2px solid #000; } 
+}
+
+nav {
+    ul {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    
+    @include darken-bold;
+}
+
+aside.vcard {
+    float: right;
+    width: 30%;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-align: right;
+    background: #222;    
+    color: #fff;
+    div.tel { margin-bottom: 0; }
+    
+    a, a:visited, a:hover, a:focus, a:active {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid #fff;
+    }
+    
+    a:hover, a:focus, a:active {
+        background: #888;
+    }
+}
+
+    
+.center { 
+    text-align: center;
+    a { @include scale-font-size-and-set-rhythm(1.2, 0, 0, 0, 0); }
+}
+.small { font-style: italic; }
+.title hgroup h3, footer h3 { font-weight: bold; text-align: right; float: right; color: #888; }
+
+footer {
+    text-align: right;
+}
+
+.not-visual { display: none; }
+
+div.description { clear: both; }
+div.when-where { float: right; width: 30%; padding-bottom: 1.5em; text-align: right; }
+
+ol li { list-style-type: none; margin-bottom: 1.5em; }
+
+article ol li { list-style-type: square; margin-bottom: 1.5em; }
+
+figure {
+    position: relative;
+    img {
+        display: block;        
+        width: 100%;
+        height: auto;
+    }
+        
+    figcaption
+    {
+        position: absolute;
+        right: 0;
+        bottom: 2.25em;
+        font: bold 1em/1.5em Helvetica, sans-serif;
+        color: #fff;
+        span {
+            display: block;
+            border: 2px solid #fff;        
+            border-right: 0;
+            float: right;
+            clear: both;
+            background: #000;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.25em 0.5em;
+            color: #fff;
+        }
+    }
+    
+    @include trailer(2);
+}

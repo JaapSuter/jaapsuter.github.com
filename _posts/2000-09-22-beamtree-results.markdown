@@ -6,7 +6,9 @@ tags: [Image, Technical]
 
 Take a look at this:
 
-<img src="/images/2000-09-22-beamtrees/image.jpg" alt="Beamtrees" width="640"/>
+{% assign src = "beamtree-results.jpg" %}
+{% assign alt = "Engine Screenshots" %}
+{% include figure-with-caption.html %}
 
 ...that's four screenshots from some things I'm busy with currently. They might not be that spectacular at first glance but let me explain. 
 

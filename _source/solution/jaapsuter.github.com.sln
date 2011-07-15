@@ -16,18 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_posts", "_posts", "{852AA5
 		..\..\_posts\2003-3-12-geometric-algebra.markdown = ..\..\_posts\2003-3-12-geometric-algebra.markdown
 		..\..\_posts\2005-10-2-tools-and-libraries.markdown = ..\..\_posts\2005-10-2-tools-and-libraries.markdown
 		..\..\_posts\2007-11-11-romantic-surprise.markdown = ..\..\_posts\2007-11-11-romantic-surprise.markdown
-		..\..\_posts\2007-4-12-synergistic-hide-and-seek.markdown = ..\..\_posts\2007-4-12-synergistic-hide-and-seek.markdown
+		..\..\_posts\2007-4-12-concurrent-fears.markdown = ..\..\_posts\2007-4-12-concurrent-fears.markdown
 		..\..\_posts\2007-5-12-sinterklaas.markdown = ..\..\_posts\2007-5-12-sinterklaas.markdown
 		..\..\_posts\2008-4-3-choice-surprise-focus.markdown = ..\..\_posts\2008-4-3-choice-surprise-focus.markdown
 		..\..\_posts\2009-4-29-why-collect-garbage.markdown = ..\..\_posts\2009-4-29-why-collect-garbage.markdown
 		..\..\_posts\2010-2-14-outsource-valentine.markdown = ..\..\_posts\2010-2-14-outsource-valentine.markdown
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{52669984-BA56-48D0-8F64-CAAC0C22A9BE}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\css\default.css = ..\..\css\default.css
-		..\..\css\diagnostic.css = ..\..\css\diagnostic.css
-		..\..\css\reset.css = ..\..\css\reset.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaapsuter.github.com", "{268607DF-F1FD-4312-9543-365234474E47}"
@@ -35,22 +28,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 		..\..\404.html = ..\..\404.html
 		..\..\_config.yml = ..\..\_config.yml
 		..\..\CNAME = ..\..\CNAME
+		..\..\config.rb = ..\..\config.rb
 		..\..\favicon.ico = ..\..\favicon.ico
+		..\..\geometric-algebra.pdf = ..\..\geometric-algebra.pdf
 		..\..\index.html = ..\..\index.html
 		..\..\README = ..\..\README
-		..\..\resume.html = ..\..\resume.html
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_source", "_source", "{CFBC9193-5640-47D0-9B36-8A57140176E2}"
-	ProjectSection(SolutionItems) = preProject
-		..\rebuild-images.cmd = ..\rebuild-images.cmd
+		..\..\resume.pdf = ..\..\resume.pdf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\_includes\embed-vimeo.markdown = ..\..\_includes\embed-vimeo.markdown
-		..\..\_includes\embed-youtube.markdown = ..\..\_includes\embed-youtube.markdown
+		..\..\_includes\embed-vimeo.html = ..\..\_includes\embed-vimeo.html
+		..\..\_includes\figure-with-caption.html = ..\..\_includes\figure-with-caption.html
 		..\..\_includes\vcard-aside.html = ..\..\_includes\vcard-aside.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sass", "sass", "{1043C2CE-91D0-4EA1-BDAC-46056E59EA56}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\sass\default.scss = ..\..\sass\default.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "partials", "partials", "{62EBD3AB-EE6E-4EE7-ABB0-C1B58CA697C4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\sass\partials\_site.scss = ..\..\sass\partials\_site.scss
 	EndProjectSection
 EndProject
 Global
@@ -59,9 +59,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{852AA507-3D36-4C2E-B415-5A79D4E6D02C} = {268607DF-F1FD-4312-9543-365234474E47}
-		{52669984-BA56-48D0-8F64-CAAC0C22A9BE} = {268607DF-F1FD-4312-9543-365234474E47}
 		{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7} = {268607DF-F1FD-4312-9543-365234474E47}
-		{CFBC9193-5640-47D0-9B36-8A57140176E2} = {268607DF-F1FD-4312-9543-365234474E47}
 		{F24DC583-8E87-4618-88C1-096CF33A3C66} = {268607DF-F1FD-4312-9543-365234474E47}
+		{1043C2CE-91D0-4EA1-BDAC-46056E59EA56} = {268607DF-F1FD-4312-9543-365234474E47}
+		{62EBD3AB-EE6E-4EE7-ABB0-C1B58CA697C4} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
 	EndGlobalSection
 EndGlobal

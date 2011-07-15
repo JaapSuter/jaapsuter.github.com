@@ -1,2 +1,5 @@
 _site/
-source/solution/jaapsuter.github.com.suo
+_source/solution/jaapsuter.github.com.suo
+_source/resume/*.log
+_source/resume/*.gz
+.sass-cache/

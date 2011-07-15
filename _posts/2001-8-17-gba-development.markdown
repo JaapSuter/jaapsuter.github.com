@@ -6,13 +6,17 @@ tags: [Image, Technical]
 
 Here are some shots of my very first Gameboy Advance (GBA) programming adventure. The past few weeks I've been on vacation in France, and every afternoon I would do some GBA programming on my laptop. Lying by the side of the pool, programming, with a view on the mountains. Very nice! 
 
-<img src="/images/2001-8-17-gameboy-digressed/animated.gif" alt="Socrates Demo Screenshots" width="640"/>
+{% assign src = "sgade-demo-animated.gif" %}
+{% assign alt = "Socrates Demo" %}
+{% include figure-with-caption.html %}
 
 Anyway, I started working on a project called Socrates. It's an object oriented library for the GBA written completely in C. Object Orientation in C? Yes, it's possible. 
 
 The library is written for MODE-4 graphics. This is the only full-screen video mode that supports double buffering. The only drawback is that it's a 8 bits palettized mode, and that you can only plot two pixels at a time. So if you have to write one pixel, you must read-modify-write. However, this proved to be quite a funny obstacle in my polygon drawing routines. 
 
-<img src="/images/2001-8-17-gameboy-digressed/screens.jpg" alt="Socrates Demo Screenshots" width="640"/>
+{% assign src = "sgade-demo-screens.jpg" %}
+{% assign alt = "GBA Still Screenshots" %}
+{% include figure-with-caption.html %}
 
 About the images, from top to bottom, left to right.
 
@@ -33,4 +37,4 @@ Currently I'm working on a voxel landscape on GBA but I'm rather pessimistic on 
 
 Overall, I love it. Working for a machine with low performance but a complete set of fixed functionality. No more compatibility issues. Jippie. 
 
-By the way, it works on the real thing as well. Thanks DarkFader. 
+By the way, it works on the real thing as well. Thanks DarkFader.
