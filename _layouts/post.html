@@ -5,9 +5,10 @@ layout: default
     <header class="title">
         <hgroup>
             <h3>{{page.date | date_to_string}}</h3>
-            <h2>{{page.title}}</h2>        
+            <h2>{{page.title}}</h2>            
+            {% include age-warning.html %}            
         </hgroup>
-    </header>
+    </header>    
     {{ content }}
 </article>
 <footer id="footer">

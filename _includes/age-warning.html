@@ -1,0 +1,10 @@
+{% capture today %}{{ site.time | date: "%Y" }}{% endcapture %} 
+{% capture then %}{{ page.date | date: "%Y" }}{% endcapture %} 
+{% capture age %}{{ today | minus:then }}{% endcapture %} 
+{% capture old %}{{ age | minus:"9" }}{% endcapture %} 
+ 
+{% if old contains '-' %}{% else %} 
+<p class="warning-old">
+<span class="warning-old-emph">NOTE: </span>this was written {{ age }} years ago.
+</p>
+{% endif %}

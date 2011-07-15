@@ -38,8 +38,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\_includes\age-warning.html = ..\..\_includes\age-warning.html
 		..\..\_includes\embed-vimeo.html = ..\..\_includes\embed-vimeo.html
 		..\..\_includes\figure-with-caption.html = ..\..\_includes\figure-with-caption.html
+		..\..\_includes\vcard-aside.html = ..\..\_includes\vcard-aside.html
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sass", "sass", "{1043C2CE-91D0-4EA1-BDAC-46056E59EA56}"

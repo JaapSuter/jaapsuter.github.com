@@ -17,7 +17,12 @@ header, footer, nav, article, section, aside, hgroup, menu { display: block; }
 
 body { font-size: 100%; font: normal 16px/1.5 Calibri, "Trebuchet MS", sans-serif; }
 html>body { font-size: 16px; } 
-p, ul, blockquote, pre, td, th, label, div { margin-bottom: 1.5em; font-size: 16px; line-height: 1.5; clear: both; }
+p, ul, blockquote, pre, td, th, label, div { 
+    margin-bottom: 1.5em;
+    font-size: 16px;
+    line-height: 1.5;
+    clear: both;    
+}
 h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; font-family: Verdana, sans-serif; }
 
 #{headers(all)} {    
@@ -25,7 +30,7 @@ h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; font-family: Verdan
     font-family: $header-font-stack;
 }
 
-h1 { @include scale-font-size-and-set-rhythm(2.70, 0, 0, 0, 0); font-weight: bold; }
+h1 { @include scale-font-size-and-set-rhythm(3.48, 0, 0, 0, 0); font-weight: bold; @include single-text-shadow(#999, 1px, 1px, 1px); }
 h2 { @include scale-font-size-and-set-rhythm(1.64, 0, 0, 0, 0); font-weight: bold; }
 h3 { @include scale-font-size-and-set-rhythm(1.45, 0, 0, 0, 1); }
 h4 { @include scale-font-size-and-set-rhythm(1.18, 0, 0, 0, 1); }
@@ -40,7 +45,7 @@ a {
     }
     &:hover, &:focus, &:active {
         color: $second-color; 
-        background-color: $base-color;
+        background-color: #aaa;
     }
 }
 
@@ -84,33 +89,19 @@ hgroup { position: relative; }
     position: relative;
 }
 
-aside#photos {
-    position: absolute;    
-    top: 0;
-    border-right: 2px solid #000;
-    width: 480px;
-    right: 100%;
-    
-    figure { margin: 0; padding: 0; border-bottom: 2px solid #000; }
-    
-    div.overlay {
-        position: absolute;
-        background: #fff;
-        background: rgba(#fff, 0.6);
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-    }
-}
-
 a { color: #333; text-decoration: none; border-bottom: 1px solid #000; }
 a:link { }
 a:visited { border-bottom: 1px dashed #888; }
 a:hover, a:focus, a:active { color: #333; border-bottom: 1px solid #888; }
 
 header {
-    a, a:visited, a:hover, a:focus, a:active { border-bottom: 2px solid #000; } 
+    a, a:visited, a:hover, a:focus, a:active { 
+        border-bottom: 2px solid #fff;
+    }
+    
+    a:hover, a:focus, a:active { 
+        border-bottom: 2px solid #000;
+    }
 }
 
 nav {
@@ -125,21 +116,20 @@ nav {
 
 li.index {
     text-align: right;
-    a { @include scale-font-size-and-set-rhythm(1.2, 0, 0, 0, 0); }
+    a { @include scale-font-size-and-set-rhythm(1.2, 0, 0.5, 0, 0); }
     @include trailer;
 }
 
 aside.vcard {
     float: right;
     position: relative;
-    width: 36%;
+    width: 34%;
     font-weight: bold;
-    padding: 0.25em 0.5em;
+    padding: 0.2em 0.5em;
     text-align: right;
     background: #222;    
     color: #fff;
     div.tel { margin-bottom: 0; }
-    
     a, a:visited, a:hover, a:focus, a:active {
         color: #fff;
         text-decoration: none;
@@ -158,6 +148,17 @@ aside.vcard {
     }
 }
 
+p.warning-old {
+    font-weight: bold; 
+    span.warning-old-emph { color: #F33; }
+    padding-right: 0.5em;
+    color: #fff;
+    background: #222;
+    text-align: right;
+    @include leader(1);
+    @include trailer(1);
+}
+
 .small { font-weight: lighter; color: #555; }
 .title hgroup h3, footer h3 { font-weight: bold; text-align: right; float: right; color: #888; }
 
@@ -173,7 +174,7 @@ div.when-where { float: right; width: 30%; padding-bottom: 1.5em; text-align: ri
 
 ol li { list-style-type: none; margin-bottom: 1.5em; }
 
-article ol li { list-style-type: square; margin-bottom: 1.5em; }
+article ol li, article ul li { list-style-type: square; margin-bottom: 1.5em; }
 
 figure {
     position: relative;
