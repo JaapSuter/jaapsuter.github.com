@@ -4,6 +4,8 @@ title: "Beamtree Results"
 tags: [Image, Technical]
 ---
 
+{% include age-warning.html %}            
+
 Take a look at this:
 
 {% assign src = "beamtree-results.jpg" %}

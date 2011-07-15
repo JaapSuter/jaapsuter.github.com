@@ -4,6 +4,8 @@ title: "Beamtree Optimizations"
 tags: [Technical]
 ---
 
+{% include age-warning.html %}            
+
 Talking about summer laziness, I haven't doubleclicked on my visual C++ icon for at least two weeks. I am ashamed. I have been thinking however. Especially after I a chat with Harmless on ICQ. 
 
 He promised us some thoughts on beamtree optimizations in his third article. I decided to ask him about the optimizations and he gave me some hints. That got me to think up some major improvements on the beamtree scheme that I know so far. Let me describe what I want. I bet this has been thought of before but I just want to make things clear. 

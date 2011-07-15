@@ -4,6 +4,8 @@ title: "GBA Development"
 tags: [Image, Technical]
 ---
 
+{% include age-warning.html %}            
+
 Here are some shots of my very first Gameboy Advance (GBA) programming adventure. The past few weeks I've been on vacation in France, and every afternoon I would do some GBA programming on my laptop. Lying by the side of the pool, programming, with a view on the mountains. Very nice! 
 
 {% assign src = "sgade-demo-animated.gif" %}
