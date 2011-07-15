@@ -30,7 +30,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 		..\..\atom.xml = ..\..\atom.xml
 		..\..\CNAME = ..\..\CNAME
 		..\..\config.rb = ..\..\config.rb
-		..\..\favicon.ico = ..\..\favicon.ico
 		..\..\geometric-algebra.pdf = ..\..\geometric-algebra.pdf
 		..\..\index.html = ..\..\index.html
 		..\..\README = ..\..\README
@@ -41,7 +40,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{
 	ProjectSection(SolutionItems) = preProject
 		..\..\_includes\embed-vimeo.html = ..\..\_includes\embed-vimeo.html
 		..\..\_includes\figure-with-caption.html = ..\..\_includes\figure-with-caption.html
-		..\..\_includes\vcard-aside.html = ..\..\_includes\vcard-aside.html
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sass", "sass", "{1043C2CE-91D0-4EA1-BDAC-46056E59EA56}"
