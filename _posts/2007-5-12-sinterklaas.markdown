@@ -7,6 +7,7 @@ tags: [Video, Personal]
 {% assign id = '1879155' %}
 {% assign width = '640' %}
 {% assign height = '427' %}
+{% assign ratio = '3x2' %}
 {% include embed-vimeo.html %}
 
 Rather than having Santa Claus show up around Christmas, in the Netherlands the tradition

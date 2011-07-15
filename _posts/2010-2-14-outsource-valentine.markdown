@@ -8,6 +8,7 @@ starred: true
 {% assign id = '9451077' %}
 {% assign width = '640' %}
 {% assign height = '360' %}
+{% assign ratio = '16x9' %}
 {% include embed-vimeo.html %}
 
 So it's almost Valentine's day, and you still don't have any good ideas. As panic sets in, you do the obvious thing... procrastinate.
