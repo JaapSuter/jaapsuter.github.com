@@ -116,15 +116,22 @@ header {
 nav {
     ul {
         margin-top: 0;
-        padding-top: 0;
+        padding-top: 0;        
     }
     
     @include darken-bold;
 }
 
+li.index {
+    text-align: right;
+    a { @include scale-font-size-and-set-rhythm(1.2, 0, 0, 0, 0); }
+    @include trailer;
+}
+
 aside.vcard {
     float: right;
-    width: 35%;
+    position: relative;
+    width: 36%;
     font-weight: bold;
     padding: 0.25em 0.5em;
     text-align: right;
@@ -135,21 +142,22 @@ aside.vcard {
     a, a:visited, a:hover, a:focus, a:active {
         color: #fff;
         text-decoration: none;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #fff;        
     }
     
     a:hover, a:focus, a:active {
         background: #888;
     }
-}
-
     
-.center {
-    text-align: center;
-    a { @include scale-font-size-and-set-rhythm(1.2, 0, 0, 0, 0); }
+    a#download {
+        position: absolute;    
+        border-bottom: 0;
+        left: 6px;
+        top:  6px;
+    }
 }
 
-.small { font-style: italic; }
+.small { font-weight: lighter; color: #555; }
 .title hgroup h3, footer h3 { font-weight: bold; text-align: right; float: right; color: #888; }
 
 footer {

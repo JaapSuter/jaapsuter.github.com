@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width maximum-scale=1.0">
-	<title>{{page.title}} - Jaap Suter</title>
+    <title>{{page.title}} - Jaap Suter</title>
 	<link rel="stylesheet" href="/stylesheets/default.css" />
 	<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->    
+    <script type="text/javascript" src="/javascript/h2v.js"></script>s
 </head>
 <body>
 <div id="container">
@@ -17,33 +17,9 @@
         <ul>
 			<a href="/resume.pdf"><img src="/images/pdf.png" width="32px" height="32px"/>Resume</a>
             <a href="//github.com/JaapSuter"><img src="/images/github-octotat.png" width="32px" height="32px"/>GitHub</a>
+            <a href="/atom.xml"><img src="/images/rss.png" width="32px" height="32px"/></a>
 		</ul> 
 	</nav>
-    {{ content }}    
-    <!--
-    <aside id="photos">
-        {% assign src = "horizontal/under-parachute.jpg" %}
-        {% assign alt = "Under Parachute" %}
-        {% include figure-with-caption.html %}
-
-        {% assign src = "horizontal/out-the-door.jpg" %}
-        {% assign alt = "Out the Door" %}
-        {% include figure-with-caption.html %}
-
-        {% assign src = "horizontal/stone-rabbit-summit.jpg" %}
-        {% assign alt = "Stone Rabbit Summit" %}
-        {% include figure-with-caption.html %}
-
-        {% assign src = "horizontal/jumping-the-chief.jpg" %}
-        {% assign alt = "Jumping The Chief" %}
-        {% include figure-with-caption.html %}
-
-        {% assign src = "horizontal/over-vancouver.jpg" %}
-        {% assign alt = "over-vancouver" %}
-        {% include figure-with-caption.html %}
-
-        <div class="overlay"></div>        
-    </aside>
-    -->
+    {{ content }}
 </div>
 </html>

@@ -1,14 +1,31 @@
-\documentclass[margin,line]{resume}
+\documentclass[margin, line, 11pt]{resume}
+
+\usepackage[cm]{fullpage}
+\usepackage{wrapfig}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
 \usepackage{multicol}
 \usepackage{marvosym}
-\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{pifont}
+\usepackage{helvetica}
+\usepackage{enumitem}
 
-\makeatletter
-\def\url@leostyle{%
-  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
-\makeatother
-\urlstyle{leo}
+\setmainfont{Calibri}
+\definecolor{urlcolor}{rgb}{0.2, 0.2, 0.4}
+\definecolor{headingcolor}{rgb}{0.0, 0.0, 0.0}
+\definecolor{verticalcolor}{rgb}{0.92, 0.92, 0.92}
+\hypersetup{colorlinks, urlcolor=urlcolor, linkcolor=urlcolor}
 
+\usetikzlibrary{backgrounds}
+\tikzset{background/.style={fill=verticalcolor}}
+\tikzset{background grid/.style = {thick, draw  = headingcolor, step = .2cm}}
+
+\frenchspacing
 \oddsidemargin -.5in
 \evensidemargin -.5in
 \textwidth=6.0in
@@ -21,8 +38,10 @@
       \setlength{\parsep}{0in} \setlength{\parskip}{0in}
       \setlength{\topsep}{0in} \setlength{\partopsep}{0in}
       \setlength{\leftmargin}{0.17in}}}{\end{list}}
+
 \newenvironment{list2}{
-  \begin{list}{$\bullet$}{%
+%%  \begin{list}{$\bullet$}{%
+	\begin{list}{\small{\ding{110}}}{%
       \setlength{\itemsep}{0in}
       \setlength{\parsep}{0in} \setlength{\parskip}{0in}
       \setlength{\topsep}{0in} \setlength{\partopsep}{0in}
@@ -30,16 +49,21 @@
 
 \begin{document}
 
-\name{Jaap Suter \vspace*{.01in}}
+%% \begin{tikzpicture}[remember picture, overlay]
+%%  \draw [style=background, xshift=-3.5cm, yshift=-3cm, very thin] (0,-290mm) rectangle (30mm, 0mm);
+%% \end{tikzpicture}
+
+\name{\addfontfeature{Color=headingcolor, LetterSpace=-4}{\Huge{\textsc{Jaap Suter}}} \vspace*{.01in}}
 
 \begin{resume}
+
 
 \section{\sc Contact}
 \vspace{.05in}
 \begin{tabular}{@{}p{3in}p{4in}}
-1738 Parker Street               & contact@jaapsuter.com  \\
-Vancouver BC \hspace{1mm}V5L 2K8 & www.jaapsuter.com      \\
-Canada                           & +1 604 313 5227 (cell) \\
+1738 Parker Street         		 & \href{mailto:contact@jaapsuter.com }{contact@jaapsuter.com} \\
+Vancouver BC \hspace{1mm}V5L 2K8 & \href{http://www.jaapsuter.com}{www.jaapsuter.com}     	    \\
+Canada                           & \ding{38} +1 604 313 5227 \it{(cell)} 					    \\
 \end{tabular}
 
 \section{\sc Experience}
@@ -123,7 +147,7 @@ B.Sc. in Computer Science
 \vspace{.5cm}
 Jaap Suter. \textsl{Geometric Algebra Primer}. \url{http://www.jaapsuter.com/geometric-algebra/}
 	
-\section{\sc Credits}
+\section{\sc \href{http://www.mobygames.com/developer/sheet/view/developerId,94489/}{Credits}}
 \begin{multicols}{3}
 \begin{list2}
     \item Burnout Paradise (2009)
