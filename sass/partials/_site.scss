@@ -15,8 +15,6 @@
 
 header, footer, nav, article, section, aside, hgroup, menu { display: block; }
 
-article { clear: both; }
-
 body { font-size: 100%; font: normal 16px/1.5 "Gill Sans", "Gill Sans MT", GillSans, Calibri, "Trebuchet MS", sans-serif; }
 html>body { font-size: 16px; } 
 p, ul, blockquote, pre, td, th, label, div { margin-bottom: 1.5em; font-size: 16px; line-height: 1.5; clear: both; }
@@ -77,7 +75,34 @@ pre, code, kbd, samp, tt {
 
 hgroup { position: relative; }
 
-#container { width: 32em; margin: 0 auto; padding: 1.5em 0.5em; border-left: 2px solid #000; background-color: #fff; }
+#container {
+    width: 32em;
+    margin: 0 auto;
+    padding: 1.5em 3.5em;
+    border-left: 2px solid #000;
+    background-color: #fff;
+    position: relative;
+}
+
+aside#photos {
+    position: absolute;    
+    top: 0;
+    border-right: 2px solid #000;
+    width: 480px;
+    right: 100%;
+    
+    figure { margin: 0; padding: 0; border-bottom: 2px solid #000; }
+    
+    div.overlay {
+        position: absolute;
+        background: #fff;
+        background: rgba(#fff, 0.6);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
 
 a { color: #333; text-decoration: none; border-bottom: 1px solid #000; }
 a:link { }
@@ -119,15 +144,17 @@ aside.vcard {
 }
 
     
-.center { 
+.center {
     text-align: center;
     a { @include scale-font-size-and-set-rhythm(1.2, 0, 0, 0, 0); }
 }
+
 .small { font-style: italic; }
 .title hgroup h3, footer h3 { font-weight: bold; text-align: right; float: right; color: #888; }
 
 footer {
     text-align: right;
+    clear: both;
 }
 
 .not-visual { display: none; }
@@ -156,7 +183,7 @@ figure {
         color: #fff;
         span {
             display: block;
-            border: 2px solid #fff;        
+            border: 2px solid #000;        
             border-right: 0;
             float: right;
             clear: both;
@@ -189,9 +216,7 @@ figure {
     padding-bottom: 66.71%;
 }
 
-.embed-video iframe,  
-.embed-video object,  
-.embed-video embed {
+.embed-video iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
