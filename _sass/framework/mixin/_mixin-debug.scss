@@ -1,0 +1,21 @@
+@mixin debug-warn($message) {
+    @debug raise_error_message($message);
+    
+    &:before {
+        content: "Warning: " + $message;
+        display: block;
+        font-weight: bold;
+        background-color: rgba(#ff8, 0.7);
+        color: red;
+    }
+}
+
+@mixin debug-warn-if($expression, $message) {
+    @if ($expression) {
+        @include debug-warn($message);
+    }
+}
+
+@mixin debug-warn-if-message($message) {
+    @include debug-warn-if($message != "", $message);
+}

@@ -1,0 +1,28 @@
+@function min($lhs, $rhs) { @return if($lhs < $rhs, $lhs, $rhs); }
+@function max($lhs, $rhs) { @return if($lhs > $rhs, $lhs, $rhs); }
+
+@function is-odd($n) { @return 0 == ($n % 2); }
+
+@function percent($n, $t) { @return $n / $t * 100%; }
+
+@function interpolate($from, $to, $current, $min, $max) {
+  $domain: abs($to - $from);
+  $range: abs($max - $min);
+  
+  @return $min + ((abs($current - $from) / $domain) * $range);
+}
+
+@function multiply-each($list, $f) {
+    
+    $idx: 1;
+    $len: length($list);
+    $ret: "";
+    
+    @while $idx <= $len {
+      
+      $ret: #{$ret + " " + $f * nth($list, $idx)};
+      $idx: $idx + 1;
+    }
+    
+    @return $ret;
+}

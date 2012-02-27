@@ -1,0 +1,64 @@
+@mixin button($title, $width, $height, $icon, $color, $background-color, $circle: false) {
+    display: block;
+    position: relative;
+    width: tile($width);
+    height: tile($height);
+    margin-left: tile(0.5);
+    margin-bottom: tile(0.5);
+    
+    @include color-and-background-color($color, $background-color, $ignore-contrast: true);
+    
+    @include background-size(auto 100%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    @if $circle {
+      /*
+      &:after {        
+        z-index: 4;
+        content: "";
+        display: block;
+        position: absolute;
+        @include border-radius(50%);
+        border: 0.5em solid #0f0;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+      }
+      */
+      
+      border: 0 solid #000;           
+      
+      @include rhythm(sans-body,  
+                      $margin: 0 0 0.5 0,
+                      $padding: 0,
+                      $border-width: 0);
+            
+      @include border-radius(50%);
+      // border-left: 0;
+    }
+    
+    #{$title} {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        text-transform: lowercase;
+        color: inherit;
+          
+        span {
+          display: block;
+          position: absolute;
+          @include rhythm(sans-body, 
+                          $margin: 0,
+                          $padding: 0,
+                          $letter-spacing: 0,
+                          $position: absolute,
+                          $top: false,
+                          $left: 0.5,
+                          $bottom: 0.5);
+        }
+    }
+}

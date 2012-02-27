@@ -1,0 +1,20 @@
+{%if false %}
+.figure
+  %figure
+  .ratio{:class => "ar-wrap-{{ }}"}
+    {% if site.vimeo %}
+    %iframe.ar-content{:height => "{{ height }}", :src => "http://player.vimeo.com/video/{{ id }}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff", :width => "{{ width }}"}>
+    {% else %}
+    %img.ratio{:alt => "Aspect Ratio {{ ratio }} Test Image", :class => "ar-content-{{ }}", :height => "{{ height }}", :src => "/img/aspect-ratio-{{ ratio }}.png", :width => "{{ width }}"}>/
+    {% endif %}
+  %figcaption/
+  %p.figcaption
+    {{ caption }}
+{% endif %}
+
+{% assign name = '' %}
+{% assign width = '' %}
+{% assign height = '' %}
+{% assign ratio = '' %}
+{% assign title = '' %}
+{% assign caption = '' %}

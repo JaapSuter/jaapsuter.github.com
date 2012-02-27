@@ -1,0 +1,19 @@
+@mixin transition-to-visibility-hidden-fade-opacity($time, $delay: 0) {
+    visibility: hidden;
+    opacity: 0;
+    @include transition(visibility 0s linear $delay + $time + 1s, opacity $time ease-in $delay);
+}
+
+@mixin transition-to-visibility-visible-fade-opacity($time, $delay: 0) {
+    visibility: visible;
+    opacity: 1;
+    @include transition(opacity $time ease-in, $delay);
+}
+
+@mixin transition-property-transform {
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+}

@@ -1,0 +1,33 @@
+$serif-fallback:           Georgia, serif;
+$sans-fallback:            Verdana, sans-serif;
+$sans-condensed-fallback:  Arial, sans-serif;
+$mono-fallback:            "Courier New", monospace;
+
+@if not $type-fallback-common-web-safe-only {
+  $serif-fallback:           "DejaVu Serif",           "Bitstream Vera Serif",     $serif-fallback;        
+  $sans-fallback:            "DejaVu Sans",            "Bitstream Vera Sans",      $sans-fallback;
+  $sans-condensed-fallback:  "DejaVu Sans Condensed",  "Bitstream Vera Sans",      $sans-condensed-fallback;
+  $mono-fallback:            "DejaVu Sans Mono",       "Bitstream Vera Sans Mono", $mono-fallback;  
+}
+
+@if $type-make-fallback-obvious {
+  $obvious-fallback: unifont, fallback, LastResort, LocalFallback, Impact, cursive, fantasy;
+
+  $serif-fallback:            $obvious-fallback, $serif-fallback;
+  $sans-fallback:             $obvious-fallback, $sans-fallback;
+  $sans-condensed-fallback:   $obvious-fallback, $sans-condensed-fallback;
+  $mono-fallback:             $obvious-fallback, $mono-fallback;
+}
+
+$sans-small: tan4n;
+$sans-large: pan7n;
+$sans-medium: pan4n;
+
+$rem-px: 16px;
+$tem-px: 24px;
+  
+$rhythm-font-family: undefined;
+$rhythm-font-size-px: 0;
+$rhythm-font-size-em: 0;
+$rhythm-line-height: 0;
+$rhythm-top-em: 0;

@@ -1,0 +1,88 @@
+$type-name-tt-or-ps-idx: 0;
+$type-name-family-idx:   1;
+$type-name-style-idx:    2;
+$type-name-weight-idx:   3;
+$type-name-stretch-idx:  4;
+
+@function type-name-is-postscript-flavored($name) {
+  @return 'p' == get_char_at($name, $type-name-tt-or-ps-idx);
+}
+
+@function type-name-get-font-family-fallback($name) {
+  $f: get_char_at($name, $type-name-family-idx);
+  $d: get_char_at($name, $type-name-stretch-idx);
+  $f: if($f == 's', $serif-fallback,
+      if($f == 'a', if($d == 'c', $sans-fallback, $sans-condensed-fallback),
+      if($f == 'm', $mono-fallback,
+                    type-name-get-font-family-fallback-error)));
+  @return $f;
+}
+
+@function type-name-get-font-weight($name) {
+  $w: get_char_at($name, $type-name-weight-idx);
+  $w: if($w == '2', 200,
+      if($w == '4', 400,
+      if($w == '7', 700,
+                    type-name-get-font-weight-error)));
+  @return $w;
+}
+
+@function type-name-get-font-style($name) {
+  $s: get_char_at($name, $type-name-style-idx);
+  $s: if($s == 'n', normal,
+      if($s == 'i', italic,
+      if($s == 'o', oblique,
+                    type-name-get-font-style-error)));
+  @return $s;
+}
+
+@function type-name-get-font-stretch($name) {
+  $s: get_char_at($name, $type-name-style-idx);
+  $s: if($s == 'n', normal,
+      if($s == 'c', condensed,
+                    type-name-get-font-stretch-error));
+  @return $s;
+}
+
+@function tem($numerator: 1, $denominator: 1) {
+  // @return 1em * ($numerator * $tem-px) / ($rhythm-font-size-px * $denominator);
+  @return 1.5em * ($numerator) / ($denominator);
+}
+
+@function get-json-value($obj, $m0 : false, $m1 : false, $m2 : false, $m3 : false, $m4 : false, $m5 : false) {
+
+  $val: "!ERROR";
+
+  @if      $m5 { $val: get_json_value_func($obj, $m0, $m1, $m2, $m3, $m4, $m5); }
+  @else if $m4 { $val: get_json_value_func($obj, $m0, $m1, $m2, $m3, $m4); }
+  @else if $m3 { $val: get_json_value_func($obj, $m0, $m1, $m2, $m3); }
+  @else if $m2 { $val: get_json_value_func($obj, $m0, $m1, $m2); }
+  @else if $m1 { $val: get_json_value_func($obj, $m0, $m1); }
+  @else if $m0 { $val: get_json_value_func($obj, $m0); }
+  @else        { $val: get_json_value_func($obj); }
+
+  @if $val == "!ERROR" {
+    @debug syntax-error("Error in get-json-value(" $m0 ", " $m1 ", " $m2 ", " $m3 ", " $m4 ", " $m5 ")");
+
+    @return 0;
+  }
+
+  @return $val;
+}
+
+@function rhythm-set($metric: body, $name: tsn4n, $host: body) {
+  
+  $rhythm-font-size-px:   get-json-value(type-metrics, $metric, font-size-px) * 1px;
+  $line-height-px:        get-json-value(type-metrics, $metric, line-height-px) * 1px;
+  $baseline-px:           get-json-value(type-metrics, $metric, $name, baseline-px) * 1px;
+  $body-baseline-px:      get-json-value(type-metrics, body, tsn4n, baseline-px) * 1px;
+
+  $host-font-size-px:     get-json-value(type-metrics, $host, font-size-px) * 1px;
+
+  $rhythm-font-size-em: 1em * ($rhythm-font-size-px / $host-font-size-px);
+  $rhythm-line-height: $line-height-px / $rhythm-font-size-px;
+  $rhythm-font-family: unquote(#{'._' + $name});
+  $rhythm-top-em: 1em * (($body-baseline-px - ($baseline-px % ($tem-px / 1px)))  / $rhythm-font-size-px);
+
+  @return 'rhythm-set(#{$metric}, #{$name}, #{$host});';
+}

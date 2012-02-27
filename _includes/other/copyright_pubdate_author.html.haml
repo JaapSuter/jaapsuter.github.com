@@ -1,0 +1,9 @@
+.copyright
+  %aside
+    \&copy;&nbsp;
+    %span{:datetime => "{{ date | date_to_xmlschema }}", :pubdate => ""}>
+      %span.month> {{ date | date: "%B" }}&nbsp;
+      %span.year {{ date | date: "%Y" }}
+    %a.fn.n.uid.url{:href => "http://www.jaapsuter.com", :rel => "me", :title => "Jaap Suter"}
+      %span.given-name Jaap
+      %span.family-name Suter

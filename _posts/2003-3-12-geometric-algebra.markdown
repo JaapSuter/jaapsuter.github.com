@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: default
 title: "Geometric Algebra"
-starred: true
 tags: [Math, Technical]
+foobar: true
 ---
 
-<a href="/geometric-algebra.pdf"><img src="/images/pdf.png" width="24px" height="24px"/> Geometric Algebra Primer - PDF 404 kB</a>
+<a href="/geometric-algebra.pdf" type="application/pdf"><img src="/img/pdf.png" width="24" height="24" alt="PDF document link"/> Geometric Algebra Primer - PDF 404 kB</a>
 <br/>
 <br/>
 

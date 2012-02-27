@@ -1,0 +1,53 @@
+@mixin font-face($name, $unicode-range: false) {
+  @font-face {    
+    font-family: quote($name);
+    font-weight: type-name-get-font-weight($name);
+    font-style:  type-name-get-font-style($name);    
+      
+    src: url('/fonts/#{$name}.eot');
+
+    @if type-name-is-postscript-flavored($name) {
+      src: url('/fonts/#{$name}.eot?#iefix') format('eot'), // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
+           url('/fonts/#{$name}.woff') format('woff'),
+           url('/fonts/#{$name}.otf') format('opentype'),
+           url('/fonts/#{$name}.ttf') format('truetype');
+    } @else {  
+      src: url('/fonts/#{$name}.eot?#iefix') format('eot'),  // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
+           url('/fonts/#{$name}.woff') format('woff'),
+           url('/fonts/#{$name}.ttf') format('truetype');
+    }
+
+    @if $unicode-range {
+      unicode-range: unquote($unicode-range);
+    }
+  }
+
+  ._#{$name} {    
+    font-family: #{$name, type-name-get-font-family-fallback($name)};
+    font-weight: type-name-get-font-weight($name);
+    font-style:  type-name-get-font-style($name);
+  }
+}
+
+@mixin rhythm-scope($metric: body, $name: tsn4n, $host: body) {
+  
+  $r: rhythm-set($metric, $name, $host);
+
+  @if $rhythm-top-em != 0em {
+    position: relative;
+    top: $rhythm-top-em;
+  }
+
+  @content;
+
+  $r: rhythm-set();
+}
+
+@mixin rhythm-line-height { line-height: $rhythm-line-height; }
+@mixin rhythm-font-size { font-size: $rhythm-font-size-em; }
+@mixin rhythm-font-family { @extend #{$rhythm-font-family}; }
+
+@mixin small-caps {
+  text-rendering: optimizeSpeed;
+  font-variant: small-caps;
+}

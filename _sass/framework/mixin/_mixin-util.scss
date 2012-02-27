@@ -1,0 +1,49 @@
+@mixin hide-from-all {
+	display:none;
+	visibility:hidden;
+} 
+
+@mixin screenreaders-only {
+	position: absolute !important;    
+  	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  	clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin invisible {
+	visibility: hidden;
+}
+
+@mixin table-alternate($even-row-color, $odd-row-color) {
+  thead {
+    background-color: $odd-row-color;
+  }
+  
+  tbody {
+    background-color: $even-row-color;
+    
+    tr:nth-child(2n) {
+      background-color: $even-row-color;
+    }
+    
+    tr:nth-child(2n + 1) {
+      background-color: $odd-row-color;
+    }
+  }
+}
+
+@mixin double-border($side, $innerColor, $outerColor) {
+  
+  $shadow: 0 0 0;
+  
+  //* Must set the border width manually, outside of this mixin - to match */
+  //* the current type metric and preserve rhythm. */
+  border-#{$side}: 0 solid $innerColor;
+  
+  @if ($side == top) { $shadow: 0 -0.1em 0; }
+  @if ($side == right) { $shadow: 0.1em 0 0; }
+  @if ($side == bottom) { $shadow: 0 0.1em 0; }
+  @if ($side == left) { $shadow: -0.1em 0 0; }
+  
+  @include box-shadow($shadow $outerColor)
+}
+

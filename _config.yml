@@ -1,5 +1,20 @@
+environment: development
+
 auto: true
-server: true
+server: false
+safe: false
 permalink: /:title/
-exclude: ["_source", "sass", "config.rb"]
-layout: default
+exclude: ["do.cmd", "**/*.haml", "**/*.coffee"]
+leave: ["css/", ".livereload"]
+
+markdown: redcarpet
+redcarpet:
+  extensions: [autolink, tables, smart]
+
+sitemap:
+  url: http://www.jaapsuter.com
+
+indextank_storage_dir: .
+indextank_index: JaapSuter
+indextank_api_url: http://:GJL2XlS6C3kv99@467q.api.indextank.com
+indextank_excludes: [index.html, 404.html, ^/secret/]

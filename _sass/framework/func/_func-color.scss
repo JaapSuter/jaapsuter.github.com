@@ -1,0 +1,33 @@
+
+
+@function color-brightness($color) {
+    @return (299 * red($color)
+           + 587 * green($color) 
+           + 114 * blue($color)) / 1000;
+}
+
+@function color-difference($lhs, $rhs) {
+    @return (max(red($lhs),   red($rhs))   - min(red($lhs), red($rhs)))
+          + (max(green($lhs), green($rhs)) - min(green($lhs), green($rhs)))
+          + (max(blue($lhs),  blue($rhs))  - min(blue($lhs), blue($rhs)));
+}
+
+// Function returns a warning string if there's a contrast issue, the empty string otherwise. The math
+// is based on W3C contrast guidelines and formulas, see http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+// for more information.
+@function color-contrast-verify($color, $background-color) {
+  
+  $min-color-difference: 500;    
+  $color-difference: color-difference($color, $background-color);            
+  @if $color-difference < $min-color-difference {
+      @return "color-difference(" + $color + ", " + $background-color + ") == " + $color-difference + " < " + $min-color-difference;
+  }
+    
+  $min-brightness-difference: 125;  
+  $brightness-difference: abs(color-brightness($color) - color-brightness($background-color));  
+  @if $brightness-difference < $min-brightness-difference {
+      @return "brightness-difference(" + $color + ", " + $background-color + ") == " + $brightness-difference + " < " + $min-brightness-difference;
+  }
+  
+  @return "";
+}

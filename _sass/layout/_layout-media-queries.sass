@@ -1,0 +1,39 @@
+// Sass only supports media query interpolation in the indented
+// syntax at the moment, hence the switch from scss to sass. I'm relying on a local patch
+// taken from https://github.com/chriseppstein/sass/commit/1af19978312e528c32e30e5b99a2175eab284665
+
+//
+  @media all and (max-width: #{tile($article-max-width)})
+    #container
+      // max-width: tile($article-max-width)
+      // background-color: #f9d  
+    #article-wrap
+      max-width: tile($article-max-width)
+  
+  @media all and (min-width: #{tile($article-max-width)})
+    body
+      @include debug-warn("second")
+    #article-wrap
+      position: relative
+      max-width: tile($article-max-width)
+      // margin-right: tile($sidebar-max-width)
+      .sidebar
+        float: none
+        position: absolute
+        left: 100%
+        // margin-right: tile(-$sidebar-max-width)
+
+  @media all and (min-width: #{tile($sidebar-max-width + $navigation-width + $article-max-width)})
+    #container
+      @include pie-clearfix
+      width: 100%
+      float: none
+      margin: 0 auto
+    #article-wrap
+      float: right
+    #navigation-wrap
+      float: left
+      left: 0
+
+  
+  

@@ -1,0 +1,68 @@
+
+html {
+  min-height: 100%;  
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  // @include background-image($color-noise-background-image);
+  // @include scale(0.8);
+  // @include transform-origin(50%, 0);
+  // @include apply-origin(center top, false);
+}
+
+#viewport {  
+  position: relative;
+  min-height: 100%;
+  margin: 0 auto;
+  max-width: tem($layout-text-max-width + 2 * $layout-text-margin-width);
+  
+  @if $layout-viewport-width-override {
+    overflow: visible;
+    max-width: $layout-viewport-width-override;
+    
+    &:before, &:after {
+      content: "";
+      z-index: 100;
+      display: block;
+      position: absolute;
+      right: 100%;
+      width: tem(10000);
+      top: 0;
+      bottom: 0;
+      background-color: rgba(red, 0.5);
+    }
+  
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
+.ielt7 {
+  #viewport {
+    width: tem($layout-text-max-width + 2 * $layout-text-margin-width);
+  }
+}
+
+#container {
+  position: relative;
+  margin: 0 auto;  
+  height: 100%;
+  z-index: 400;
+}
+
+#header, #main, #menu, #archive {
+  // width: 50%;
+  // float: right;
+  // clear: left;
+}
+
+#main {
+  margin: 0 tem($layout-text-margin-width);
+}

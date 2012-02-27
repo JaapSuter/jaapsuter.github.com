@@ -1,0 +1,274 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_layouts", "_layouts", "{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7}"
+	ProjectSection(SolutionItems) = preProject
+		..\_layouts\default.html = ..\_layouts\default.html
+		..\_layouts\default.html.haml = ..\_layouts\default.html.haml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_posts", "_posts", "{852AA507-3D36-4C2E-B415-5A79D4E6D02C}"
+	ProjectSection(SolutionItems) = preProject
+		..\_posts\2001-8-17-flipcode-contributions.markdown = ..\_posts\2001-8-17-flipcode-contributions.markdown
+		..\_posts\2003-3-1-computer-science-education.markdown = ..\_posts\2003-3-1-computer-science-education.markdown
+		..\_posts\2003-3-12-geometric-algebra.markdown = ..\_posts\2003-3-12-geometric-algebra.markdown
+		..\_posts\2005-10-2-tools-and-libraries.markdown = ..\_posts\2005-10-2-tools-and-libraries.markdown
+		..\_posts\2007-11-11-surprise-delivery.markdown = ..\_posts\2007-11-11-surprise-delivery.markdown
+		..\_posts\2007-5-12-sinterklaas-in-canada.markdown = ..\_posts\2007-5-12-sinterklaas-in-canada.markdown
+		..\_posts\2008-4-3-choice-surprise-focus.markdown = ..\_posts\2008-4-3-choice-surprise-focus.markdown
+		..\_posts\2009-4-29-garbage-collection.markdown = ..\_posts\2009-4-29-garbage-collection.markdown
+		..\_posts\2010-2-14-valentines-day-outsourced.markdown = ..\_posts\2010-2-14-valentines-day-outsourced.markdown
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaapsuter.github.com", "{268607DF-F1FD-4312-9543-365234474E47}"
+	ProjectSection(SolutionItems) = preProject
+		..\404.html = ..\404.html
+		..\_abbr.yml = ..\_abbr.yml
+		..\_config.yml = ..\_config.yml
+		..\atom.xml = ..\atom.xml
+		..\CNAME = ..\CNAME
+		..\do.cmd = ..\do.cmd
+		..\favicon.ico = ..\favicon.ico
+		..\geometric-algebra.pdf = ..\geometric-algebra.pdf
+		..\google415246fe73d6cc14.html = ..\google415246fe73d6cc14.html
+		..\humans.txt = ..\humans.txt
+		..\index.html = ..\index.html
+		..\jaap-suter-resume.pdf = ..\jaap-suter-resume.pdf
+		..\lab.markdown = ..\lab.markdown
+		..\projects.markdown = ..\projects.markdown
+		..\resume.markdown = ..\resume.markdown
+		..\robots.txt = ..\robots.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_sass", "_sass", "{1043C2CE-91D0-4EA1-BDAC-46056E59EA56}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\head.scss = ..\_sass\head.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{8D1165C3-726B-422E-BB82-B3D58E2ECBE2}"
+	ProjectSection(SolutionItems) = preProject
+		..\js\jaap.all.js = ..\js\jaap.all.js
+		..\js\jaap.all.min.debug.js = ..\js\jaap.all.min.debug.js
+		..\js\jaap.all.min.js = ..\js\jaap.all.min.js
+		..\js\jaap.js = ..\js\jaap.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_plugins", "_plugins", "{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540}"
+	ProjectSection(SolutionItems) = preProject
+		..\_plugins\liquid-extensions.rb = ..\_plugins\liquid-extensions.rb
+		..\_plugins\page-and-post-post-write-hook.rb = ..\_plugins\page-and-post-post-write-hook.rb
+		..\_plugins\sitemap-generator.rb = ..\_plugins\sitemap-generator.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{C4A66924-C309-4A4B-B937-D6994ED2B6D6}"
+	ProjectSection(SolutionItems) = preProject
+		..\_includes\modules\archive.html = ..\_includes\modules\archive.html
+		..\_includes\modules\archive.html.haml = ..\_includes\modules\archive.html.haml
+		..\_includes\modules\develop.html = ..\_includes\modules\develop.html
+		..\_includes\modules\develop.html.haml = ..\_includes\modules\develop.html.haml
+		..\_includes\modules\header.html = ..\_includes\modules\header.html
+		..\_includes\modules\header.html.haml = ..\_includes\modules\header.html.haml
+		..\_includes\modules\menu.html = ..\_includes\modules\menu.html
+		..\_includes\modules\menu.html.haml = ..\_includes\modules\menu.html.haml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mixin", "mixin", "{5C569D03-E67E-4B2C-AF64-A661E9E790D5}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\framework\mixin\_mixin-aspect-ratio.sass = ..\_sass\framework\mixin\_mixin-aspect-ratio.sass
+		..\_sass\framework\mixin\_mixin-button.scss = ..\_sass\framework\mixin\_mixin-button.scss
+		..\_sass\framework\mixin\_mixin-color.scss = ..\_sass\framework\mixin\_mixin-color.scss
+		..\_sass\framework\mixin\_mixin-debug.scss = ..\_sass\framework\mixin\_mixin-debug.scss
+		..\_sass\framework\mixin\_mixin-media-query-tile.sass = ..\_sass\framework\mixin\_mixin-media-query-tile.sass
+		..\_sass\framework\mixin\_mixin-transitions.scss = ..\_sass\framework\mixin\_mixin-transitions.scss
+		..\_sass\framework\mixin\_mixin-type.scss = ..\_sass\framework\mixin\_mixin-type.scss
+		..\_sass\framework\mixin\_mixin-util.scss = ..\_sass\framework\mixin\_mixin-util.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "const", "const", "{8B2F6424-2A07-4389-8634-23D4294579FF}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\framework\const\_const-color.scss = ..\_sass\framework\const\_const-color.scss
+		..\_sass\framework\const\_const-grid.scss = ..\_sass\framework\const\_const-grid.scss
+		..\_sass\framework\const\_const-type.scss = ..\_sass\framework\const\_const-type.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "func", "func", "{747874D9-552F-45C8-B5EA-2F2AEBDDDA9A}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\framework\func\_func-color.scss = ..\_sass\framework\func\_func-color.scss
+		..\_sass\framework\func\_func-type.scss = ..\_sass\framework\func\_func-type.scss
+		..\_sass\framework\func\_func-util.scss = ..\_sass\framework\func\_func-util.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "layout", "layout", "{55BEACA3-5678-446D-A06E-37834351FF2C}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\layout\_layout-develop.scss = ..\_sass\layout\_layout-develop.scss
+		..\_sass\layout\_layout-media-queries.sass = ..\_sass\layout\_layout-media-queries.sass
+		..\_sass\layout\_layout.scss = ..\_sass\layout\_layout.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{6DA9E3B0-732A-4073-82D4-4F2125B69D64}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\base\_base-figure.scss = ..\_sass\base\_base-figure.scss
+		..\_sass\base\_base-normalize.scss = ..\_sass\base\_base-normalize.scss
+		..\_sass\base\_base-reset.scss = ..\_sass\base\_base-reset.scss
+		..\_sass\base\_base-type.scss = ..\_sass\base\_base-type.scss
+		..\_sass\base\_base-util.scss = ..\_sass\base\_base-util.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\framework\_const.scss = ..\_sass\framework\_const.scss
+		..\_sass\framework\_extern.scss = ..\_sass\framework\_extern.scss
+		..\_sass\framework\_func.scss = ..\_sass\framework\_func.scss
+		..\_sass\framework\_mixin.scss = ..\_sass\framework\_mixin.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{1336C1DB-0800-4E65-A805-7A3785F02100}"
+	ProjectSection(SolutionItems) = preProject
+		..\_includes\other\copyright_pubdate_author.html = ..\_includes\other\copyright_pubdate_author.html
+		..\_includes\other\copyright_pubdate_author.html.haml = ..\_includes\other\copyright_pubdate_author.html.haml
+		..\_includes\other\figure.html = ..\_includes\other\figure.html
+		..\_includes\other\figure.html.haml = ..\_includes\other\figure.html.haml
+		..\_includes\other\flash.html = ..\_includes\other\flash.html
+		..\_includes\other\flash.html.haml = ..\_includes\other\flash.html.haml
+		..\_includes\other\footer.html = ..\_includes\other\footer.html
+		..\_includes\other\footer.html.haml = ..\_includes\other\footer.html.haml
+		..\_includes\other\head.html = ..\_includes\other\head.html
+		..\_includes\other\head.html.haml = ..\_includes\other\head.html.haml
+		..\_includes\other\pullquote.html = ..\_includes\other\pullquote.html
+		..\_includes\other\pullquote.html.haml = ..\_includes\other\pullquote.html.haml
+		..\_includes\other\script.html = ..\_includes\other\script.html
+		..\_includes\other\script.html.haml = ..\_includes\other\script.html.haml
+		..\_includes\other\search.html = ..\_includes\other\search.html
+		..\_includes\other\search.html.haml = ..\_includes\other\search.html.haml
+		..\_includes\other\video.html = ..\_includes\other\video.html
+		..\_includes\other\video.html.haml = ..\_includes\other\video.html.haml
+		..\_includes\other\vimeo.html = ..\_includes\other\vimeo.html
+		..\_includes\other\vimeo.html.haml = ..\_includes\other\vimeo.html.haml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_json", "_json", "{7CEDF735-0340-4CB0-B3EB-A8C21156CFF8}"
+	ProjectSection(SolutionItems) = preProject
+		..\_json\coffee-lint.json = ..\_json\coffee-lint.json
+		..\_json\type-subsets.json = ..\_json\type-subsets.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extern", "extern", "{F4041C5A-5FAE-4AEB-8287-22506003DDFE}"
+	ProjectSection(SolutionItems) = preProject
+		..\_sass\extern\_debug.scss = ..\_sass\extern\_debug.scss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_ruby", "_ruby", "{A7D1582B-CCCF-45A3-8267-796F6EC87B27}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\compass-config.rb = ..\_ruby\compass-config.rb
+		..\_ruby\do.rb = ..\_ruby\do.rb
+		..\_ruby\framework.rb = ..\_ruby\framework.rb
+		..\_ruby\sass-extensions.rb = ..\_ruby\sass-extensions.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{C9005B79-D0BE-4712-A7E2-2B9378AD5698}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\framework\cached.rb = ..\_ruby\framework\cached.rb
+		..\_ruby\framework\compile.rb = ..\_ruby\framework\compile.rb
+		..\_ruby\framework\config.rb = ..\_ruby\framework\config.rb
+		..\_ruby\framework\daemon.rb = ..\_ruby\framework\daemon.rb
+		..\_ruby\framework\dress.rb = ..\_ruby\framework\dress.rb
+		..\_ruby\framework\font.rb = ..\_ruby\framework\font.rb
+		..\_ruby\framework\paths.rb = ..\_ruby\framework\paths.rb
+		..\_ruby\framework\reload.rb = ..\_ruby\framework\reload.rb
+		..\_ruby\framework\server.rb = ..\_ruby\framework\server.rb
+		..\_ruby\framework\tool.rb = ..\_ruby\framework\tool.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_fonts", "_fonts", "{5C7EE667-5933-4347-B8A8-EE64836C245F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{D391E781-3FA4-4463-A9FF-F8F2D163E201}"
+	ProjectSection(SolutionItems) = preProject
+		..\_fonts\scripts\forge.py = ..\_fonts\scripts\forge.py
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_site", "_site", "{33B17BCB-4312-4678-B1B3-E0411188E6CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9DA-44AE-B739-9BB0B42698BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab", "lab", "{83DB6C1B-6560-45EB-972A-546386316CC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{3D899D91-A716-4606-B5AF-E0F46470E540}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\framework\server\default-servlet.rb = ..\_ruby\framework\server\default-servlet.rb
+		..\_ruby\framework\server\json-servlet.rb = ..\_ruby\framework\server\json-servlet.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_coffee", "_coffee", "{92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0}"
+	ProjectSection(SolutionItems) = preProject
+		..\_coffee\jaap.coffee = ..\_coffee\jaap.coffee
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaap", "jaap", "{C33846B4-E40E-4DF1-AC04-3C508753191A}"
+	ProjectSection(SolutionItems) = preProject
+		..\_coffee\jaap\ajax.coffee = ..\_coffee\jaap\ajax.coffee
+		..\_coffee\jaap\font.coffee = ..\_coffee\jaap\font.coffee
+		..\_coffee\jaap\util.coffee = ..\_coffee\jaap\util.coffee
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaap", "jaap", "{863DBB29-E63D-4094-B38D-6FC542071F96}"
+	ProjectSection(SolutionItems) = preProject
+		..\js\jaap\font.js = ..\js\jaap\font.js
+		..\js\jaap\util.js = ..\js\jaap\util.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monkey", "monkey", "{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\framework\monkey\hash.rb = ..\_ruby\framework\monkey\hash.rb
+		..\_ruby\framework\monkey\numberic.rb = ..\_ruby\framework\monkey\numberic.rb
+		..\_ruby\framework\monkey\string.rb = ..\_ruby\framework\monkey\string.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid", "liquid", "{833BC586-AE9C-4BDF-BD63-8E07FFB29563}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\framework\liquid\hamlize.rb = ..\_ruby\framework\liquid\hamlize.rb
+		..\_ruby\framework\liquid\hyphenate.rb = ..\_ruby\framework\liquid\hyphenate.rb
+		..\_ruby\framework\liquid\include-wildcard.rb = ..\_ruby\framework\liquid\include-wildcard.rb
+		..\_ruby\framework\liquid\sized-paragraph.rb = ..\_ruby\framework\liquid\sized-paragraph.rb
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{852AA507-3D36-4C2E-B415-5A79D4E6D02C} = {268607DF-F1FD-4312-9543-365234474E47}
+		{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7} = {268607DF-F1FD-4312-9543-365234474E47}
+		{F24DC583-8E87-4618-88C1-096CF33A3C66} = {268607DF-F1FD-4312-9543-365234474E47}
+		{1043C2CE-91D0-4EA1-BDAC-46056E59EA56} = {268607DF-F1FD-4312-9543-365234474E47}
+		{8D1165C3-726B-422E-BB82-B3D58E2ECBE2} = {268607DF-F1FD-4312-9543-365234474E47}
+		{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540} = {268607DF-F1FD-4312-9543-365234474E47}
+		{7CEDF735-0340-4CB0-B3EB-A8C21156CFF8} = {268607DF-F1FD-4312-9543-365234474E47}
+		{A7D1582B-CCCF-45A3-8267-796F6EC87B27} = {268607DF-F1FD-4312-9543-365234474E47}
+		{5C7EE667-5933-4347-B8A8-EE64836C245F} = {268607DF-F1FD-4312-9543-365234474E47}
+		{33B17BCB-4312-4678-B1B3-E0411188E6CA} = {268607DF-F1FD-4312-9543-365234474E47}
+		{92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0} = {268607DF-F1FD-4312-9543-365234474E47}
+		{C4A66924-C309-4A4B-B937-D6994ED2B6D6} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
+		{1336C1DB-0800-4E65-A805-7A3785F02100} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
+		{F4041C5A-5FAE-4AEB-8287-22506003DDFE} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
+		{55BEACA3-5678-446D-A06E-37834351FF2C} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
+		{6DA9E3B0-732A-4073-82D4-4F2125B69D64} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
+		{863DBB29-E63D-4094-B38D-6FC542071F96} = {8D1165C3-726B-422E-BB82-B3D58E2ECBE2}
+		{F94BE57E-A7E4-4FF1-9064-9E85E570FBD6} = {F4041C5A-5FAE-4AEB-8287-22506003DDFE}
+		{747874D9-552F-45C8-B5EA-2F2AEBDDDA9A} = {F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}
+		{8B2F6424-2A07-4389-8634-23D4294579FF} = {F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}
+		{5C569D03-E67E-4B2C-AF64-A661E9E790D5} = {F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}
+		{C9005B79-D0BE-4712-A7E2-2B9378AD5698} = {A7D1582B-CCCF-45A3-8267-796F6EC87B27}
+		{3D899D91-A716-4606-B5AF-E0F46470E540} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
+		{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
+		{833BC586-AE9C-4BDF-BD63-8E07FFB29563} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
+		{D391E781-3FA4-4463-A9FF-F8F2D163E201} = {5C7EE667-5933-4347-B8A8-EE64836C245F}
+		{278B1B56-D9DA-44AE-B739-9BB0B42698BB} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
+		{83DB6C1B-6560-45EB-972A-546386316CC6} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
+		{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
+		{C33846B4-E40E-4DF1-AC04-3C508753191A} = {92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0}
+	EndGlobalSection
+EndGlobal

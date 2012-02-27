@@ -1,12 +1,12 @@
 ---
-layout: post
-title: "Tools and Libraries"
+layout: default
+title: "Tools &amp; Libraries"
 tags: [Technical]
 ---
 
 This article presents some non-technical thoughts that affect the process and structure of a tools and libraries group.
 
-### Being a Benchmark
+## Being a Benchmark
 
 A building is only as strong as the foundation it is built on and the tools it is built with. This age old saying may apply to software engineering more than to building construction itself. Game teams are in construction, but they are using the foundations and tools we supply. Tools and library people have the responsibility to offer the best possible technology to enable other teams to work effectively. This may sound obvious, but this idea should be taken to the next step. Not only should our technology be the best, its quality should act as a benchmark that other developers strive for. Libraries are generally
 better designed and implemented than most game specific code. As such, tools and libraries has ability to increase familiarity with modern patterns and idioms across the company.
@@ -15,7 +15,7 @@ If I cook just for myself, I often just throw something in the microwave and be 
 
 This ties in with a sense of pride as well. As the reputation of the software we write improves, we can be prouder of what we do. Not only does this improve morale immensely, it also creates a reinforcing effect that leads to even better software.
 
-### Transparency
+## Transparency
 
 We need as much transparency as possible in the full decision making process. From the day a library is proposed all discussions need to be made available through a mailing list or newsgroup, preferably the latter; making it easy for any developer worldwide to catch up on the latest progress at his own
 pace, without his inbox filling up.
@@ -43,7 +43,7 @@ The bottom-line is that every engineer should be considered a potential tools an
 developer. The people doing primary development just happen to get paid to work on tools and libraries full time,
 whereas most other engineers have a game as their first priority and appear mostly as customers.
 
-### Priorities
+## Priorities
 
 Obviously in-house development is different than voluntary open-source projects. What a library author
 deems a high priority may not always be what is best for the game studio.
@@ -55,7 +55,7 @@ Furthermore, the forum is only intended for questions and advice. If a question 
 or request still needs to be logged through tracking software. These tasks can be prioritized in the traditional sense. For the sake of
 transparency, it is recommended to publish a daily task and priority list.
 
-### Architects
+## Architects
 
 The role of an architect is an odd one. Traditionally,
 this role is lumped together with the role of technical lead. However, a technical lead has responsibilities beyond those of an architect. He is responsible
@@ -104,7 +104,7 @@ used in the industry at large and making sure
 we are aware of what the rest of the world is
 doing.
 
-### Formal Reviews
+## Formal Reviews
 
 A library can be in one of two stages; it is being
 developed or it has been released and is being maintained. The transition between the two stages needs
@@ -150,7 +150,7 @@ low for review failures and this essentially puts a library back into a state of
 stop other teams from using the library, but it puts some restrictions on the support we offer and their
 future stability.
 
-### Testing
+## Testing
 
 If we can only invest time and energy into one area,
 testing should be it. As a tools and library team
@@ -189,7 +189,7 @@ them. We need to give them the tools for this, and a
 continuous status of our tests is the most important
 one.
 
-### Documentation
+## Documentation
 
 I have generally not been impressed with the documentation that typical in-house libraries offer. What is
 often lacking is good introductory tutorials that not only provide an easy way into a library, but
@@ -202,7 +202,7 @@ to rationales. It is here where the author can justify his design and implementa
 avoids a large amount of recurring questions that developers otherwise face. As a user of a library I want
 to know why certain things are done the way they are and such rationales go a long way towards growing sympathy for a library and deciding to use it.
 
-### Conclusion
+## Conclusion
 
 This document has presented several non-technical
 ideas on how a tools and library team can establish a
@@ -224,5 +224,6 @@ Formal reviews allow us to create a seal of approval
 that separates libraries whose quality and interface
 we can blindly trust from libraries that are under
 more active development. Extensive and continuous
-test coverage and documentation that offers introductions and rationales will further help us establish a reputation of delivering high quality industrial
+test coverage and documentation that offers introductions and rationales will
+further help us establish a reputation of delivering high quality industrial
 strength tools and libraries.

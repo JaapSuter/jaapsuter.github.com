@@ -1,8 +1,0 @@
-From: http://advsys.net/ken/utils.htm#pngoutkziplicense
-
-PNGOUT / KZIP license:
-
-I have gotten a lot of requests recently about bundling the command line executables, or releasing the source code to KZIP and PNGOUT. Obviously, this is very flattering. : ) In general, I am open to this kind of stuff, however for these I must be a little protective, as the algorithms are incorporated into a commercial product. KZIP and PNGOUT share a lot of code in common, and I am currently selling GUI versions of PNGOUT at ardfry.com. So here is the license:
-The command line versions of PNGOUT.EXE and KZIP.EXE are free, as are the Mac and Linux ports. You may use PNGOUT- or KZIP-compressed content for non-commercial or commercial purposes.
-Redistributing, repackaging, or reusing the PNGOUT or KZIP executable is prohibited without the express consent of Ardfry Imaging, LLC, and a formal business agreement.
-For business requests (such as bundling), please write directly to my business partner, David Blake. He will be able to answer your question much better than I can.

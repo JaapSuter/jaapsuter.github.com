@@ -1,0 +1,355 @@
+
+._tsi4n {
+  color: rgba(#222, 0.73);
+  @include text-shadow(0px 0px 1px rgba(#000, 0.1)); 
+}
+
+._georgia { font-family: georgia; }
+._verdana { font-family: verdana; }
+._arial { font-family: arial; }
+._tahoma { font-family: tahoma; }
+
+._serif-fallback            { font-family: $serif-fallback; }
+._sans-fallback             { font-family: $sans-fallback; }
+._sans-condensed-fallback   { font-family: $sans-condensed-fallback; }                                                      
+._mono-fallback             { font-family: $mono-fallback; }
+
+body {
+  @include color-and-background-color(#222, $color-white);
+  // @include scale(1.473);
+  // -webkit-text-size-adjust: none;  
+  // -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizelegibility;
+  
+  @include rhythm-scope(body, tsn4n) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+  }
+}
+
+button, input, select, textarea {
+  @include rhythm-scope(body, $sans-small) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;    
+  }
+}
+  
+a {
+  @include link-colors(/* normal  */ lighten($color-black, 35%),
+                       /* hover   */ lighten($color-black, 45%),
+                       /* active  */ lighten($color-black, 45%),
+                       /* visited */ lighten($color-black, 25%),
+                       /* focus   */ lighten($color-black, 35%));
+}
+
+#container {
+  position: relative;
+}
+
+#{headings()} {
+  clear: both;
+}
+
+h1 {  
+  @include rhythm-scope(large-5x, pan7n-inv) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: 0 0 tem() 0;
+  }
+
+  &:before {
+    display: block;
+    position: absolute;
+    width: 100em;
+    right: 99.8%;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(#000, 1.0);
+    content: " ";
+  }
+
+  // line-height: 0.3;
+  // border: 0.5em solid #000;
+  // @include text-shadow(3px 3px 5px rgba(#000, 0.9));
+  color: rgba(#000, 1.0);
+}
+
+h2 {
+  @include rhythm-scope(large-3x, $sans-large) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: 0 0 tem() 0;
+  }
+}
+
+h3, h4, h5 {
+  @include rhythm-scope(large-2x, $sans-medium) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: 0 0 tem() 0;
+  }
+}
+
+.p-like, p, ul, ol, dl {
+  @include rhythm-scope(body, tsn4n) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: 0 0 tem() 0;
+    padding: 0;    
+  }
+}
+
+code, kbd, samp { @include rhythm-scope(body, tmn4n) { @include rhythm-font-family; line-height: 0; } }
+i, cite, em, var { @include rhythm-scope(body, tsi4n) { @include rhythm-font-family; line-height: 0; } }
+strong, b { @include rhythm-scope(body, tsn7n) { @include rhythm-font-family; line-height: 0; } }
+
+p { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
+
+.copyright {
+  @include rhythm-scope(small, $sans-small) { 
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: tem() 0 tem() 0;
+  }
+}
+
+pre {
+  @include rhythm-scope(small, tmn4n) {
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: 0 0 tem() 0;    
+    white-space: pre;
+    word-wrap: normal;
+    background-color: rgba(#999, 0.6);
+    width: 100%;
+  }  
+}
+
+dd { margin-left: tem(); }
+dt { margin: 0; &:after { content: ":"; } }
+
+.line-before-list {
+  margin-bottom: 0;
+}
+
+li {
+  position: relative;
+  display: block;
+  list-style-type: none;
+  
+  ol, ul {
+    // @include rhythm-inherited-reset;
+    color: lime;
+    margin-left: tem();
+  }
+}
+
+ul {
+  
+  & > li { text-indent: 0; }
+  & > li:before {
+    content: "";
+    background-color: rgba($color-black, 0.47);    
+    position: absolute;
+    width: tem(1, 3);
+    height: tem(1, 3);
+    left: tem(-2, 3);
+    // top: tem(2, 3) - $rhythm-baseline-em;
+  }
+}
+
+ol {
+  counter-reset: olc;
+  & > li { text-indent: tem(-2, 3); }    
+  & > li:before {
+    @include rhythm-scope(small) {
+      display: inline-block; 
+      @include rhythm-font-size;
+      width: tem(2, 3);
+      color: $color-black;
+      text-indent: 0;
+      counter-increment: olc;
+      content: counter(olc);
+    }
+  }
+    
+  ol > li:before { content: counter(olc, lower-alpha); }
+  ol ol > li:before { content: counter(olc); }
+}
+
+.ielt8 {
+  li { text-indent: 0; }
+  ul, ol { list-style-position: outside; }  
+  ol { li { list-style-type: decimal; } }
+  ul { li { list-style-type: square; } }  
+  li ol { li { list-style-type: lower-alpha; } }
+  li ul { li { list-style-type: disc; } }
+}
+
+blockquote {
+  overflow: hidden;
+  
+  margin: 0 tem(-1) tem() tem(-1);
+  color: rgba(#205, 0.92);
+  
+  p:first-child:before {
+    content: "\201c";
+    // content: "\275d";
+    display: block;
+    position: absolute;    
+    text-indent: tem(-1, 3);
+  }
+    
+  p:last-child:after {
+    content: "\201d";
+  }
+  
+  p {
+    margin-bottom: 0;
+    &:last-child { margin-bottom: tem(1); }
+  }
+  
+  p + p {
+    text-indent: tem();
+  }
+}
+
+table {
+  @include rhythm-scope(small, $sans-small) {
+    table-layout: fixed;
+    width: 100%;
+    outline: $color-table-outline solid 1px;
+    @include table-alternate($color-table, $color-table-2);    
+    @include rhythm-line-height;
+    @include rhythm-font-size;
+    @include rhythm-font-family;
+    margin: 0 0 tem() 0;
+    
+    th, td {
+      outline: rgba($color-table-outline, 0.6) solid 1px;
+      vertical-align: baseline;
+      text-align: right;
+      padding: 0 tem(0.5) 0 titemle(0.5);
+    }
+  }
+}
+
+.sidebar {
+  @include rhythm-scope(small-3x2, $sans-small) {
+    p {
+      @include rhythm-line-height;
+      @include rhythm-font-size;
+      @include rhythm-font-family;
+      margin: 0 0 tem() tem();
+      text-align: justify;
+      text-justify: newspaper;
+      overflow: visible;
+    }
+  }
+
+  float: right;
+  z-index: 200;
+  width: tem(7);
+  width: 40%;      
+  max-width: 56%;
+    
+  @media all and (max-width: 20em) {
+    position: relative;
+    @include rhythm-scope(small, $sans-small) {
+      line-height: $rhythm-line-height;
+      margin: 0 0 tem() 0;
+    }
+    float: none;
+    width: 43%;
+    max-width: 100%;
+  }
+}
+
+.sc {
+  text-rendering: optimizespeed;
+  @extend ._tsn4n-sc;
+  font-size: 18/16 * 1em;
+}
+
+.sc-fake {
+  text-rendering: optimizespeed;
+  text-transform: uppercase;
+  font-size: 0.875em;  
+}
+
+.sc-font-variant {
+  text-rendering: optimizespeed;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-size: 18 / 16 * 1em;
+}
+
+abbr {
+  @extend .sc;
+  
+  letter-spacing: 1/16 * 1em;
+  letter-spacing: 1px;
+  // word-spacing: 0.1em;
+  border: none;  
+  &[title] { border: none; }
+}
+
+.abbr-like {
+  @extend ._tsn4c;
+  font-size: 0.8125em;
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  color: #000;
+  &[title] { border: none; }
+}
+
+
+
+
+.pullquote:before {
+  
+  @include rhythm-scope(ex-is-tem, $sans-medium) {  
+    content: attr(data-pullquote);  
+    @extend #{$rhythm-font-family};
+    font-size: $rhythm-font-size-em;
+    line-height: $rhythm-line-height;
+    margin: 0 tem() tem() 0;
+    width: tem(9);
+    float: left;
+    z-index: 200;
+    max-width: 60%;
+  }
+
+  @media all and (max-width: 20em) {
+    position: relative;
+    @include rhythm-scope(ex-is-tem, $sans-medium) {
+      line-height: $rhythm-line-height;
+      margin: 0 0 tem() 0;
+    }
+    float: none;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+button { height: tem(2); border: none; padding: tem(1, 2); }
+fieldset { margin: 0 0 tem() 0; padding: tem(1) tem(1, 2); border: none; }
+textarea { padding: tem(1, 2); border: none; }
+
+#type-metrics-calc { float: right; width: tem(4); margin-bottom: tem(); }
+#type-metrics-values { height: tem(8); overflow-y: scroll; background-color: #abc; }
+
+#type-subset-crawl { float: right; width: tem(4); margin-bottom: tem(); }
+#type-subset-progress { height: tem(2); overflow-y: scroll; background-color: #abc; }
