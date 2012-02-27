@@ -10,7 +10,7 @@ Talking about summer laziness, I haven't doubleclicked on my visual C++ icon for
 
 He promised us some thoughts on beamtree optimizations in his third article. I decided to ask him about the optimizations and he gave me some hints. That got me to think up some major improvements on the beamtree scheme that I know so far. Let me describe what I want. I bet this has been thought of before but I just want to make things clear. 
 
-First of all, you all have read the document Phantom wrote about using a c- or s-buffer to get a perfect visibility set ( not a PVS :) ). What I liked about the s-buffer variant is that you wouldn't have to clip faces against octree nodes (from now on octree means kd-tree too) and that the contents of the octree nodes wouldn't have to be sorted. On the other hand Harmless said that the s-buffer will only give you quake style complexity and that the c-buffer will allow way more advanced levels. 
+First of all, you all have read the document Phantom wrote about using a c- or s-buffer to get a perfect visibility set (not a PVS :). What I liked about the s-buffer variant is that you wouldn't have to clip faces against octree nodes (from now on octree means kd-tree too) and that the contents of the octree nodes wouldn't have to be sorted. On the other hand Harmless said that the s-buffer will only give you quake style complexity and that the c-buffer will allow way more advanced levels. 
 
 What I want is complex levels without sorted octree nodes and without clipping against octree nodes. This is a stupid statement cause this is what everybody wants! Still however I keep searching. 
 
