@@ -1,0 +1,149 @@
+﻿<!DOCTYPE   html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Why Collect Garbage - Jaap Suter</title>
+	<link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+	<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->    
+    <script type="text/javascript" src="/javascript/h2v.js"></script>
+</head>
+<body>
+<div id="container">
+    <aside class="contact vcard">
+        <span class="fn not-visual">Jaap Suter</span>
+        <span class="n not-visual">Suter;Jaap</span>
+        <span class="nickname not-visual">Jaap</span>
+        <span class="org organization not-visual">N/A</span>
+        <span class="role not-visual">Tinkerer</span>
+        <abbr class="bday not-visual" title="1980-04-25">April 25th 1980</abbr>
+
+        <a class="geo not-visual" title="Address in Google Maps" href="http://maps.google.ca/maps?q=1738+Parker+Street&hl=en&sll=49.275744,-123.068992&sspn=0.011522,0.027874&z=16">
+            <abbr class="latitude" title="49.275744"></abbr>
+            <abbr class="longitude" title="-123.068992"></abbr>
+            <div class="adr address">
+                <div class="street-address">1738 Parker Street</div>
+                <span class="locality">Vancouver</span>
+                <abbr class="region" title="British Columbia">BC</abbr>&nbsp;&nbsp;<span class="postal-code">V5L 2K8</span><br />
+                <abbr class="country-name" title="Canada">Canada</abbr>
+            </div>
+        </a>
+
+        <img class="photo not-visual" alt="Jaap Suter Profile Photo" src="/images/portrait.jpg"/>
+            
+        <a id="download" href="#" onclick="return H2V.download (this);"><img src="/images/vcard.png" alt="Download vCard"/></a>
+        <a class="url" href="http://www.jaapsuter.com" rel="me">www.jaapsuter.com</a><br />
+        <a class="email" href="mailto:contact@jaapsuter.com">contact@jaapsuter.com</a>
+        <div class="tel"><span class="value">+1 604 313 5227</span> (<span class="type">cell</span>)</div>        
+</aside>
+		
+    <header>
+        <h1><a href="/">Jaap Suter</a></h1>
+	</header>
+    <nav>
+        <ul>
+			<li><a href="/resume.pdf"><img src="/images/pdf.png" width="32px" height="32px"/>Resume</a></li>
+            <li><a href="//github.com/JaapSuter"><img src="/images/github-octotat.png" width="32px" height="32px"/>GitHub</a></li>
+            <li><a href="/atom.xml"><img src="/images/rss.png" width="32px" height="32px"/></a></li>
+		</ul> 
+	</nav>
+    <article>
+    <header class="title">
+        <hgroup>
+            <h3>29 Apr 2009</h3>
+            <h2>Why Collect Garbage</h2>            
+        </hgroup>
+    </header>    
+    <p>On the <strong>Sweng-GameDev</strong> mailing list, Gil wrote&#8230;</p>
+
+<blockquote>
+<p>&#8220;Seem like the death of C/C++ has been proclaimed for at least 20 years. The proposed benefits of higher level languages strike me as naive and theoretical. In practice those benefits don&#8217;t materialize, in my experience anyway.&#8221;<br /> <br /> Let me just pick on one thing today: Garbage collection. Having made big-budget commercial games both with and without garbage collection, in my experience, these are myths:<br /></p>
+
+<ul>
+<li>Myth: C++ does not &#8220;support&#8221; garbage collection.<br /></li>
+
+<li>Myth: Garbage collection saves development time.<br /></li>
+
+<li>Myth: Garbage collection reduces bugs.&#8221;</li>
+</ul>
+</blockquote>
+
+<p>He continues:</p>
+
+<blockquote>
+<p>&#8220;To me, &#8220;ownership and lifetime&#8221; is an important concept in software engineering. When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can&#8217;t be referred to anymore.<br /> <br /> I feel that having only one answer to the ownership and lifetime question is very limiting on expressive power. In many cases, a different approach to ownership and lifetime will give you a superior design. We sure don&#8217;t want to live with inferior designs because the language has a dogmatic and limiting view of ownership and lifetime.<br /> <br /> As far as development time and bugs, well in my experience a garbage collection system just gives you different sorts of bugs. With garbage collection, you will spend your debugging time trying to understand what link in super complex dependency chain is problematic, and even when it is identified you are left with only hacky approaches to breaking the undesirable links. Realize that with a console game, an object that does not get destroyed soon enough is just as fatal as an object that gets destroyed too soon, except the former is much harder to track down and fix.<br /> <br /> In the end using garbage collection isn&#8217;t a huge problem; I&#8217;m satisfied with the products I&#8217;ve made that use GC. But I will say that whoever thinks garbage collection offer significant benefits to game development doesn&#8217;t seem to be facing or solving the same problems that I confront.&#8221;</p>
+</blockquote>
+
+<p>I respect Gil&#8217;s experience, and reading between the lines I suspect his actual stance on GC is quite a bit more nuanced than appears from his email. But this email by itself shows he doesn&#8217;t understand the fundamental advantage of GC &#8211; one you <em>will not</em> get with manual memory management.</p>
+
+<p>Regretfully I don&#8217;t have time to dissect Gil&#8217;s email completely; if anybody wants to grab a room and whiteboard with me, I&#8217;d be more than happy to elaborate.</p>
+
+<p>For now, I&#8217;m going to comment on one point only. Quoting Gil&#8230;</p>
+
+<blockquote>
+<p>&#8220;To me, &#8220;ownership and lifetime&#8221; is an important concept in software engineering. When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can&#8217;t be referred to anymore.&#8221;</p>
+</blockquote>
+
+<p>Read the last sentence again.</p>
+
+<p>Now try to figure out what he means by &#8220;referencing&#8221; and &#8220;ownership&#8221;&#8230;</p>
+
+<p>When it comes to resources, only one thing matters: &#8220;any resource that is referred to from a piece of code that <em>might</em> still run at some point in the future <em>must</em> be alive.&#8221;</p>
+
+<p>Note this guarantee says nothing about ownership. I don&#8217;t care who owns what, I just want the resources my code uses to be valid - regardless of whether subsystem X owns them, or subsystem Y, or you, or my mom.</p>
+
+<p>Some people will muddle this point by mentioning weak references, but actually the fact one can validate a weak reference corroborates the above.</p>
+
+<p>Compare the above with: &#8220;any resource that is no longer referred to from any piece of code that <em>might</em> still run at some point <em>may</em> be alive.&#8221;</p>
+
+<p>That&#8217;s the point where ownership becomes important; because releasing resources means other people can use them. This is particularly obvious for file- and network-handles, because they have identity. Memory on the other hand is completely anonymous. That 200 kB your system holds on to doesn&#8217;t stop me from allocating the 200 kB that I need, provided there is enough memory available (I&#8217;ll come back to this caveat).</p>
+
+<p>This distinction between resources with or without identity underlies why most languages don&#8217;t extend their GC mechanisms to cover file- and network-handles. It&#8217;s why C# has the using statement and <code>IDisposable</code> pattern, something that makes C++ programmers invent smart-handle patterns in C# (and understandably so).</p>
+
+<p>Now coming back to the caveat: &#8221;&#8230;provided there is enough memory&#8221;, which ultimately is the real motivator for Gil&#8217;s email. On most triple-A console titles, memory is at a premium. So that 200 kB that you&#8217;re still holding on to <em>does</em> matter to me, because the memory manager doesn&#8217;t have another 200 kB of memory lying around for me.</p>
+
+<p>So we need those 200 kB back as soon as possible, and consequently we end up adding various manual memory management schemes back into our garbage collected code-base.</p>
+
+<p>I&#8217;m totally sympathetic to that. Rewriting typical console titles using a garbage collecting C++ allocator (like Boehm) will probably end up with just as much manual memory tracking as they do already&#8230;</p>
+
+<p>If we do that anyway, then why bother with GC&#8230;?</p>
+
+<p>Remember the video where Steve Balmer cares about Developers?</p>
+<center>
+<object height='240' width='300'><param name='movie' value='http://www.youtube.com/v/8To-6VIJZRE' /><param name='allowFullScreen' value='true' /><param name='allowscriptaccess' value='always' /><embed allowfullscreen='true' allowscriptaccess='always' height='240' src='http://www.youtube.com/v/8To-6VIJZRE' type='application/x-shockwave-flash' width='300' /></object>
+</center>
+<p>If you ask me: &#8221;<em>What&#8217;s the purpose of garbage collection?</em>&#8221;, there&#8217;s a good chance I&#8217;ll go all Steve Balmer on you and scream: &#8221;<strong>Concurrency, Concurrency, Concurrency</strong>&#8221;&#8230;</p>
+
+<p>Consider a program that runs entirely in a single thread. Between the allocation of a resource and all the places it is used, the code paths are defined in a purely lexical manner. That is to say; if you had enough time, you could search, stack-walk, code-step, and reason; until you had the fully deterministic flow between allocation and use of any resource.</p>
+
+<p>And indeed, most of what we call &#8220;debugging&#8221; is precisely that activity: &#8221;&#8230;studying the code path to ensure ensuring that your resources are still valid at the point where you use them&#8221;</p>
+
+<p>But even without a debugger, you could theoretically determine the flow from a lexical interpretation alone. Now consider a multi-threaded application; that program flow between allocation and use is no longer deterministic. Though theoretically your ability to reason from a lexical interpretation is still there, the complexity to do so grows exponentially with every additional thread - which means that in practice you no longer have a single lexical path between allocation and use; you have a large number of invisible temporal paths.</p>
+
+<p>This is why concurrency is hard - we&#8217;re not talking about a difference in degree; we&#8217;re talking about a fundamental problem; you&#8217;ve lost your ability to reason about code lexically.</p>
+
+<p>Wait a second, this email was about garbage collection, and now you&#8217;re talking about concurrency?</p>
+
+<p>Well, go back to the fundamental guarantee of resources, and notice I highlighted the word <em>might</em> when saying: &#8221;&#8230;piece of code that <em>might</em> still run at some point in the future&#8230;&#8221;</p>
+
+<p>Depending on how smart you are, you can make a piece of code increasingly concurrent and still determine in your head when a piece of code <em>might</em> run. But even Donald Knuth has a breaking point, beyond which it becomes impossible to know if a resource might still be useful somewhere.</p>
+
+<p>That&#8217;s the point where Garbage Collection is no longer a luxury, but a necessity. Strictly speaking, garbage collection is dual (in the mathematical sense) to manual memory management - and through it, the computer can deterministically guarantee that any resource that is still referenced, is also available.</p>
+
+<p>And if a resource that is referenced happens to be one that is needed; it&#8217;d better be available.</p>
+
+<p>Does that mean that some resources may be referenced that are not actually needed? Yes, regretfully so; and for resources with identity, or on machines with limited anonymous resources (like memory); that implies we have to put some manual tracking back in again.</p>
+
+<p>But GC with manual memory tracking put back in is a matter of performance. Whereas a sufficiently concurrent application without GC is not about performance, it&#8217;s about correctness.</p>
+
+<p>Consequently, future games will have to sacrifice memory to allow for conservative GC environments, if they want to leverage the available processing power.</p>
+
+<p>Like I said above, I don&#8217;t have time to dissect Gil&#8217;s email completely. I wrote all of the above in a stream-of-conscious manner and I&#8217;m aware there&#8217;s some hand-waving. If anybody&#8217;s interested, drop me an email and I&#8217;ll try to dig up some references when I have more time.</p>
+</article>
+<footer id="footer">
+    <h3>&copy; 2009 <a href="/" rel="index">Jaap Suter</a></h3>
+</footer>
+    
+
+</div>
+</html>

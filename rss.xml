@@ -1,24 +1,98 @@
----
-layout: nil
----
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <atom:link href="http://www.jaapsuter.com/rss.xml" rel="self" type="application/rss+xml" />
     <title>Jaap Suter</title>
     <link>http://www.jaapsuter.com/</link>
     <language>en-us</language>
-    <description>{{ site.tagline }}</description>
-    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:00 %z" }}</lastBuildDate>
+    <description></description>
+    <lastBuildDate>Mon, 27 Feb 2012 12:26:00 -0800</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <managingEditor>rss@jaapsuter.com (Jaap Suter)</managingEditor>
     <webMaster>rss@jaapsuter.com (Jaap Suter)</webMaster>
-    {% for post in site.posts %}
+    
       <item>
-        <title>{{ post.title }}</title>
-        <link>http://www.jaapsuter.com{{ post.url }}</link>        
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:00 %z" }}</pubDate>
-        <guid>http://www.jaapsuter.com{{ post.id }}/</guid>
+        <title>Outsource Valentine</title>
+        <link>http://www.jaapsuter.com/outsource-valentine/</link>        
+        <pubDate>Sun, 14 Feb 2010 00:00:00 -0800</pubDate>
+        <guid>http://www.jaapsuter.com/outsource-valentine/</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Why Collect Garbage</title>
+        <link>http://www.jaapsuter.com/why-collect-garbage/</link>        
+        <pubDate>Wed, 29 Apr 2009 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/why-collect-garbage/</guid>
+      </item>
+    
+      <item>
+        <title>Choice Surprise Focus</title>
+        <link>http://www.jaapsuter.com/choice-surprise-focus/</link>        
+        <pubDate>Thu, 03 Apr 2008 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/choice-surprise-focus/</guid>
+      </item>
+    
+      <item>
+        <title>Romantic Surprise</title>
+        <link>http://www.jaapsuter.com/romantic-surprise/</link>        
+        <pubDate>Sun, 11 Nov 2007 00:00:00 -0800</pubDate>
+        <guid>http://www.jaapsuter.com/romantic-surprise/</guid>
+      </item>
+    
+      <item>
+        <title>Sinterklaas</title>
+        <link>http://www.jaapsuter.com/sinterklaas/</link>        
+        <pubDate>Sat, 12 May 2007 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/sinterklaas/</guid>
+      </item>
+    
+      <item>
+        <title>Concurrent Fears</title>
+        <link>http://www.jaapsuter.com/concurrent-fears/</link>        
+        <pubDate>Thu, 12 Apr 2007 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/concurrent-fears/</guid>
+      </item>
+    
+      <item>
+        <title>Tools and Libraries</title>
+        <link>http://www.jaapsuter.com/tools-and-libraries/</link>        
+        <pubDate>Sun, 02 Oct 2005 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/tools-and-libraries/</guid>
+      </item>
+    
+      <item>
+        <title>Geometric Algebra</title>
+        <link>http://www.jaapsuter.com/geometric-algebra/</link>        
+        <pubDate>Wed, 12 Mar 2003 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/geometric-algebra/</guid>
+      </item>
+    
+      <item>
+        <title>Computer Science Education</title>
+        <link>http://www.jaapsuter.com/computer-science-education/</link>        
+        <pubDate>Sat, 01 Mar 2003 00:00:00 -0800</pubDate>
+        <guid>http://www.jaapsuter.com/computer-science-education/</guid>
+      </item>
+    
+      <item>
+        <title>GBA Development</title>
+        <link>http://www.jaapsuter.com/gba-development/</link>        
+        <pubDate>Fri, 17 Aug 2001 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/gba-development/</guid>
+      </item>
+    
+      <item>
+        <title>Beamtree Results</title>
+        <link>http://www.jaapsuter.com/beamtree-results/</link>        
+        <pubDate>Fri, 22 Sep 2000 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/beamtree-results/</guid>
+      </item>
+    
+      <item>
+        <title>Beamtree Optimizations</title>
+        <link>http://www.jaapsuter.com/beamtree-optimizations/</link>        
+        <pubDate>Mon, 07 Jun 1999 00:00:00 -0700</pubDate>
+        <guid>http://www.jaapsuter.com/beamtree-optimizations/</guid>
+      </item>
+    
   </channel>
 </rss>

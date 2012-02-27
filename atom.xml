@@ -1,24 +1,98 @@
----
-layout: nil
----
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title>Jaap Suter</title>
   <link href="http://www.jaapsuter.com/atom.xml" rel="self"/>
   <link href="http://www.jaapsuter.com/"/>
-  <updated>{{site.time | date_to_xmlschema }}</updated>
+  <updated>2012-02-27T12:26:33-08:00</updated>
   <id>http://www.jaapsuter.com/</id>
   <author>
     <name>Jaap Suter</name>
     <email>contact@jaapsuter.com</email>
   </author>
-  {% for post in site.posts %}
+  
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="http://www.jaapsuter.com{{ post.url }}"/>
-    <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>http://www.jaapsuter.com{{ post.id }}/</id>
+    <title>Outsource Valentine</title>
+    <link href="http://www.jaapsuter.com/outsource-valentine/"/>
+    <updated>2010-02-14T00:00:00-08:00</updated>
+    <id>http://www.jaapsuter.com/outsource-valentine/</id>
   </entry>
-  {% endfor %}
+  
+  <entry>
+    <title>Why Collect Garbage</title>
+    <link href="http://www.jaapsuter.com/why-collect-garbage/"/>
+    <updated>2009-04-29T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/why-collect-garbage/</id>
+  </entry>
+  
+  <entry>
+    <title>Choice Surprise Focus</title>
+    <link href="http://www.jaapsuter.com/choice-surprise-focus/"/>
+    <updated>2008-04-03T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/choice-surprise-focus/</id>
+  </entry>
+  
+  <entry>
+    <title>Romantic Surprise</title>
+    <link href="http://www.jaapsuter.com/romantic-surprise/"/>
+    <updated>2007-11-11T00:00:00-08:00</updated>
+    <id>http://www.jaapsuter.com/romantic-surprise/</id>
+  </entry>
+  
+  <entry>
+    <title>Sinterklaas</title>
+    <link href="http://www.jaapsuter.com/sinterklaas/"/>
+    <updated>2007-05-12T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/sinterklaas/</id>
+  </entry>
+  
+  <entry>
+    <title>Concurrent Fears</title>
+    <link href="http://www.jaapsuter.com/concurrent-fears/"/>
+    <updated>2007-04-12T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/concurrent-fears/</id>
+  </entry>
+  
+  <entry>
+    <title>Tools and Libraries</title>
+    <link href="http://www.jaapsuter.com/tools-and-libraries/"/>
+    <updated>2005-10-02T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/tools-and-libraries/</id>
+  </entry>
+  
+  <entry>
+    <title>Geometric Algebra</title>
+    <link href="http://www.jaapsuter.com/geometric-algebra/"/>
+    <updated>2003-03-12T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/geometric-algebra/</id>
+  </entry>
+  
+  <entry>
+    <title>Computer Science Education</title>
+    <link href="http://www.jaapsuter.com/computer-science-education/"/>
+    <updated>2003-03-01T00:00:00-08:00</updated>
+    <id>http://www.jaapsuter.com/computer-science-education/</id>
+  </entry>
+  
+  <entry>
+    <title>GBA Development</title>
+    <link href="http://www.jaapsuter.com/gba-development/"/>
+    <updated>2001-08-17T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/gba-development/</id>
+  </entry>
+  
+  <entry>
+    <title>Beamtree Results</title>
+    <link href="http://www.jaapsuter.com/beamtree-results/"/>
+    <updated>2000-09-22T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/beamtree-results/</id>
+  </entry>
+  
+  <entry>
+    <title>Beamtree Optimizations</title>
+    <link href="http://www.jaapsuter.com/beamtree-optimizations/"/>
+    <updated>1999-06-07T00:00:00-07:00</updated>
+    <id>http://www.jaapsuter.com/beamtree-optimizations/</id>
+  </entry>
+  
 </feed>

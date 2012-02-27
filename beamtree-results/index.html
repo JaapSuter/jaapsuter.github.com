@@ -1,0 +1,129 @@
+﻿<!DOCTYPE   html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Beamtree Results - Jaap Suter</title>
+	<link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+	<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->    
+    <script type="text/javascript" src="/javascript/h2v.js"></script>
+</head>
+<body>
+<div id="container">
+    <aside class="contact vcard">
+        <span class="fn not-visual">Jaap Suter</span>
+        <span class="n not-visual">Suter;Jaap</span>
+        <span class="nickname not-visual">Jaap</span>
+        <span class="org organization not-visual">N/A</span>
+        <span class="role not-visual">Tinkerer</span>
+        <abbr class="bday not-visual" title="1980-04-25">April 25th 1980</abbr>
+
+        <a class="geo not-visual" title="Address in Google Maps" href="http://maps.google.ca/maps?q=1738+Parker+Street&hl=en&sll=49.275744,-123.068992&sspn=0.011522,0.027874&z=16">
+            <abbr class="latitude" title="49.275744"></abbr>
+            <abbr class="longitude" title="-123.068992"></abbr>
+            <div class="adr address">
+                <div class="street-address">1738 Parker Street</div>
+                <span class="locality">Vancouver</span>
+                <abbr class="region" title="British Columbia">BC</abbr>&nbsp;&nbsp;<span class="postal-code">V5L 2K8</span><br />
+                <abbr class="country-name" title="Canada">Canada</abbr>
+            </div>
+        </a>
+
+        <img class="photo not-visual" alt="Jaap Suter Profile Photo" src="/images/portrait.jpg"/>
+            
+        <a id="download" href="#" onclick="return H2V.download (this);"><img src="/images/vcard.png" alt="Download vCard"/></a>
+        <a class="url" href="http://www.jaapsuter.com" rel="me">www.jaapsuter.com</a><br />
+        <a class="email" href="mailto:contact@jaapsuter.com">contact@jaapsuter.com</a>
+        <div class="tel"><span class="value">+1 604 313 5227</span> (<span class="type">cell</span>)</div>        
+</aside>
+		
+    <header>
+        <h1><a href="/">Jaap Suter</a></h1>
+	</header>
+    <nav>
+        <ul>
+			<li><a href="/resume.pdf"><img src="/images/pdf.png" width="32px" height="32px"/>Resume</a></li>
+            <li><a href="//github.com/JaapSuter"><img src="/images/github-octotat.png" width="32px" height="32px"/>GitHub</a></li>
+            <li><a href="/atom.xml"><img src="/images/rss.png" width="32px" height="32px"/></a></li>
+		</ul> 
+	</nav>
+    <article>
+    <header class="title">
+        <hgroup>
+            <h3>22 Sep 2000</h3>
+            <h2>Beamtree Results</h2>            
+        </hgroup>
+    </header>    
+    <p class='warning-old'>
+<span class='warning-old-emph'>NOTE: </span>this was written over a decade ago.
+</p>
+<p>Take a look at this:</p>
+<figure>
+  <img alt='Engine Screenshots' src='/images/beamtree-results.jpg' />
+  <figcaption><span>Engine Screenshots</span></figcaption>
+</figure>
+<p>&#8230;that&#8217;s four screenshots from some things I&#8217;m busy with currently. They might not be that spectacular at first glance but let me explain.</p>
+
+<p>The project I was doing is finished (well, at least for me) and I&#8217;m still waiting for the new project specifications. This means that currently I have some time left for a little &#8220;re-search&#8221; (pronounce each syllable exaggerated, like Dr. Evil pronounces &#8220;giant la-ser&#8221; in Austin Powers, The Spy Who Shagged Me).</p>
+
+<p>Anyway, I finally started implementing these beamtrees i&#8217;ve been talking about for so long. The idea was to throw in occluders and then test octree-nodes against the beamtree (all in realtime ofcourse).</p>
+
+<p>Jacco was working on a C-Buffer approach at the same time and quickly he and I realized that the C-Buffer approach was going to be way faster (after some neat optimizations you wouldn&#8217;t think of until you implement it). Even though the C-Buffer works in screenspace and the beamtree in world- or camera-space, the C-Buffer is a lot faster.</p>
+
+<p>Since I had written the code for the beamtree already, I rewrote it to return the perfect visible polygon set from a given viewpoint and frustum. When you supply no frustum at all then the viewpoint is a 360 degree omni view (for lack of a better description). Try that with screenspace methods (and don&#8217;t start me about a cube with six 90 degree frustums).</p>
+
+<p>At first I wanted to create a beamtree where you could insert the polygons in random order. This turned out to be way too complex (read: slow), because inserting a new node would also mean updating every other node again. So I opted for the good ol&#8217; front to back insertion again, which meant I would be needing a BSPtree, to obtain the front to back polygon list before inserting them into the beamtree. Yike, I never wrote a BSPtree before, but it&#8217;s essentially the same as a beamtree, so I had it up and running in no-time at all.</p>
+
+<p>Okay, now the process is this. I insert the entire scene into the BSPtree. I obtain the front to back ordering of all polygons in the BSPtree. I insert these polygons front to back into the beamtree and presto: the perfect visible polygon set.</p>
+
+<p>Before I get to the screenshots, I would like to ask what is wrong with D3D&#8217;s wireframe routines. Tristrips don&#8217;t seem to be rendered correctly even when the line isn&#8217;t clipped at all. Any ideas? This and the fact that I had to scale these pictures down, is why those wireframe shots in these pictures aren&#8217;t quite right. I&#8217;m sorry.</p>
+
+<p>In the above scene you see 500 randomly placed, rotated and scaled cubes each containing 12 triangles. This means 6000 triangles to draw. This can be seen in the two left pictures. One in solid mode and one in wireframe mode. Each triangle has an alpha value of 0.1 so you can detect overdraws up to 10 pixels (completely white). Notice there is lots and lots of overdraw (even way more then 10 in some places).</p>
+
+<p>The right two pictures contain the perfect visible set. Notice that there is no overdraw at all. (Only at some edges, but that are probably precision errors of both my clipping routines (need to check my epsilons) and the edge interpolation of D3D). The wireframe mode however still seems to contain lots of polygons which is not very weird. First of all the BSPtree chops my triangles into lots an lots of pieces, and after that my beamtree chops them all up some more.</p>
+
+<p>I had to turn up the brightness and contrast of the right two pictures by the way, cause otherwise you wouldn&#8217;t see a thing. You might have to adjust the brightness and constrast on your monitor as well to see something. I&#8217;m sorry about that.</p>
+
+<p>Let&#8217;s show you some numbers. The scene starts of with 500 cubes. That means 6000 triangles. After inserting them into the BSPtree I ended up with 10344 polygons in the front to back list. That may seem a lot but you must remember that these cubes have been placed in the craziest way possible. That means lots of intersections of planes and polygons. Normal scenes (indoor stuff) end up with a lot less (but still a lot). I could optimize the BSPtree a lot by choosing the polygon that causes the least amount of splits at each treedepth. But that&#8217;s is something for tomorrow. After putting these polygons into the beamtree I got&#8230;</p>
+
+<p>(sounds of trumpets)&#8230;.</p>
+
+<p>2252</p>
+
+<p>polygons to draw. Which is a lot less then 10344 but even a lot less then 6000. Ofcourse I should mention that the 6000 were triangles and the 2162 were polygons which does make a difference. Maybe I should give vertex numbers next time. But it still is a nice achievement imho. Further more, calculating the perfect set doesn&#8217;t take as much time as I expected. Way too much time for realtime applications, but for preprocessing purposes it&#8217;s not much at all.</p>
+
+<p>After optimizing the BSPtree insertion routines (for minimal split counts) and using normal scenes this number could be improved even more.</p>
+
+<p>So we have a perfect visible set from a static scene as seen from a static viewpoint. What use is that? Well, here are some ideas:</p>
+
+<ol>
+<li>
+<p>Use it to calculate the lightmaps. The viewpoint of the beamtree will be your light. This way you only calculate values for lumels that are visible from the light. This will get you perfect shadows and might be a lot faster then casting a ray from each lumel to the light to check for shadows. This approach does create multiple lightmaps for each polygon which have to be merged into one (during the preprocess), but at least your not doing calculations for lumels that won&#8217;t be affected by a light.</p>
+</li>
+
+<li>
+<p>How about storing the beamtree for every light and inserting dynamic (downscaled) objects to obtain information about what lights should be used to light the object. This way dynamic objects will become darker in shadows. You could even test only one point of the object (as an approximation) , which is something that can be done very fast.</p>
+</li>
+
+<li>
+<p>You can mark beams in the tree not as occluders but as shaders as these beams pass trough translucent polygons. This means that these gothic windows you see in churches (with all the different colors) will light the ground accordingly. This all will be a lot faster then the lumel-light ray approach.</p>
+</li>
+
+<li>
+<p>Imagine a static security camera in a game. Create a beamtree from the camera and the static scenery. Then test for dynamic objects whether they can be seen from the camera. This can be done the same way as in 2, even using a single point as an approximation for the dynamic object.</p>
+</li>
+
+<li>
+<p>You can even rotate the camera by creating a 360 omni view beamtree and then first testing the object against the beamtree and then, if it is still visible, testing it against the current frustum of the camera.</p>
+</li>
+</ol>
+
+<p>There are lots and lots of applications for a perfect set I suppose, but for now I hope my boss is going to let me implement a lightmap/shadow compiler. (hint hint :).</p>
+</article>
+<footer id="footer">
+    <h3>&copy; 2000 <a href="/" rel="index">Jaap Suter</a></h3>
+</footer>
+    
+
+</div>
+</html>

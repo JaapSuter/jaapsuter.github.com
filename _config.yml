@@ -1,5 +1,0 @@
-auto: true
-server: true
-permalink: /:title/
-exclude: ["_source", "sass", "config.rb"]
-layout: default

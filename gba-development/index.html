@@ -1,0 +1,110 @@
+﻿<!DOCTYPE   html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>GBA Development - Jaap Suter</title>
+	<link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+	<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->    
+    <script type="text/javascript" src="/javascript/h2v.js"></script>
+</head>
+<body>
+<div id="container">
+    <aside class="contact vcard">
+        <span class="fn not-visual">Jaap Suter</span>
+        <span class="n not-visual">Suter;Jaap</span>
+        <span class="nickname not-visual">Jaap</span>
+        <span class="org organization not-visual">N/A</span>
+        <span class="role not-visual">Tinkerer</span>
+        <abbr class="bday not-visual" title="1980-04-25">April 25th 1980</abbr>
+
+        <a class="geo not-visual" title="Address in Google Maps" href="http://maps.google.ca/maps?q=1738+Parker+Street&hl=en&sll=49.275744,-123.068992&sspn=0.011522,0.027874&z=16">
+            <abbr class="latitude" title="49.275744"></abbr>
+            <abbr class="longitude" title="-123.068992"></abbr>
+            <div class="adr address">
+                <div class="street-address">1738 Parker Street</div>
+                <span class="locality">Vancouver</span>
+                <abbr class="region" title="British Columbia">BC</abbr>&nbsp;&nbsp;<span class="postal-code">V5L 2K8</span><br />
+                <abbr class="country-name" title="Canada">Canada</abbr>
+            </div>
+        </a>
+
+        <img class="photo not-visual" alt="Jaap Suter Profile Photo" src="/images/portrait.jpg"/>
+            
+        <a id="download" href="#" onclick="return H2V.download (this);"><img src="/images/vcard.png" alt="Download vCard"/></a>
+        <a class="url" href="http://www.jaapsuter.com" rel="me">www.jaapsuter.com</a><br />
+        <a class="email" href="mailto:contact@jaapsuter.com">contact@jaapsuter.com</a>
+        <div class="tel"><span class="value">+1 604 313 5227</span> (<span class="type">cell</span>)</div>        
+</aside>
+		
+    <header>
+        <h1><a href="/">Jaap Suter</a></h1>
+	</header>
+    <nav>
+        <ul>
+			<li><a href="/resume.pdf"><img src="/images/pdf.png" width="32px" height="32px"/>Resume</a></li>
+            <li><a href="//github.com/JaapSuter"><img src="/images/github-octotat.png" width="32px" height="32px"/>GitHub</a></li>
+            <li><a href="/atom.xml"><img src="/images/rss.png" width="32px" height="32px"/></a></li>
+		</ul> 
+	</nav>
+    <article>
+    <header class="title">
+        <hgroup>
+            <h3>17 Aug 2001</h3>
+            <h2>GBA Development</h2>            
+        </hgroup>
+    </header>    
+    <p class='warning-old'>
+<span class='warning-old-emph'>NOTE: </span>this was written over a decade ago.
+</p>
+<p>Here are some shots of my very first Gameboy Advance (GBA) programming adventure. The past few weeks I&#8217;ve been on vacation in France, and every afternoon I would do some GBA programming on my laptop. Lying by the side of the pool, programming, with a view on the mountains. Very nice!</p>
+<figure>
+  <img alt='Socrates Demo' src='/images/sgade-demo-animated.gif' />
+  <figcaption><span>Socrates Demo</span></figcaption>
+</figure>
+<p>Anyway, I started working on a project called Socrates. It&#8217;s an object oriented library for the GBA written completely in C. Object Orientation in C? Yes, it&#8217;s possible.</p>
+
+<p>The library is written for MODE-4 graphics. This is the only full-screen video mode that supports double buffering. The only drawback is that it&#8217;s a 8 bits palettized mode, and that you can only plot two pixels at a time. So if you have to write one pixel, you must read-modify-write. However, this proved to be quite a funny obstacle in my polygon drawing routines.</p>
+<figure>
+  <img alt='GBA Still Screenshots' src='/images/sgade-demo-screens.jpg' />
+  <figcaption><span>GBA Still Screenshots</span></figcaption>
+</figure>
+<p>About the images, from top to bottom, left to right.</p>
+
+<ol>
+<li>Crossfading, speeding this up was tricky. It&#8217;s still not at full speed. I probably gonna need some ASM for this.</li>
+
+<li>Shows a couple of flatshaded cubes, with frustum clipping as well.</li>
+
+<li>A couple of flatshaded cubes without frustum clipping.</li>
+
+<li>Title-screen.</li>
+
+<li>Some kind of texturemapping, plasma-ish effect.</li>
+
+<li>Two texturemapped cubes with frustum clipping.</li>
+
+<li>More&#8230;</li>
+
+<li>&#8230;Of</li>
+
+<li>The&#8230;</li>
+
+<li>Same.</li>
+</ol>
+
+<p>The 3D engine is completely fixed point and I&#8217;m quite happy with the speed raw C delivers. Soon I&#8217;ll add some inline ASM to speed thing up, but for now I&#8217;m focusing on getting some more functionality done. Though, Quake like 6DOF is not gonna happen on GBA. Unless somebody proves me wrong.</p>
+
+<p>Currently I&#8217;m working on a voxel landscape on GBA but I&#8217;m rather pessimistic on performance issues. I suppose I&#8217;ll have to start doing some sprite, tile, background scrolling stuff soon.</p>
+
+<p>Overall, I love it. Working for a machine with low performance but a complete set of fixed functionality. No more compatibility issues. Jippie.</p>
+
+<p>By the way, it works on the real thing as well. Thanks DarkFader.</p>
+</article>
+<footer id="footer">
+    <h3>&copy; 2001 <a href="/" rel="index">Jaap Suter</a></h3>
+</footer>
+    
+
+</div>
+</html>
