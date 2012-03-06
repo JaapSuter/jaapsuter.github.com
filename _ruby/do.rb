@@ -60,8 +60,8 @@ module Jaap
       Tool.list
     end
     
-    def self.font(filter = false, psify = true)
-      Font.build filter, psify
+    def self.font(filter = false, psify = true, smcpify = true, numify = true)
+      Font.build filter, psify, smcpify, numify
     end
     
     def self.sandbox()

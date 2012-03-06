@@ -9,13 +9,8 @@ getFontStyle = (family) ->
 getFontWeight = (family) ->
   if family in fallbacks then 400 else family[3] * 100
 
-namespace = @
-
 class Easel
 
-  @:: = ->
-  @:::: = namespace
-  
   constructor: ({ @minFontSize, @maxFontSize }) ->    
 
     @lineHeightMul = 3
@@ -156,11 +151,11 @@ class Easel
       'families': families
 
     for family in families
-      await window.jaap.font.whenFontLoaded family, defer(ok, fam)
+      await whenFontLoaded family, defer(ok, fam)
     
     if ok  
       for family in families
-        await window.jaap.font.whenFontLoaded family, defer(ok, fam)
+        await whenFontLoaded family, defer(ok, fam)
         if ok
           await @getFamilyMetrics fam, defer(ok, met)
           metrics[fam] = if ok then met else 'error obtaining metrics'
@@ -169,7 +164,7 @@ class Easel
   
     cont ok, metrics
      
-@whenFontLoaded = (family, cont) ->
+exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
 
   [div, [fallback, br, loaded]] = jaap.util.createElement 'div', 
       '<span>b H x p</span><br><span>b H x p</span>'
@@ -213,17 +208,46 @@ class Easel
 
   testFontLoaded()
 
-@getMetrics = (families) =>
+exports.getMetrics = getMetrics = (families) =>
 
-  families = ['tsn4n', 'tsi4n']
+  families = [
+    "psn7n-inv"
+    "tan2n"
+    "tan4c"
+    "tan4n"
+    "tan7n"
+    "tao4n"
+    "tmn4n"
+    "tsi4n"
+    "tsi4n-smcp"
+    "tsi4n-tnum-lnum"
+    "tsi7n"
+    "tsn4n"
+    "tsn4n-smcp"
+    "tsn4n-tnum-lnum"
+    "tsn7n"
+    "pan2n"
+    "pan2n-inv"
+    "pan4n"
+    "pan4n-inv"
+    "pan7n"
+    "pan7n-inv"
+    "psi4n"
+    "psi4n-inv"
+    "psi7n"
+    "psi7n-inv"
+    "psn4n"
+    "psn4n-inv"
+    "psn7n"
+  ]
+
   families = fallbacks.concat families
-  families = family for family in families when 0 <= family.indexOf 'inv'
+  families = (family for family in families when family.indexOf 'inv' < 0) 
   
-  easel = new Easel minFontSize: 10, maxFontSize: 64
+  easel = new Easel minFontSize: 8, maxFontSize: 136
   await easel.getMetrics families, defer(ok, metrics)
   if ok
     data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4
-    alert data
     window.jaap.ajax.send '/ajax/json/type-metrics', defer(ok, resp), data
     alert "ok: #{ok}, resp: #{resp}"
   

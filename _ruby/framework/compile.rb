@@ -20,10 +20,10 @@ module Jaap
       end
     end
     
-    def self.arg(name, value = nil, exclude = nil)
-      return '' if :exclude == exclude
+    def self.arg(name, value = nil, condition = true)
+      return '' if !condition
       return "--#{name} #{value}" if value
-      return '--#{name}'
+      return "--#{name}"
     end
     
     def self.iced_compiler(src, iced_dir)
@@ -77,10 +77,10 @@ module Jaap
         
           Dir.mkdir(dst_dir) if not Dir.exists? dst_dir
           
-          ::Jaap::Tool.iced arg('bare', '', :exclude),
-                            arg('runtime', 'jaap.coffee' == File.basename(src) ? 'window' : 'none'),
-                            # arg('modularize', Paths.get('_coffee')),
-                            arg('header', nil, :exclude),
+          ::Jaap::Tool.iced arg('modularize', Paths.get('_coffee')),
+                            arg('runtime', 'window', 'jaap.coffee' == File.basename(src)),
+                            arg('runforce', nil, 'jaap.coffee' == File.basename(src)),
+                            arg('runtime', 'none', 'jaap.coffee' != File.basename(src)),
                             arg('output', dst_dir),
                             arg('require', hook),
                             arg('compile', src)

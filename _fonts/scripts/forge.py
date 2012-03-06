@@ -5,6 +5,7 @@ sys.setdefaultencoding('utf-8')
 import ast
 import getopt
 import os
+import shutil
 import glob
 import psMat
 import fontforge
@@ -160,22 +161,79 @@ def adjust_left_side_bearings(f, min_bearing):
   for g in f.glyphs():
     xMin = g.boundingBox()[0]
     if xMin < min_bearing:
-      g.transform(psMat.translate(min_bearing - xMin, 0))    
+      g.transform(psMat.translate(min_bearing - xMin, 0))
+
+def make_underline(name, src, dst):
+
+  if name != 'tsn4n':
+    return
+
+  shutil.copy2(src, dst)
+
+  # We don't close the font, because it appears to result in access violations... since we're going to exit
+  # soon anyway, it's not a big problem...        f.close()
+  f = fontforge.open(dst)
+  f.selection.all()
+
+  for g in f.glyphs():
+
+    foreground_idx = 1
+
+    old_foreground = g.layers[foreground_idx]
+    new_foreground = fontforge.layer()
+    new_foreground.is_quadratic = True
+
+    left = g.left_side_bearing
+    right = g.width + g.right_side_bearing
+    top = -403
+    bottom = -483
+
+    new_c = fontforge.contour()
+    new_c.is_quadratic = True
+    new_c.moveTo(left, top)
+    new_c.lineTo(left, bottom)
+    new_c.lineTo(right, bottom)
+    new_c.lineTo(right, top)
+    new_c.closed = True
+    new_c.simplify()
+
+    new_foreground += new_c
+    
+    new_foreground.exclude(old_foreground)
+    new_foreground.removeOverlap()
+
+    g.layers[foreground_idx] = new_foreground
+    g.layers[foreground_idx].correctDirection()
+    
+    g.left_side_bearing = g.right_side_bearing = 0
+    
+    correct_round_and_clean(g)
+    
+  autohint_entire_font(f)
+
+  generate(f, name, dst)
 
 def invert_glyphs(f, is_serif):
   
-  line_height = 1.5
-  half_em = f.em / 2.0
+  line_height = 1.4
+  box_size = f.em * line_height
   leading = (f.em * line_height - (f.ascent + f.descent))
 
-  top = f.ascent + math.floor(leading / 2)
-  bottom = -f.descent - math.ceil(leading / 2)
+  f.ascent = f.descent = box_size * 0.5
+
+  top = 0.5 * box_size
+  bottom = -top
 
   f.selection.all()
   for g in f.glyphs():
+
+    bbox = g.boundingBox()
+    vertical_center = bbox[1] + (bbox[3] - bbox[1]) / 2
     
+    g.transform(psMat.translate(0, -vertical_center))
+
     g.left_side_bearing = g.right_side_bearing = 0
-    g.width = math.ceil(g.width / half_em) * half_em
+    g.width = box_size;
     g.left_side_bearing = g.right_side_bearing = (g.left_side_bearing + g.right_side_bearing) / 2
 
     left = 0
@@ -236,9 +294,6 @@ def convert_to_postscript_curves(f):
   f.em = 1000
 
   remove_cvt_fpgm_and_prep(f)
-  
-  # min_bearing = 4
-  # adjust_left_side_bearings(f, min_bearing)
   
   correct_round_and_clean(f)
   autohint_entire_font(f)
@@ -343,7 +398,7 @@ def forge_one(name, src, dir, unicodes):
   
   ttf = os.path.join(dir, name + ".ttf")
   otf = os.path.join(dir, name + ".otf")
-  otf_inv = os.path.join(dir, name + "-inv.otf")
+  otf_inv = os.path.join(dir, name + "-inv.otf")  
   
   f = fontforge.open(src)
     
@@ -414,12 +469,16 @@ def forge_one(name, src, dir, unicodes):
 
   generate(f, name, ttf)
 
-  if is_for_postscript:
-    convert_to_postscript_curves(f)
-    generate(f, name, otf)
+  if False: 
+    make_underline(name, ttf, os.path.join(dir, name + "-underline.ttf"))
+
+  if True:
+    if is_for_postscript:
+      convert_to_postscript_curves(f)
+      generate(f, name, otf)
       
-    invert_glyphs(f, is_serif)
-    generate(f, name, otf_inv)
+      invert_glyphs(f, is_serif)
+      generate(f, name, otf_inv)
 
   f.close()
 

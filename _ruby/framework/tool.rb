@@ -41,9 +41,8 @@ module Jaap
               puts stderr.colorize(:red)
               File.open(Paths.get(".jaap-build/stdin-causing-error.#{name}"), 'w') { |f| f.write(stdin) }
             else
-              exitstatus = 0
-            end
-            stdout
+              return stdout
+            end            
           else
             IO.popen(command + ' 2>&1') do |pipe|
               pipe.sync = true

@@ -17,6 +17,7 @@ module Jaap
         text = Typogruby.improve text
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html
+        html = clean_descender_underlines html
         text = html.to_html :encoding => 'US-ASCII'
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
         text = text.gsub '<meta content="text/html; charset=utf-8" http-equiv="Content-Type">', ''
@@ -41,13 +42,29 @@ module Jaap
         puts "\t" + err.inspect.to_s
         puts "\t" + err.backtrace.join("\n\t")
         puts "\t"
-        puts "\t" + text[0..100]
+        puts "\t" + text.to_s[0..100]
         text
       end
     end
     
-    def self.first_hook_after_write(dest)    
+    def self.first_hook_after_write(dest) 
       # return dest if not dest.end_with? '.html'
+    end
+    
+    def self.clean_descender_underlines(html)    
+      html.css('a').each do |a|
+        next if 0 == a.content.length
+        foo = 0
+        a.inner_html = Nokogiri::HTML.fragment a.content.gsub(/([gjpqpy3459]+)|([^gjpqpy3459]+)/) { |match|
+          if /[gjpqpy3459]+/.match match
+            "<span class='no-underline'>#{match}</span>"
+          else
+            "<span class='yes-underline'>#{match}</span>"
+          end
+        }
+      end
+      
+      html
     end
     
     class Abbrs < ::Jaap::Cached

@@ -14,7 +14,7 @@ create = ->
       continue
     return xhr
 
-@send = (url, cb, postData) ->
+exports.send = send = (url, cb, postData) ->
   DONE = 4
   OK = 200
   NOT_MODIFIED = 304
@@ -36,6 +36,7 @@ create = ->
       xhr.send postData
   else
     cb false
+
 ###
 #------------------------------------------------------------------------------
 ajaxPut = (command, payload, cont) ->

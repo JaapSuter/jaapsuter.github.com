@@ -5,10 +5,6 @@ permalink: /lab/
 id: lab
 ---
 
-Yo dawg.
-
-And lastly, TLA should be marked up with the ABBR tag, since HTML5 currently deprecates the acronym tag.
-
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing
 implicit 'single' and "double" quotes with literal &lsquo;single&rsquo; and &ldquo;double&rdquo; HTML entities. Here's <a href="#random-unique-number-5338">a
 link</a> followed by <sub>sub-</sub> and super<sup>script</sup>, as well as some *emphasized* and **strong** words as processed

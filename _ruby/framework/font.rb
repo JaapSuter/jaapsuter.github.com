@@ -22,8 +22,12 @@ module Jaap
       Paths.glob('fonts/*.woff').map { |file| File.basename(file, File.extname(file)) }
     end
     
-    def self.build(filter = false, psify = true)
+    def self.build(filter = false, psify = true, smcpify = true, numify = true)
     
+      psify = psify.to_bool if psify.is_a? String
+      smcpify = smcpify.to_bool if smcpify.is_a? String
+      numify = numify.to_bool if numify.is_a? String
+      
       ensure_font_list_and_merge_unicode_superset_into_all_subsets()
       
       forge_temp_dir = Paths.get_or_make '.jaap-build'
@@ -59,12 +63,16 @@ module Jaap
           forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
           
           if ['tsn4n', 'tsi4n'].include? name
-            cmd['name'] = name + '-smcp'
-            forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            if numify
+              cmd['name'] = name + '-smcp'
+              forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            end
             
-            cmd['name'] = name + '-tnum-lnum'
-            cmd['unicodes'] = ("0".codepoints.first.."9".codepoints.first + 1).to_a
-            forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            if smcpify
+              cmd['name'] = name + '-tnum-lnum'
+              cmd['unicodes'] = ("0".codepoints.first.."9".codepoints.first + 1).to_a
+              forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            end
           end
                                    
           flavor = 'p'
@@ -90,7 +98,7 @@ module Jaap
     end
     
     def self.ttxify(name, src, dst_dir)
-    
+      
       using_ttx(src, Paths.get('fonts')) { |xml|
         
         xHeight = File.read(src + '.xHeight').to_i

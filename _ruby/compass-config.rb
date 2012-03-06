@@ -38,7 +38,7 @@ if not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, Fe
     end
   end
   
-  Jaap::Paths.get('../../iced-coffee-script/').tap do |iced_dir|
+  Jaap::Paths.get('../../coffee-script/').tap do |iced_dir|
     Jaap::Compile.watch '**/*.{iced,coffee}', iced_dir, self do |coffee|
         Jaap::Compile.iced_compiler coffee, iced_dir
     end
