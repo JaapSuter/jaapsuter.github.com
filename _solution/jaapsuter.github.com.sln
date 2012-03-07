@@ -50,9 +50,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{8D1165C3-726B-422E-BB82-B3D58E2ECBE2}"
 	ProjectSection(SolutionItems) = preProject
 		..\js\jaap.all.js = ..\js\jaap.all.js
-		..\js\jaap.all.min.debug.js = ..\js\jaap.all.min.debug.js
-		..\js\jaap.all.min.js = ..\js\jaap.all.min.js
-		..\js\jaap.js = ..\js\jaap.js
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_plugins", "_plugins", "{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540}"
@@ -215,10 +212,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaap", "jaap", "{C33846B4-E
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaap", "jaap", "{863DBB29-E63D-4094-B38D-6FC542071F96}"
-	ProjectSection(SolutionItems) = preProject
-		..\js\jaap\font.js = ..\js\jaap\font.js
-		..\js\jaap\util.js = ..\js\jaap\util.js
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monkey", "monkey", "{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3}"
 	ProjectSection(SolutionItems) = preProject
@@ -235,7 +228,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid", "liquid", "{833BC5
 		..\_ruby\framework\liquid\sized-paragraph.rb = ..\_ruby\framework\liquid\sized-paragraph.rb
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sass", "sass\sass.csproj", "{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|x86 = Development|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}.Development|x86.ActiveCfg = Development|x86
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -251,6 +252,7 @@ Global
 		{5C7EE667-5933-4347-B8A8-EE64836C245F} = {268607DF-F1FD-4312-9543-365234474E47}
 		{33B17BCB-4312-4678-B1B3-E0411188E6CA} = {268607DF-F1FD-4312-9543-365234474E47}
 		{92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0} = {268607DF-F1FD-4312-9543-365234474E47}
+		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A} = {268607DF-F1FD-4312-9543-365234474E47}
 		{C4A66924-C309-4A4B-B937-D6994ED2B6D6} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{1336C1DB-0800-4E65-A805-7A3785F02100} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{F4041C5A-5FAE-4AEB-8287-22506003DDFE} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}

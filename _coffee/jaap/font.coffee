@@ -1,3 +1,7 @@
+iced = global.iced ?= {}
+util = global.jaap.util ?= {}
+ajax = global.jaap.ajax ?= {}
+
 fallbacks = ['georgia', 'arial', 'verdana']
 
 getFontStyle = (family) ->
@@ -26,7 +30,7 @@ class Easel
     @ctx0.textAlign = @ctx1.textAlign = "left"
     @ctx0.fillStyle = @ctx1.fillStyle = "#000"
 
-    [@div, [@img]] = jaap.util.createElement 'div',
+    [@div, [@img]] = util.createElement 'div',
       '<img style="vertical-align: baseline" width="1" height="1" alt="" src="/img/1x1-black.png">bHxp'
 
     @div.style.whiteSpace = 'nowrap'
@@ -124,7 +128,7 @@ class Easel
     metrics['ex'][@fontSize] = @ex
     metrics['cap'][@fontSize] = @descent
 
-    jaap.util.soon cont
+    util.soon cont
     
   getFamilyMetrics: (family, cont) ->
     @div.style.fontFamily = family
@@ -166,7 +170,7 @@ class Easel
      
 exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
 
-  [div, [fallback, br, loaded]] = jaap.util.createElement 'div', 
+  [div, [fallback, br, loaded]] = util.createElement 'div', 
       '<span>b H x p</span><br><span>b H x p</span>'
 
   div.style.cssText = """
@@ -199,12 +203,12 @@ exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
       if 0 == repeats_until_valid--
         complete true, family
       else
-        jaap.util.soon testFontLoaded
+        util.soon testFontLoaded
     else
       if 0 == attempts--
         complete false, family
       else
-        jaap.util.delay testFontLoaded, interval_ms
+        util.delay testFontLoaded, interval_ms
 
   testFontLoaded()
 
@@ -241,6 +245,7 @@ exports.getMetrics = getMetrics = (families) =>
     "psn7n"
   ]
 
+  families = ["tan2n"] if global.jaap?.dev
   families = fallbacks.concat families
   families = (family for family in families when family.indexOf 'inv' < 0) 
   
@@ -248,6 +253,6 @@ exports.getMetrics = getMetrics = (families) =>
   await easel.getMetrics families, defer(ok, metrics)
   if ok
     data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4
-    window.jaap.ajax.send '/ajax/json/type-metrics', defer(ok, resp), data
+    await ajax.send '/ajax/json/type-metrics', defer(ok, resp), data
     alert "ok: #{ok}, resp: #{resp}"
   

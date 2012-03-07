@@ -2,10 +2,11 @@
 
 (function(global, exports) {
   "use strict";    
-    var entryPoint, font, iced, toggleBaseline, util,
-    __slice = [].slice;
+    var entryPoint, font, iced, prop, toggleBaseline, util, _base, _base2, _ref, _ref2,
+    __slice = [].slice,
+    __hasProp = {}.hasOwnProperty;
 
-  window.iced = {
+  iced = {
     Deferrals: (function() {
 
       function _Class(_arg) {
@@ -41,11 +42,14 @@
     }
   };
 
-  iced = global.iced;
+  for (prop in iced) {
+    if (!__hasProp.call(iced, prop)) continue;
+    global.iced[prop] = iced[prop];
+  }
 
-  util = global.jaap.util;
+  util = (_ref = (_base = global.jaap).util) != null ? _ref : _base.util = {};
 
-  font = global.jaap.font;
+  font = (_ref2 = (_base2 = global.jaap).font) != null ? _ref2 : _base2.font = {};
 
   toggleBaseline = function() {
     var elem;

@@ -78,14 +78,14 @@ module Jaap
           Dir.mkdir(dst_dir) if not Dir.exists? dst_dir
           
           ::Jaap::Tool.iced arg('modularize', Paths.get('_coffee')),
-                            arg('runtime', 'window', 'jaap.coffee' == File.basename(src)),
+                            arg('runtime', 'inline', 'jaap.coffee' == File.basename(src)),
                             arg('runforce', nil, 'jaap.coffee' == File.basename(src)),
                             arg('runtime', 'none', 'jaap.coffee' != File.basename(src)),
                             arg('output', dst_dir),
                             arg('require', hook),
                             arg('compile', src)
         
-          if false
+          if true
             concatted = Paths.get('js/jaap.all.js')
             File.open(concatted, 'w') do |dst|
               concattees = (Paths.glob('js/**/*.js') -  Paths.glob('js/*.all*.js')).sort_by(&:length).reverse

@@ -2,7 +2,9 @@
 
 (function(global, exports) {
   "use strict";    
-    var create, factories, send;
+    var create, factories, iced, send, _ref;
+
+  iced = (_ref = global.iced) != null ? _ref : global.iced = {};
 
   factories = [
     function() {
@@ -45,7 +47,7 @@
       xhr.onreadystatechange = function() {
         if (DONE === xhr.readyState) {
           if (OK === xhr.status || NOT_MODIFIED === xhr.status) {
-            return cb(true, req);
+            return cb(true, xhr.responseText);
           } else {
             return cb(false);
           }

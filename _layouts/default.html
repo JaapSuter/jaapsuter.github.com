@@ -10,17 +10,8 @@
   <!--<![endif]-->
   {% include other/head.html %}
   <body lang='en'>
-    <div id='initials'>
-      <div class='j'>
-        J
-      </div>
-      <div class='s'>
-        S
-      </div>
-    </div>
     <div id='ajax'>
       <div class='container' id="{{ page.id | replace: '/', '' }}">
-        {% include modules/archive.html %}
         <div id='header'>
           <header role='banner'>
             {% include modules/header.html %}
@@ -60,9 +51,6 @@
         </div>
       </div>
     </div>
-    {% if false %}
-    <script src='http://ie.microsoft.com/TestDrive/HTML5/CompatInspector/inspector.js'></script>
-    {% endif %}
     <script src='/js/jaap/util.js'></script>
     <script src='/js/jaap/font.js'></script>
     <script src='/js/jaap/ajax.js'></script>

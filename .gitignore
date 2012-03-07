@@ -1,4 +1,6 @@
-_site/
-_solution/jaapsuter.github.com.suo
 .sass-cache/
 .jaap-build/
+_site/
+_solution/jaapsuter.github.com.suo
+bin/
+obj/

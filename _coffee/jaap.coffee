@@ -1,6 +1,8 @@
-iced = global.iced
-util = global.jaap.util
-font = global.jaap.font
+for own prop of iced
+  global.iced[prop] = iced[prop]
+
+util = global.jaap.util ?= {}
+font = global.jaap.font ?= {}
 
 toggleBaseline = ->
   elem = document.querySelector('#baseline-checkbox')

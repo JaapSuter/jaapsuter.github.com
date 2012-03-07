@@ -41,12 +41,11 @@ module Jaap
         puts "FROM:    ".colorize( :color => :white, :background => :red ) + browser.colorize( :color => :white, :background => :yellow )
         puts "REQUEST: ".colorize( :color => :white, :background => :red ) + request.body[0..firstNumChars].colorize( :color => :white, :background => :blue )
       
-        file = File.join Paths.get_or_make('_json'), "#{command}.#{browser}.json"
+        file = File.join Paths.get_or_make('_json'), "#{command}.json"
         json = JSON.pretty_generate(payload, :array_nl => '[% presentational newline undo %]').gsub(/\[% presentational newline undo %\]\s*/, ' ')
         File.open(file, 'w') { |f| f.write(json) }
         
-        FileUtils.cp file, File.join(Paths.get_or_make('_json'), "#{command}.json")
-
+        response.body = "Successfully wrote to #{file}."
         raise HTTPStatus::OK
       end
     end

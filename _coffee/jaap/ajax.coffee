@@ -1,3 +1,5 @@
+iced = global.iced ?= {}
+
 factories = [
   -> new XMLHttpRequest
   -> new ActiveXObject "Msxml2.XMLHTTP"
@@ -28,7 +30,7 @@ exports.send = send = (url, cb, postData) ->
     xhr.onreadystatechange = () ->
       if DONE is xhr.readyState
         if OK is xhr.status or NOT_MODIFIED is xhr.status
-          cb true, req
+          cb true, xhr.responseText
         else
           cb false
     

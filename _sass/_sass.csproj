@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Development</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_sass</RootNamespace>
+    <AssemblyName>_sass</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Development|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>
+    </OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="base\_base-figure.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="base\_base-normalize.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="base\_base-normalize.scss.newer.disabled" />
+    <None Include="base\_base-reset.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="base\_base-type.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="base\_base-util.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="extern\_debug.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\const\_const-color.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\const\_const-grid.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\const\_const-type.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\func\_func-color.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\func\_func-type.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\func\_func-util.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-aspect-ratio.sass"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-button.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-color.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-debug.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-media-query-tile.sass"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-transitions.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-type.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\mixin\_mixin-util.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\_const.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\_extern.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\_func.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="framework\_mixin.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="head.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="layout\_layout-develop.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="layout\_layout-media-queries.sass"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+    <None Include="layout\_layout.scss"><Compile>False</Compile><Minify>False</Minify><CompileStyle>Nested</CompileStyle><DebugInfo>False</DebugInfo></None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

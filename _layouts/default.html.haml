@@ -12,14 +12,8 @@
   \<!--<![endif]-->
   {% include other/head.html %}  
   %body(lang="en")
-    #initials
-      .j
-        J
-      .s
-        S
     #ajax
       .container(id="{{ page.id | replace: '/', '' }}")
-        {% include modules/archive.html %}
         #header
           %header(role="banner")
             {% include modules/header.html %}
@@ -43,10 +37,6 @@
             {% include modules/archive.html %}
         #develop(role="presentation")      
           {% include modules/develop.html %}
-    
-    {% if false %}
-    %script(src="http://ie.microsoft.com/TestDrive/HTML5/CompatInspector/inspector.js")
-    {% endif %}
     
     - script_style = '.all.min.debug'
     - script_style = '.all.min'
