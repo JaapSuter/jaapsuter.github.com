@@ -4,56 +4,45 @@
 <!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
 <!--[if lt IE 8]><html class="no-js ielt9 ielt8"><![endif]-->
 <!--[if lt IE 9]><html class="no-js ielt9"><![endif]-->
-<!--[if gte IE 9]><html class="no-js"><![endif]-->
-<!--[if !IE]><!-->
-<html class='no-js'>
-  <!--<![endif]-->
-  {% include other/head.html %}
-  <body lang='en'>
-    <div id='ajax'>
-      <div class='container' id="{{ page.id | replace: '/', '' }}">
-        <div id='header'>
-          <header role='banner'>
-            {% include modules/header.html %}
-          </header>
-        </div>
-        <div>
-          <a href='#' id='type-metrics-link'>
-            Calculate Text Metrics
-          </a>
-        </div>
-        <div id='main'>
-          <article>
-            <h1>{{page.title}}</h1>
-            {% include other/copyright_pubdate_author.html %}
-            <div id='content'>
-              {{ content }}
-            </div>
-            <div id='footer' role='contentinfo'>
-              <footer>
-                {% include other/footer.html %}
-              </footer>
-            </div>
-          </article>
-        </div>
-        <div id='menu'>
-          <nav role='navigation'>
-            {% include modules/menu.html %}
-          </nav>
-        </div>
-        <div id='archive'>
-          <nav role='navigation'>
-            {% include modules/archive.html %}
-          </nav>
-        </div>
-        <div id='develop' role='presentation'>
-          {% include modules/develop.html %}
-        </div>
+<!--[if gte IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
+{% include other/head.html %}
+<body id="{{ page.id | replace: '/', '' }}" lang='en'>
+  <div id='header'>
+    <header role='banner'>
+      {% include modules/header.html %}
+    </header>
+  </div>
+  <div id='main'>
+    <article>
+      <h1>{{page.title}}</h1>
+      {% include other/copyright_pubdate_author.html %}
+      <div id='content'>
+        {{ content }}
       </div>
-    </div>
-    <script src='/js/jaap/util.js'></script>
-    <script src='/js/jaap/font.js'></script>
-    <script src='/js/jaap/ajax.js'></script>
-    <script src='/js/jaap.js'></script>
-  </body>
-</html>
+    </article>
+  </div>
+  <div id='footer' role='contentinfo'>
+    <footer>
+      {% include other/footer.html %}
+    </footer>
+  </div>
+  <div id='menu'>
+    <nav role='navigation'>
+      {% include modules/menu.html %}
+    </nav>
+  </div>
+  <div id='archive'>
+    <nav role='navigation'>
+      {% include modules/archive.html %}
+    </nav>
+  </div>
+  <div id='develop' role='presentation'>
+    {% include modules/develop.html %}
+  </div>
+</body>
+<script src='/js/jaap/util.js'></script>
+<script src='/js/jaap/font.js'></script>
+<script src='/js/jaap/ajax.js'></script>
+<script src='/js/jaap.js'></script>

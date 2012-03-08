@@ -6,47 +6,40 @@
 \<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
 \<!--[if lt IE 8]><html class="no-js ielt9 ielt8"><![endif]-->
 \<!--[if lt IE 9]><html class="no-js ielt9"><![endif]-->
-\<!--[if gte IE 9]><html class="no-js"><![endif]-->
-\<!--[if !IE]><!-->
-%html.no-js  
-  \<!--<![endif]-->
-  {% include other/head.html %}  
-  %body(lang="en")
-    #ajax
-      .container(id="{{ page.id | replace: '/', '' }}")
-        #header
-          %header(role="banner")
-            {% include modules/header.html %}
-        %div
-          %a#type-metrics-link(href="#")
-            Calculate Text Metrics
-        #main
-          %article
-            %h1 {{page.title}}
-            {% include other/copyright_pubdate_author.html %}
-            #content
-              {{ content }}
-            #footer(role="contentinfo")
-              %footer
-                {% include other/footer.html %}
-        #menu
-          %nav(role="navigation")
-            {% include modules/menu.html %}
-        #archive
-          %nav(role="navigation")
-            {% include modules/archive.html %}
-        #develop(role="presentation")      
-          {% include modules/develop.html %}
+<!--[if gte IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
+{% include other/head.html %}  
+%body(lang="en" id="{{ page.id | replace: '/', '' }}")      
+  #header
+    %header(role="banner")
+      {% include modules/header.html %}
+  #main
+    %article
+      %h1 {{page.title}}
+      {% include other/copyright_pubdate_author.html %}
+      #content
+        {{ content }}
+  #footer(role="contentinfo")
+    %footer
+      {% include other/footer.html %}
+  #menu
+    %nav(role="navigation")
+      {% include modules/menu.html %}
+  #archive
+    %nav(role="navigation")
+      {% include modules/archive.html %}
+  #develop(role="presentation")      
+    {% include modules/develop.html %}
     
-    - script_style = '.all.min.debug'
-    - script_style = '.all.min'
-    - script_style = '.all'
-    - script_style = ''
-    - script_src = "/js/jaap#{script_style}.js"
-    - if script_style == ''
-      %script(src="/js/jaap/util.js")
-      %script(src="/js/jaap/font.js")
-      %script(src="/js/jaap/ajax.js")
-    %script(src=script_src)
-    - # %script(src="/js/sandbox.js")
+- script_style = '.all.min.debug'
+- script_style = '.all.min'
+- script_style = '.all'
+- script_style = ''
+- script_src = "/js/jaap#{script_style}.js"
+- if script_style == ''
+  %script(src="/js/jaap/util.js")
+  %script(src="/js/jaap/font.js")
+  %script(src="/js/jaap/ajax.js")
+%script(src=script_src)
       

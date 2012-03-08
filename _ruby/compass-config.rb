@@ -15,6 +15,10 @@ output_style = :compressed
 line_comments = false
 ::Sass::Script::Number.precision = 3
 
+# for repeating-linear-gradient
+# https://github.com/chriseppstein/compass/issues/401
+Compass::BrowserSupport.add_support('repeating-linear-gradient', 'webkit', 'moz', 'o', 'ms')
+
 if environment == :development
   output_style = :nested
   line_comments = false

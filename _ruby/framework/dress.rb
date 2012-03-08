@@ -2,11 +2,24 @@ require 'nokogiri'
 
 module Jaap
   module Dress
-    def self.last_hook_before_write(text, dest)
+    @@last_update_cache = Hash.new {|h, src| h[src] = Time.at(0) }
+  
+    def self.last_hook_before_write(src, text, dst)
+      
+      # Todo, Jaap Suter, March 2012, this reload hack is rather silly...
+      last_update_cache = @@last_update_cache
       Jaap::Reload.try_reload
+      @@last_update_cache = last_update_cache
             
-      return text if text.nil? or not dest.end_with? '.html'
-      return text
+      if text.nil? or not dst.end_with? '.html'
+        return text
+      end
+      
+      if (File.mtime(src) == @@last_update_cache[src]) and File.exists? dst
+        return File.read(dst)
+      else
+        @@last_update_cache[src] = File.mtime(src)
+      end
       
       tidy_args = "--tidy-mark no --indent no --wrap 0 --ascii-chars no --preserve-entities yes
                    --break-before-br yes --sort-attributes alpha --vertical-space no --hide-endtags yes
@@ -17,24 +30,27 @@ module Jaap
         text = Typogruby.improve text
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html
-        html = clean_descender_underlines html
         text = html.to_html :encoding => 'US-ASCII'
+        
+        # Unclusterfeck some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
+        text = text.gsub "-->", "-->\n"
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
         text = text.gsub '<meta content="text/html; charset=utf-8" http-equiv="Content-Type">', ''
         text = text.encode 'US-ASCII'
         text = Tool.tidy tidy_args, :stdin => text, :ok_exit_codes => [0, 1]
+        text = text.gsub('[%presentational empty%]', '')
         
-        File.open(Paths.suffix(dest, '.ajax'), 'w') do |f|
+        File.open(Paths.suffix(dst, '.ajax'), 'w') do |f|
           html = Nokogiri::HTML text, nil, 'US-ASCII'
-          ajax_text = html.at_css('#main').to_html
-          ajax_text = ajax_text.encode 'US-ASCII'
-          ajax_text = Tool.tidy tidy_args, :stdin => ajax_text, :ok_exit_codes => [0, 1]
-          ajax_text = ajax_text.gsub('[%presentational empty%]', '')
+          ajax = html.at_css('title').to_html + "\n" + html.at_css('#main').to_html
+          ajax = ajax.encode 'US-ASCII'
+          ajax = Tool.tidy tidy_args, :stdin => ajax, :ok_exit_codes => [0, 1]
+          ajax = ajax.gsub('[%presentational empty%]', '')
           
-          f.write ajax_text          
+          f.write ajax
         end
         
-        text = text.gsub('[%presentational empty%]', '')
+        
         text
       rescue => err
         puts 'Rescued...'
@@ -47,24 +63,8 @@ module Jaap
       end
     end
     
-    def self.first_hook_after_write(dest) 
-      # return dest if not dest.end_with? '.html'
-    end
-    
-    def self.clean_descender_underlines(html)    
-      html.css('a').each do |a|
-        next if 0 == a.content.length
-        foo = 0
-        a.inner_html = Nokogiri::HTML.fragment a.content.gsub(/([gjpqpy3459]+)|([^gjpqpy3459]+)/) { |match|
-          if /[gjpqpy3459]+/.match match
-            "<span class='no-underline'>#{match}</span>"
-          else
-            "<span class='yes-underline'>#{match}</span>"
-          end
-        }
-      end
-      
-      html
+    def self.first_hook_after_write(dst) 
+      # return dst if not dst.end_with? '.html'
     end
     
     class Abbrs < ::Jaap::Cached
