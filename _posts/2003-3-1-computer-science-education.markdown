@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Computer Science Education"
 tags: [Technical]
 ---
 

@@ -1,7 +1,9 @@
 <div class='copyright'>
   <aside>
-    &copy;&nbsp;<span datetime='{{ date | date_to_xmlschema }}' pubdate=''><span class='month'>{{ date | date: "%B" }}&nbsp;</span><span class='year'>{{ date | date: "%Y" }}</span>
-    </span><a class='fn n uid url' href='http://www.jaapsuter.com' rel='me' title='Jaap Suter'>
+    &copy;&nbsp;
+    <time datetime='{{ page.date | date_to_xmlschema }}' pubdate><span class='month'>{{ page.date | date: "%B" }}&nbsp;</span><span class='year'>{{ page.date | date: "%Y" }}</span>
+    </time>
+    <a class='fn n uid url' href='http://www.jaapsuter.com' rel='me' title='Jaap Suter'>
       <span class='given-name'>Jaap</span>
       <span class='family-name'>Suter</span>
     </a>

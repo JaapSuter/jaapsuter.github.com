@@ -2,7 +2,6 @@
 layout: default
 title: Lab
 permalink: /lab/
-id: lab
 ---
 
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing

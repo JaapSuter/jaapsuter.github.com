@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Sinterklaas in Canada"
 tags: [Video, Personal]
 ---
 

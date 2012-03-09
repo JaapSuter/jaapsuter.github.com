@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Flipcode Contributions"
 tags: [Technical]
 ---
 

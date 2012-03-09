@@ -27,29 +27,32 @@ module Jaap
                    --show-warnings no --bare yes --write-back yes".gsub(/\s+/, ' ')
       
       begin
-        text = Typogruby.improve text
+        
+        text = Typogruby.improve text        
         html = Nokogiri::HTML text
-        html = @@abbrs.abbreviate html
+        html = @@abbrs.abbreviate html        
         text = html.to_html :encoding => 'US-ASCII'
         
         # Unclusterfeck some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
         text = text.gsub "-->", "-->\n"
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
         text = text.gsub '<meta content="text/html; charset=utf-8" http-equiv="Content-Type">', ''
-        text = text.encode 'US-ASCII'
+        text = text.encode 'US-ASCII'        
         text = Tool.tidy tidy_args, :stdin => text, :ok_exit_codes => [0, 1]
         text = text.gsub('[%presentational empty%]', '')
         
+        dst_dir = Pathname.new(dst).parent
+        Dir.mkdir(dst_dir) if not Dir.exists? dst_dir        
+        
         File.open(Paths.suffix(dst, '.ajax'), 'w') do |f|
           html = Nokogiri::HTML text, nil, 'US-ASCII'
-          ajax = html.at_css('title').to_html + "\n" + html.at_css('#main').to_html
+          ajax = html.at_css('title').to_html + "\n" + html.at_css('#ajax').to_html
           ajax = ajax.encode 'US-ASCII'
           ajax = Tool.tidy tidy_args, :stdin => ajax, :ok_exit_codes => [0, 1]
           ajax = ajax.gsub('[%presentational empty%]', '')
           
           f.write ajax
         end
-        
         
         text
       rescue => err

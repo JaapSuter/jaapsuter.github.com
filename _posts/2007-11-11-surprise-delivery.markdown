@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Surprise Delivery"
 tags: [Video, Personal]
 ---
 

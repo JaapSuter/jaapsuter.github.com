@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Garbage Collection"
 tags: [Technical]
 ---
 

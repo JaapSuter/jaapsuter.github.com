@@ -1,8 +1,6 @@
 ---
 layout: default
-title: "Geometric Algebra"
 tags: [Math, Technical]
-foobar: true
 ---
 
 <a href="/geometric-algebra.pdf" type="application/pdf"><img src="/img/pdf.png" width="24" height="24" alt="PDF document link"/> Geometric Algebra Primer - PDF 404 kB</a>

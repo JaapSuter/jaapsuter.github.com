@@ -1,6 +1,5 @@
 ﻿---
 ---
-{% assign date = site.time %}{% if page.date %}{% assign date = page.date %}{% endif %}
 !!!
 \<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
 \<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
@@ -10,19 +9,20 @@
 <html class="no-js">
 <!--<![endif]-->
 {% include other/head.html %}  
-%body(lang="en" id="{{ page.id | replace: '/', '' }}")      
+%body(lang="en" id="{{ page.id }}")
   #header
     %header(role="banner")
       {% include modules/header.html %}
-  #main
-    %article
-      %h1 {{page.title}}
-      {% include other/copyright_pubdate_author.html %}
-      #content
-        {{ content }}
-  #footer(role="contentinfo")
-    %footer
-      {% include other/footer.html %}
+  #ajax(data-body-id="{{ page.id }}")
+    #main
+      %article
+        %h1 {{page.title}}
+        {% include other/copyright_pubdate_author.html %}
+        #content
+          {{ content }}
+      #footer(role="contentinfo")
+        %footer
+          {% include other/footer.html %}
   #menu
     %nav(role="navigation")
       {% include modules/menu.html %}
@@ -32,14 +32,14 @@
   #develop(role="presentation")      
     {% include modules/develop.html %}
     
-- script_style = '.all.min.debug'
-- script_style = '.all.min'
-- script_style = '.all'
-- script_style = ''
-- script_src = "/js/jaap#{script_style}.js"
-- if script_style == ''
-  %script(src="/js/jaap/util.js")
-  %script(src="/js/jaap/font.js")
-  %script(src="/js/jaap/ajax.js")
-%script(src=script_src)
+  - script_style = '.all.min.debug'
+  - script_style = '.all.min'
+  - script_style = '.all'
+  - script_style = ''
+  - script_src = "/js/jaap#{script_style}.js"
+  - if script_style == ''
+    %script(src="/js/jaap/util.js")
+    %script(src="/js/jaap/font.js")
+    %script(src="/js/jaap/ajax.js")
+  %script(src=script_src)
       

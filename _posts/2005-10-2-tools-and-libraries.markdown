@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Tools &amp; Libraries"
 tags: [Technical]
 ---
 

@@ -42,11 +42,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_includes", "_includes", "{F24DC583-8E87-4618-88C1-096CF33A3C66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_sass", "_sass", "{1043C2CE-91D0-4EA1-BDAC-46056E59EA56}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\head.scss = ..\_sass\head.scss
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{8D1165C3-726B-422E-BB82-B3D58E2ECBE2}"
 	ProjectSection(SolutionItems) = preProject
 		..\js\jaap.all.js = ..\js\jaap.all.js
@@ -69,56 +64,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{C4A6
 		..\_includes\modules\header.html.haml = ..\_includes\modules\header.html.haml
 		..\_includes\modules\menu.html = ..\_includes\modules\menu.html
 		..\_includes\modules\menu.html.haml = ..\_includes\modules\menu.html.haml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mixin", "mixin", "{5C569D03-E67E-4B2C-AF64-A661E9E790D5}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\framework\mixin\_mixin-aspect-ratio.sass = ..\_sass\framework\mixin\_mixin-aspect-ratio.sass
-		..\_sass\framework\mixin\_mixin-button.scss = ..\_sass\framework\mixin\_mixin-button.scss
-		..\_sass\framework\mixin\_mixin-color.scss = ..\_sass\framework\mixin\_mixin-color.scss
-		..\_sass\framework\mixin\_mixin-debug.scss = ..\_sass\framework\mixin\_mixin-debug.scss
-		..\_sass\framework\mixin\_mixin-media-query-tile.sass = ..\_sass\framework\mixin\_mixin-media-query-tile.sass
-		..\_sass\framework\mixin\_mixin-transitions.scss = ..\_sass\framework\mixin\_mixin-transitions.scss
-		..\_sass\framework\mixin\_mixin-type.scss = ..\_sass\framework\mixin\_mixin-type.scss
-		..\_sass\framework\mixin\_mixin-util.scss = ..\_sass\framework\mixin\_mixin-util.scss
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "const", "const", "{8B2F6424-2A07-4389-8634-23D4294579FF}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\framework\const\_const-color.scss = ..\_sass\framework\const\_const-color.scss
-		..\_sass\framework\const\_const-grid.scss = ..\_sass\framework\const\_const-grid.scss
-		..\_sass\framework\const\_const-type.scss = ..\_sass\framework\const\_const-type.scss
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "func", "func", "{747874D9-552F-45C8-B5EA-2F2AEBDDDA9A}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\framework\func\_func-color.scss = ..\_sass\framework\func\_func-color.scss
-		..\_sass\framework\func\_func-type.scss = ..\_sass\framework\func\_func-type.scss
-		..\_sass\framework\func\_func-util.scss = ..\_sass\framework\func\_func-util.scss
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "layout", "layout", "{55BEACA3-5678-446D-A06E-37834351FF2C}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\layout\_layout-develop.scss = ..\_sass\layout\_layout-develop.scss
-		..\_sass\layout\_layout-media-queries.sass = ..\_sass\layout\_layout-media-queries.sass
-		..\_sass\layout\_layout.scss = ..\_sass\layout\_layout.scss
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{6DA9E3B0-732A-4073-82D4-4F2125B69D64}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\base\_base-figure.scss = ..\_sass\base\_base-figure.scss
-		..\_sass\base\_base-normalize.scss = ..\_sass\base\_base-normalize.scss
-		..\_sass\base\_base-reset.scss = ..\_sass\base\_base-reset.scss
-		..\_sass\base\_base-type.scss = ..\_sass\base\_base-type.scss
-		..\_sass\base\_base-util.scss = ..\_sass\base\_base-util.scss
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\framework\_const.scss = ..\_sass\framework\_const.scss
-		..\_sass\framework\_extern.scss = ..\_sass\framework\_extern.scss
-		..\_sass\framework\_func.scss = ..\_sass\framework\_func.scss
-		..\_sass\framework\_mixin.scss = ..\_sass\framework\_mixin.scss
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{1336C1DB-0800-4E65-A805-7A3785F02100}"
@@ -149,11 +94,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_json", "_json", "{7CEDF735
 	ProjectSection(SolutionItems) = preProject
 		..\_json\coffee-lint.json = ..\_json\coffee-lint.json
 		..\_json\type-subsets.json = ..\_json\type-subsets.json
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extern", "extern", "{F4041C5A-5FAE-4AEB-8287-22506003DDFE}"
-	ProjectSection(SolutionItems) = preProject
-		..\_sass\extern\_debug.scss = ..\_sass\extern\_debug.scss
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_ruby", "_ruby", "{A7D1582B-CCCF-45A3-8267-796F6EC87B27}"
@@ -228,7 +168,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid", "liquid", "{833BC5
 		..\_ruby\framework\liquid\sized-paragraph.rb = ..\_ruby\framework\liquid\sized-paragraph.rb
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sass", "sass\sass.csproj", "{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_sass", "..\_sass\_sass.csproj", "{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -236,6 +176,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}.Development|x86.ActiveCfg = Development|x86
+		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}.Development|x86.Build.0 = Development|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -244,7 +185,6 @@ Global
 		{852AA507-3D36-4C2E-B415-5A79D4E6D02C} = {268607DF-F1FD-4312-9543-365234474E47}
 		{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7} = {268607DF-F1FD-4312-9543-365234474E47}
 		{F24DC583-8E87-4618-88C1-096CF33A3C66} = {268607DF-F1FD-4312-9543-365234474E47}
-		{1043C2CE-91D0-4EA1-BDAC-46056E59EA56} = {268607DF-F1FD-4312-9543-365234474E47}
 		{8D1165C3-726B-422E-BB82-B3D58E2ECBE2} = {268607DF-F1FD-4312-9543-365234474E47}
 		{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540} = {268607DF-F1FD-4312-9543-365234474E47}
 		{7CEDF735-0340-4CB0-B3EB-A8C21156CFF8} = {268607DF-F1FD-4312-9543-365234474E47}
@@ -255,14 +195,7 @@ Global
 		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A} = {268607DF-F1FD-4312-9543-365234474E47}
 		{C4A66924-C309-4A4B-B937-D6994ED2B6D6} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{1336C1DB-0800-4E65-A805-7A3785F02100} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
-		{F4041C5A-5FAE-4AEB-8287-22506003DDFE} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
-		{55BEACA3-5678-446D-A06E-37834351FF2C} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
-		{6DA9E3B0-732A-4073-82D4-4F2125B69D64} = {1043C2CE-91D0-4EA1-BDAC-46056E59EA56}
 		{863DBB29-E63D-4094-B38D-6FC542071F96} = {8D1165C3-726B-422E-BB82-B3D58E2ECBE2}
-		{F94BE57E-A7E4-4FF1-9064-9E85E570FBD6} = {F4041C5A-5FAE-4AEB-8287-22506003DDFE}
-		{747874D9-552F-45C8-B5EA-2F2AEBDDDA9A} = {F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}
-		{8B2F6424-2A07-4389-8634-23D4294579FF} = {F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}
-		{5C569D03-E67E-4B2C-AF64-A661E9E790D5} = {F94BE57E-A7E4-4FF1-9064-9E85E570FBD6}
 		{C9005B79-D0BE-4712-A7E2-2B9378AD5698} = {A7D1582B-CCCF-45A3-8267-796F6EC87B27}
 		{3D899D91-A716-4606-B5AF-E0F46470E540} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
 		{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}

@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Choice Surprise Focus"
 tags: [Video, Technical]
 ---
 

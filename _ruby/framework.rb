@@ -12,7 +12,6 @@ require 'pathname'
 require 'open3'
 require 'win32api'
 require 'colorize'
-require 'typogruby'
 
 require_relative 'framework/paths'
 require_relative 'framework/cached'
@@ -27,8 +26,11 @@ module Jaap
   autoload :Compile, 'framework/compile'
   autoload :Daemon, 'framework/daemon'
   autoload :Tool, 'framework/tool'
-  autoload :Server, 'framework/server'
+  autoload :Server, 'framework/server'  
+  autoload :Typogruby, 'framework/forked/typogruby/typogruby'
   autoload :Dress, 'framework/dress'
+  
+  puts Typogruby.widont 'trwrtwe fdsa fsda asdf fasd'
 end
 
 
