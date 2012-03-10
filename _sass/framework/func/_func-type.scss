@@ -70,7 +70,7 @@ $type-name-stretch-idx:  4;
   @return $val;
 }
 
-@function rhythm-set($metric: body, $name: tsn4n, $host: body) {
+@function rhythm-set-top($metric: body, $name: tsn4n, $host: body) {
   
   $rhythm-font-size-px:   get-json-value(type-metrics, $metric, font-size-px) * 1px;
   $line-height-px:        get-json-value(type-metrics, $metric, line-height-px) * 1px;

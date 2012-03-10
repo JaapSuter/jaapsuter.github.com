@@ -78,6 +78,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{1336C1DB
 		..\_includes\other\footer.html.haml = ..\_includes\other\footer.html.haml
 		..\_includes\other\head.html = ..\_includes\other\head.html
 		..\_includes\other\head.html.haml = ..\_includes\other\head.html.haml
+		..\_includes\modules\menu.html.haml = ..\_includes\modules\menu.html.haml
 		..\_includes\other\pullquote.html = ..\_includes\other\pullquote.html
 		..\_includes\other\pullquote.html.haml = ..\_includes\other\pullquote.html.haml
 		..\_includes\other\script.html = ..\_includes\other\script.html
@@ -156,7 +157,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monkey", "monkey", "{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3}"
 	ProjectSection(SolutionItems) = preProject
 		..\_ruby\framework\monkey\hash.rb = ..\_ruby\framework\monkey\hash.rb
-		..\_ruby\framework\monkey\numberic.rb = ..\_ruby\framework\monkey\numberic.rb
+		..\_ruby\framework\monkey\numeric.rb = ..\_ruby\framework\monkey\numeric.rb
 		..\_ruby\framework\monkey\string.rb = ..\_ruby\framework\monkey\string.rb
 	EndProjectSection
 EndProject
@@ -169,6 +170,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid", "liquid", "{833BC5
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_sass", "..\_sass\_sass.csproj", "{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "forked", "forked", "{7C98ED6C-3FEB-4232-8377-F2F83D4ED002}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "typogruby", "typogruby", "{F6E6414C-5C2F-40DC-A23E-BF2C2A4129A6}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\framework\forked\typogruby\characters.txt = ..\_ruby\framework\forked\typogruby\characters.txt
+		..\_ruby\framework\forked\typogruby\typogruby.rb = ..\_ruby\framework\forked\typogruby\typogruby.rb
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -200,10 +209,12 @@ Global
 		{3D899D91-A716-4606-B5AF-E0F46470E540} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
 		{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
 		{833BC586-AE9C-4BDF-BD63-8E07FFB29563} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
+		{7C98ED6C-3FEB-4232-8377-F2F83D4ED002} = {C9005B79-D0BE-4712-A7E2-2B9378AD5698}
 		{D391E781-3FA4-4463-A9FF-F8F2D163E201} = {5C7EE667-5933-4347-B8A8-EE64836C245F}
 		{278B1B56-D9DA-44AE-B739-9BB0B42698BB} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{83DB6C1B-6560-45EB-972A-546386316CC6} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{C33846B4-E40E-4DF1-AC04-3C508753191A} = {92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0}
+		{F6E6414C-5C2F-40DC-A23E-BF2C2A4129A6} = {7C98ED6C-3FEB-4232-8377-F2F83D4ED002}
 	EndGlobalSection
 EndGlobal

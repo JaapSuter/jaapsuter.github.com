@@ -109,19 +109,20 @@ def try_replace_glyph_with(f, reinstructables, corig, calt):
     return None
 
 
-def autohint_entire_font(f):
+def autohint_entire_font(f, use_existing_privates = False):
   guessOtherBlues = False
-  guessHorizontalStems = True
-  guessVerticalStems = True
+  guessHorizontalStems = True and not use_existing_privates
+  guessVerticalStems = True and not use_existing_privates
 
-  f.private["BlueValues"] = ()
-  f.private["BlueScale"] = ()
-  f.private["BlueFuzz"] = ()
-  f.private["BlueShift"] = ()
-  f.private["StdHW"] = ()
-  f.private["StemSnapH"] = ()
-  f.private["StdVW"] = ()
-  f.private["StdVW"] = ()
+  if not use_existing_privates:
+    f.private["BlueValues"] = ()
+    f.private["BlueScale"] = ()
+    f.private["BlueFuzz"] = ()
+    f.private["BlueShift"] = ()
+    f.private["StdHW"] = ()
+    f.private["StemSnapH"] = ()
+    f.private["StdVW"] = ()
+    f.private["StdVW"] = ()
 
   for g in f.glyphs():
     g.dhints = ()
@@ -133,10 +134,11 @@ def autohint_entire_font(f):
     f.selection.all()  
     f.autoHint()
     
-    f.private.guess("BlueValues")
-    f.private.guess("BlueScale")
-    f.private.guess("BlueFuzz")
-    f.private.guess("BlueShift")    
+    if not use_existing_privates:
+      f.private.guess("BlueValues")
+      f.private.guess("BlueScale")
+      f.private.guess("BlueFuzz")
+      f.private.guess("BlueShift")    
     
     if guessOtherBlues:
       f.private.guess("OtherBlues")
@@ -163,55 +165,75 @@ def adjust_left_side_bearings(f, min_bearing):
     if xMin < min_bearing:
       g.transform(psMat.translate(min_bearing - xMin, 0))
 
-def make_underline(name, src, dst):
+def make_underline(f, name, src, dst):
 
   if name != 'tsn4n':
     return
 
   shutil.copy2(src, dst)
 
-  # We don't close the font, because it appears to result in access violations... since we're going to exit
-  # soon anyway, it's not a big problem...        f.close()
-  f = fontforge.open(dst)
-  f.selection.all()
+  m = fontforge.open(dst)  
+  
+  m.selection.all()
+  remove_cvt_fpgm_and_prep(m)
 
-  for g in f.glyphs():
+  m.private["BlueValues"] =   f.private["BlueValues"]
+  m.private["BlueScale"] =    f.private["BlueScale"]
+  m.private["BlueFuzz"] =     f.private["BlueFuzz"]
+  m.private["BlueShift"] =    f.private["BlueShift"]
+  m.private["StdHW"] =        f.private["StdHW"]
+  m.private["StemSnapH"] =    f.private["StemSnapH"]
+  m.private["StdVW"] =        f.private["StdVW"]
+  m.private["StdVW"] =        f.private["StdVW"]
+
+  underline_none = "gj_,;()J34579"
+  underline_left = "q"
+  underline_right = "pyQ"
+  underline_none = [fontforge.nameFromUnicode(ord(c)) for c in underline_none]
+  underline_left = [fontforge.nameFromUnicode(ord(c)) for c in underline_left] 
+  underline_right = [fontforge.nameFromUnicode(ord(c)) for c in underline_right]
+    
+  for g in m.glyphs():
+
+    if g.glyphname in underline_none:
+      continue
+
+    widen_a_little = 4
+    left = g.left_side_bearing - widen_a_little
+    right = g.width + g.right_side_bearing + widen_a_little
+    top = -223
+    bottom = -303
+
+    if g.glyphname in underline_left:
+      right = g.left_side_bearing + g.width / 2
+    if g.glyphname in underline_right:
+      left = g.right_side_bearing + g.width / 2
+
+    underline = fontforge.contour()
+    underline.is_quadratic = True
+    underline.moveTo(left, top)
+    underline.lineTo(left, bottom)
+    underline.lineTo(right, bottom)
+    underline.lineTo(right, top)
+    underline.closed = True
+    underline.simplify()
 
     foreground_idx = 1
+    foreground = g.layers[foreground_idx]
+    foreground += underline
+    foreground.removeOverlap()
+    foreground.correctDirection()
 
-    old_foreground = g.layers[foreground_idx]
-    new_foreground = fontforge.layer()
-    new_foreground.is_quadratic = True
+    g.layers[foreground_idx] = foreground    
+        
+  autohint_entire_font(m, use_existing_privates = True)
 
-    left = g.left_side_bearing
-    right = g.width + g.right_side_bearing
-    top = -403
-    bottom = -483
+  generate(m, name, dst)
 
-    new_c = fontforge.contour()
-    new_c.is_quadratic = True
-    new_c.moveTo(left, top)
-    new_c.lineTo(left, bottom)
-    new_c.lineTo(right, bottom)
-    new_c.lineTo(right, top)
-    new_c.closed = True
-    new_c.simplify()
-
-    new_foreground += new_c
-    
-    new_foreground.exclude(old_foreground)
-    new_foreground.removeOverlap()
-
-    g.layers[foreground_idx] = new_foreground
-    g.layers[foreground_idx].correctDirection()
-    
-    g.left_side_bearing = g.right_side_bearing = 0
-    
-    correct_round_and_clean(g)
-    
-  autohint_entire_font(f)
-
-  generate(f, name, dst)
+  # We don't close the font, because it appears to result in access violations... since we're going to exit
+  # soon anyway, it's not a big problem. Besides, if we did this properly - then it'd be using some kind of scoped
+  # or using statement, RAII and what not.
+  m.close()  
 
 def invert_glyphs(f, is_serif):
   
@@ -469,8 +491,8 @@ def forge_one(name, src, dir, unicodes):
 
   generate(f, name, ttf)
 
-  if False: 
-    make_underline(name, ttf, os.path.join(dir, name + "-underline.ttf"))
+  if True: 
+    make_underline(f, name, ttf, os.path.join(dir, name + "-underline.ttf"))
 
   if True:
     if is_for_postscript:

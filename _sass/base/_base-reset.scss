@@ -1,4 +1,10 @@
 //* Note, see _apply-normalize.scss for information on the purpose and scope of this reset. */
 
-iframe { border: none; }
-div:focus { outline: none; }
+// Todo, Jaap Suter, still needed in March 2012? iframe { border: none; }
+// Todo, Jaap Suter, still needed in March 2012? div:focus { outline: none; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

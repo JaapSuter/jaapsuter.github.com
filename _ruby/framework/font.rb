@@ -15,8 +15,9 @@ module Jaap
     def self.is_light(name) '2' == name[3] end
     def self.is_condensed(name) 'c' == name[4] end    
     
-    def self.is_for_small_caps(name) name.endsWidth '-smcp' end
-    def self.is_for_tabular_lining_numerals(name) name.endsWidth '-tnum-lnum' end
+    def self.is_for_underline(name) name.end_with? '-underline' end    
+    def self.is_for_small_caps(name) name.end_with? '-smcp' end
+    def self.is_for_tabular_lining_numerals(name) name.end_with? '-tnum-lnum' end
     
     def self.get_font_list()
       Paths.glob('fonts/*.woff').map { |file| File.basename(file, File.extname(file)) }

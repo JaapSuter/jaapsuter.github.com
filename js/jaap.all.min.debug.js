@@ -145,7 +145,7 @@
       return this.$getFirstVerticalPixel$()
     };
     $Easel$$1$$.prototype.$getGlyphMetrics$ = function $$Easel$$1$$$$$getGlyphMetrics$$() {
-      this.fontSize < this.$minFontSize$ || this.$baseline$ < this.$minBaseline$ ? this.$ascent$ = this.$cap$ = this.$ex$ = this.$descent$ = 0 : (this.$descent$ = this.$baseline$ - this.$getGlyphMetric$("p", !0), this.$ascent$ = this.$baseline$ - this.$getGlyphMetric$("b"), this.$ex$ = this.$baseline$ - this.$getGlyphMetric$("x"), this.$cap$ = this.$baseline$ - this.$getGlyphMetric$("H"))
+      this.fontSize < this.$minFontSize$ || this.$baseline$ < this.$minBaseline$ ? this.$ascent$ = this.$cap$ = this.$ex$ = this.$descent$ = 0 : (this.$ascent$ = this.$baseline$ - this.$getGlyphMetric$("b"), this.$ex$ = this.$baseline$ - this.$getGlyphMetric$("x"), this.$cap$ = this.$baseline$ - this.$getGlyphMetric$("H"), this.$descent$ = this.$baseline$ - this.$getGlyphMetric$("p", !0))
     };
     $Easel$$1$$.prototype.$getSizedFamilyMetrics$ = function $$Easel$$1$$$$$getSizedFamilyMetrics$$($fontSize_halfLeading$$, $family$$2$$, $metrics$$, $cont$$) {
       this.fontSize = $fontSize_halfLeading$$;
@@ -157,10 +157,10 @@
       this.$ctx0$.font = this.$ctx1$.font = "" + $getFontWeight$$($family$$2$$) + " " + $getFontStyle$$($family$$2$$) + " " + this.fontSize + "px " + $family$$2$$;
       this.$getGlyphMetrics$();
       $metrics$$.baseline[this.fontSize] = this.$baseline$;
-      $metrics$$.descent[this.fontSize] = this.$ascent$;
-      $metrics$$.ascent[this.fontSize] = this.$cap$;
+      $metrics$$.ascent[this.fontSize] = this.$ascent$;
+      $metrics$$.cap[this.fontSize] = this.$cap$;
       $metrics$$.ex[this.fontSize] = this.$ex$;
-      $metrics$$.cap[this.fontSize] = this.$descent$;
+      $metrics$$.descent[this.fontSize] = this.$descent$;
       $util$$.$soon$($cont$$)
     };
     $Easel$$1$$.prototype.$getFamilyMetrics$ = function $$Easel$$1$$$$$getFamilyMetrics$$($family$$3$$, $cont$$1$$) {
@@ -332,11 +332,11 @@
       var $_i$$4$$, $_len$$3$$, $_results$$3$$;
       $_results$$3$$ = [];
       for($_i$$4$$ = 0, $_len$$3$$ = $families$$1$$.length;$_i$$4$$ < $_len$$3$$;$_i$$4$$++) {
-        $family$$7$$ = $families$$1$$[$_i$$4$$], $family$$7$$.indexOf("inv" < 0) && $_results$$3$$.push($family$$7$$)
+        $family$$7$$ = $families$$1$$[$_i$$4$$], 0 > $family$$7$$.indexOf("inv") && $_results$$3$$.push($family$$7$$)
       }
       return $_results$$3$$
     }();
-    $easel$$ = new $Easel$$({$minFontSize$:8, $maxFontSize$:136});
+    $easel$$ = new $Easel$$({$minFontSize$:8, $maxFontSize$:237});
     (function($__iced_k$$15$$) {
       $__iced_deferrals$$2$$ = new $iced$$2$$.$Deferrals$($__iced_k$$15$$, {parent:$JSCompiler_alias_NULL$$, filename:"B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee", $funcname$:"getMetrics"});
       $easel$$.$getMetrics$($families$$1$$, $__iced_deferrals$$2$$.defer({$assign_fn$:function() {
@@ -344,7 +344,7 @@
           $ok$$2$$ = $JSCompiler_OptimizeArgumentsArray_p6$$;
           return $metrics$$3$$ = $JSCompiler_OptimizeArgumentsArray_p7$$
         }
-      }(), $lineno$:252}));
+      }(), $lineno$:251}));
       $__iced_deferrals$$2$$.$_fulfill$()
     })(function() {
       if($ok$$2$$) {
@@ -355,7 +355,7 @@
               $ok$$2$$ = $JSCompiler_OptimizeArgumentsArray_p8$$;
               return $resp$$ = $JSCompiler_OptimizeArgumentsArray_p9$$
             }
-          }(), $lineno$:255}), $data$$20$$);
+          }(), $lineno$:254}), $data$$20$$);
           $__iced_deferrals$$2$$.$_fulfill$()
         }(function() {
           return $__iced_k_noop$$(alert("ok: " + $ok$$2$$ + ", resp: " + $resp$$))

@@ -104,11 +104,11 @@ class Easel
     if @fontSize < @minFontSize || @baseline < @minBaseline
       @ascent = @cap = @ex = @descent = 0
     else
-      @descent = @baseline - @getGlyphMetric 'p', upsideDown = true
       @ascent  = @baseline - @getGlyphMetric 'b'
       @ex      = @baseline - @getGlyphMetric 'x'
       @cap     = @baseline - @getGlyphMetric 'H'
-
+      @descent = @baseline - @getGlyphMetric 'p', upsideDown = true
+      
   getSizedFamilyMetrics: (@fontSize, family, metrics, cont) ->
     @div.style.fontSize = "#{@fontSize}px"
     
@@ -123,10 +123,10 @@ class Easel
     @getGlyphMetrics()
         
     metrics['baseline'][@fontSize] = @baseline
-    metrics['descent'][@fontSize] = @ascent
-    metrics['ascent'][@fontSize] = @cap
+    metrics['ascent'][@fontSize] = @ascent
+    metrics['cap'][@fontSize] = @cap
     metrics['ex'][@fontSize] = @ex
-    metrics['cap'][@fontSize] = @descent
+    metrics['descent'][@fontSize] = @descent
 
     util.soon cont
     
@@ -247,9 +247,8 @@ exports.getMetrics = getMetrics = (families) =>
 
   families = ["tan2n"] if global.jaap?.dev
   families = fallbacks.concat families
-  families = (family for family in families when family.indexOf 'inv' < 0) 
-  
-  easel = new Easel minFontSize: 8, maxFontSize: 136
+  families = (family for family in families when family.indexOf('inv') < 0) 
+  easel = new Easel minFontSize: 8, maxFontSize: 237
   await easel.getMetrics families, defer(ok, metrics)
   if ok
     data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4

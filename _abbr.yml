@@ -5,6 +5,7 @@ ABBABBABBA: ABBABBABBA
 ABBR: <abbr title="Abbreviation">$</abbr>
 ABCDE: ABCDE
 ABCDEFGHIJKLMNOPQRSTUVWXYZ: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+ABCDEFGHIJKLMNOPQRSTUVWXYZ.: ABCDEFGHIJKLMNOPQRSTUVWXYZ.
 AI: <abbr title="Adobe Illustrator (file format)">$</abbr>
 AJAX: <abbr title="Asynchronous JavaScript and XML">$</abbr>
 ASP: <abbr title="Active Server Pages">$</abbr>

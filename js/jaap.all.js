@@ -302,10 +302,10 @@
       if (this.fontSize < this.minFontSize || this.baseline < this.minBaseline) {
         return this.ascent = this.cap = this.ex = this.descent = 0;
       } else {
-        this.descent = this.baseline - this.getGlyphMetric('p', upsideDown = true);
         this.ascent = this.baseline - this.getGlyphMetric('b');
         this.ex = this.baseline - this.getGlyphMetric('x');
-        return this.cap = this.baseline - this.getGlyphMetric('H');
+        this.cap = this.baseline - this.getGlyphMetric('H');
+        return this.descent = this.baseline - this.getGlyphMetric('p', upsideDown = true);
       }
     };
 
@@ -320,10 +320,10 @@
       this.ctx0.font = this.ctx1.font = "" + (getFontWeight(family)) + " " + (getFontStyle(family)) + " " + this.fontSize + "px " + family;
       this.getGlyphMetrics();
       metrics['baseline'][this.fontSize] = this.baseline;
-      metrics['descent'][this.fontSize] = this.ascent;
-      metrics['ascent'][this.fontSize] = this.cap;
+      metrics['ascent'][this.fontSize] = this.ascent;
+      metrics['cap'][this.fontSize] = this.cap;
       metrics['ex'][this.fontSize] = this.ex;
-      metrics['cap'][this.fontSize] = this.descent;
+      metrics['descent'][this.fontSize] = this.descent;
       return util.soon(cont);
     };
 
@@ -566,13 +566,13 @@
       _results = [];
       for (_i = 0, _len = families.length; _i < _len; _i++) {
         family = families[_i];
-        if (family.indexOf('inv' < 0)) _results.push(family);
+        if (family.indexOf('inv') < 0) _results.push(family);
       }
       return _results;
     })();
     easel = new Easel({
       minFontSize: 8,
-      maxFontSize: 136
+      maxFontSize: 237
     });
     (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
@@ -587,7 +587,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 252
+        lineno: 251
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -609,7 +609,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 255
+            lineno: 254
           }), data);
           __iced_deferrals._fulfill();
         })(function() {

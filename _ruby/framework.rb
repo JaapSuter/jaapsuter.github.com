@@ -16,6 +16,7 @@ require 'colorize'
 require_relative 'framework/paths'
 require_relative 'framework/cached'
 require_relative 'framework/reload'
+require_relative 'framework/config'
 
 ::Jaap::Paths.glob('_ruby/framework/monkey/*.rb') { |rb| require rb }
 
@@ -26,11 +27,9 @@ module Jaap
   autoload :Compile, 'framework/compile'
   autoload :Daemon, 'framework/daemon'
   autoload :Tool, 'framework/tool'
-  autoload :Server, 'framework/server'  
-  autoload :Typogruby, 'framework/forked/typogruby/typogruby'
+  autoload :Server, 'framework/server'
   autoload :Dress, 'framework/dress'
-  
-  puts Typogruby.widont 'trwrtwe fdsa fsda asdf fasd'
+  autoload :Typogruby, 'framework/forked/typogruby/typogruby'
 end
 
 

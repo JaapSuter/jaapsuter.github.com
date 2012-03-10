@@ -21,11 +21,12 @@ Compass::BrowserSupport.add_support('repeating-linear-gradient', 'webkit', 'moz'
 
 if environment == :development
   output_style = :nested
-  line_comments = false
+  line_comments = true
+  Jaap::Config.enable_development_mode
 end
 
 on_stylesheet_saved do |filename|
-  puts "#{filename}: #{File.size(filename).to_human_ish}" if File.exists? filename
+  Jaap::Compile.css_minify filename
 end
 
 if not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, February 2012: ugly ugly ugly, last minute hack

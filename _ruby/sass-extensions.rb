@@ -1,12 +1,13 @@
 require 'sass'
 require 'fileutils'
 require 'json'
+require_relative 'framework/config'
 
 module Jaap
   module SassExtensions
    
     def try_reload_extensions()
-      Jaap::Reload.try_reload
+      Jaap::Reload.try_reload      
       Sass::Script::Bool.new(true)
     end
     
@@ -15,7 +16,7 @@ module Jaap
     end
     
     def in_development_mode()
-      Sass::Script::Bool.new(Jaap::in_development_mode)
+      Sass::Script::Bool.new(Jaap::Config.in_development_mode)
     end
         
     def get_char_at(str, idx)
@@ -32,40 +33,69 @@ module Jaap
       to_sass @@textMetrics.get(font, metric, size)
     end
     
-    def get_json_value(obj, *members)
-      assert_type obj, :String
+    def get_json_value_func(obj, *members)
       
+      assert_type obj, :String
+            
       file = Paths.get("_json/#{obj.value}.json")
       text = File.read(file)
       json = JSON.parse text
       
       val = members.inject(json) do |location, member|
-        if is_number? member
-          location[member]
+        if is_number? unwrap member
+          location[unwrap member]
         else
           assert_type member, :String      
-          location.respond_to?( :keys) ? location[member.value] : nil
+          location.respond_to?( :keys) ? location[unwrap member] : nil
         end
       end
       
       to_sass val
     end
     
-    def make_grid_svg(tem, baseline, ascent, cap, ex, descent)
-      tem = tem.value
-      baseline = baseline.value
-      ascent = ascent.value
-      cap = cap.value
-      ex = ex.value
-      descent = descent.value
+    def unwrap(v)
+      return v if v.is_a? Fixnum
+      return v.value if v.respond_to? 'value'
+      v      
+    end
+    
+    def make_grid_svg_for_font(tem, em, font)
+      tem = unwrap tem
+      em = unwrap em
+      font = unwrap font
       
+      half_leading = (tem - em) / 2
+    
+      json = JSON.parse File.read Paths.get("_json/type-metrics.json")
+      metrics = json[font]
+      
+      baseline = half_leading + metrics['baseline'][em]
+      ascent = baseline - metrics['ascent'][em]
+      cap = baseline - metrics['cap'][em]
+      ex = baseline - metrics['ex'][em]
+      descent = baseline + metrics['descent'][em]
+      
+      make_grid_svg(tem, baseline, ascent, cap, ex, descent)
+    end
+    
+    def make_grid_svg(tem, baseline, ascent, cap, ex, descent)
+      scale = 8
+      half_pix = 0.5 * scale
+      tem = scale * (unwrap tem)
+      baseline = scale * (unwrap baseline)
+      ascent = scale * (unwrap ascent)
+      cap = scale * (unwrap cap)
+      ex = scale * (unwrap ex)
+      descent = scale * (unwrap descent)
+      
+      # Not used: <rect width="#{tem}" height="#{tem}" fill="#a89"/>          
       svg = <<-eosvg.unindent
         <svg xmlns="http://www.w3.org/2000/svg" width="#{tem}" height="#{tem}" viewbox="0 0 #{tem} #{tem}">
-          <line stroke-width="1" x1="0" y1="#{ascent   + 0.5}" x2="#{tem}" y2="#{ascent   + 0.5}" stroke="#00f" stroke-opacity="0.4"/>
-          <line stroke-width="1" x1="0" y1="#{cap      + 0.5}" x2="#{tem}" y2="#{cap      + 0.5}" stroke="#007" stroke-opacity="0.4"/>
-          <line stroke-width="1" x1="0" y1="#{ex       + 0.5}" x2="#{tem}" y2="#{ex       + 0.5}" stroke="#004" stroke-opacity="0.4"/>
-          <line stroke-width="1" x1="0" y1="#{baseline + 0.5}" x2="#{tem}" y2="#{baseline + 0.5}" stroke="#000" stroke-opacity="1.0"/>
-          <line stroke-width="1" x1="0" y1="#{descent  + 0.5}" x2="#{tem}" y2="#{descent  + 0.5}" stroke="#000" stroke-opacity="0.4"/>
+          <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{tem}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
+          <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{tem}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
+          <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{tem}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
+          <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{tem}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
+          <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{tem}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
         </svg>
       eosvg
       
@@ -174,7 +204,7 @@ module Sass::Script::Functions
   
   declare :get_text_metric_at_font_size, [:metric, :font, :size]
   declare :get_char_at, [:str, :idx]
-  declare :get_json_value, [:obj], :var_args => true
+  declare :get_json_value_func, [:obj], :var_args => true
   
   declare :split, [:str, :sep]
   

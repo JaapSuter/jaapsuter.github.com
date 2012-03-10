@@ -1,4 +1,5 @@
 $base-normalize-include-fields-forms-etcetera: false;
+$base-normalize-include-typography-etcetera:   false;
 
 $type-no-font-face:                            false;
 $type-make-fallback-obvious:                   true;
@@ -25,14 +26,13 @@ $dummy: try-reload-extensions();
 //* constants, functions, and mixins. Hence the resulting compressed CSS
 //* file (with comments stripped, etc.) should be of zero size. */
 
-@each $font in get_font_list() {
-  @include font-face($font);
-}
+@each $font in get_font_list() { @include font-face($font); }
 
 @import "base/base-normalize";
 @import "base/base-reset";
 
-// @import "base/base-type";
+@import "base/base-type";
+
 // @import "base/base-util";
 // @import "base/base-figure";
 
@@ -40,34 +40,7 @@ $dummy: try-reload-extensions();
 // @import "layout/layout-develop";
 // @import "layout/layout-media-queries";
 
-// @import "extern/debug";
-
-body {
-  // 005869, 971f03
-  background-color: #e7e5de;
-  color: #0d0400;
-  position: relative;
-  max-width: 40em;
-  margin: 0 auto;
-  font-size: 1em;
-  line-height: 150%;
-  # font-size: 23px;
-  # line-height: 31px;
-  min-height: 100%;
-  padding: 0;
-
-  @extend ._tsn4n;
-}
-
-h1, h2, h3 {
-  color: #971f03;
-  @include text-shadow(1px 1px 1px rgba(#005869, 0.9));
-}
-
-a {
-  color: #005869;
-  text-decoration: underline;
-}
+@import "extern/debug";
 
 // .initials {
 //   @extend ._psn4n-inv;  
@@ -83,10 +56,10 @@ a {
 //   .j { background-color: #025373; }
 //   .s { background-color: #A60303; }
 // }
-// 
+
 // p { margin: 0; }
 // p + p { text-indent: 2em; }
-// 
+
 // h1 {
 //   @extend ._pan4n;
 // }

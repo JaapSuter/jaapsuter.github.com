@@ -3,6 +3,8 @@ require "haml"
           
 module Jaap
   module Compile
+    @@previous_file_size = Hash.new {|h, src| h[src] = 0 }
+    
     def self.haml(src)
       dst = src.sub('.html.haml', '.html')
     
@@ -117,6 +119,30 @@ module Jaap
       end
     end
     
+    def self.css_minify(src)
+      return if not File.exists? src
+      
+      with_rescue do
+        min_src = File.join Pathname.new(src).parent, File.basename(src, '.css') + '.min.css'
+        
+        ::Jaap::Tool.yui_compressor '--type css -v -o', min_src, src        
+      
+        size = File.size(src)
+        prev_size = @@previous_file_size[src]
+        delta_size = size - prev_size
+  
+        min_size = File.size(min_src)
+        min_prev_size = @@previous_file_size[min_src]
+        min_delta_size = min_size - min_prev_size
+  
+        puts "#{src}: #{prev_size.to_human_ish} #{delta_size < 0 ? '-' : '+'} #{delta_size.abs.to_human_ish} = #{size.to_human_ish}"
+        puts "#{min_src}: #{min_prev_size.to_human_ish} #{min_delta_size < 0 ? '-' : '+'} #{min_delta_size.abs.to_human_ish} = #{min_size.to_human_ish}"
+  
+        @@previous_file_size[src] = size
+        @@previous_file_size[min_src] = min_size
+      end     
+    end
+    
     def self.ttf_or_otf(src)
       woff = Pathname.new(src).sub_ext('.woff').to_s
       FileUtils.remove woff if File.exists?(woff)
@@ -129,7 +155,11 @@ module Jaap
     
     def self.with_rescue()
       begin
-        ::Jaap::Reload.try_reload
+        # Todo, Jaap Suter, March 2012, this reload hack is rather silly...
+        previous_file_size = @@previous_file_size
+        Jaap::Reload.try_reload
+        @@previous_file_size = previous_file_size
+                
         yield
       rescue => err
         puts 'Rescued...'
