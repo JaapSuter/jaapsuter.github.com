@@ -29,6 +29,10 @@ on_stylesheet_saved do |filename|
   Jaap::Compile.css_minify filename
 end
 
+on_stylesheet_error do |filename, message|
+  Jaap::Compile.error filename, message  
+end
+
 if not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, February 2012: ugly ugly ugly, last minute hack
   
   if true

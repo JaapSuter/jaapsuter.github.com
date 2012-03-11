@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewbox="0 0 240 240">
-  <line stroke-width="1" x1="0" y1="44.0" x2="240" y2="44.0" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
-  <line stroke-width="1" x1="0" y1="44.0" x2="240" y2="44.0" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
-  <line stroke-width="1" x1="0" y1="84.0" x2="240" y2="84.0" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
-  <line stroke-width="1" x1="0" y1="164.0" x2="240" y2="164.0" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
-  <line stroke-width="1" x1="0" y1="196.0" x2="240" y2="196.0" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="480" viewbox="0 0 240 480">
+  <!-- <rect fill="#a89" width="240" y="40"   height="200" /> -->
+  <!-- <rect fill="#8a9" width="240" y="40"      height="200" /> -->
+  <!-- <rect fill="#b39" width="240" y="80"       height="160" /> -->
+       <rect fill="#e9e3fe" width="240" y="160" height="240" />
+  <!-- <rect fill="#091" width="240" y="192"  height="48" /> -->
 </svg>

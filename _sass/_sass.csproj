@@ -28,7 +28,6 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="base\_base-figure.scss">
       <Compile>False</Compile>
@@ -97,6 +96,12 @@
       <DebugInfo>False</DebugInfo>
     </None>
     <None Include="framework\func\_func-util.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="framework\func\_func-debug.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>

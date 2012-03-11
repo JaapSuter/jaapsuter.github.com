@@ -5,6 +5,7 @@ gem 'compass', '0.12.rc.1.99c1d37'
 gem 'jekyll', '0.11.2.jaap'
 gem 'livereload', '1.6.1'
 gem 'redcarpet', '2.1.0'
+gem 'windows-pr', '1.2.1'
 
 require 'rubygems'
 require 'fileutils'

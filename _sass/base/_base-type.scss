@@ -1,3 +1,4 @@
+
 $tem: 30;
 $rem: 20;
 $rem-assumed-browser-default: 16;
@@ -10,46 +11,24 @@ body {
   @extend ._tsn4n  
 }
 
+#{elements-of-type(inline)} {
+  line-height: 1;
+}
+
 #{headings()}, p {
   font-size: 1em;
   margin: 0 0 ($tem / $rem * 1em) 0;
 }
 
 h1 {
-  $font-size: 40;
-  $line-height: 2 * $tem;
-  font-size: $font-size / $rem * 1em;
-  line-height: ($line-height / $font-size) * 1em;
-  position: relative;
-  top: 0;
-  margin-bottom: 0;
-
-  $here-half-leading: ($line-height - $font-size) / 2;
-  $body-half-leading: ($tem - $rem) / 2;
-  
-  $here-baseline: $here-half-leading + get-json-value(type-metrics, tsn4n, baseline, $font-size);
-  $body-baseline: $body-half-leading + get-json-value(type-metrics, tsn4n, baseline, $rem);
-
-  $here-top: $body-baseline - $here-baseline % $tem;
-
-  @debug $here-top;
-  top: $here-top * 1px;
-
-  // $offset: $half-leading + 
-  
-  // $host-font-size-px:     get-json-value(type-metrics, $host, font-size-px) * 1px;
-
-  // $rhythm-font-size-em: 1em * ($rhythm-font-size-px / $host-font-size-px);
-  // $rhythm-line-height: $line-height-px / $rhythm-font-size-px;
-  // $rhythm-font-family: unquote(#{'._' + $name});
-  // $rhythm-top-em: 1em * (($body-baseline-px - ($baseline-px % ($tem-px / 1px)))  / $rhythm-font-size-px);
-
-  // @return 'rhythm-set(#{$metric}, #{$name}, #{$host});';
+  $ppm: get_metric_for_metric(ppm, pan4n, ex, $tem);
+  @include rhythm(pan4n, $ppm, 3 * $tem);
 }
+
 
 body {
   @include background-image(image-url('grid.svg', false, false));
-  @include background-size(($tem / $rem * 1em) ($tem / $rem * 1em));
+  @include background-size(($tem / $rem * 1em) (2 * $tem / $rem * 1em));
 }
 
 abbr[title] { border-bottom: 1px dotted; }

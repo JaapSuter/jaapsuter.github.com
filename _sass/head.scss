@@ -182,7 +182,7 @@ $dummy: try-reload-extensions();
 //   $baseline: $half-leading + get_text_metric_at_font_size(baseline, $font-family, $font-size);
 //   $ascent:  $baseline - get_text_metric_at_font_size(ascent, $font-family, $font-size);
 //   $cap: $baseline - get_text_metric_at_font_size(cap, $font-family, $font-size);
-//   $ex: $baseline - get_text_metric_at_font_size(ex, $font-family, $font-size);
+//   $ex: $baseline - get_text_metric_at_fo nt_size(ex, $font-family, $font-size);
 //   $descent: $baseline + get_text_metric_at_font_size(descent, $font-family, $font-size);
 // 
 //   $dummy: make_grid_svg($font-size + 2 * $half-leading, $baseline, $ascent, $cap, $ex, $descent);

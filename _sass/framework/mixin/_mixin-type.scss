@@ -29,23 +29,16 @@
   }
 }
 
-@mixin rhythm-scope($metric: body, $name: tsn4n, $host: body) {
+@mixin rhythm($font-family, $font-size, $line-height) {
+  @extend ._#{$font-family};
+  font-size: $font-size / $rem * 1em;
+  line-height: ($line-height / $font-size) * 1em;
   
-  $r: rhythm-set($metric, $name, $host);
-
-  @if $rhythm-top-em != 0em {
-    position: relative;
-    top: $rhythm-top-em;
-  }
-
-  @content;
-
-  $r: rhythm-set();
+  position: relative;
+  margin-bottom: 0;
+  
+  top: 1px * rhythm-distance-to-next($font-family, $font-size, $line-height, tsn4n, $rem, $tem);
 }
-
-@mixin rhythm-line-height { line-height: $rhythm-line-height; }
-@mixin rhythm-font-size { font-size: $rhythm-font-size-em; }
-@mixin rhythm-font-family { @extend #{$rhythm-font-family}; }
 
 @mixin small-caps {
   text-rendering: optimizeSpeed;

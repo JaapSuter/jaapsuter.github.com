@@ -25,14 +25,6 @@ module Jaap
       Sass::Script::String.new(str.value[idx.value, 1])
     end
     
-    def get_text_metric_at_font_size(metric, font, size)
-      metric = metric.value
-      font = font.value
-      size = size.value
-      
-      to_sass @@textMetrics.get(font, metric, size)
-    end
-    
     def get_json_value_func(obj, *members)
       
       assert_type obj, :String
@@ -59,15 +51,47 @@ module Jaap
       v      
     end
     
-    def make_grid_svg_for_font(tem, em, font)
+    def get_metric_for_metric(unknown_metric, family, known_metric, known_value)
+      family = unwrap family
+      known_metric = unwrap known_metric
+      known_value = unwrap known_value
+      unknown_metric = unwrap unknown_metric
+      
+      if known_metric == 'ppm'
+        to_sass @@textMetrics.get(font, unknown_metric, known_value)
+      elsif unknown_metric == 'ppm'
+        ppm = @@textMetrics[family][known_metric].index(known_value)
+        raise Sass::SyntaxError, "#{family} has no font-size where #{metric} equals #{value}." if ppm == nil
+        to_sass ppm
+      else
+        raise Sass::SyntaxError, "To get a metric for a metric, either the known or the unknown must be the pixels-per-em (ppm)."
+      end
+    end
+    
+    def get_font_size_where_metric_is(family, metric, value)
+      family = unwrap family
+      metric = unwrap metric
+      value = unwrap value
+      
+      
+    end
+    
+    def get_metric_when_font_size_is(family, size, metric)
+      family = unwrap family
+      metric = unwrap metric
+      size = unwrap size
+      
+      
+    end
+    
+    def make_grid_svg_for_font(tem, em, family)
       tem = unwrap tem
       em = unwrap em
-      font = unwrap font
+      family = unwrap family
       
       half_leading = (tem - em) / 2
     
-      json = JSON.parse File.read Paths.get("_json/type-metrics.json")
-      metrics = json[font]
+      metrics = @@textMetrics[family]
       
       baseline = half_leading + metrics['baseline'][em]
       ascent = baseline - metrics['ascent'][em]
@@ -88,14 +112,19 @@ module Jaap
       ex = scale * (unwrap ex)
       descent = scale * (unwrap descent)
       
-      # Not used: <rect width="#{tem}" height="#{tem}" fill="#a89"/>          
+      # Not used:
+      # <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{tem}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
+      # <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{tem}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
+      # <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{tem}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
+      # <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{tem}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
+      # <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{tem}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
       svg = <<-eosvg.unindent
-        <svg xmlns="http://www.w3.org/2000/svg" width="#{tem}" height="#{tem}" viewbox="0 0 #{tem} #{tem}">
-          <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{tem}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
-          <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{tem}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
-          <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{tem}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
-          <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{tem}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
-          <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{tem}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="#{tem}" height="#{2 * tem}" viewbox="0 0 #{tem} #{2 * tem}">
+          <!-- <rect fill="#a89" width="#{tem}" y="#{ascent}"   height="#{tem - ascent}" /> -->
+          <!-- <rect fill="#8a9" width="#{tem}" y="#{cap}"      height="#{tem - cap}" /> -->
+          <!-- <rect fill="#b39" width="#{tem}" y="#{ex}"       height="#{tem - ex}" /> -->
+               <rect fill="#e9e3fe" width="#{tem}" y="#{baseline}" height="#{tem}" />
+          <!-- <rect fill="#091" width="#{tem}" y="#{descent}"  height="#{tem - descent}" /> -->
         </svg>
       eosvg
       
@@ -147,7 +176,7 @@ module Jaap
     def is_bool?(object)
       !!object == object
     end       
-  
+    
     def to_sass(obj)
       if obj.kind_of?(Array)
         arr = obj.map! { |ar| to_sass(ar) }
@@ -159,8 +188,8 @@ module Jaap
       elsif obj.nil?
         Sass::Script::String.new("!ERROR, obj == nil")
       else
-        Sass::Script::String.new(obj.to_s)
-      end      
+        Sass::Script::Parser.parse obj, 0, 0
+      end
     end
     
     def self.add_extension(owner, method)
@@ -182,7 +211,12 @@ module Jaap
     
     class TextMetrics < ::Jaap::Cached
       def initialize()
-        super Paths.get('_json/type-metrics.windows-chrome-17.json')
+        super Paths.get('_json/type-metrics.json')
+      end
+      
+      def [](elem)
+        maybe_load()
+        @dict.dig(elem) || "#{elem.join('.')} not found"
       end
       
       def get(*path)
@@ -202,7 +236,7 @@ module Sass::Script::Functions
   declare :try_reload_extensions, []
   declare :in_development_mode, []
   
-  declare :get_text_metric_at_font_size, [:metric, :font, :size]
+  declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
   declare :get_char_at, [:str, :idx]
   declare :get_json_value_func, [:obj], :var_args => true
   

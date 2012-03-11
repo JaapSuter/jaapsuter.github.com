@@ -70,19 +70,17 @@ $type-name-stretch-idx:  4;
   @return $val;
 }
 
-@function rhythm-set-top($metric: body, $name: tsn4n, $host: body) {
+@function rhythm-get-baseline($font-family, $font-size, $line-height) {
+  $leading: ($line-height - $font-size);
   
-  $rhythm-font-size-px:   get-json-value(type-metrics, $metric, font-size-px) * 1px;
-  $line-height-px:        get-json-value(type-metrics, $metric, line-height-px) * 1px;
-  $baseline-px:           get-json-value(type-metrics, $metric, $name, baseline-px) * 1px;
-  $body-baseline-px:      get-json-value(type-metrics, body, tsn4n, baseline-px) * 1px;
+  $dummy: debug-warn-if(is-odd($leading), "Leading (line-height - font-size) is #{$leading}, which isn't an even number, so that a whole pixel amount lands above and below the lines.");
 
-  $host-font-size-px:     get-json-value(type-metrics, $host, font-size-px) * 1px;
+  @return ($leading / 2) + get-json-value(type-metrics, $font-family, baseline, $font-size);
+  
+}
 
-  $rhythm-font-size-em: 1em * ($rhythm-font-size-px / $host-font-size-px);
-  $rhythm-line-height: $line-height-px / $rhythm-font-size-px;
-  $rhythm-font-family: unquote(#{'._' + $name});
-  $rhythm-top-em: 1em * (($body-baseline-px - ($baseline-px % ($tem-px / 1px)))  / $rhythm-font-size-px);
-
-  @return 'rhythm-set(#{$metric}, #{$name}, #{$host});';
+@function rhythm-distance-to-next($font-family, $font-size, $line-height, $root-font-family, $rem, $tem) {
+  
+  @return rhythm-get-baseline($root-font-family, $rem, $tem) 
+        - rhythm-get-baseline($font-family, $font-size, $line-height) % $tem;
 }

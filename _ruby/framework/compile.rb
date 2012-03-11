@@ -1,9 +1,17 @@
 require 'closure-compiler'
-require "haml"
+require 'haml'
+require 'windows/window'
+require 'windows/console'
           
 module Jaap
   module Compile
+  
     @@previous_file_size = Hash.new {|h, src| h[src] = 0 }
+    
+    def self.error(file, msg)
+      # Compass already shows the error in the console, at some
+      # point I may enjoy a notify (window flash, growl, etc.)
+    end
     
     def self.haml(src)
       dst = src.sub('.html.haml', '.html')
