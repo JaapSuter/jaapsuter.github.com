@@ -15,51 +15,51 @@ body {
 
 p, h1, h2 {
   margin: 0 0 ($body-ppel / $body-ppem * 1em) 0;
-  background-color: rgba(#0f0, 0.2);
+  // background-color: rgba(#0f0, 0.2);
 }
 
 #rhythm {
   width: 480px;
   margin: 0 auto;
-  background-color: rgba(darken($color-white, 20%), 0.2);
+  // background-color: rgba(darken($color-white, 20%), 0.2);
 
-  h1, h2 { background-color: rgba(#f00, 0.2); }
-  .font-resize { background-color: rgba(#0f0, 0.2); }
-  .h1-mid, .h2-mid { background-color: rgba(#00f, 0.2); }
+  // h1, h2 { background-color: rgba(#f00, 0.2); }
+  // .font-resize { background-color: rgba(#0f0, 0.2); }
+  // .h1-mid, .h2-mid { background-color: rgba(#00f, 0.2); }
+
+  // &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
 
   h1 {
     font-weight: 400;
-
+    font-size: 1em;
+    
     $ppem: get_metric_for_metric(ppem, pan4n, ex, $body-ppel);
     $ppem: $ppem + if(is-odd($ppem), 1, 0);
     $ppel: 2 * $body-ppel;
 
     $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
-    $baseline: rhythm-get-baseline(pan4n, $ppem, $ppem);
-    $top: -4; // 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);
-
-    &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
-
-    font-size: 1em;
+    $here-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $ppel);
+    
+    $top: 0;
+    $top: $top - $here-baseline;
+    $top: $top + $body-baseline;
+    $top: $top + $body-ppel;
     
     line-height: $ppel / $body-ppem * 1em;
+
     .font-resize {
-      vertical-align: top;
-      
-      position: relative;
-      // top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) * 1px;
-      top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) / $ppem * 1em;
-    
       @extend %pan4n;
       font-size: $ppem / $body-ppem * 1em;
       line-height: 0;
-      span { vertical-align: top; }
+      position: relative;
+      top: $top / $ppem * 1em;
     }
   }
 
   h2 {
     font-weight: 400;
-
+    font-size: 1em;
+    
     $body-cap: get_metric_for_metric(cap, $body-font-family, ppem, $body-ppem);
     $ppem: get_metric_for_metric(ppem, pan4n, ex, $body-cap);
     $ppem: $ppem + if(is-odd($ppem), 1, 0);
@@ -68,56 +68,47 @@ p, h1, h2 {
     $ppem: $ppem + if(is-odd($ppem), 1, 0);
     $ppel: 2 * $body-ppel;
 
-    $ppel: 2 * $body-ppel;
-
     $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
-    $baseline: rhythm-get-baseline(pan4n, $ppem, $ppem);
-    $top: -4; // 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);
-
-    &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
-
-    font-size: 1em;
+    $here-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $ppel);
+    
+    $top: 0;
+    $top: $top - $here-baseline;
+    $top: $top + $body-baseline;
+    $top: $top + $body-ppel;
     
     line-height: $ppel / $body-ppem * 1em;
+
     .font-resize {
-      vertical-align: top;
-      
-      position: relative;
-      // top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) * 1px;
-      top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) / $ppem * 1em;
-    
       @extend %pan4n;
       font-size: $ppem / $body-ppem * 1em;
       line-height: 0;
-      span { vertical-align: top; }
+      position: relative;
+      top: $top / $ppem * 1em;
     }
   }
 
   .small {
+    font-weight: 400;
+    font-size: 1em;
+    
     $ppem: 12;
     $ppel: $body-ppel;
 
     $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
-    $baseline: rhythm-get-baseline(pan4n, $ppem, $ppem);
-    $top: -4; // 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);
-
-    &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
-
-    font-size: 1em;
+    $here-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $ppel);
+    
+    $top: 0;
+    $top: $top - $here-baseline;
+    $top: $top + $body-baseline;
     
     line-height: $ppel / $body-ppem * 1em;
+
     .font-resize {
-      vertical-align: top;
-      
-      position: relative;
-      // top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) * 1px;
-      top: ($ppem / 2 - $baseline + $body-baseline) / $ppem * 1em;
-    
       @extend %tan4n;
-      font-family: 'Dejavu Sans', serif;
       font-size: $ppem / $body-ppem * 1em;
       line-height: 0;
-      span { vertical-align: top; }
+      position: relative;
+      top: $top / $ppem * 1em;
     }
   }
 }
