@@ -1,3 +1,14 @@
+@mixin debug-message($message) {
+  body > *:first-child:before {
+    content: $message;
+    background-color: rgba($color-black, 0.7);
+    color: rgba(lighten(saturate($color-red, 50%), 50%), 0.9);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+}
+
 @mixin debug-warn($message) {
     @debug raise_error_message($message);
     

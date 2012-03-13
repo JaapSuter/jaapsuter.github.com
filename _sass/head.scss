@@ -30,8 +30,11 @@ $dummy: try-reload-extensions();
 
 @import "base/base-normalize";
 @import "base/base-reset";
-
 @import "base/base-type";
+
+@include respond-to(default) { @include debug-message("respond-to(default);"); }
+@include respond-to(narrow)  { @include debug-message("respond-to(narrow);"); }
+@include respond-to(wide)    { @include debug-message("respond-to(wide);"); }
 
 // @import "base/base-util";
 // @import "base/base-figure";
@@ -40,7 +43,7 @@ $dummy: try-reload-extensions();
 // @import "layout/layout-develop";
 // @import "layout/layout-media-queries";
 
-@import "extern/debug";
+// @import "extern/debug";
 
 // .initials {
 //   @extend ._psn4n-inv;  

@@ -31,9 +31,10 @@ module Jaap
         text = Typogruby.improve text        
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html        
+        html = wrap_font_size_changes(html)
         text = html.to_html :encoding => 'US-ASCII'
         
-        # Unclusterfeck some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
+        # Unclusterhug some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
         text = text.gsub "-->", "-->\n"
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
         text = text.gsub '<meta content="text/html; charset=utf-8" http-equiv="Content-Type">', ''
@@ -64,6 +65,32 @@ module Jaap
         puts "\t" + text.to_s[0..100]
         text
       end
+    end
+    
+    def self.wrap_font_size_changes(html)
+      html.css('h1', 'h2', 'h3', 'h4', 'h5', 'h6', '.small').each do |elem|
+        elem.inner_html = html.create_element('span', :class => "font-resize") {
+          |span| span.inner_html = elem.inner_html
+        }
+      end
+        
+      html
+    end
+    
+    def self.add_anchor_data_content_attrs(html)
+      html.css('a').each do |a|
+        has_elements = 0 < a.children.count {|c| c.element? }
+        if has_elements
+          a.css('*').each do |c|
+            # Really, this should recurse instead of doing just one level.
+            c["data-underline"] = c.content.gsub /\s+/, ' '
+          end
+        else
+          a["data-underline"] = a.content.gsub /\s+/, ' '
+        end
+      end
+        
+      html
     end
     
     def self.first_hook_after_write(dst) 

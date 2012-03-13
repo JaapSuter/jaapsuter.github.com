@@ -1,0 +1,12 @@
+
+@mixin respond-to($media) {
+  @if $media == narrow {
+    @media screen and (max-width: 479px) { @content; }
+  }
+  @else if $media == wide {
+    @media screen and (min-width: 800px) { @content; }
+  }
+  @else if $media == default {
+    @content;
+  }
+}

@@ -137,6 +137,12 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
+    <None Include="framework\mixin\_mixin-media-query.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
     <None Include="framework\mixin\_mixin-transitions.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>

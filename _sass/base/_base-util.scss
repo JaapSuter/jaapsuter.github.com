@@ -85,7 +85,7 @@ body.visit-from-ext {
 			  box-shadow: inset rgba(0,0,0,0.2) 0 -3px 4px 1px, inset rgba(252,255,255,0.4) 0 2px 8px 0px, rgba(0,0,0,.8) 0 3px 8px -1px;
 
 	  .label {	    
-        @extend ._an4n;
+        @extend %an4n;
         color: rgba(#ddd, 0.7);
 			  line-height: tile(2);
 			  @include text-shadow(0 0 tile(0.2) rgba(#333, 0.9));

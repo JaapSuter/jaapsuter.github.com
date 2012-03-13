@@ -44,9 +44,8 @@ $type-name-stretch-idx:  4;
   @return $s;
 }
 
-@function tem($numerator: 1, $denominator: 1) {
-  // @return 1em * ($numerator * $tem-px) / ($rhythm-font-size-px * $denominator);
-  @return 1.5em * ($numerator) / ($denominator);
+@function px-to-em($numerator: 1, $denominator: 1) {
+  @return 1em * ($numerator) / ($denominator);
 }
 
 @function get-json-value($obj, $m0 : false, $m1 : false, $m2 : false, $m3 : false, $m4 : false, $m5 : false) {
@@ -70,17 +69,17 @@ $type-name-stretch-idx:  4;
   @return $val;
 }
 
-@function rhythm-get-baseline($font-family, $font-size, $line-height) {
-  $leading: ($line-height - $font-size);
+@function rhythm-get-baseline($font-family, $ppem, $ppel) {
+  $leading: ($ppel - $ppem);
   
-  $dummy: debug-warn-if(is-odd($leading), "Leading (line-height - font-size) is #{$leading}, which isn't an even number, so that a whole pixel amount lands above and below the lines.");
+  $dummy: debug-warn-if(is-odd($leading), "Leading (line-height #{$ppel} - font-size #{$ppem}) is #{$leading}, which isn't an even number, so that a whole pixel amount lands above and below the lines.");
 
-  @return ($leading / 2) + get-json-value(type-metrics, $font-family, baseline, $font-size);
+  @return ($leading / 2) + get-json-value(type-metrics, $font-family, baseline, $ppem);
   
 }
 
-@function rhythm-distance-to-next($font-family, $font-size, $line-height, $root-font-family, $rem, $tem) {
+@function rhythm-distance-to-next($font-family, $ppem, $ppel, $body-font-family, $root-ppem, $root-ppel) {
   
-  @return rhythm-get-baseline($root-font-family, $rem, $tem) 
-        - rhythm-get-baseline($font-family, $font-size, $line-height) % $tem;
+  @return rhythm-get-baseline($body-font-family, $root-ppem, $root-ppel) 
+        - rhythm-get-baseline($font-family, $ppem, $ppel) % $ppel;
 }

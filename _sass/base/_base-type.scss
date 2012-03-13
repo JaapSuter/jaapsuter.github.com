@@ -1,34 +1,164 @@
-
-$tem: 30;
-$rem: 20;
-$rem-assumed-browser-default: 16;
-$dummy: make_grid_svg_for_font($tem, $rem, tsn4n);
+$body-ppem: 16;
+$body-ppel: 24;
 
 body {
-  font-size: $rem / $rem-assumed-browser-default * 1em;
-  line-height: $tem / $rem * 100%;
+  @include color-and-background-color($color-black, $color-white);
+  @extend %#{$body-font-family};
 
-  @extend ._tsn4n  
+  font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
+  line-height: $body-ppel / $body-ppem * 1em;
+  
+  $dummy: make_grid_svg_for_type_scale($body-font-family, $body-ppem, $body-ppel);
+  @include background-image(image-url('grid-#{$body-font-family}-#{$body-ppem}-#{$body-ppel}.svg', false, false));
+  @include background-size(($body-ppel / $body-ppem * 1em) (2 * $body-ppel / $body-ppem * 1em));
 }
 
-#{elements-of-type(inline)} {
-  line-height: 1;
+p, h1, h2 {
+  margin: 0 0 ($body-ppel / $body-ppem * 1em) 0;
+  background-color: rgba(#0f0, 0.2);
 }
 
-#{headings()}, p {
-  font-size: 1em;
-  margin: 0 0 ($tem / $rem * 1em) 0;
+#rhythm {
+  width: 480px;
+  margin: 0 auto;
+  background-color: rgba(darken($color-white, 20%), 0.2);
+
+  h1, h2 { background-color: rgba(#f00, 0.2); }
+  .font-resize { background-color: rgba(#0f0, 0.2); }
+  .h1-mid, .h2-mid { background-color: rgba(#00f, 0.2); }
+
+  h1 {
+    font-weight: 400;
+
+    $ppem: get_metric_for_metric(ppem, pan4n, ex, $body-ppel);
+    $ppem: $ppem + if(is-odd($ppem), 1, 0);
+    $ppel: 2 * $body-ppel;
+
+    $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
+    $baseline: rhythm-get-baseline(pan4n, $ppem, $ppem);
+    $top: -4; // 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);
+
+    &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
+
+    font-size: 1em;
+    
+    line-height: $ppel / $body-ppem * 1em;
+    .font-resize {
+      vertical-align: top;
+      
+      position: relative;
+      // top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) * 1px;
+      top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) / $ppem * 1em;
+    
+      @extend %pan4n;
+      font-size: $ppem / $body-ppem * 1em;
+      line-height: 0;
+      span { vertical-align: top; }
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+
+    $body-cap: get_metric_for_metric(cap, $body-font-family, ppem, $body-ppem);
+    $ppem: get_metric_for_metric(ppem, pan4n, ex, $body-cap);
+    $ppem: $ppem + if(is-odd($ppem), 1, 0);
+
+    $ppem: get_metric_for_metric(ppem, pan4n, cap, $body-ppel);
+    $ppem: $ppem + if(is-odd($ppem), 1, 0);
+    $ppel: 2 * $body-ppel;
+
+    $ppel: 2 * $body-ppel;
+
+    $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
+    $baseline: rhythm-get-baseline(pan4n, $ppem, $ppem);
+    $top: -4; // 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);
+
+    &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
+
+    font-size: 1em;
+    
+    line-height: $ppel / $body-ppem * 1em;
+    .font-resize {
+      vertical-align: top;
+      
+      position: relative;
+      // top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) * 1px;
+      top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) / $ppem * 1em;
+    
+      @extend %pan4n;
+      font-size: $ppem / $body-ppem * 1em;
+      line-height: 0;
+      span { vertical-align: top; }
+    }
+  }
+
+  .small {
+    $ppem: 12;
+    $ppel: $body-ppel;
+
+    $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
+    $baseline: rhythm-get-baseline(pan4n, $ppem, $ppem);
+    $top: -4; // 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);
+
+    &:before { position: fixed; top: 0; left: 0; content: '#{$ppem}/#{$ppel} + #{$baseline}/#{$body-baseline} + #{$top}'; }
+
+    font-size: 1em;
+    
+    line-height: $ppel / $body-ppem * 1em;
+    .font-resize {
+      vertical-align: top;
+      
+      position: relative;
+      // top: ($ppem / 2 - $baseline + $body-ppel + $body-baseline) * 1px;
+      top: ($ppem / 2 - $baseline + $body-baseline) / $ppem * 1em;
+    
+      @extend %tan4n;
+      font-family: 'Dejavu Sans', serif;
+      font-size: $ppem / $body-ppem * 1em;
+      line-height: 0;
+      span { vertical-align: top; }
+    }
+  }
 }
 
-h1 {
-  $ppm: get_metric_for_metric(ppm, pan4n, ex, $tem);
-  @include rhythm(pan4n, $ppm, 3 * $tem);
+
+/*
+
+h1, h2, h3 {
+  @extend %pan4n;
+  font-weight: 400;
+  
+  $ppem: get_metric_for_metric(ppem, pan4n, ex, $body-ppel);
+  $ppem: $ppem + if(is-odd($ppem), 1, 0);
+  $ppel: 2 * $body-ppel;
+  
+  font-size: $ppem / $body-ppem * 1em;
+  line-height: $ppel * 1px; // $ppem;
+
+  position: relative;
+  top: 1px * rhythm-distance-to-next(pan4n, $ppem, $ppel, $body-font-family, $body-ppem, $body-ppel);  
+
+  margin: 0 0 ($body-ppel / $ppem * 1em) 0;
+  margin: 0 0 ($ppel * 1px) 0;
+  
 }
 
+h2 {
+  $body-cap: get_metric_for_metric(cap, $body-font-family, ppem, $body-ppem);
+  $ppem: get_metric_for_metric(ppem, pan4n, ex, $body-cap);
+  $ppem: $ppem + if(is-odd($ppem), 1, 0);
+    
+  @include rhythm(pan4n, $ppem, 2 * $body-ppel, $body-font-family, $body-ppem, $body-ppel);
+}
+*/
 
-body {
-  @include background-image(image-url('grid.svg', false, false));
-  @include background-size(($tem / $rem * 1em) (2 * $tem / $rem * 1em));
+// #{elements-of-type(inline)} { line-height: 1; }
+
+a {
+  color: saturate($color-blue, 10%);
+  @extend %tsn4n-underline;
+  text-decoration: none;
 }
 
 abbr[title] { border-bottom: 1px dotted; }

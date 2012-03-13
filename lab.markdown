@@ -4,6 +4,8 @@ title: Lab
 permalink: /lab/
 ---
 
+Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
+
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing
 implicit 'single' and "double" quotes with literal &lsquo;single&rsquo; and &ldquo;double&rdquo; HTML entities. Here's <a href="#random-unique-number-5338">a
 link</a> followed by <sub>sub-</sub> and super<sup>script</sup>, as well as some *emphasized* and **strong** words as processed
@@ -17,7 +19,7 @@ of the font stack; intentionally so). And lastly, TLA should be marked up with t
 The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
 other pages on this website, typically in paragraph-sized chunks.
 
-<div class="sidebar"><aside>{% hyphenate %}
+<div class="sidebar"><aside>{% hyphenate %} 
     <p>This is a multi&#x2011;paragraph sidebar block. There's not much of interest in it, but it'll be just
     enough text to fill a sidebar alongside two main paragraphs.</p>
     <p>Here's the second paragraph. It's about as boring as the first paragraph, but it manages

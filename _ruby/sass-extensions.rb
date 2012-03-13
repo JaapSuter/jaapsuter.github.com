@@ -57,55 +57,40 @@ module Jaap
       known_value = unwrap known_value
       unknown_metric = unwrap unknown_metric
       
-      if known_metric == 'ppm'
-        to_sass @@textMetrics.get(font, unknown_metric, known_value)
-      elsif unknown_metric == 'ppm'
-        ppm = @@textMetrics[family][known_metric].index(known_value)
-        raise Sass::SyntaxError, "#{family} has no font-size where #{metric} equals #{value}." if ppm == nil
-        to_sass ppm
+      if known_metric == 'ppem'
+        to_sass @@textMetrics.get(family, unknown_metric, known_value)
+      elsif unknown_metric == 'ppem'
+        ppem = @@textMetrics[family][known_metric].index(known_value)
+        raise Sass::SyntaxError, "#{family} has no font-size where #{metric} equals #{value}." if ppem == nil
+        to_sass ppem
       else
-        raise Sass::SyntaxError, "To get a metric for a metric, either the known or the unknown must be the pixels-per-em (ppm)."
+        raise Sass::SyntaxError, "To get a metric for a metric, either the known or the unknown must be the pixels-per-em (ppem)."
       end
     end
     
-    def get_font_size_where_metric_is(family, metric, value)
-      family = unwrap family
-      metric = unwrap metric
-      value = unwrap value
-      
-      
-    end
-    
-    def get_metric_when_font_size_is(family, size, metric)
-      family = unwrap family
-      metric = unwrap metric
-      size = unwrap size
-      
-      
-    end
-    
-    def make_grid_svg_for_font(tem, em, family)
-      tem = unwrap tem
-      em = unwrap em
+    def make_grid_svg_for_type_scale(family, ppem, ppel)
+      ppel = unwrap ppel
+      ppem = unwrap ppem
       family = unwrap family
       
-      half_leading = (tem - em) / 2
+      half_leading = (ppel - ppem) / 2
     
       metrics = @@textMetrics[family]
       
-      baseline = half_leading + metrics['baseline'][em]
-      ascent = baseline - metrics['ascent'][em]
-      cap = baseline - metrics['cap'][em]
-      ex = baseline - metrics['ex'][em]
-      descent = baseline + metrics['descent'][em]
+      baseline = half_leading + metrics['baseline'][ppem]
+      ascent = baseline - metrics['ascent'][ppem]
+      cap = baseline - metrics['cap'][ppem]
+      ex = baseline - metrics['ex'][ppem]
+      descent = baseline + metrics['descent'][ppem]
       
-      make_grid_svg(tem, baseline, ascent, cap, ex, descent)
+      make_grid_svg(family, ppem, ppel, baseline, ascent, cap, ex, descent)
     end
     
-    def make_grid_svg(tem, baseline, ascent, cap, ex, descent)
-      scale = 8
+    def make_grid_svg(family, ppem, ppel, baseline, ascent, cap, ex, descent)
+      scale = 1
       half_pix = 0.5 * scale
-      tem = scale * (unwrap tem)
+      ppem = scale * (unwrap ppem)
+      ppel = scale * (unwrap ppel)
       baseline = scale * (unwrap baseline)
       ascent = scale * (unwrap ascent)
       cap = scale * (unwrap cap)
@@ -113,22 +98,22 @@ module Jaap
       descent = scale * (unwrap descent)
       
       # Not used:
-      # <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{tem}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
-      # <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{tem}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
-      # <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{tem}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
-      # <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{tem}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
-      # <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{tem}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
+      # <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{ppel}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
+      # <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{ppel}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
+      # <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{ppel}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
+      # <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{ppel}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
+      # <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{ppel}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
       svg = <<-eosvg.unindent
-        <svg xmlns="http://www.w3.org/2000/svg" width="#{tem}" height="#{2 * tem}" viewbox="0 0 #{tem} #{2 * tem}">
-          <!-- <rect fill="#a89" width="#{tem}" y="#{ascent}"   height="#{tem - ascent}" /> -->
-          <!-- <rect fill="#8a9" width="#{tem}" y="#{cap}"      height="#{tem - cap}" /> -->
-          <!-- <rect fill="#b39" width="#{tem}" y="#{ex}"       height="#{tem - ex}" /> -->
-               <rect fill="#e9e3fe" width="#{tem}" y="#{baseline}" height="#{tem}" />
-          <!-- <rect fill="#091" width="#{tem}" y="#{descent}"  height="#{tem - descent}" /> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="#{ppel}" height="#{2 * ppel}" viewbox="0 0 #{ppel} #{2 * ppel}">
+          <!-- <rect fill="#a89" width="#{ppel}" y="#{ascent}"   height="#{ppel - ascent}" /> -->
+          <!-- <rect fill="#8a9" width="#{ppel}" y="#{cap}"      height="#{ppel - cap}" /> -->
+          <!-- <rect fill="#b39" width="#{ppel}" y="#{ex}"       height="#{ppel - ex}" /> -->
+               <rect fill="#dde" width="#{ppel}" y="#{baseline}" height="#{ppel}" />
+          <!-- <rect fill="#091" width="#{ppel}" y="#{descent}"  height="#{ppel - descent}" /> -->
         </svg>
       eosvg
       
-      File.open(Paths.get('img/grid.svg'), 'w') { |f| f.write(svg) }
+      File.open(Paths.get("img/grid-#{family}-#{ppem}-#{ppel}.svg"), 'w') { |f| f.write(svg) }
       
       to_sass 0
     end
@@ -236,6 +221,7 @@ module Sass::Script::Functions
   declare :try_reload_extensions, []
   declare :in_development_mode, []
   
+  declare :make_grid_svg_for_type_scale, [:family, :ppem, :ppel]
   declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
   declare :get_char_at, [:str, :idx]
   declare :get_json_value_func, [:obj], :var_args => true

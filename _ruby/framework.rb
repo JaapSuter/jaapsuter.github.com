@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-gem 'sass', '3.2.0.alpha.63'
+gem 'sass', '3.2.0.alpha.93'
 gem 'compass', '0.12.rc.1.99c1d37'
 gem 'jekyll', '0.11.2.jaap'
 gem 'livereload', '1.6.1'

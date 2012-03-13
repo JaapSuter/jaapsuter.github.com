@@ -186,47 +186,71 @@ def make_underline(f, name, src, dst):
   m.private["StdVW"] =        f.private["StdVW"]
   m.private["StdVW"] =        f.private["StdVW"]
 
-  underline_none = "gj_,;()J34579"
-  underline_left = "q"
-  underline_right = "pyQ"
-  underline_none = [fontforge.nameFromUnicode(ord(c)) for c in underline_none]
-  underline_left = [fontforge.nameFromUnicode(ord(c)) for c in underline_left] 
-  underline_right = [fontforge.nameFromUnicode(ord(c)) for c in underline_right]
+  # Descender test line: p:/ajaqug, (3241527890); J-$_@.
+  manual_descenders = {
+    fontforge.nameFromUnicode(ord('g')): [],
+    fontforge.nameFromUnicode(ord('j')): [],
+    fontforge.nameFromUnicode(ord('p')): [(0, 98), (558, 1311)],
+    fontforge.nameFromUnicode(ord('q')): [(0, 702), (1213, 1311)],
+    fontforge.nameFromUnicode(ord('y')): [(-6, 160), (755, 1157)],
+    fontforge.nameFromUnicode(ord(',')): [(433, 651)],
+    fontforge.nameFromUnicode(ord(';')): [(460, 689)],
+    fontforge.nameFromUnicode(ord('(')): [(0, 288)],
+    fontforge.nameFromUnicode(ord(')')): [(509, 799)],
+    fontforge.nameFromUnicode(ord('$')): [(0, 498), (786, 1301)],
+    fontforge.nameFromUnicode(ord('@')): [(0, 320), (1720, 2048)],
+    fontforge.nameFromUnicode(ord('J')): [],
+    fontforge.nameFromUnicode(ord('3')): [],
+    fontforge.nameFromUnicode(ord('4')): [(0, 593), (1025, 1265)],
+    fontforge.nameFromUnicode(ord('5')): [],
+    fontforge.nameFromUnicode(ord('7')): [(0, 332), (658, 1126)],
+    fontforge.nameFromUnicode(ord('9')): [],
+    fontforge.nameFromUnicode(ord('_')): [],
+  }
+
+  thickness = 90
+  position = -175
+  top = position + thickness / 2
+  bottom = position - thickness / 2
     
   for g in m.glyphs():
 
-    if g.glyphname in underline_none:
-      continue
+    ow, olb, orb = g.width, g.left_side_bearing, g.right_side_bearing
 
-    widen_a_little = 4
-    left = g.left_side_bearing - widen_a_little
-    right = g.width + g.right_side_bearing + widen_a_little
-    top = -223
-    bottom = -303
+    left = min(g.left_side_bearing, 0)
+    right = g.width - min(g.right_side_bearing, 0)    
 
-    if g.glyphname in underline_left:
-      right = g.left_side_bearing + g.width / 2
-    if g.glyphname in underline_right:
-      left = g.right_side_bearing + g.width / 2
+    underline_sections = [(left, right)]
 
-    underline = fontforge.contour()
-    underline.is_quadratic = True
-    underline.moveTo(left, top)
-    underline.lineTo(left, bottom)
-    underline.lineTo(right, bottom)
-    underline.lineTo(right, top)
-    underline.closed = True
-    underline.simplify()
+    if g.glyphname in manual_descenders:
+      underline_sections = manual_descenders[g.glyphname]
 
-    foreground_idx = 1
-    foreground = g.layers[foreground_idx]
-    foreground += underline
-    foreground.removeOverlap()
-    foreground.correctDirection()
+    for section in underline_sections:
+      log("#{underline_sections}: #{section}")
+      underline = fontforge.contour()
+      underline.is_quadratic = True
+      underline.moveTo(section[0], top)
+      underline.lineTo(section[0], bottom)
+      underline.lineTo(section[1], bottom)
+      underline.lineTo(section[1], top)
+      underline.closed = True
+    
+      foreground_idx = 1       
+      g.layers[foreground_idx] += underline
 
-    g.layers[foreground_idx] = foreground    
+    correct_round_and_clean(g)
+
+    bbox = g.boundingBox()    
+    g.left_side_bearing = bbox[0]
+    g.right_side_bearing = g.width - bbox[2]
+
+    nw, nlb, nrb = g.width, g.left_side_bearing, g.right_side_bearing
+
+    log("#{g.glyphname}: #{ow}, #{olb}, #{orb} -> #{nw}, #{nlb}, #{nrb}")
         
   autohint_entire_font(m, use_existing_privates = True)
+  m.selection.all()
+  m.autoInstr()
 
   generate(m, name, dst)
 
@@ -487,8 +511,11 @@ def forge_one(name, src, dir, unicodes):
     f.selection.all()
     f.autoInstr()
   else:
-    [r.autoInstr() for r in reinstructables if r]
-
+    for r in reinstructables:
+      if r:
+        r.addExtrema()
+        r.autoInstr()
+        
   generate(f, name, ttf)
 
   if True: 

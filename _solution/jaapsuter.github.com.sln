@@ -78,6 +78,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{1336C1DB
 		..\_includes\other\footer.html.haml = ..\_includes\other\footer.html.haml
 		..\_includes\other\head.html = ..\_includes\other\head.html
 		..\_includes\other\head.html.haml = ..\_includes\other\head.html.haml
+		..\_includes\modules\menu.html = ..\_includes\modules\menu.html
 		..\_includes\modules\menu.html.haml = ..\_includes\modules\menu.html.haml
 		..\_includes\other\pullquote.html = ..\_includes\other\pullquote.html
 		..\_includes\other\pullquote.html.haml = ..\_includes\other\pullquote.html.haml
