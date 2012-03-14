@@ -61,14 +61,23 @@ module Jaap
         to_sass @@textMetrics.get(family, unknown_metric, known_value)
       elsif unknown_metric == 'ppem'
         ppem = @@textMetrics[family][known_metric].index(known_value)
-        raise Sass::SyntaxError, "#{family} has no font-size where #{metric} equals #{value}." if ppem == nil
+        raise Sass::SyntaxError, "#{family} has no font-size where #{known_metric} equals #{known_value}." if ppem == nil
         to_sass ppem
       else
         raise Sass::SyntaxError, "To get a metric for a metric, either the known or the unknown must be the pixels-per-em (ppem)."
       end
     end
     
-    def make_grid_svg_for_type_scale(family, ppem, ppel)
+    def make_svg_circle(radius, color, circle_type)
+      img = if circle_type.value == "disc"
+        %Q{<circle cx="#{radius.value}" cy="#{radius.value}" r="#{radius.value}" stroke-width="0" fill="#{color}"/>}
+      else
+        %Q{<circle cx="#{radius.value}" cy="#{radius.value}" r="#{radius.value}" stroke="#{color}" stroke-width="1" fill="white"/>}
+      end
+      svg_envelope img
+    end
+      
+    def make_svg_baseline_grid(family, ppem, ppel)
       ppel = unwrap ppel
       ppem = unwrap ppem
       family = unwrap family
@@ -98,24 +107,39 @@ module Jaap
       descent = scale * (unwrap descent)
       
       # Not used:
-      # <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{ppel}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
-      # <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{ppel}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
-      # <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{ppel}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
-      # <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{ppel}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
-      # <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{ppel}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
-      svg = <<-eosvg.unindent
-        <svg xmlns="http://www.w3.org/2000/svg" width="#{ppel}" height="#{2 * ppel}" viewbox="0 0 #{ppel} #{2 * ppel}">
-          <!-- <rect fill="#a89" width="#{ppel}" y="#{ascent}"   height="#{ppel - ascent}" /> -->
-          <!-- <rect fill="#8a9" width="#{ppel}" y="#{cap}"      height="#{ppel - cap}" /> -->
-          <!-- <rect fill="#b39" width="#{ppel}" y="#{ex}"       height="#{ppel - ex}" /> -->
-               <rect fill="#dde" width="#{ppel}" y="#{baseline}" height="#{ppel}" />
-          <!-- <rect fill="#091" width="#{ppel}" y="#{descent}"  height="#{ppel - descent}" /> -->
-        </svg>
-      eosvg
+      #   <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{ppel}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
+      #   <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{ppel}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
+      #   <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{ppel}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
+      #   <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{ppel}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
+      #   <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{ppel}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
+      #   <!-- <rect fill="#a89" width="#{ppel}" y="#{ascent}"   height="#{ppel - ascent}" /> -->
+      #   <!-- <rect fill="#8a9" width="#{ppel}" y="#{cap}"      height="#{ppel - cap}" /> -->
+      #   <!-- <rect fill="#b39" width="#{ppel}" y="#{ex}"       height="#{ppel - ex}" /> -->
+      #   <!-- <rect fill="#091" width="#{ppel}" y="#{descent}"  height="#{ppel - descent}" /> -->
       
-      File.open(Paths.get("img/grid-#{family}-#{ppem}-#{ppel}.svg"), 'w') { |f| f.write(svg) }
+      img = %Q{<rect fill="#dde" width="#{ppel}" y="#{baseline}" height="#{ppel}" />}
       
-      to_sass 0
+      # Return an inline image. Use "img/grid-#{family}-#{ppem}-#{ppel}.svg" if necessary during development.
+      svg_envelope img, ppel, 2 * ppel, [0, 0, ppel, 2 * ppel]
+    end
+    
+    def svg_envelope(content, width = '', height = '', viewbox = '', path = nil)
+        
+        # Chris Eppstein's version, from https://gist.github.com/1059334. Do we need the xml header?
+        # 
+        # %Q{<?xml version="1.0" encoding="utf-8"?> <svg version="1.1" xmlns="http://www.w3.org/2000/svg">#{content}</svg>}
+        
+        width = "width='#{width}'" if width != ''
+        height = "height='#{height}'" if height != ''
+        viewbox = "viewbox='#{viewbox[0]} #{viewbox[1]} #{viewbox[2]} #{viewbox[3]}'" if viewbox != ''
+        svg = %Q{<svg xmlns="http://www.w3.org/2000/svg" #{width} #{height} #{viewbox}>#{content}</svg>}.gsub(/  +/, ' ')
+        
+        if path
+          File.open(Paths.get(path), 'w') { |f| f.write(svg) }
+          Sass::Script::String.new("url(../#{path})")
+        else
+          inline_image_string(svg, 'image/svg+xml')
+        end
     end
 
     def split(str, sep = '.')
@@ -221,7 +245,9 @@ module Sass::Script::Functions
   declare :try_reload_extensions, []
   declare :in_development_mode, []
   
-  declare :make_grid_svg_for_type_scale, [:family, :ppem, :ppel]
+  declare :make_svg_circle, [:radius, :color, :circle_type]
+  declare :make_svg_baseline_grid, [:family, :ppem, :ppel]
+  
   declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
   declare :get_char_at, [:str, :idx]
   declare :get_json_value_func, [:obj], :var_args => true

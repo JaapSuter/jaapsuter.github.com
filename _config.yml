@@ -5,7 +5,7 @@ server: false
 safe: false
 permalink: /:title/
 exclude: ["do.cmd", "**/*.haml", "**/*.coffee"]
-leave: ["css/", ".livereload"]
+leave: ["css/", ".livereload", "**/*.ajax.html"]
 
 markdown: redcarpet
 redcarpet:

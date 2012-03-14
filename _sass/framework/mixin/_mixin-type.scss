@@ -29,25 +29,6 @@
   }
 }
 
-@mixin rhythm($font-family, $ppem, $ppel, $body-font-family, $root-ppem, $root-ppel) {
-  line-height: ($ppel / $root-ppem) * 1em;
-  
-  & > span.font-resize {
-    position: relative; 
-    font-size: $ppem / $root-ppem * 1em;
-    top: 1px * rhythm-distance-to-next($font-family, $ppem, $ppel, $body-font-family, $root-ppem, $root-ppel);
-  }
-}
-  
-@mixin type-scale($root-ppem, $root-ppel) {
-  @include rhythm(tsn4n, $root-ppem, $root-ppel, $body-font-family, $ppem-assumed-browser-default, $root-ppel);
-
-  $dummy: make_grid_svg_for_type_scale($body-font-family, $root-ppem, $root-ppel);
-
-  @include background-image(image-url('grid-#{$body-font-family}-#{$root-ppem}-#{$root-ppel}.svg', false, false));
-  @include background-size(($root-ppel / $root-ppem * 1em) (2 * $root-ppel / $root-ppem * 1em));
-}
-
 @mixin small-caps {
   text-rendering: optimizeSpeed;
   font-variant: small-caps;

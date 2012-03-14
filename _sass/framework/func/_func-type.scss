@@ -74,7 +74,7 @@ $type-name-stretch-idx:  4;
   
   $dummy: debug-warn-if(is-odd($leading), "Leading (line-height #{$ppel} - font-size #{$ppem}) is #{$leading}, which isn't an even number, so that a whole pixel amount lands above and below the lines.");
 
-  @return ($leading / 2) + get-json-value(type-metrics, $font-family, baseline, $ppem);
+  @return ($leading / 2) + get_metric_for_metric(baseline, $font-family, ppem, $ppem);
   
 }
 

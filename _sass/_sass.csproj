@@ -59,7 +59,13 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="extern\_debug.scss">
+    <None Include="extern\_holmes-debug.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="extern\_yahoo-debug.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
