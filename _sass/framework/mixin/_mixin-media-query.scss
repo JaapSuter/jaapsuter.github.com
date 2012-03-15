@@ -1,4 +1,4 @@
-$media-types: ((default, narrow, wide), (body-ppem, body-ppel), ((16, 24), (12, 18), (24, 40)));
+$media-types: ((default, narrow, wide), (body-ppem, body-ppel), ((16, 24), (12, 18), (24, 60)));
 
 @function get-from($class, $instance, $member) {
   $instances: nth($class, 1);
@@ -30,5 +30,4 @@ $media-types: ((default, narrow, wide), (body-ppem, body-ppel), ((16, 24), (12, 
   }
 
   @include set-or-restore-body-type-metrics();
-  @debug $body-ppem $prev-body-ppem;
 }

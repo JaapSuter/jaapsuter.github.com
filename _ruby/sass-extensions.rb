@@ -238,22 +238,72 @@ module Jaap
   end
 end
 
-module Sass::Script::Functions
-  include Jaap::SassExtensions
-  
-  declare :raise_error_message, [:message]
-  declare :try_reload_extensions, []
-  declare :in_development_mode, []
-  
-  declare :make_svg_circle, [:radius, :color, :circle_type]
-  declare :make_svg_baseline_grid, [:family, :ppem, :ppel]
-  
-  declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
-  declare :get_char_at, [:str, :idx]
-  declare :get_json_value_func, [:obj], :var_args => true
-  
-  declare :split, [:str, :sep]
-  
-  declare :tint, [:color, :dilution]
-  declare :shade, [:color, :dilution]  
+module Sass::SCSS
+  class Parser
+    if $sass_scss_parser_tok_aliased.nil?
+      alias_method :old_tok, :tok
+      $sass_scss_parser_tok_aliased = true
+    end
+    
+    def tok(rx, last_group_lookahead = false)      
+      if rx.to_s == STATIC_VALUE.to_s
+        if len = tok?(rx)
+          token = @scanner.peek len
+          puts token
+          if /\d+gd/.match token
+            return nil
+          end
+        end
+      end
+      
+      old_tok rx, last_group_lookahead
+    end
+  end
 end
+
+module Sass::Script
+  class Number
+  
+    if $sass_script_number_perform_aliased.nil?
+      alias_method :old_perform, :_perform
+      $sass_script_number_perform_aliased = true
+    end
+    
+    def _perform(environment)
+      
+      if @numerator_units.include? 'gd'
+        ppem = environment.var('body-ppem')
+        ppgd = environment.var('body-ppgd')
+        
+        if ppem and ppgd
+          one_gd = Number.new(1, ['gd'])
+          one_em = Number.new(1, ['em'])
+          return self.div(one_gd).times(ppgd).div(ppem).times(one_em);
+        end        
+      end
+      
+      old_perform environment
+    end
+  end
+  
+  module Functions
+    include Jaap::SassExtensions
+        
+    declare :raise_error_message, [:message]
+    declare :try_reload_extensions, []
+    declare :in_development_mode, []
+    
+    declare :make_svg_circle, [:radius, :color, :circle_type]
+    declare :make_svg_baseline_grid, [:family, :ppem, :ppel]
+  
+    declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
+    declare :get_char_at, [:str, :idx]
+    declare :get_json_value_func, [:obj], :var_args => true
+  
+    declare :split, [:str, :sep]
+  
+    declare :tint, [:color, :dilution]
+    declare :shade, [:color, :dilution]  
+  end
+end
+

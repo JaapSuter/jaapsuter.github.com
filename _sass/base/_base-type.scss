@@ -1,43 +1,43 @@
-$body-ppem: global;
-$body-ppel: global;
-$body-cap: global;
-$body-ex: global;
-$body-baseline: global;
-$prev-body-ppem: global;
-$prev-body-ppel: global;
+$undefined: nil;
 
-@mixin set-or-restore-body-type-metrics($ppem: false, $ppel: false) {
+$body-ppem: $undefined;
+$body-ppgd: $undefined;
+$body-cap: $undefined;
+$body-ex: $undefined;
+$body-baseline: $undefined;
+$prev-body-ppem: $undefined;
+$prev-body-ppgd: $undefined;
 
-  @if not $ppem and not $ppel {
+@mixin set-or-restore-body-type-metrics($ppem: false, $ppgd: false) {
+
+  @if not $ppem and not $ppgd {
     $ppem: $prev-body-ppem;
-    $ppel: $prev-body-ppel;
+    $ppgd: $prev-body-ppgd;
   }
 
-  @debug $ppem '/' $ppel '(was: ' $body-ppem '/' $body-ppel ')';
-
   $prev-ppem: $body-ppem;
-  $prev-ppel: $body-ppel;
+  $prev-ppgd: $body-ppgd;
 
+  $dummy: set_current_em_el_ratio($ppem, $ppgd);
+  
   $body-ppem: $ppem;
-  $body-ppel: $ppel;
+  $body-ppgd: $ppgd;
 
-  @if $body-ppem == global or $body-ppel == global {
-    $body-cap: global;
-    $body-ex: global;
-    $body-baseline: global;
+  @if $body-ppem == $undefined or $body-ppgd == $undefined {
+    $body-cap: $undefined;
+    $body-ex: $undefined;
+    $body-baseline: $undefined;
   } @else {
     $body-cap: get_metric_for_metric(cap, $body-font-family, ppem, $body-ppem);
     $body-ex: get_metric_for_metric(ex, $body-font-family, ppem, $body-ppem);
-    $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppel);
+    $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppgd);
   }
 }
 
-@include set-or-restore-body-type-metrics(get-from($media-types, default, body-ppem), get-from($media-types, default, body-ppel));
-
 @mixin background-image-baseline-grid() {
   
-  @include background-image(make_svg_baseline_grid($body-font-family, $body-ppem, $body-ppel));
-  @include background-size(($body-ppel / $body-ppem * 1em) (2 * $body-ppel / $body-ppem * 1em));
+  @include background-image(make_svg_baseline_grid($body-font-family, $body-ppem, $body-ppgd));
+  @include background-size(($body-ppgd / $body-ppem * 1em) (2 * $body-ppgd / $body-ppem * 1em));
 
   // $c0: rgba($color-black, 0.2);
   // $c1: rgba($color-blue, 0.9);
@@ -45,40 +45,46 @@ $prev-body-ppel: global;
   // $c3: rgba($color-red, 0.9);
   // 
   // @include background-image(linear-gradient($c0 0%, $c0 25%, $c1 25%, $c1 50%, $c2 50%, $c2 75%, $c3 75%, $c3 100%));
-  // background-size: 100% (4 * $body-ppel * 1px);
+  // background-size: 100% (4 * $body-ppgd * 1px);
   // background-position: 0 ($body-baseline / $body-ppem * 1em);
 }
 
+
+
 body {
+
+  // -webkit-filter: blur(1px);
+
   @include color-and-background-color($color-black, $color-white);
   @extend %#{$body-font-family};
 
-  font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
-  line-height: $body-ppel / $body-ppem * 1em;
-
   @include respond-to(default) {
      font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
-     line-height: $body-ppel / $body-ppem * 1em;
+     line-height: 1gd;
      @include background-image-baseline-grid();
   }
-  
+ 
   @include respond-to(narrow) {
     font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
-    line-height: $body-ppel / $body-ppem * 1em;
+    line-height: 1gd;
     @include background-image-baseline-grid();
   }
   
   @include respond-to(wide) {
     font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
-    line-height: $body-ppel / $body-ppem * 1em;
+    line-height: 1gd;
     @include background-image-baseline-grid();
   }
 }
 
 p, h1, h2 {
-  @include respond-to(default) { margin: 0 0 ($body-ppel / $body-ppem * 1em) 0; }  
-  @include respond-to(narrow) { margin: 0 0 ($body-ppel / $body-ppem * 1em) 0; }  
-  @include respond-to(wide) { margin: 0 0 ($body-ppel / $body-ppem * 1em) 0; }
+  // @include respond-to(default) { margin: 0 0 ($body-ppgd / $body-ppem * 1em) 0; }  
+  // @include respond-to(narrow) { margin: 0 0 ($body-ppgd / $body-ppem * 1em) 0; }  
+  // @include respond-to(wide) { margin: 0 0 ($body-ppgd / $body-ppem * 1em) 0; }
+
+  @include respond-to(default) { margin: 0 0 1gd 0; }  
+  @include respond-to(narrow) { margin: 0 0 1gd 0; }  
+  @include respond-to(wide) { margin: 0 0 1gd 0; }
 }
 
 @mixin change-type($to-font-family, $such-that-metric, $has-value) {
@@ -88,16 +94,16 @@ p, h1, h2 {
   $ppem: get_metric_for_metric(ppem, $to-font-family, $such-that-metric, $has-value);
 
   $ppem: $ppem + if(is-odd($ppem), 1, 0);
-  $ppel: ceil($ppem / $body-ppel) * $body-ppel;
+  $ppgd: ceil($ppem / $body-ppgd) * $body-ppgd;
 
-  $here-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $ppel);
+  $here-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $ppgd);
     
   $top: 0;
   $top: $top - $here-baseline;
   $top: $top + $body-baseline;
-  $top: $top + $body-ppel;
+  $top: $top + $body-ppgd;
     
-  line-height: $ppel / $body-ppem * 1em;
+  line-height: $ppgd / $body-ppem * 1em;
 
   .font-resize {
     @extend %#{$to-font-family};
@@ -110,15 +116,15 @@ p, h1, h2 {
 
 h1 {
   
-  @include respond-to(default) { @include change-type(pan4n, ex, $body-ppel); }
-  @include respond-to(narrow) { @include change-type(pan4n, ex, $body-ppel); }  
-  @include respond-to(wide) { @include change-type(pan4n, ex, $body-ppel); }
+  @include respond-to(default) { @include change-type(pan4n, ex, $body-ppgd); }
+  @include respond-to(narrow) { @include change-type(pan4n, ex, $body-ppgd); }  
+  @include respond-to(wide) { @include change-type(pan4n, ex, $body-ppgd); }
 }
 
 h2 {
-  @include respond-to(default) { @include change-type(pan4n, cap, $body-ppel); }
-  @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ppel); }  
-  @include respond-to(wide) { @include change-type(pan4n, cap, $body-ppel); }
+  @include respond-to(default) { @include change-type(pan4n, cap, $body-ppgd); }
+  @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ppgd); }  
+  @include respond-to(wide) { @include change-type(pan4n, cap, $body-ppgd); }
 }
 
 h3 {
