@@ -2,18 +2,14 @@
 
 (function(global, exports) {
   "use strict";    
-    var Easel, ajax, fallbacks, getFontStyle, getFontWeight, getMetrics, iced, util, whenFontLoaded, __iced_k_noop, _base, _base2, _ref, _ref2, _ref3,
+    var Easel, ajax, dom, fallbacks, getFontStyle, getFontWeight, getMetrics, iced, util, whenFontLoaded, __iced_k_noop, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     _this = this;
 
   __iced_k_noop = function() {};
 
-  iced = (_ref = global.iced) != null ? _ref : global.iced = {};
-
-  util = (_ref2 = (_base = global.jaap).util) != null ? _ref2 : _base.util = {};
-
-  ajax = (_ref3 = (_base2 = global.jaap).ajax) != null ? _ref3 : _base2.ajax = {};
+  iced = global.iced, (_ref = global.jaap, util = _ref.util, ajax = _ref.ajax, dom = _ref.dom);
 
   fallbacks = ['georgia', 'arial', 'verdana'];
 
@@ -46,7 +42,7 @@
     Easel.__name = 'Easel';
 
     function Easel(_arg) {
-      var _ref4, _ref5;
+      var _ref2, _ref3;
       this.minFontSize = _arg.minFontSize, this.maxFontSize = _arg.maxFontSize;
       this.getMetrics = __bind(this.getMetrics, this);
 
@@ -59,7 +55,7 @@
       this.ctx0.textBaseline = this.ctx1.textBaseline = "alphabetic";
       this.ctx0.textAlign = this.ctx1.textAlign = "left";
       this.ctx0.fillStyle = this.ctx1.fillStyle = "#000";
-      _ref4 = util.createElement('div', '<img style="vertical-align: baseline" width="1" height="1" alt="" src="/img/1x1-black.png">bHxp'), this.div = _ref4[0], (_ref5 = _ref4[1], this.img = _ref5[0]);
+      _ref2 = dom.create('div', '<img style="vertical-align: baseline" width="1" height="1" alt="" src="/img/1x1-black.png">bHxp'), this.div = _ref2[0], (_ref3 = _ref2[1], this.img = _ref3[0]);
       this.div.style.whiteSpace = 'nowrap';
       this.div.style.position = 'absolute';
       this.div.style.lineHeight = this.lineHeightMul;
@@ -90,14 +86,14 @@
     };
 
     Easel.prototype.horizontalSplat = function() {
-      var w, x, _ref4, _ref5;
+      var w, x, _ref2, _ref3;
       this.ctx1.drawImage(this.cnv0, 0, 0);
       x = firstPowerOfTwoLessThan(this.fontSize);
       w = this.fontSize - x;
       while (x) {
         this.ctx1.drawImage(this.cnv0, x, 0, w, this.baseline, 0, 0, w, this.baseline);
-        _ref4 = [this.ctx1, this.ctx0], this.ctx0 = _ref4[0], this.ctx1 = _ref4[1];
-        _ref5 = [this.cnv1, this.cnv0], this.cnv0 = _ref5[0], this.cnv1 = _ref5[1];
+        _ref2 = [this.ctx1, this.ctx0], this.ctx0 = _ref2[0], this.ctx1 = _ref2[1];
+        _ref3 = [this.cnv1, this.cnv0], this.cnv0 = _ref3[0], this.cnv1 = _ref3[1];
         x >>= 1;
         w = x;
       }
@@ -196,7 +192,7 @@
                 funcname: "Easel.getFamilyMetrics"
               });
               _this.getSizedFamilyMetrics(size, family, metrics, __iced_deferrals.defer({
-                lineno: 145
+                lineno: 143
               }));
               __iced_deferrals._fulfill();
             })(_next);
@@ -219,9 +215,9 @@
         'families': families
       };
       (function(__iced_k) {
-        var _i, _len, _ref4, _results, _while;
-        _ref4 = families;
-        _len = _ref4.length;
+        var _i, _len, _ref2, _results, _while;
+        _ref2 = families;
+        _len = _ref2.length;
         _i = 0;
         _results = [];
         _while = function(__iced_k) {
@@ -240,7 +236,7 @@
           if (!(_i < _len)) {
             return _break();
           } else {
-            family = _ref4[_i];
+            family = _ref2[_i];
             (function(__iced_k) {
               __iced_deferrals = new iced.Deferrals(__iced_k, {
                 parent: ___iced_passed_deferral,
@@ -254,7 +250,7 @@
                     return fam = arguments[1];
                   };
                 })(),
-                lineno: 157
+                lineno: 155
               }));
               __iced_deferrals._fulfill();
             })(_next);
@@ -265,9 +261,9 @@
         (function(__iced_k) {
           if (ok) {
             (function(__iced_k) {
-              var _i, _len, _ref4, _results, _while;
-              _ref4 = families;
-              _len = _ref4.length;
+              var _i, _len, _ref2, _results, _while;
+              _ref2 = families;
+              _len = _ref2.length;
               _i = 0;
               _results = [];
               _while = function(__iced_k) {
@@ -286,7 +282,7 @@
                 if (!(_i < _len)) {
                   return _break();
                 } else {
-                  family = _ref4[_i];
+                  family = _ref2[_i];
                   (function(__iced_k) {
                     __iced_deferrals = new iced.Deferrals(__iced_k, {
                       parent: ___iced_passed_deferral,
@@ -300,7 +296,7 @@
                           return fam = arguments[1];
                         };
                       })(),
-                      lineno: 161
+                      lineno: 159
                     }));
                     __iced_deferrals._fulfill();
                   })(function() {
@@ -319,7 +315,7 @@
                                 return met = arguments[1];
                               };
                             })(),
-                            lineno: 163
+                            lineno: 161
                           }));
                           __iced_deferrals._fulfill();
                         })(function() {
@@ -350,8 +346,8 @@
   })();
 
   exports.whenFontLoaded = whenFontLoaded = function(family, cont) {
-    var attempts, br, complete, div, fallback, interval_ms, loaded, max_wait_ms, repeats_until_valid, testFontLoaded, _ref4, _ref5;
-    _ref4 = util.createElement('div', '<span>b H x p</span><br><span>b H x p</span>'), div = _ref4[0], (_ref5 = _ref4[1], fallback = _ref5[0], br = _ref5[1], loaded = _ref5[2]);
+    var attempts, br, complete, div, fallback, interval_ms, loaded, max_wait_ms, repeats_until_valid, testFontLoaded, _ref2, _ref3;
+    _ref2 = dom.create('div', '<span>b H x p</span><br><span>b H x p</span>'), div = _ref2[0], (_ref3 = _ref2[1], fallback = _ref3[0], br = _ref3[1], loaded = _ref3[2]);
     div.style.cssText = "visibility: visible;\nposition: absolute;\ntop: 0;\nleft: 0;\nfont-family: serif;\nfont-size: 137px;\nfont-style: " + (getFontStyle(family)) + ";\nfont-weight: " + (getFontWeight(family)) + ";\nline-height: 1;\nwhite-space: nowrap;";
     loaded.style.fontFamily = "" + family + ", serif";
     document.body.insertBefore(div, document.body.firstChild);
@@ -382,11 +378,11 @@
   };
 
   exports.getMetrics = getMetrics = function(families) {
-    var data, easel, family, metrics, ok, resp, ___iced_passed_deferral, __iced_deferrals, __iced_k, _ref4;
+    var data, easel, family, metrics, ok, resp, ___iced_passed_deferral, __iced_deferrals, __iced_k, _ref2;
     __iced_k = __iced_k_noop;
     ___iced_passed_deferral = iced.findDeferral(arguments);
     families = ["psn7n-inv", "tan2n", "tan4c", "tan4n", "tan7n", "tao4n", "tmn4n", "tsi4n", "tsi4n-smcp", "tsi4n-tnum-lnum", "tsi7n", "tsn4n", "tsn4n-smcp", "tsn4n-tnum-lnum", "tsn7n", "pan2n", "pan2n-inv", "pan4n", "pan4n-inv", "pan7n", "pan7n-inv", "psi4n", "psi4n-inv", "psi7n", "psi7n-inv", "psn4n", "psn4n-inv", "psn7n"];
-    if ((_ref4 = global.jaap) != null ? _ref4.dev : void 0) families = ["tan2n"];
+    if ((_ref2 = global.jaap) != null ? _ref2.dev : void 0) families = ["tan2n"];
     families = fallbacks.concat(families);
     families = (function() {
       var _i, _len, _results;
@@ -414,7 +410,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 251
+        lineno: 249
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -436,7 +432,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 254
+            lineno: 252
           }), data);
           __iced_deferrals._fulfill();
         })(function() {

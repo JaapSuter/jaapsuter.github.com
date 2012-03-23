@@ -1,4 +1,24 @@
-$media-types: ((default, narrow, wide), (body-ppem, body-ppel), ((16, 24), (12, 18), (24, 60)));
+$media-types: (
+  // name, trigger-width-px, body-ppem,  body-ppgd, 
+
+  // default, no query
+      ( 0,              600,        17,        26),      
+
+  // narrower  
+      (-1,              550,        17,        25),
+      (-2,              500,        16,        25),
+      (-3,              400,        16,        24),
+      (-4,              350,        16,        23),      
+      (-5,              300,        16,        22),
+      
+  // wider      
+      ( 1,              650,        18,        27),
+      ( 2,              700,        18,        28),
+      ( 3,              750,        19,        29),
+      ( 4,              800,        20,        30),
+      ( 5,              900,        22,        34),
+      ( 6,             1000,        24,        38)
+);
 
 @function get-from($class, $instance, $member) {
   $instances: nth($class, 1);
@@ -11,23 +31,61 @@ $media-types: ((default, narrow, wide), (body-ppem, body-ppel), ((16, 24), (12, 
   @return nth(nth($values, $instance-idx), $member-idx);
 }
 
+
+@mixin set-body-ppgd($ppgd) {
+  $body-ppgd: $ppgd;
+}
+
+@mixin set-body-ppem($ppem) {
+  $body-ppem: $ppem;
+  
+  $body-ppcap: get_metric_for_metric(cap, $root-font-family, ppem, $body-ppem);
+  $body-ppex: get_metric_for_metric(ex, $root-font-family, ppem, $body-ppem);
+  $body-ptbl: rhythm-get-baseline($root-font-family, $body-ppem, $body-ppgd);
+}
+
+@mixin responsify() {
+  @each $media-type in $media-types {
+    $name:             nth($media-type, 1);
+    $trigger-width-px: nth($media-type, 2);
+    $body-ppem:        nth($media-type, 3);
+    $body-ppgd:        nth($media-type, 4);
+
+    @include set-body-ppgd($body-ppgd);
+    @include set-body-ppem($body-ppem);
+
+    $trigger-width-em: $trigger-width-px / $pprem * 1em;
+
+    @if $name < 0 {
+      @media screen and (max-width: $trigger-width-em) { @content; }
+    } @else if $name == 0 {
+      @content;
+    } @else if $name > 0 {
+      @media screen and (min-width: $trigger-width-em) { @content; }
+    }
+  }
+}
+
 @mixin respond-to($media) {
 
-  @include set-or-restore-body-type-metrics(get-from($media-types, $media, body-ppem), get-from($media-types, $media, body-ppel));
+  $body-ppem: get-from($media-types, $media, body-ppem);
+  $body-ppgd: get-from($media-types, $media, body-ppgd);
+
+  @include set-or-restore-body-type-metrics($body-ppem, $body-ppgd);
   
   @if $media == narrow {
-    @media screen and (max-width: 479px) { 
-      @content;
-    }
+    @media screen and (max-width: 20gd) { @content; }
+  }
+  @else if $media == narrower {
+    @media screen and (max-width: 15gd) { @content; }
   }
   @else if $media == wide {
-    @media screen and (min-width: 800px) {
-      @content;
-    }
+    @media screen and (min-width: 30gd) { @content; }
   }
-  @else if $media == default {
-    @content;
+  @else if $media == wider {
+    @media screen and (min-width: 40gd) { @content; }
   }
+  @else if $media == default { @content; }
 
   @include set-or-restore-body-type-metrics();
 }

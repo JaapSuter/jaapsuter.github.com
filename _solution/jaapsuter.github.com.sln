@@ -141,18 +141,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{3D899D
 		..\_ruby\framework\server\json-servlet.rb = ..\_ruby\framework\server\json-servlet.rb
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_coffee", "_coffee", "{92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0}"
-	ProjectSection(SolutionItems) = preProject
-		..\_coffee\jaap.coffee = ..\_coffee\jaap.coffee
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaap", "jaap", "{C33846B4-E40E-4DF1-AC04-3C508753191A}"
-	ProjectSection(SolutionItems) = preProject
-		..\_coffee\jaap\ajax.coffee = ..\_coffee\jaap\ajax.coffee
-		..\_coffee\jaap\font.coffee = ..\_coffee\jaap\font.coffee
-		..\_coffee\jaap\util.coffee = ..\_coffee\jaap\util.coffee
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaap", "jaap", "{863DBB29-E63D-4094-B38D-6FC542071F96}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monkey", "monkey", "{8B2C45A1-34AF-44AD-9DD0-53CB9DDB70F3}"
@@ -180,6 +168,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "typogruby", "typogruby", "{
 		..\_ruby\framework\forked\typogruby\typogruby.rb = ..\_ruby\framework\forked\typogruby\typogruby.rb
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_coffee", "..\_coffee\_coffee.csproj", "{64FB1456-E4DB-475A-BAD4-DAD7CE917DD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|x86 = Development|x86
@@ -187,6 +177,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}.Development|x86.ActiveCfg = Development|x86
 		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A}.Development|x86.Build.0 = Development|x86
+		{64FB1456-E4DB-475A-BAD4-DAD7CE917DD5}.Development|x86.ActiveCfg = Development|x86
+		{64FB1456-E4DB-475A-BAD4-DAD7CE917DD5}.Development|x86.Build.0 = Development|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -201,7 +193,6 @@ Global
 		{A7D1582B-CCCF-45A3-8267-796F6EC87B27} = {268607DF-F1FD-4312-9543-365234474E47}
 		{5C7EE667-5933-4347-B8A8-EE64836C245F} = {268607DF-F1FD-4312-9543-365234474E47}
 		{33B17BCB-4312-4678-B1B3-E0411188E6CA} = {268607DF-F1FD-4312-9543-365234474E47}
-		{92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0} = {268607DF-F1FD-4312-9543-365234474E47}
 		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A} = {268607DF-F1FD-4312-9543-365234474E47}
 		{C4A66924-C309-4A4B-B937-D6994ED2B6D6} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{1336C1DB-0800-4E65-A805-7A3785F02100} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
@@ -215,7 +206,6 @@ Global
 		{278B1B56-D9DA-44AE-B739-9BB0B42698BB} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{83DB6C1B-6560-45EB-972A-546386316CC6} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
-		{C33846B4-E40E-4DF1-AC04-3C508753191A} = {92F6BEA1-70FF-499C-B0D1-19BC2A5F83C0}
 		{F6E6414C-5C2F-40DC-A23E-BF2C2A4129A6} = {7C98ED6C-3FEB-4232-8377-F2F83D4ED002}
 	EndGlobalSection
 EndGlobal

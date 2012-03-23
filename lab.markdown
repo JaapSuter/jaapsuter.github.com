@@ -4,7 +4,6 @@ title: Lab
 permalink: /lab/
 ---
 
-
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
 
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing

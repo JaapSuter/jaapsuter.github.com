@@ -1,142 +1,169 @@
-$undefined: nil;
-
-$body-ppem: $undefined;
-$body-ppgd: $undefined;
-$body-cap: $undefined;
-$body-ex: $undefined;
-$body-baseline: $undefined;
-$prev-body-ppem: $undefined;
-$prev-body-ppgd: $undefined;
-
-@mixin set-or-restore-body-type-metrics($ppem: false, $ppgd: false) {
-
-  @if not $ppem and not $ppgd {
-    $ppem: $prev-body-ppem;
-    $ppgd: $prev-body-ppgd;
-  }
-
-  $prev-ppem: $body-ppem;
-  $prev-ppgd: $body-ppgd;
-
-  $dummy: set_current_em_el_ratio($ppem, $ppgd);
+//      16/22 = 
+//      16/23 = 
+//      16/24 =
+//      16/25 =
+//      17/24
   
-  $body-ppem: $ppem;
-  $body-ppgd: $ppgd;
-
-  @if $body-ppem == $undefined or $body-ppgd == $undefined {
-    $body-cap: $undefined;
-    $body-ex: $undefined;
-    $body-baseline: $undefined;
-  } @else {
-    $body-cap: get_metric_for_metric(cap, $body-font-family, ppem, $body-ppem);
-    $body-ex: get_metric_for_metric(ex, $body-font-family, ppem, $body-ppem);
-    $body-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $body-ppgd);
-  }
+html {
+  font-size: $pprem / $pprem-assumed-default-initial * 100%;
+  line-height: 100%;
 }
 
-@mixin background-image-baseline-grid() {
-  
-  @include background-image(make_svg_baseline_grid($body-font-family, $body-ppem, $body-ppgd));
-  @include background-size(($body-ppgd / $body-ppem * 1em) (2 * $body-ppgd / $body-ppem * 1em));
-
-  // $c0: rgba($color-black, 0.2);
-  // $c1: rgba($color-blue, 0.9);
-  // $c2: $color-white;
-  // $c3: rgba($color-red, 0.9);
-  // 
-  // @include background-image(linear-gradient($c0 0%, $c0 25%, $c1 25%, $c1 50%, $c2 50%, $c2 75%, $c3 75%, $c3 100%));
-  // background-size: 100% (4 * $body-ppgd * 1px);
-  // background-position: 0 ($body-baseline / $body-ppem * 1em);
+p {
+  -webkit-locale: 'en';
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
-
-
 
 body {
-
-  // -webkit-filter: blur(1px);
-
   @include color-and-background-color($color-black, $color-white);
-  @extend %#{$body-font-family};
+  @extend %#{$root-font-family};
+}
 
-  @include respond-to(default) {
-     font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
-     line-height: 1gd;
-     @include background-image-baseline-grid();
+@include responsify {
+  body {
+    @include emerem(font-size, $body-ppem);
+    @include emerem(line-height, $body-ppgd);
+  
+    @include background-image-baseline-grid($root-font-family, $body-ppem, $body-ppgd, $pprem);
   }
- 
-  @include respond-to(narrow) {
-    font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
+
+  p, h1, h2, h3 {
+    @include emerem(margin, 0 0 $body-ppgd 0);
+    @include emerem(padding, 0 ($body-ppgd / 2));
+  }
+
+  h1 { @include change-type(pan4n, ex, $body-ppgd); }
+  h2 { @include change-type(pan4n, cap, $body-ppgd); }
+  h3 { @include change-type(pan4n, ex, $body-ppcap); }
+  .small { @include change-type(pan4n, cap, $body-ppex); }
+}
+
+@if false {
+
+@include set-body-ppgd(22);
+@include set-body-ppem(16);
+
+body {
+  @include color-and-background-color($color-black, $color-white);
+  @extend %#{$root-font-family};
+
+  // font-size: $body-ppem / $pprem * 1em;
+  // font-size: $body-ppem / $pprem * 1rem;
+  // line-height: $body-ppgd / $body-ppem * 1em;
+  // line-height: $body-ppgd / $pprem * 1rem;
+
+  @include emerem(font-size, $body-ppem);
+  @include emerem(line-height, $body-ppgd);
+
+  @include background-image-baseline-grid($root-font-family, $body-ppem, $body-ppgd, $pprem);
+
+  @include when-screen(max-width, 300px) { background-color: yellow; }  
+}
+
+p, h1, h2, h3 {
+  // $gd: $body-ppgd / $body-ppem * 1em;
+  // margin: 0 0 $gd 0;
+  // padding: 0 (0.5 * $gd);
+  // 
+  // $gd: $body-ppgd / $pprem * 1rem;
+  // margin: 0 0 $gd 0;
+  // padding: 0 (0.5 * $gd);
+
+  @include emerem(margin, 0 0 $body-ppgd 0);
+  @include emerem(padding, 0 (0.5 * $body-ppgd));
+}
+
+h1 { @include change-type(pan4n, ex, $body-ppgd); }
+h2 { @include change-type(pan4n, cap, $body-ppgd); }
+h3 { @include change-type(pan4n, ex, $body-ppcap); }
+.small { @include change-type(pan4n, cap, $body-ppex); }
+
+@include respond-to(default) {
+  html {
     line-height: 1gd;
+    @debug body-ppgd $body-ppgd;
+    line-height: $body-ppgd / $pp-rem * 100%;
+  }
+
+  body {
+    @debug body-ppem $body-ppem;
+    font-size: $body-ppem / $pp-rem * 1rem;
     @include background-image-baseline-grid();
+  }
+}
+
+p, h1, h2, h3 {
+  @include respond-to(default) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
+  @include respond-to(narrow) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
+  @include respond-to(narrower) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }  
+  @include respond-to(wide) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
+  @include respond-to(wider) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
+}
+
+body {
+  
+
+  
+
+  @include respond-to(narrow) {
+    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
+    line-height: 1gd;
+    @include background-image-baseline-grid();    
+  }
+
+  @include respond-to(narrower) {
+    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
+    line-height: 1gd;
+    @include background-image-baseline-grid();    
   }
   
   @include respond-to(wide) {
-    font-size: $body-ppem / $ppem-assumed-browser-default * 1em;
+    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
+    line-height: 1gd;
+    @include background-image-baseline-grid();
+  }
+
+  @include respond-to(wider) {
+    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
     line-height: 1gd;
     @include background-image-baseline-grid();
   }
 }
 
-p, h1, h2 {
-  // @include respond-to(default) { margin: 0 0 ($body-ppgd / $body-ppem * 1em) 0; }  
-  // @include respond-to(narrow) { margin: 0 0 ($body-ppgd / $body-ppem * 1em) 0; }  
-  // @include respond-to(wide) { margin: 0 0 ($body-ppgd / $body-ppem * 1em) 0; }
 
-  @include respond-to(default) { margin: 0 0 1gd 0; }  
-  @include respond-to(narrow) { margin: 0 0 1gd 0; }  
-  @include respond-to(wide) { margin: 0 0 1gd 0; }
-}
-
-@mixin change-type($to-font-family, $such-that-metric, $has-value) {
-  font-weight: 400;
-  font-size: 1em;
-
-  $ppem: get_metric_for_metric(ppem, $to-font-family, $such-that-metric, $has-value);
-
-  $ppem: $ppem + if(is-odd($ppem), 1, 0);
-  $ppgd: ceil($ppem / $body-ppgd) * $body-ppgd;
-
-  $here-baseline: rhythm-get-baseline($body-font-family, $body-ppem, $ppgd);
-    
-  $top: 0;
-  $top: $top - $here-baseline;
-  $top: $top + $body-baseline;
-  $top: $top + $body-ppgd;
-    
-  line-height: $ppgd / $body-ppem * 1em;
-
-  .font-resize {
-    @extend %#{$to-font-family};
-    font-size: $ppem / $body-ppem * 1em;
-    line-height: 0;
-    position: relative;
-    top: $top / $ppem * 1em;
-  }
-}
-
-h1 {
-  
+h1 {  
   @include respond-to(default) { @include change-type(pan4n, ex, $body-ppgd); }
   @include respond-to(narrow) { @include change-type(pan4n, ex, $body-ppgd); }  
+  @include respond-to(narrower) { @include change-type(pan4n, ex, $body-ppgd); }  
   @include respond-to(wide) { @include change-type(pan4n, ex, $body-ppgd); }
+  @include respond-to(wider) { @include change-type(pan4n, ex, $body-ppgd); }  
 }
 
 h2 {
   @include respond-to(default) { @include change-type(pan4n, cap, $body-ppgd); }
-  @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ppgd); }  
+  @include respond-to(narrower) { @include change-type(pan4n, cap, $body-ppgd); }  
   @include respond-to(wide) { @include change-type(pan4n, cap, $body-ppgd); }
+  @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ppgd); }  
+  @include respond-to(wider) { @include change-type(pan4n, cap, $body-ppgd); }  
 }
 
 h3 {
   @include respond-to(default) { @include change-type(pan4n, ex, $body-cap); }
   @include respond-to(narrow) { @include change-type(pan4n, ex, $body-cap); }  
+  @include respond-to(narrower) { @include change-type(pan4n, ex, $body-cap); }  
   @include respond-to(wide) { @include change-type(pan4n, ex, $body-cap); }
+  @include respond-to(wider) { @include change-type(pan4n, ex, $body-cap); }
 }
 
 .small {
   @include respond-to(default) { @include change-type(pan4n, cap, $body-ex); }
   @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ex); }  
+  @include respond-to(narrower) { @include change-type(pan4n, cap, $body-ex); }  
   @include respond-to(wide) { @include change-type(pan4n, cap, $body-ex); }
+  @include respond-to(wider) { @include change-type(pan4n, cap, $body-ex); }
 }
 
 
@@ -189,7 +216,6 @@ q {
   }
 }
 
-@if false {
 
   ._tsi4n {
     color: rgba(#222, 0.73);

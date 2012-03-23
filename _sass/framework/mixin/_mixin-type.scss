@@ -1,24 +1,27 @@
 @mixin font-face($name, $unicode-range: false) {
-  @font-face {    
-    font-family: quote($name);
-    font-weight: type-name-get-font-weight($name);
-    font-style:  type-name-get-font-style($name);    
+  @unless $type-disable-font-face {  
+    @font-face {
+
+      font-family: quote($name);
+      font-weight: type-name-get-font-weight($name);
+      font-style:  type-name-get-font-style($name);    
       
-    src: url('/fonts/#{$name}.eot');
+      src: url('/fonts/#{$name}.eot');
+      
+      @if type-name-is-postscript-flavored($name) {
+        src: url('/fonts/#{$name}.eot?#iefix') format('eot'), // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
+             url('/fonts/#{$name}.woff') format('woff'),
+             url('/fonts/#{$name}.otf') format('opentype'),
+             url('/fonts/#{$name}.ttf') format('truetype');
+      } @else {  
+        src: url('/fonts/#{$name}.eot?#iefix') format('eot'),  // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
+             url('/fonts/#{$name}.woff') format('woff'),
+             url('/fonts/#{$name}.ttf') format('truetype');
+      }
 
-    @if type-name-is-postscript-flavored($name) {
-      src: url('/fonts/#{$name}.eot?#iefix') format('eot'), // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
-           url('/fonts/#{$name}.woff') format('woff'),
-           url('/fonts/#{$name}.otf') format('opentype'),
-           url('/fonts/#{$name}.ttf') format('truetype');
-    } @else {  
-      src: url('/fonts/#{$name}.eot?#iefix') format('eot'),  // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
-           url('/fonts/#{$name}.woff') format('woff'),
-           url('/fonts/#{$name}.ttf') format('truetype');
-    }
-
-    @if $unicode-range {
-      unicode-range: unquote($unicode-range);
+      @if $unicode-range {
+        unicode-range: unquote($unicode-range);
+      }
     }
   }
 
@@ -32,4 +35,94 @@
 @mixin small-caps {
   text-rendering: optimizeSpeed;
   font-variant: small-caps;
+}
+
+@mixin set-or-restore-body-type-metrics($ppem: false, $ppgd: false) {
+
+  @if not $ppem and not $ppgd {
+    $ppem: $prev-body-ppem;
+    $ppgd: $prev-body-ppgd;
+  }
+
+  $prev-ppem: $body-ppem;
+  $prev-ppgd: $body-ppgd;
+
+  $dummy: set_current_em_el_ratio($ppem, $ppgd);
+  
+  $body-ppem: $ppem;
+  $body-ppgd: $ppgd;
+
+  @if $body-ppem == $undefined or $body-ppgd == $undefined {
+    $body-cap: $undefined;
+    $body-ex: $undefined;
+    $body-baseline: $undefined;
+  } @else {
+    $body-cap: get_metric_for_metric(cap, $root-font-family, ppem, $body-ppem);
+    $body-ex: get_metric_for_metric(ex, $root-font-family, ppem, $body-ppem);
+    $body-baseline: rhythm-get-baseline($root-font-family, $body-ppem, $body-ppgd);
+  }
+}
+
+@mixin emerem($prop, $val) {
+  @if type_of(val) is list {
+    #{$prop}: multiply-each($val, 1.0 / $body-ppem * 1em);
+    #{$prop}: multiply-each($val, 1.0 / $pprem * 1rem);
+  } @else {
+    @include debug-warn-if(not unitless($val), "can't emerem #{$val}, is not unitless");
+    #{$prop}: if(0 == $val, 0, $val / $body-ppem * 1em);
+    #{$prop}: if(0 == $val, 0, $val / $pprem * 1rem);
+  }
+}
+
+@mixin change-type($to-font-family, $such-that-metric, $has-value) {
+
+  @extend %#{$to-font-family};
+  font-weight: 400;
+  font-size: 1em;
+  position: relative;
+  
+  $line-height-scale: 1.1;
+  $modulabsifier: 999;
+
+  $ppem: get_metric_for_metric(ppem, $to-font-family, $such-that-metric, $has-value);
+  $pplh: ceil($ppem * $line-height-scale / $body-ppgd) * $body-ppgd;
+  $ppem: $ppem + if(is-odd($pplh -$body-ppem), 1, 0);
+  
+  @debug "#{$to-font-family} with #{$such-that-metric}=#{$has-value} on a #{$body-ppgd}/#{$body-ppem} body means: #{$ppem}/#{$pplh}";
+
+  $here-ptbl: rhythm-get-baseline($to-font-family, $ppem, $pplh);
+    
+  $top: 0;
+  $top: $top - $here-ptbl;
+  $top: $top + $body-ptbl;
+  $top: ($top + $modulabsifier * $body-ppgd) % $body-ppgd;
+    
+  font-size: $ppem / $body-ppem * 1em;
+  font-size: $ppem / $pprem * 1rem;
+
+  line-height: $pplh / $ppem * 1em;
+  line-height: $pplh / $pprem * 1rem;
+  
+  top: $top / $ppem * 1em;
+  top: $top / $pprem * 1rem;
+}
+
+@mixin background-image-baseline-grid($root-font-family, $body-ppem, $body-ppgd, $pprem) {  
+  @include background-image(make_svg_baseline_grid($root-font-family, $body-ppem, $body-ppgd));
+  
+  $gd: $body-ppgd / $body-ppem * 1em;
+  @include background-size($gd (2 * $gd));
+  
+  $gd: $body-ppgd / $pprem * 1rem;
+  @include background-size($gd (2 * $gd));
+
+  // $c0: rgba($color-black, 0.2);
+  // $c1: rgba($color-blue, 0.9);
+  // $c2: $color-white;
+  // $c3: rgba($color-red, 0.9);
+  // 
+  // @include background-image(linear-gradient($c0 0, $c0 1gd, $c1 1gd, $c1 2gd, $c2 2gd, $c2 3gd, $c3 3gd, $c3 6gd));
+  // @include background-size(100% 4gd);
+  // background-position: 0 ($body-baseline / $body-ppem * 1em);
+  // background-position: 0 $body-baseline * 1px;
 }

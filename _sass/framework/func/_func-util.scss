@@ -19,10 +19,29 @@
     $ret: "";
     
     @while $idx <= $len {
-      
-      $ret: #{$ret + " " + $f * nth($list, $idx)};
+      $val: nth($list, $idx);
+      $dummy: debug-warn-if(not unitless($val), "can't multiply #{$val}, is not unitless");
+
+      $ret: #{$ret + " " + if(0 == $val, 0, $f * $val)};
       $idx: $idx + 1;
     }
     
     @return $ret;
+}
+
+// $get-from-example-objects: (
+//   (instance-a, instance-b, instance-c), 
+//   (prop-a, prop-b, prop-c), 
+//   ((true, 5, 'f'), (false, 234, 'rwww'), (true, 0, ''))
+// );
+
+@function get-from($class, $instance, $member) {
+  $instances: nth($class, 1);
+  $members: nth($class, 2);
+  $values: nth($class, 3);
+
+  $instance-idx: index($instances, $instance);
+  $member-idx: index($members, $member);
+
+  @return nth(nth($values, $instance-idx), $member-idx);
 }

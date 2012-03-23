@@ -22,7 +22,7 @@ module Jaap
       end
       
       tidy_args = "--tidy-mark no --indent no --wrap 0 --ascii-chars no --preserve-entities yes
-                   --break-before-br yes --sort-attributes alpha --vertical-space no --hide-endtags yes
+                   --break-before-br yes --sort-attributes none --vertical-space no --hide-endtags yes
                    --char-encoding ascii --numeric-entities yes --output-html yes --show-errors 2 --quiet 1
                    --show-warnings no --bare yes --write-back yes".gsub(/\s+/, ' ')
       
@@ -31,7 +31,6 @@ module Jaap
         text = Typogruby.improve text        
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html        
-        html = wrap_font_size_changes(html)
         text = html.to_html :encoding => 'US-ASCII'
         
         # Unclusterhug some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.

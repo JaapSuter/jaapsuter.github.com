@@ -4,8 +4,10 @@
     <meta content='IE=edge' http-equiv='X-UA-Compatible' />
     <meta content='on' http-equiv='cleartype' />
     <meta content='True' name='HandheldFriendly' />
-  %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-  %meta{:content => "Jaap Suter", :name => "author"}/
+  -# Haml doesn't necessarily preserve attribute order, which is critical for some meta tags
+  -# on some devices. So we write these in plain old fashioned reliablish HTML and move on.
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Jaap Suter">
   %title
     {{ page.title }}
   %link{:href => "http://microformats.org/profile/specs/", :rel => "profile"}/

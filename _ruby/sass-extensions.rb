@@ -249,7 +249,6 @@ module Sass::SCSS
       if rx.to_s == STATIC_VALUE.to_s
         if len = tok?(rx)
           token = @scanner.peek len
-          puts token
           if /\d+gd/.match token
             return nil
           end

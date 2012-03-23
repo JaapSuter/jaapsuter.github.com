@@ -1,6 +1,4 @@
-iced = global.iced ?= {}
-util = global.jaap.util ?= {}
-ajax = global.jaap.ajax ?= {}
+{ iced, jaap: { util, ajax, dom } } = global
 
 fallbacks = ['georgia', 'arial', 'verdana']
 
@@ -30,7 +28,7 @@ class Easel
     @ctx0.textAlign = @ctx1.textAlign = "left"
     @ctx0.fillStyle = @ctx1.fillStyle = "#000"
 
-    [@div, [@img]] = util.createElement 'div',
+    [@div, [@img]] = dom.create 'div',
       '<img style="vertical-align: baseline" width="1" height="1" alt="" src="/img/1x1-black.png">bHxp'
 
     @div.style.whiteSpace = 'nowrap'
@@ -170,7 +168,7 @@ class Easel
      
 exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
 
-  [div, [fallback, br, loaded]] = util.createElement 'div', 
+  [div, [fallback, br, loaded]] = dom.create 'div', 
       '<span>b H x p</span><br><span>b H x p</span>'
 
   div.style.cssText = """

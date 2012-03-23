@@ -254,10 +254,7 @@ def make_underline(f, name, src, dst):
 
   generate(m, name, dst)
 
-  # We don't close the font, because it appears to result in access violations... since we're going to exit
-  # soon anyway, it's not a big problem. Besides, if we did this properly - then it'd be using some kind of scoped
-  # or using statement, RAII and what not.
-  m.close()  
+  m.close()
 
 def invert_glyphs(f, is_serif):
   

@@ -3,14 +3,14 @@ $sans-fallback:            Verdana, sans-serif;
 $sans-condensed-fallback:  Arial, sans-serif;
 $mono-fallback:            "Courier New", monospace;
 
-@if not $type-fallback-common-web-safe-only {
+@unless $type-fallback-common-web-safe-only {
   $serif-fallback:           "DejaVu Serif",           "Bitstream Vera Serif",     $serif-fallback;
   $sans-fallback:            "DejaVu Sans",            "Bitstream Vera Sans",      $sans-fallback;
   $sans-condensed-fallback:  "DejaVu Sans Condensed",  "Bitstream Vera Sans",      $sans-condensed-fallback;
   $mono-fallback:            "DejaVu Sans Mono",       "Bitstream Vera Sans Mono", $mono-fallback;
 }
 
-@if $type-make-fallback-obvious {
+@if $type-fallback-make-obvious {
   $obvious-fallback: unifont, fallback, LastResort, LocalFallback, Impact, cursive, fantasy;
 
   $serif-fallback:            $obvious-fallback, $serif-fallback;
@@ -19,5 +19,13 @@ $mono-fallback:            "Courier New", monospace;
   $mono-fallback:             $obvious-fallback, $mono-fallback;
 }
 
-$ppem-assumed-browser-default: 16;
-$body-font-family: tsn4n;
+$root-font-family:    tsn4n;
+
+$pprem-assumed-default-initial: 16;  
+$pprem:                         20;
+
+$body-ppem:   undefined;
+$body-ppgd:   undefined;
+$body-ppcap:  undefined;
+$body-ppex:   undefined;
+$body-ptbl:   undefined;

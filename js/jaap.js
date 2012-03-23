@@ -2,54 +2,9 @@
 
 (function(global, exports) {
   "use strict";    
-    var entryPoint, font, iced, prop, toggleBaseline, util, _base, _base2, _ref, _ref2,
-    __slice = [].slice,
-    __hasProp = {}.hasOwnProperty;
+    var ajax, diagnose, dom, entryPoint, font, iced, keys, toggleBaseline, util, _ref;
 
-  iced = {
-    Deferrals: (function() {
-
-      function _Class(_arg) {
-        this.continuation = _arg;
-        this.count = 1;
-        this.ret = null;
-      }
-
-      _Class.prototype._fulfill = function() {
-        if (!--this.count) return this.continuation(this.ret);
-      };
-
-      _Class.prototype.defer = function(defer_params) {
-        var _this = this;
-        ++this.count;
-        return function() {
-          var inner_params, _ref;
-          inner_params = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          if (defer_params != null) {
-            if ((_ref = defer_params.assign_fn) != null) {
-              _ref.apply(null, inner_params);
-            }
-          }
-          return _this._fulfill();
-        };
-      };
-
-      return _Class;
-
-    })(),
-    findDeferral: function() {
-      return null;
-    }
-  };
-
-  for (prop in iced) {
-    if (!__hasProp.call(iced, prop)) continue;
-    global.iced[prop] = iced[prop];
-  }
-
-  util = (_ref = (_base = global.jaap).util) != null ? _ref : _base.util = {};
-
-  font = (_ref2 = (_base2 = global.jaap).font) != null ? _ref2 : _base2.font = {};
+  iced = global.iced, (_ref = global.jaap, util = _ref.util, ajax = _ref.ajax, dom = _ref.dom, keys = _ref.keys, font = _ref.font);
 
   toggleBaseline = function() {
     var elem;
@@ -57,10 +12,32 @@
     if (elem) return elem.checked = !elem.checked;
   };
 
+  diagnose = function() {
+    var body, get, ppgd;
+    body = document.body;
+    ppgd = parseFloat(window.getComputedStyle(body).lineHeight);
+    get = function(name) {
+      var elem, height, isHeightWholeNumber, ppem, pplh, style;
+      style = {
+        fontSize: '0',
+        lineHeight: '0'
+      };
+      elem = document.querySelector(name);
+      if (elem) style = window.getComputedStyle(elem);
+      ppem = parseFloat(style.fontSize);
+      pplh = parseFloat(style.lineHeight);
+      height = elem.getBoundingClientRect().height;
+      isHeightWholeNumber = name === 'html' || name === 'body' ? "" : " " + height + " / " + ppgd + " = " + (height / ppgd);
+      return "" + ppem + "/" + pplh + isHeightWholeNumber + ": " + name + "<br/>";
+    };
+    return document.querySelector('#dimensions').innerHTML = "" + (get('html')) + "\n" + (get('body')) + "\n" + (get('p')) + "\n" + (get('h1')) + "\n" + (get('h2')) + "\n" + (get('h3')) + "\n" + (get('.small'));
+  };
+
   entryPoint = function() {
     if (top !== window) return;
-    util.onKeyUp('B', toggleBaseline);
-    return util.onKeyUp('T', font.getMetrics);
+    keys.on('ctrl+b', toggleBaseline);
+    keys.on('shift+t', font.getMetrics);
+    return keys.on('d', diagnose);
   };
 
   entryPoint();

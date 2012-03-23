@@ -2,7 +2,7 @@
 
 (function(global, exports) {
   "use strict";    
-    var createElement, delay, isNumber, isUndefined, onKeyUp, soon, tail, time;
+    var delay, isNumber, isUndefined, soon, tail, time;
 
   exports.time = time = function(fun) {
     var start;
@@ -17,22 +17,6 @@
 
   exports.isUndefined = isUndefined = function(obj) {
     return typeof obj === 'undefined';
-  };
-
-  exports.onKeyUp = onKeyUp = function(key, fun) {
-    var _this = this;
-    return window.addEventListener('keydown', function(e) {
-      if (_this.isNumber(key) && key === e.keyCode || key.toUpperCase() === String.fromCharCode(e.keyCode || e.charCode).toUpperCase()) {
-        fun();
-      }
-    });
-  };
-
-  exports.createElement = createElement = function(tag, innerHTML) {
-    var elem;
-    elem = document.createElement(tag);
-    elem.innerHTML = innerHTML;
-    return [elem, elem.children];
   };
 
   exports.delay = delay = function(func, wait) {

@@ -115,7 +115,7 @@ module Typogruby
         (<[^/][^>]*?>)|                                 # Ignore any opening tag, so we don't mess up attribute values
         ((?:</?(?:a|em|span|strong|i|b)[^>]*>)|[^<>\s]) # must be proceeded by an approved inline opening or closing tag or a nontag/nonspace
         \s+                                             # the space to replace
-        (([^<>\s]+)                                     # must be flollowed by non-tag non-space characters
+        (([^<>\s]{,5})                                  # must be followed by at most 5 non-tag non-space characters
         \s*                                             # optional white space!
         (</(a|em|span|strong|i|b)>\s*)*                 # optional closing inline tags with optional white space after each
         ((</(p|h[1-6]|li|dt|dd)>)|\z))                   # end with a closing p, h1-6, li or the end of the string
