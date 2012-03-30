@@ -2,90 +2,84 @@ $media-types: (
   // name, trigger-width-px, body-ppem,  body-ppgd, 
 
   // default, no query
-      ( 0,              600,        17,        26),      
+      ( 0,        undefined,        16,        24),
 
   // narrower  
-      (-1,              550,        17,        25),
-      (-2,              500,        16,        25),
-      (-3,              400,        16,        24),
-      (-4,              350,        16,        23),      
-      (-5,              300,        16,        22),
+      (-1,              552,        16,        23),
+      (-2,              396,        16,        22),
       
   // wider      
-      ( 1,              650,        18,        27),
-      ( 2,              700,        18,        28),
-      ( 3,              750,        19,        29),
-      ( 4,              800,        20,        30),
-      ( 5,              900,        22,        34),
-      ( 6,             1000,        24,        38)
+      ( 1,              750,        16,        25),
+      ( 2,              825,        17,        25),
+      ( 3,              884,        17,        26),
+      ( 4,              936,        18,        27),
+      ( 5,             1026,        19,        28),
+      ( 6,             1092,        20,        29),
+      ( 7,             1160,        20,        30),
+      ( 8,             1260,        20,        31),
+      ( 9,             1344,        21,        32),
+      (10,             1408,        22,        33),
+      (10,             1504,        22,        34)
 );
 
-@function get-from($class, $instance, $member) {
-  $instances: nth($class, 1);
-  $members: nth($class, 2);
-  $values: nth($class, 3);
+@function get-media-type($name) {
+  @each $media-type in $media-types {
+    @if $name == nth($media-type, 1) {
+      @return $media-type;
+    }
+  }
 
-  $instance-idx: index($instances, $instance);
-  $member-idx: index($members, $member);
-
-  @return nth(nth($values, $instance-idx), $member-idx);
+  @return undefined;
 }
 
 
-@mixin set-body-ppgd($ppgd) {
-  $body-ppgd: $ppgd;
-}
-
-@mixin set-body-ppem($ppem) {
+@mixin set-body-ppem-ppgd($ppem, $ppgd) {
   $body-ppem: $ppem;
+  $body-ppgd: $ppgd;
   
   $body-ppcap: get_metric_for_metric(cap, $root-font-family, ppem, $body-ppem);
   $body-ppex: get_metric_for_metric(ex, $root-font-family, ppem, $body-ppem);
-  $body-ptbl: rhythm-get-baseline($root-font-family, $body-ppem, $body-ppgd);
+  $body-ptbl: get_metric_for_metric(baseline, $root-font-family, ppem, $body-ppem);
 }
+
+$name: undefined;
+$trigger-width-px: undefined;
+$mq-min-px: undefined;
+$mq-max-px: undefined;
 
 @mixin responsify() {
   @each $media-type in $media-types {
+
     $name:             nth($media-type, 1);
     $trigger-width-px: nth($media-type, 2);
     $body-ppem:        nth($media-type, 3);
     $body-ppgd:        nth($media-type, 4);
 
-    @include set-body-ppgd($body-ppgd);
-    @include set-body-ppem($body-ppem);
+    @include set-body-ppem-ppgd($body-ppem, $body-ppgd);
 
-    $trigger-width-em: $trigger-width-px / $pprem * 1em;
-
-    @if $name < 0 {
-      @media screen and (max-width: $trigger-width-em) { @content; }
-    } @else if $name == 0 {
+    @if $name == 0 {
+      $mq-min-px: nth(get-media-type(-1), 2);
+      $mq-max-px: nth(get-media-type( 1), 2);
+      
       @content;
-    } @else if $name > 0 {
-      @media screen and (min-width: $trigger-width-em) { @content; }
+            
+    } @else {
+    
+      $trigger-width-em: $trigger-width-px / $pprem * 1em;
+    
+      @if $name < 0 {        
+        @media screen and (max-width: $trigger-width-em) {
+          $mq-min-px: undefined;
+          $mq-max-px: $trigger-width-px;
+          @content;
+        }
+      } @else if $name > 0 {
+        @media screen and (min-width: $trigger-width-em) {
+          $mq-min-px: $trigger-width-px;
+          $mq-max-px: undefined;
+          @content;
+        }
+      }
     }
   }
-}
-
-@mixin respond-to($media) {
-
-  $body-ppem: get-from($media-types, $media, body-ppem);
-  $body-ppgd: get-from($media-types, $media, body-ppgd);
-
-  @include set-or-restore-body-type-metrics($body-ppem, $body-ppgd);
-  
-  @if $media == narrow {
-    @media screen and (max-width: 20gd) { @content; }
-  }
-  @else if $media == narrower {
-    @media screen and (max-width: 15gd) { @content; }
-  }
-  @else if $media == wide {
-    @media screen and (min-width: 30gd) { @content; }
-  }
-  @else if $media == wider {
-    @media screen and (min-width: 40gd) { @content; }
-  }
-  @else if $media == default { @content; }
-
-  @include set-or-restore-body-type-metrics();
 }

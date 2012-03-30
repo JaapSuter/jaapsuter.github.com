@@ -213,7 +213,6 @@ exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
 exports.getMetrics = getMetrics = (families) =>
 
   families = [
-    "psn7n-inv"
     "tan2n"
     "tan4c"
     "tan4n"
@@ -229,24 +228,19 @@ exports.getMetrics = getMetrics = (families) =>
     "tsn4n-tnum-lnum"
     "tsn7n"
     "pan2n"
-    "pan2n-inv"
     "pan4n"
-    "pan4n-inv"
+    "pan4n-smcp"
     "pan7n"
-    "pan7n-inv"
+    "pan7n-smcp"
     "psi4n"
-    "psi4n-inv"
     "psi7n"
-    "psi7n-inv"
     "psn4n"
-    "psn4n-inv"
     "psn7n"
   ]
 
-  families = ["tan2n"] if global.jaap?.dev
   families = fallbacks.concat families
-  families = (family for family in families when family.indexOf('inv') < 0) 
-  easel = new Easel minFontSize: 8, maxFontSize: 237
+  families = (family for family in families when family.indexOf('inv') < 0)
+  easel = new Easel minFontSize: 9, maxFontSize: 183
   await easel.getMetrics families, defer(ok, metrics)
   if ok
     data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4

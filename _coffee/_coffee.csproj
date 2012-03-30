@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Development</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64FB1456-E4DB-475A-BAD4-DAD7CE917DD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_coffee</RootNamespace>
+    <AssemblyName>_coffee</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Development|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>
+    </OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="compiler\hook.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="modules.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="jaap.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="jaap\ajax.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="jaap\dom.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="jaap\font.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="jaap\keys.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+    <None Include="jaap\util.coffee">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <Bare>False</Bare>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="closure\externs.js" />
+    <Content Include="closure\google-closure-compiler-commandline-options.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

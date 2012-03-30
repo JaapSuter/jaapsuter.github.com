@@ -170,6 +170,8 @@ def make_underline(f, name, src, dst):
   if name != 'tsn4n':
     return
 
+  name += '-underline'
+
   shutil.copy2(src, dst)
 
   m = fontforge.open(dst)  
@@ -374,48 +376,47 @@ def do_possible_manual_glyphs(f, dir, name, reinstructables):
     # We don't close the font, because it appears to result in access violations... since we're going to exit
     # soon anyway, it's not a big problem...        m.close()
 
-def make_small_caps(f, is_italic, reinstructables):
+def make_small_caps(f, is_italic, is_serif, reinstructables):
 
   lowercase_to_smallcap_map = {
-    'a': 0x1D00,
-    'b': 0x0299 if is_italic else 0x0432,
-    'c': 0x1D04,
-    'd': 0x1D05,
-    'e': 0x1D07,
-    'f': 0xA730,
-    'g': 0x0262,
-    'h': 0x029C,
-    'i': 0x026A,
-    'j': 0x1D0A,
-    'k': 0x1D0B,
-    'l': 0x029F,
-    'm': 0x1D0D,
-    'n': 0x0274,
-    'o': 0x1D0F,
-    'p': 0x1D18,
-    'q': 0x01EB,
-    'r': 0x0280,
-    's': 0xA731,
-    't': 0x1D1B,
-    'u': 0x1D1C,
-    'v': 0x1D20,
-    'w': 0x1D21,
-         # reusing existing lowercase 'x' glyph
-    'y': 0x028F,
-    'z': 0x1D22,
+    'a': 0x1D00,                                                              
+    'b': 0x0432 if is_serif else 0x0299,
+    'c': 0x1D04,                                                              
+    'd': 0x1D05,                                                              
+    'e': 0x1D07,                                                              
+    'f': 0xA730,                                                              
+    'g': 0x0262,                                                              
+    'h': 0x029C,                                                              
+    'i': 0x026A,                                                              
+    'j': 0x1D0A,                                                              
+    'k': 0x1D0B,                                                              
+    'l': 0x029F,                                                              
+    'm': 0x1D0D,                                                              
+    'n': 0x0274,                                                              
+    'o': 0x1D0F,                                                              
+    'p': 0x1D18,                                                              
+    'q': 0x01EB,                                                              
+    'r': 0x0280,                                                              
+    's': 0xA731,                                                              
+    't': 0x1D1B,                                                              
+    'u': 0x1D1C,                                                              
+    'v': 0x1D20,                                                              
+    'w': 0x1D21,                                                              
+         # reusing existing lowercase 'x' glyph                               
+    'y': 0x028F,                                                              
+    'z': 0x1D22,                                                              
   }
 
   for lowercase, smallcap in lowercase_to_smallcap_map.iteritems():
     try_replace_glyph_with(f, reinstructables, lowercase, smallcap)
 
-  # foreground_idx = 1
-  # first_contour_idx = 0
-  # adjustment = 29
-  # n = f['N'].layers[foreground_idx][first_contour_idx]
-  # n[ 7] = fontforge.point(n[ 7].x, n[ 7].y + adjustment)
-  # n[14] = fontforge.point(n[14].x, n[14].y + adjustment)
-  # n[15] = fontforge.point(n[15].x, n[15].y + adjustment)
-  # f['N'].layers[foreground_idx][first_contour_idx] = n
+  if False:
+    if not is_serif:
+      f.selection.all()
+      sep = (f.em / 40)
+      min_bearing = sep / 2
+      max_bearing = sep * 4
+      f.autoWidth(sep, min_bearing, max_bearing)
 
 def make_font_face_load_detection_glyph(f, unicodes, is_monospace):
   unicode = 0xA6
@@ -446,7 +447,7 @@ def forge_one(name, src, dir, unicodes):
   f = fontforge.open(src)
     
   log("OPEN: font #{name}")
-
+  
   f.sfnt_names = ()
   f.selection.all()
   f.unlinkReferences()    
@@ -460,9 +461,9 @@ def forge_one(name, src, dir, unicodes):
       try_replace_glyph_with(f, reinstructables, 'g', 'g.alt'),
       try_replace_glyph_with(f, reinstructables, 'l', 'l.alt')
     ]
-    
+
   if is_for_small_caps:
-    make_small_caps(f, is_italic, reinstructables)
+    make_small_caps(f, is_italic, is_serif, reinstructables)
     unicodes = range(ord('a'), ord('z') + 1)
 
   do_possible_manual_glyphs(f, dir, name, reinstructables)
@@ -498,12 +499,12 @@ def forge_one(name, src, dir, unicodes):
 
     f.selection.invert()
     f.clear()
-
+  
   if rehinstr:
     remove_cvt_fpgm_and_prep(f)
 
   autohint_entire_font(f)
-    
+
   if rehinstr:
     f.selection.all()
     f.autoInstr()

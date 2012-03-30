@@ -4,8 +4,8 @@ $base-normalize-include-fields-forms-etcetera: false;
 $base-normalize-include-typography-etcetera:   false;
 
 $type-disable-font-face:                       false;
-$type-fallback-make-obvious:                   true;
-$type-fallback-common-web-safe-only:           true;
+$type-fallback-make-obvious:                   false;
+$type-fallback-common-web-safe-only:           false;
 
 @import "framework/extern";
 @import "framework/const";
@@ -15,26 +15,26 @@ $type-fallback-common-web-safe-only:           true;
 //* Up to this point, no styling should be applied - we've only defined
 //* constants, functions, and mixins. Hence the resulting compressed CSS
 //* file (with comments stripped, etc.) should be of zero size. */
- 
-@each $font in get_font_list() {
- @include font-face($font);
-}
+
+@unless $type-disable-font-face {
+  @if in_development_mode { @import url(at-font-face.dev.css); }
+  @else { @each $font in get_font_list() { @include at-font-face($font); } }  
+} 
+
+@each $font in get_font_list() { @include abstract-font-face-family($font); }
 
 @import "base/base-normalize";
 @import "base/base-reset";
 @import "base/base-type";
 
-// @include respond-to(default)  { @include debug-message("default #{$body-ppem}/#{$body-ppgd}"); }
-// @include respond-to(narrow)   { @include debug-message("narrow #{$body-ppem}/#{$body-ppgd}"); }
-// @include respond-to(narrower) { @include debug-message("narrower #{$body-ppem}/#{$body-ppgd}"); }
-// @include respond-to(wide)     { @include debug-message("wide #{$body-ppem}/#{$body-ppgd}"); }
-// @include respond-to(wider)    { @include debug-message("wider #{$body-ppem}/#{$body-ppgd}"); }
+@include debug-message-initialize();
+
+figure { overflow: hidden; }
 
 html {
   min-height: 100%;
   width: 100%;
-  max-width: 100%;
-  overflow: hidden;
+  max-width: 100%;  
 }
 
 body {
@@ -42,17 +42,47 @@ body {
   min-height: 100%;
   width: 100%;
   max-width: 100%;
-  margin: 0 auto;  
+  margin: 0 auto;
 }
-
-figure { overflow: hidden; }
 
 #dimensions {
   @extend %tmn4n;
+  font-size: 10px;
+  line-height: 12px;
   position: fixed;
-  background-color: rgba($color-black, 0.7);
-  color: rgba(lighten(saturate($color-blue, 50%), 50%), 0.9);
+  background-color: rgba($black, 0.5);
+  color: rgba(lighten(saturate($blue, 50%), 50%), 0.9);
   position: fixed;
-  bottom: 0;
+  bottom: 2em;
   left: 0;
+}
+
+@include responsify() {
+  
+  $width-msg: undefined;
+
+  @if      $mq-min-px == undefined { $width-msg: "width < #{$mq-max-px / $body-ppgd}" }
+  @else if $mq-max-px == undefined { $width-msg: "#{$mq-min-px / $body-ppgd} < width" }
+  @else                            { $width-msg: "#{$mq-min-px / $body-ppgd} < width < #{$mq-max-px / $body-ppgd}" }
+
+  @include debug-message("#{$width-msg}: #{$body-ppem}/#{$body-ppgd}(#{round-two-decimals($body-ppgd / $body-ppem)})");
+}
+
+.type-comparison {
+  $font-family: tsn4n;
+  
+  position: relative;
+
+  .custom {
+    color: rgba(#f33, 0.5);
+    @extend %#{$font-family};
+  }
+
+  .installed {
+    color: rgba(#33f, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: type-name-get-font-family-fallback($font-family);
+  }
 }

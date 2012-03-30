@@ -44,7 +44,7 @@ module Jaap
         c.apply_js_live  = false
         c.apply_css_live = true
         c.apply_images_live = true
-        c.grace_period = 0.05
+        c.grace_period = 0.12
       end
       LiveReload::run [Jaap::Paths.get('_site')], conf
     end

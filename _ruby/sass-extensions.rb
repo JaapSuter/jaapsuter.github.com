@@ -45,10 +45,17 @@ module Jaap
       to_sass val
     end
     
-    def unwrap(v)
-      return v if v.is_a? Fixnum
-      return v.value if v.respond_to? 'value'
-      v      
+    def unwrap(*v)
+      v = v.map { |e| 
+        if e.is_a? Fixnum
+          e
+        elsif e.respond_to? 'value'
+          e.value
+        else
+          e
+        end
+      }
+      v.length == 1 ? v.first : v
     end
     
     def get_metric_for_metric(unknown_metric, family, known_metric, known_value)
@@ -77,12 +84,12 @@ module Jaap
       svg_envelope img
     end
       
-    def make_svg_baseline_grid(family, ppem, ppel)
-      ppel = unwrap ppel
+    def make_svg_baseline_grid(family, ppem, ppgd)
+      ppgd = unwrap ppgd
       ppem = unwrap ppem
       family = unwrap family
       
-      half_leading = (ppel - ppem) / 2
+      half_leading = (ppgd - ppem) / 2
     
       metrics = @@textMetrics[family]
       
@@ -92,35 +99,79 @@ module Jaap
       ex = baseline - metrics['ex'][ppem]
       descent = baseline + metrics['descent'][ppem]
       
-      make_grid_svg(family, ppem, ppel, baseline, ascent, cap, ex, descent)
+      make_grid_svg(family, ppem, ppgd, baseline, ascent, cap, ex, descent)
     end
     
-    def make_grid_svg(family, ppem, ppel, baseline, ascent, cap, ex, descent)
-      scale = 1
-      half_pix = 0.5 * scale
-      ppem = scale * (unwrap ppem)
-      ppel = scale * (unwrap ppel)
-      baseline = scale * (unwrap baseline)
-      ascent = scale * (unwrap ascent)
-      cap = scale * (unwrap cap)
-      ex = scale * (unwrap ex)
-      descent = scale * (unwrap descent)
+    def round_to_str(n)
+      '%.2f' % n
+    end
+    
+    def make_grid_svg(family, ppem, ppgd, baseline, ascent, cap, ex, descent)
+      grid_height_px = 256
+          
+      ppem, ppgd, baseline, ascent, cap, ex, descent = 
+        unwrap(ppem, ppgd, baseline, ascent, cap, ex, descent)
+      
+      path = nil # In production, return an inline data-url
+      # path = "img/grid-#{family}-#{ppem}-#{ppgd}.svg" # Useful during development
+      
+      one_pixel = grid_height_px.to_f / ppgd
+      
+      ppem, ppgd, baseline, ascent, cap, ex, descent = 
+        [ppem, ppgd, baseline, ascent, cap, ex, descent].map { |e| e * grid_height_px.to_f / ppgd }
+        
+      img = %Q{
+        <rect fill="#005869" width="1" y="#{round_to_str(ex)}" height="#{one_pixel.ceil}"/>
+        <rect fill="#971f03" width="1" y="#{round_to_str(baseline     )}" height="#{one_pixel.ceil}"/>
+      }
+      
+      svg_envelope img, "1", "#{grid_height_px}", nil, path
+      
+      # scale = 4 # Making this much larger breaks background repeating
+      #           # in Firefox (11ish) at large zoom values. This value
+      #           # is good enough to make zooming not go too blurry to 
+      #           # begin with (on Firefox, which scales SVG for background-image
+      #           # rather poorly). 
+      # half_pix = 0.5 * scale
+      # ppem *= scale
+      # ppgd *= scale
+      # baseline *= scale
+      # ascent *= scale
+      # cap *= scale
+      # ex *= scale
+      # descent *= scale
+      # 
+      # img = %Q{<rect fill="#dde" width="1" y="#{baseline}" height="#{ppgd}" />}
       
       # Not used:
-      #   <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{ppel}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
-      #   <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{ppel}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
-      #   <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{ppel}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
-      #   <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{ppel}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
-      #   <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{ppel}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
-      #   <!-- <rect fill="#a89" width="#{ppel}" y="#{ascent}"   height="#{ppel - ascent}" /> -->
-      #   <!-- <rect fill="#8a9" width="#{ppel}" y="#{cap}"      height="#{ppel - cap}" /> -->
-      #   <!-- <rect fill="#b39" width="#{ppel}" y="#{ex}"       height="#{ppel - ex}" /> -->
-      #   <!-- <rect fill="#091" width="#{ppel}" y="#{descent}"  height="#{ppel - descent}" /> -->
-      
-      img = %Q{<rect fill="#dde" width="#{ppel}" y="#{baseline}" height="#{ppel}" />}
-      
-      # Return an inline image. Use "img/grid-#{family}-#{ppem}-#{ppel}.svg" if necessary during development.
-      svg_envelope img, ppel, 2 * ppel, [0, 0, ppel, 2 * ppel]
+      #
+      #   <line stroke-width="1" x1="0" y1="#{ascent   + half_pix}" x2="#{ppgd}" y2="#{ascent   + half_pix}" shape-rendering="crispEdges" stroke="#400" stroke-opacity="0.2"/>
+      #   <line stroke-width="1" x1="0" y1="#{cap      + half_pix}" x2="#{ppgd}" y2="#{cap      + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="4 2"/>
+      #   <line stroke-width="1" x1="0" y1="#{ex       + half_pix}" x2="#{ppgd}" y2="#{ex       + half_pix}" shape-rendering="crispEdges" stroke="#040" stroke-opacity="0.2" stroke-dasharray="2 4"/>
+      #   <line stroke-width="1" x1="0" y1="#{baseline + half_pix}" x2="#{ppgd}" y2="#{baseline + half_pix}" shape-rendering="crispEdges" stroke="#000" stroke-opacity="0.7"/>
+      #   <line stroke-width="1" x1="0" y1="#{descent  + half_pix}" x2="#{ppgd}" y2="#{descent  + half_pix}" shape-rendering="crispEdges" stroke="#004" stroke-opacity="0.2"/>
+      #   <!-- <rect fill="#a89" width="#{ppgd}" y="#{ascent}"   height="#{ppgd - ascent}" /> -->
+      #   <!-- <rect fill="#8a9" width="#{ppgd}" y="#{cap}"      height="#{ppgd - cap}" /> -->
+      #   <!-- <rect fill="#b39" width="#{ppgd}" y="#{ex}"       height="#{ppgd - ex}" /> -->
+      #   <!-- <rect fill="#091" width="#{ppgd}" y="#{descent}"  height="#{ppgd - descent}" /> -->
+      #
+      #   <style type="text/css">
+      #     <![CDATA[
+      #       * {
+      #         image-rendering:optimizeSpeed;             /* Legal fallback                 */
+      #         image-rendering:-moz-crisp-edges;          /* Firefox                        */
+      #         image-rendering:-o-crisp-edges;            /* Opera                          */
+      #         image-rendering:-webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+      #         image-rendering:optimize-contrast;         /* CSS3 Proposed                  */
+      #         -ms-interpolation-mode:nearest-neighbor;   /* IE8+                           */
+      #         shape-rendering: crispEdges;
+      #       }
+      #     ]]>
+      #   </style>
+      #
+      # preserveAspectRatio='none'
+      # svg_envelope img, "#{ppgd}px", "#{2 * ppgd}px", [0, 0, ppgd, 2 * ppgd], path
+      # svg_envelope img, "1", "#{2 * ppgd}", nil, path
     end
     
     def svg_envelope(content, width = '', height = '', viewbox = '', path = nil)
@@ -129,10 +180,14 @@ module Jaap
         # 
         # %Q{<?xml version="1.0" encoding="utf-8"?> <svg version="1.1" xmlns="http://www.w3.org/2000/svg">#{content}</svg>}
         
-        width = "width='#{width}'" if width != ''
-        height = "height='#{height}'" if height != ''
-        viewbox = "viewbox='#{viewbox[0]} #{viewbox[1]} #{viewbox[2]} #{viewbox[3]}'" if viewbox != ''
-        svg = %Q{<svg xmlns="http://www.w3.org/2000/svg" #{width} #{height} #{viewbox}>#{content}</svg>}.gsub(/  +/, ' ')
+        width = "width='#{width}'" unless width.to_s.empty?
+        height = "height='#{height}'" unless height.to_s.empty?
+        viewbox = "viewBox='#{viewbox[0]} #{viewbox[1]} #{viewbox[2]} #{viewbox[3]}'" unless viewbox.nil?
+        svg = %Q{
+          <svg xmlns="http://www.w3.org/2000/svg" #{width} #{height} #{viewbox}>
+            #{content}
+          </svg>
+          }.gsub("\n", ' ').squeeze(' ').gsub(' <', '<').gsub(' >', '>').gsub(' />', '/>').gsub('> ', '>')
         
         if path
           File.open(Paths.get(path), 'w') { |f| f.write(svg) }

@@ -378,11 +378,10 @@
   };
 
   exports.getMetrics = getMetrics = function(families) {
-    var data, easel, family, metrics, ok, resp, ___iced_passed_deferral, __iced_deferrals, __iced_k, _ref2;
+    var data, easel, family, metrics, ok, resp, ___iced_passed_deferral, __iced_deferrals, __iced_k;
     __iced_k = __iced_k_noop;
     ___iced_passed_deferral = iced.findDeferral(arguments);
-    families = ["psn7n-inv", "tan2n", "tan4c", "tan4n", "tan7n", "tao4n", "tmn4n", "tsi4n", "tsi4n-smcp", "tsi4n-tnum-lnum", "tsi7n", "tsn4n", "tsn4n-smcp", "tsn4n-tnum-lnum", "tsn7n", "pan2n", "pan2n-inv", "pan4n", "pan4n-inv", "pan7n", "pan7n-inv", "psi4n", "psi4n-inv", "psi7n", "psi7n-inv", "psn4n", "psn4n-inv", "psn7n"];
-    if ((_ref2 = global.jaap) != null ? _ref2.dev : void 0) families = ["tan2n"];
+    families = ["tan2n", "tan4c", "tan4n", "tan7n", "tao4n", "tmn4n", "tsi4n", "tsi4n-smcp", "tsi4n-tnum-lnum", "tsi7n", "tsn4n", "tsn4n-smcp", "tsn4n-tnum-lnum", "tsn7n", "pan2n", "pan4n", "pan4n-smcp", "pan7n", "pan7n-smcp", "psi4n", "psi7n", "psn4n", "psn7n"];
     families = fallbacks.concat(families);
     families = (function() {
       var _i, _len, _results;
@@ -394,8 +393,8 @@
       return _results;
     })();
     easel = new Easel({
-      minFontSize: 8,
-      maxFontSize: 237
+      minFontSize: 9,
+      maxFontSize: 183
     });
     (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
@@ -410,7 +409,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 249
+        lineno: 243
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -432,7 +431,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 252
+            lineno: 246
           }), data);
           __iced_deferrals._fulfill();
         })(function() {

@@ -1,4 +1,4 @@
-@mixin font-face($name, $unicode-range: false) {
+@mixin at-font-face($name, $unicode-range: false) {
   @unless $type-disable-font-face {  
     @font-face {
 
@@ -24,7 +24,9 @@
       }
     }
   }
+}
 
+@mixin abstract-font-face-family($name, $unicode-range: false) {
   %#{$name} {
     font-family: #{$name, type-name-get-font-family-fallback($name)};
     font-weight: type-name-get-font-weight($name);
@@ -37,41 +39,9 @@
   font-variant: small-caps;
 }
 
-@mixin set-or-restore-body-type-metrics($ppem: false, $ppgd: false) {
-
-  @if not $ppem and not $ppgd {
-    $ppem: $prev-body-ppem;
-    $ppgd: $prev-body-ppgd;
-  }
-
-  $prev-ppem: $body-ppem;
-  $prev-ppgd: $body-ppgd;
-
-  $dummy: set_current_em_el_ratio($ppem, $ppgd);
-  
-  $body-ppem: $ppem;
-  $body-ppgd: $ppgd;
-
-  @if $body-ppem == $undefined or $body-ppgd == $undefined {
-    $body-cap: $undefined;
-    $body-ex: $undefined;
-    $body-baseline: $undefined;
-  } @else {
-    $body-cap: get_metric_for_metric(cap, $root-font-family, ppem, $body-ppem);
-    $body-ex: get_metric_for_metric(ex, $root-font-family, ppem, $body-ppem);
-    $body-baseline: rhythm-get-baseline($root-font-family, $body-ppem, $body-ppgd);
-  }
-}
-
 @mixin emerem($prop, $val) {
-  @if type_of(val) is list {
-    #{$prop}: multiply-each($val, 1.0 / $body-ppem * 1em);
-    #{$prop}: multiply-each($val, 1.0 / $pprem * 1rem);
-  } @else {
-    @include debug-warn-if(not unitless($val), "can't emerem #{$val}, is not unitless");
-    #{$prop}: if(0 == $val, 0, $val / $body-ppem * 1em);
-    #{$prop}: if(0 == $val, 0, $val / $pprem * 1rem);
-  }
+  #{$prop}: em($val);
+  #{$prop}: rem($val);
 }
 
 @mixin change-type($to-font-family, $such-that-metric, $has-value) {
@@ -81,45 +51,42 @@
   font-size: 1em;
   position: relative;
   
-  $line-height-scale: 1.1;
-  $modulabsifier: 999;
+  $line-height-scale: 1;
+  $abs-modulo-helper: 999;
 
   $ppem: get_metric_for_metric(ppem, $to-font-family, $such-that-metric, $has-value);
   $pplh: ceil($ppem * $line-height-scale / $body-ppgd) * $body-ppgd;
-  $ppem: $ppem + if(is-odd($pplh -$body-ppem), 1, 0);
+  $ppem: $ppem + if(is-odd($pplh -$ppem), 1, 0);
   
-  @debug "#{$to-font-family} with #{$such-that-metric}=#{$has-value} on a #{$body-ppgd}/#{$body-ppem} body means: #{$ppem}/#{$pplh}";
-
-  $here-ptbl: rhythm-get-baseline($to-font-family, $ppem, $pplh);
-    
+  $ptbl: get_metric_for_metric(baseline, $to-font-family, ppem, $ppem);
+  
+  $half-leading: floor(($pplh - $ppem) / 2);
+  $body-half-leading: floor(($body-ppgd - $body-ppem) / 2);
+  
   $top: 0;
-  $top: $top - $here-ptbl;
-  $top: $top + $body-ptbl;
-  $top: ($top + $modulabsifier * $body-ppgd) % $body-ppgd;
-    
-  font-size: $ppem / $body-ppem * 1em;
-  font-size: $ppem / $pprem * 1rem;
+  $top: $top - $ptbl - $half-leading;
+  $top: $top + $body-ptbl + $body-half-leading;
+  $top: ($top + $abs-modulo-helper * $body-ppgd) % $body-ppgd;
 
-  line-height: $pplh / $ppem * 1em;
-  line-height: $pplh / $pprem * 1rem;
-  
-  top: $top / $ppem * 1em;
-  top: $top / $pprem * 1rem;
+  // @debug "top = #{$top} for #{$to-font-family} with #{$such-that-metric}=#{$has-value} on a #{$body-ppem}/#{$body-ppgd} body means: #{$ppem}/#{$pplh} with baseline at #{$ptbl}+#{$half-leading} (from: #{$body-ptbl}+#{$body-half-leading})";
+      
+  @include emerem(font-size, $ppem);
+  @include emerem(line-height, $pplh);
+  @include emerem(top, $top);
+
+  @content;
 }
 
-@mixin background-image-baseline-grid($root-font-family, $body-ppem, $body-ppgd, $pprem) {  
-  @include background-image(make_svg_baseline_grid($root-font-family, $body-ppem, $body-ppgd));
-  
-  $gd: $body-ppgd / $body-ppem * 1em;
-  @include background-size($gd (2 * $gd));
-  
-  $gd: $body-ppgd / $pprem * 1rem;
-  @include background-size($gd (2 * $gd));
+@mixin background-image-baseline-grid($ppem, $ppgd) {  
+  @include background-image(make_svg_baseline_grid($root-font-family, $ppem, $ppgd));
 
-  // $c0: rgba($color-black, 0.2);
-  // $c1: rgba($color-blue, 0.9);
-  // $c2: $color-white;
-  // $c3: rgba($color-red, 0.9);
+  @include background-size(em($ppgd) em($ppgd));
+  @include background-size(rem($ppgd) rem($ppgd));
+  
+  // $c0: rgba($black, 0.2);
+  // $c1: rgba($blue, 0.9);
+  // $c2: $white;
+  // $c3: rgba($red, 0.9);
   // 
   // @include background-image(linear-gradient($c0 0, $c0 1gd, $c1 1gd, $c1 2gd, $c2 2gd, $c2 3gd, $c3 3gd, $c3 6gd));
   // @include background-size(100% 4gd);

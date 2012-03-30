@@ -1,8 +1,9 @@
-@mixin debug-message($message) {
+@mixin debug-message($message) { body > *:first-child:before { content: $message; } }
+@mixin debug-message-initialize() {
   body > *:first-child:before {
-    content: $message;
-    background-color: rgba($color-black, 0.7);
-    color: rgba(lighten(saturate($color-red, 50%), 50%), 0.9);
+    @extend %tmn4n;
+    background-color: rgba($black, 0.7);
+    color: rgba(lighten(saturate($red, 50%), 50%), 0.9);
     position: fixed;
     bottom: 0;
     right: 0;

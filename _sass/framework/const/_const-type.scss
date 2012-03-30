@@ -11,7 +11,7 @@ $mono-fallback:            "Courier New", monospace;
 }
 
 @if $type-fallback-make-obvious {
-  $obvious-fallback: unifont, fallback, LastResort, LocalFallback, Impact, cursive, fantasy;
+  $obvious-fallback: fallback, unifont, LastResort, LocalFallback, Impact, cursive, fantasy;
 
   $serif-fallback:            $obvious-fallback, $serif-fallback;
   $sans-fallback:             $obvious-fallback, $sans-fallback;
@@ -29,3 +29,6 @@ $body-ppgd:   undefined;
 $body-ppcap:  undefined;
 $body-ppex:   undefined;
 $body-ptbl:   undefined;
+
+$ppem: undefined;
+$ppgd: undefined;

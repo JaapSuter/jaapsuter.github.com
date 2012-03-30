@@ -19,7 +19,7 @@
     return typeof obj === 'undefined';
   };
 
-  exports.delay = delay = function(func, wait) {
+  exports.delay = delay = function(wait, func) {
     var args;
     args = this.tail(arguments, 2);
     return setTimeout((function() {
@@ -28,7 +28,7 @@
   };
 
   exports.soon = soon = function(func) {
-    return this.delay.apply(this, [func, 1].concat(this.tail(arguments)));
+    return this.delay.apply(this, [1, func].concat(this.tail(arguments)));
   };
 
   exports.tail = tail = function(array, index) {

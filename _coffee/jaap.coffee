@@ -24,7 +24,7 @@ diagnose = ->
     isHeightWholeNumber = if name in ['html', 'body'] then "" else " #{height} / #{ppgd} = #{height / ppgd}"
 
     "#{ppem}/#{pplh}#{isHeightWholeNumber}: #{name}<br/>"
-  
+
   document.querySelector('#dimensions').innerHTML = """
     #{get('html')}
     #{get('body')}
@@ -33,6 +33,8 @@ diagnose = ->
     #{get('h2')}
     #{get('h3')}
     #{get('.small')}
+    viewport: #{window.innerWidth}\u00D7#{window.innerHeight}, #{window.orientation}<br/>
+    body:     #{body.offsetWidth}\u00D7#{body.offsetWidth}
   """
   
 entryPoint = ->
@@ -42,6 +44,12 @@ entryPoint = ->
   keys.on 'shift+t', font.getMetrics
   keys.on 'd', diagnose
 
+  repeated_diagnose = () ->
+    every_num_ms = 300  
+    diagnose()
+    util.delay every_num_ms, repeated_diagnose
+
+  repeated_diagnose()
   # $(window).bind('popstate ', onPopState)
   # $('#type-metrics-link').bind 'click', type.getMetrics
   # bindInternalAnchorClicks()

@@ -6,6 +6,7 @@ ABBR: <abbr title="Abbreviation">$</abbr>
 ABCDE: ABCDE
 ABCDEFGHIJKLMNOPQRSTUVWXYZ: ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABCDEFGHIJKLMNOPQRSTUVWXYZ.: ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+"ABCDE\xC2\xADFGHIJKLMNOPQRSTU\xC2\xADVWXYZ": "ABCDE\xC2\xADFGHIJKLMNOPQRSTU\xC2\xADVWXYZ"
 AI: <abbr title="Adobe Illustrator (file format)">$</abbr>
 AJAX: <abbr title="Asynchronous JavaScript and XML">$</abbr>
 ASP: <abbr title="Active Server Pages">$</abbr>
@@ -21,6 +22,7 @@ CMS: <abbr title="Content Management System">$</abbr>
 CRM: <abbr title="Customer Relationship Management">$</abbr>
 CSS: <abbr title="Cascading Style Sheets">$</abbr>
 DNS: <abbr title="Domain Name System">$</abbr>
+DOG: DOG
 DOG.: DOG.
 DOM: <abbr title="Document Object Model">$</abbr>
 DRY: <abbr title="Don't Repeat Yourself (programming principal)">$</abbr>
@@ -48,6 +50,7 @@ JPG: <abbr title="Joint Photographic Experts Group (file format)">$</abbr>
 JS: <abbr title="JavaScript">$</abbr>
 JSP: <abbr title="JavaServer Pages">$</abbr>
 JUMPED: JUMPED
+JUMPS: JUMPS
 KISS: <abbr title="Keep it Simple, Stupid">$</abbr>
 LAMP: <abbr title="Linux, Apache, MySQL, PHP (common server configuration)">$</abbr>
 LAZY: LAZY

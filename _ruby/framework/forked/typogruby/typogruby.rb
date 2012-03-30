@@ -110,16 +110,24 @@ module Typogruby
   # @param [String] text input text
   # @return [String] input text with non-breaking spaces inserted
   def widont(text)
-    exclude_sensitive_tags(text) do |t|
+    exclude_sensitive_tags(text) do |t|      
+      
       t.gsub(%r{
-        (<[^/][^>]*?>)|                                 # Ignore any opening tag, so we don't mess up attribute values
-        ((?:</?(?:a|em|span|strong|i|b)[^>]*>)|[^<>\s]) # must be proceeded by an approved inline opening or closing tag or a nontag/nonspace
-        \s+                                             # the space to replace
-        (([^<>\s]{,5})                                  # must be followed by at most 5 non-tag non-space characters
-        \s*                                             # optional white space!
-        (</(a|em|span|strong|i|b)>\s*)*                 # optional closing inline tags with optional white space after each
-        ((</(p|h[1-6]|li|dt|dd)>)|\z))                   # end with a closing p, h1-6, li or the end of the string
-      }xm) { |match| $1 ? match : $2 + (match.include?('&nbsp;') ? ' ' : '&nbsp;') + $3 } # Make sure to not add another nbsp before one already there
+        (<[^/][^>]*?>)|                                      # Ignore any opening tag, so we don't mess up attribute values
+        ((?:
+          (?:</?(?:a|em|span|strong|i|b)[^>]*>)
+         |(?:\s+[^<>\s]+)
+        )+)                                                  # must be proceeded by an approved inline opening or closing tag or a nontag/nonspace
+        \s+                                                  # the space to replace
+        (([^<>\s]{4,})                                       # must be followed by at most N non-tag non-space characters
+        \s*                                                  # optional white space!
+        (</(a|em|span|strong|i|b)>\s*)*                      # optional closing inline tags with optional white space after each
+        ((</(p|h[1-6]|li|dt|dd)>)|\z))                       # end with a closing p, h1-6, li or the end of the string
+      }xm) { |match| 
+        
+        min_characters_before_widont_nbsp = 16
+        $1 ? match : $2 + ((match.to_s.length < min_characters_before_widont_nbsp || match.include?('&nbsp;')) ? ' ' : '&nbsp;') + $3
+      }
     end
   end
 

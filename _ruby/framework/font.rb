@@ -34,6 +34,8 @@ module Jaap
       forge_temp_dir = Paths.get_or_make '.jaap-build'
       forge_cmd_path = File.join forge_temp_dir, '_forge-cmd.txt'
       
+      name_to_original = Hash.new
+      
       File.open(forge_cmd_path, 'w') do |forge_cmd_file|
       
         srcs = Paths.glob('_fonts/dejavu-fonts-ttf-2.33/ttf/*.ttf')
@@ -51,59 +53,95 @@ module Jaap
           variant = (fvd.include? 'Condensed') ? 'c' : 'n'        
         
           flavor = 't'
-          name = flavor + family + style + weight + variant 
-                  
-          next if filter and name != filter
-          next if not @@subsets.has_key? name
+          name = flavor + family + style + weight + variant                   
+          name_to_original[name] = src
           
-          cmd = Hash['name' => name,
-                     'src'  => Paths.to_xming(src),
-                     'dir'  => Paths.to_xming(forge_temp_dir),
-                     'unicodes' => @@subsets[name]['unicodes']]
+          skip = ! @@subsets.has_key?(name)
+          skip = skip || name != filter if filter
           
-          forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
-          
-          if ['tsn4n', 'tsi4n'].include? name
-            if numify
-              cmd['name'] = name + '-smcp'
-              forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
-            end
+          unless skip
             
-            if smcpify
-              cmd['name'] = name + '-tnum-lnum'
-              cmd['unicodes'] = ("0".codepoints.first.."9".codepoints.first + 1).to_a
-              forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            cmd = Hash['name' => name,
+                       'src'  => Paths.to_xming(src),
+                       'dir'  => Paths.to_xming(forge_temp_dir),
+                       'unicodes' => @@subsets[name]['unicodes']]
+                         
+            forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            
+            if ['tsn4n', 'tsi4n'].include? name
+              if smcpify
+                cmd['name'] = name + '-smcp'
+                forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+              end
+            
+              if numify
+                cmd['name'] = name + '-tnum-lnum'
+                cmd['unicodes'] = ("0".codepoints.first.."9".codepoints.first + 1).to_a
+                forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+              end
             end
           end
-                                   
+                                            
           flavor = 'p'
-          name = flavor + family + style + weight + variant
+          name = flavor + family + style + weight + variant     
+          name_to_original[name] = src
           
-          next if not psify        
-          next if not @@subsets.has_key? name
+          skip = skip || ! psify
+          skip = skip || (! @@subsets.has_key?(name))
           
-          cmd = Hash['name' => name,
-                     'src'  => Paths.to_xming(src),
-                     'dir'  => Paths.to_xming(forge_temp_dir),
-                     'unicodes' => @@subsets[name]['unicodes']]
-          
-          forge_cmd_file.puts cmd.to_s.gsub '=>', ': '          
+          unless skip
+            cmd = Hash['name' => name,
+                       'src'  => Paths.to_xming(src),
+                       'dir'  => Paths.to_xming(forge_temp_dir),
+                       'unicodes' => @@subsets[name]['unicodes']]
+            
+            forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+            
+            if ['pan2n', 'pan4n', 'pan7n', 'pan4c', 'pan7c'].include? name
+              if smcpify
+                cmd['name'] = name + '-smcp'
+                forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
+              end
+            end
+          end
         }        
       end
       
       Tool.font_forge "-script", Paths.get('_fonts/scripts/forge.py'), Paths.to_xming(forge_cmd_path)
       
       Paths.glob(forge_temp_dir, '**/*.{ttf,otf}').each do |src|
-        ttxify(File.basename(src, File.extname(src)), src, Paths.get('fonts'))
+        name = File.basename(src, File.extname(src))
+        
+        base_name = name.split('-').first
+        
+        if not name_to_original.include? base_name
+          puts "Warning, font #{name} with base_name #{base_name} has no matching original in #{name_to_original}"
+          next
+        end
+        
+        original = name_to_original[base_name]
+        
+        ttxify(name, src, Paths.get('fonts'), original)
       end
     end
     
-    def self.ttxify(name, src, dst_dir)
+    def self.ttxify(name, src, dst_dir, original)
       
       using_ttx(src, Paths.get('fonts')) { |xml|
         
+        ascent, descent = get_vertical_metrics original
+        
         xHeight = File.read(src + '.xHeight').to_i
         capHeight = File.read(src + '.capHeight').to_i
+        
+        if File.extname(src).end_with? '.otf'
+          tt_em = 2048
+          ps_em = 1000
+          ascent = ascent * ps_em / tt_em
+          descent = descent * ps_em / tt_em          
+          xHeight = xHeight * ps_em / tt_em
+          capHeight = capHeight * ps_em / tt_em
+        end
      
         xml.css('ttFont > FFTM').each { |node| node.remove }
         
@@ -147,14 +185,14 @@ module Jaap
         yMax = yMax.to_s
         
         xml.at_css('ttFont > head > yMax')['value'] = yMax
-        xml.at_css('ttFont > hhea > ascent')['value'] = yMax
-        xml.at_css('ttFont > OS_2 > sTypoAscender')['value'] = yMax
-        xml.at_css('ttFont > OS_2 > usWinAscent')['value'] = yMax
+        xml.at_css('ttFont > hhea > ascent')['value'] = ascent.to_s
+        xml.at_css('ttFont > OS_2 > sTypoAscender')['value'] = ascent.to_s
+        xml.at_css('ttFont > OS_2 > usWinAscent')['value'] = ascent.to_s
       
         xml.at_css('ttFont > head > yMin')['value'] = yMin
-        xml.at_css('ttFont > hhea > descent')['value'] = yMin
-        xml.at_css('ttFont > OS_2 > sTypoDescender')['value'] = yMin
-        xml.at_css('ttFont > OS_2 > usWinDescent')['value'] = yMin.sub('-', '')
+        xml.at_css('ttFont > hhea > descent')['value'] = descent.to_s
+        xml.at_css('ttFont > OS_2 > sTypoDescender')['value'] = descent.to_s
+        xml.at_css('ttFont > OS_2 > usWinDescent')['value'] = descent.to_s.sub('-', '')
       
         xml.at_css('ttFont > OS_2 > sTypoLineGap')['value'] = '0'
         xml.at_css('ttFont > hhea > lineGap')['value'] = '0'
@@ -231,11 +269,33 @@ module Jaap
       Tool.ttx "-e -i -d", dst_dir, ttx
     end
     
+    def self.get_vertical_metrics(ttf)
+      tmp_dir =  Paths.get('.jaap-build')
+      ttx = Pathname.new(File.join(tmp_dir, File.basename(ttf))).sub_ext('.ttx').to_s
+      
+      if not File.exists?(ttx) or File.stat(ttf).mtime >= File.stat(ttx).mtime
+        FileUtils.remove ttx if File.exists?(ttx)
+        Tool.ttx "-t hhea -t OS/2 -d", tmp_dir, ttf
+      end
+      
+      xml = Nokogiri::XML File.read(ttx)
+      
+      ascent = [xml.at_css('ttFont > OS_2 > usWinAscent')['value'].to_i, 
+                xml.at_css('ttFont > hhea > ascent'     )['value'].to_i].max
+                
+      descent = -[xml.at_css('ttFont > OS_2 > usWinDescent')['value'].to_i.abs, 
+                  xml.at_css('ttFont > hhea > descent'     )['value'].to_i.abs].max
+      
+      [ascent, descent]
+    end
+    
     def self.ensure_font_list_and_merge_unicode_superset_into_all_subsets()
       %w[tsn4n tsi4n tsn7n tsi7n
          psn4n psi4n psn7n psi7n
          tan4n tan2n tan7n
+         tan4c tan7c
          pan4n pan2n pan7n
+         pan4c pan7c
          tao4n
          tmn4n].each { |name| @@subsets[name] = {} }
       

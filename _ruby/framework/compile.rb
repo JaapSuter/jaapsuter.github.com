@@ -25,8 +25,14 @@ module Jaap
         }
         
         puts "HAML".colorize( :color => :white, :background => :red ) + ": #{src}"
-        engine = Haml::Engine.new File.read(src), options
+        engine = Haml::Engine.new File.read(src), options        
         File.open(dst, 'w') {|f| f.write(engine.render) }
+        
+        Paths.glob('**/*.{html,markdown}') { |src|
+          next if src.start_with? Paths.get('_site')
+          next if not File.exists? src
+          with_err_ignored { FileUtils.touch src }
+        }        
       end
     end
     
@@ -123,7 +129,7 @@ module Jaap
         min = @@google_closure_compiler.compile File.read src
         File.open(dst, 'w') { |f| f.write min }
         
-        dst = File.join Pathname.new(src).parent, File.basename(src, '.js') + '.min.debug.js'
+        dst = File.join Pathname.new(src).parent, File.basename(src, '.js') + '.min.dev.js'
         min = @@google_closure_compiler_debug.compile File.read src
         File.open(dst, 'w') { |f| f.write min }
       end
@@ -176,6 +182,13 @@ module Jaap
         puts "\t" + err.to_s
         puts "\t" + err.inspect.to_s
         puts "\t" + err.backtrace.join("\n\t")
+      end
+    end
+    
+    def self.with_err_ignored()
+      begin
+        yield
+      rescue        
       end
     end
     

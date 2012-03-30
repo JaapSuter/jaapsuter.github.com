@@ -17,9 +17,16 @@ p {
   hyphens: auto;
 }
 
+%tsi4n {
+  color: rgba(#222, 0.73);
+  @include text-shadow(0px 0px 1px rgba(#000, 0.1)); 
+}
+
 body {
-  @include color-and-background-color($color-black, $color-white);
+  @include color-and-background-color($black, $white);
   @extend %#{$root-font-family};
+
+  text-rendering: optimizelegibility;
 }
 
 @include responsify {
@@ -27,7 +34,7 @@ body {
     @include emerem(font-size, $body-ppem);
     @include emerem(line-height, $body-ppgd);
   
-    @include background-image-baseline-grid($root-font-family, $body-ppem, $body-ppgd, $pprem);
+    @include background-image-baseline-grid($body-ppem, $body-ppgd);
   }
 
   p, h1, h2, h3 {
@@ -35,142 +42,21 @@ body {
     @include emerem(padding, 0 ($body-ppgd / 2));
   }
 
-  h1 { @include change-type(pan4n, ex, $body-ppgd); }
-  h2 { @include change-type(pan4n, cap, $body-ppgd); }
-  h3 { @include change-type(pan4n, ex, $body-ppcap); }
-  .small { @include change-type(pan4n, cap, $body-ppex); }
-}
-
-@if false {
-
-@include set-body-ppgd(22);
-@include set-body-ppem(16);
-
-body {
-  @include color-and-background-color($color-black, $color-white);
-  @extend %#{$root-font-family};
-
-  // font-size: $body-ppem / $pprem * 1em;
-  // font-size: $body-ppem / $pprem * 1rem;
-  // line-height: $body-ppgd / $body-ppem * 1em;
-  // line-height: $body-ppgd / $pprem * 1rem;
-
-  @include emerem(font-size, $body-ppem);
-  @include emerem(line-height, $body-ppgd);
-
-  @include background-image-baseline-grid($root-font-family, $body-ppem, $body-ppgd, $pprem);
-
-  @include when-screen(max-width, 300px) { background-color: yellow; }  
-}
-
-p, h1, h2, h3 {
-  // $gd: $body-ppgd / $body-ppem * 1em;
-  // margin: 0 0 $gd 0;
-  // padding: 0 (0.5 * $gd);
-  // 
-  // $gd: $body-ppgd / $pprem * 1rem;
-  // margin: 0 0 $gd 0;
-  // padding: 0 (0.5 * $gd);
-
-  @include emerem(margin, 0 0 $body-ppgd 0);
-  @include emerem(padding, 0 (0.5 * $body-ppgd));
-}
-
-h1 { @include change-type(pan4n, ex, $body-ppgd); }
-h2 { @include change-type(pan4n, cap, $body-ppgd); }
-h3 { @include change-type(pan4n, ex, $body-ppcap); }
-.small { @include change-type(pan4n, cap, $body-ppex); }
-
-@include respond-to(default) {
-  html {
-    line-height: 1gd;
-    @debug body-ppgd $body-ppgd;
-    line-height: $body-ppgd / $pp-rem * 100%;
+  #main, #rhythm {
+    margin: 0 auto;
+    @include emerem(max-width, 35 * $body-ppem);
   }
 
-  body {
-    @debug body-ppem $body-ppem;
-    font-size: $body-ppem / $pp-rem * 1rem;
-    @include background-image-baseline-grid();
-  }
+  h1 { @include change-type(pan2n, cap, 2 * $body-ppgd) {} }
+  h2 { @include change-type(pan4n, ex, $body-ppgd) {} }
+  h3 { @include change-type(pan4n, cap, $body-ppgd) {} }
+  .small { @include change-type(pan4n, cap, $body-ppex) {} }
 }
-
-p, h1, h2, h3 {
-  @include respond-to(default) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
-  @include respond-to(narrow) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
-  @include respond-to(narrower) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }  
-  @include respond-to(wide) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
-  @include respond-to(wider) { $gd: $body-ppgd / $pp-rem * 1rem; margin: 0 0 $gd 0; }
-}
-
-body {
-  
-
-  
-
-  @include respond-to(narrow) {
-    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
-    line-height: 1gd;
-    @include background-image-baseline-grid();    
-  }
-
-  @include respond-to(narrower) {
-    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
-    line-height: 1gd;
-    @include background-image-baseline-grid();    
-  }
-  
-  @include respond-to(wide) {
-    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
-    line-height: 1gd;
-    @include background-image-baseline-grid();
-  }
-
-  @include respond-to(wider) {
-    font-size: $body-ppem / $ppem-assumed-browser-default * 100%;
-    line-height: 1gd;
-    @include background-image-baseline-grid();
-  }
-}
-
-
-h1 {  
-  @include respond-to(default) { @include change-type(pan4n, ex, $body-ppgd); }
-  @include respond-to(narrow) { @include change-type(pan4n, ex, $body-ppgd); }  
-  @include respond-to(narrower) { @include change-type(pan4n, ex, $body-ppgd); }  
-  @include respond-to(wide) { @include change-type(pan4n, ex, $body-ppgd); }
-  @include respond-to(wider) { @include change-type(pan4n, ex, $body-ppgd); }  
-}
-
-h2 {
-  @include respond-to(default) { @include change-type(pan4n, cap, $body-ppgd); }
-  @include respond-to(narrower) { @include change-type(pan4n, cap, $body-ppgd); }  
-  @include respond-to(wide) { @include change-type(pan4n, cap, $body-ppgd); }
-  @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ppgd); }  
-  @include respond-to(wider) { @include change-type(pan4n, cap, $body-ppgd); }  
-}
-
-h3 {
-  @include respond-to(default) { @include change-type(pan4n, ex, $body-cap); }
-  @include respond-to(narrow) { @include change-type(pan4n, ex, $body-cap); }  
-  @include respond-to(narrower) { @include change-type(pan4n, ex, $body-cap); }  
-  @include respond-to(wide) { @include change-type(pan4n, ex, $body-cap); }
-  @include respond-to(wider) { @include change-type(pan4n, ex, $body-cap); }
-}
-
-.small {
-  @include respond-to(default) { @include change-type(pan4n, cap, $body-ex); }
-  @include respond-to(narrow) { @include change-type(pan4n, cap, $body-ex); }  
-  @include respond-to(narrower) { @include change-type(pan4n, cap, $body-ex); }  
-  @include respond-to(wide) { @include change-type(pan4n, cap, $body-ex); }
-  @include respond-to(wider) { @include change-type(pan4n, cap, $body-ex); }
-}
-
 
 // #{elements-of-type(inline)} { line-height: 1; }
 
 a {
-  color: saturate($color-blue, 10%);
+  color: saturate($blue, 10%);
   @extend %tsn4n-underline;
   text-decoration: none;
 }
@@ -216,50 +102,15 @@ q {
   }
 }
 
-
-  ._tsi4n {
-    color: rgba(#222, 0.73);
-    @include text-shadow(0px 0px 1px rgba(#000, 0.1)); 
-  }
-
-  ._georgia { font-family: georgia; }
-  ._verdana { font-family: verdana; }
-  ._arial { font-family: arial; }
-  ._tahoma { font-family: tahoma; }
-
-  ._serif-fallback            { font-family: $serif-fallback; }
-  ._sans-fallback             { font-family: $sans-fallback; }
-  ._sans-condensed-fallback   { font-family: $sans-condensed-fallback; }                                                      
-  ._mono-fallback             { font-family: $mono-fallback; }
-
-  body {
-    @include color-and-background-color(#222, $color-white);
-    // @include scale(1.473);
-    // -webkit-text-size-adjust: none;  
-    // -webkit-font-smoothing: subpixel-antialiased;
-    text-rendering: optimizelegibility;
-  
-    @include rhythm-scope(body, tsn4n) {
-      @include rhythm-line-height;
-      @include rhythm-font-size;
-      @include rhythm-font-family;
-    }
-  }
-
-  button, input, select, textarea {
-    @include rhythm-scope(body, $sans-small) {
-      @include rhythm-line-height;
-      @include rhythm-font-size;
-      @include rhythm-font-family;    
-    }
-  }
+@if false {
+ 
   
   a {
-    @include link-colors(/* normal  */ lighten($color-black, 35%),
-                         /* hover   */ lighten($color-black, 45%),
-                         /* active  */ lighten($color-black, 45%),
-                         /* visited */ lighten($color-black, 25%),
-                         /* focus   */ lighten($color-black, 35%));
+    @include link-colors(/* normal  */ lighten($black, 35%),
+                         /* hover   */ lighten($black, 45%),
+                         /* active  */ lighten($black, 45%),
+                         /* visited */ lighten($black, 25%),
+                         /* focus   */ lighten($black, 35%));
   }
 
   #container {
@@ -376,7 +227,7 @@ q {
     & > li { text-indent: 0; }
     & > li:before {
       content: "";
-      background-color: rgba($color-black, 0.47);    
+      background-color: rgba($black, 0.47);    
       position: absolute;
       width: tem(1, 3);
       height: tem(1, 3);
@@ -393,7 +244,7 @@ q {
         display: inline-block; 
         @include rhythm-font-size;
         width: tem(2, 3);
-        color: $color-black;
+        color: $black;
         text-indent: 0;
         counter-increment: olc;
         content: counter(olc);

@@ -9,7 +9,7 @@ Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing
 implicit 'single' and "double" quotes with literal &lsquo;single&rsquo; and &ldquo;double&rdquo; HTML entities. Here's <a href="#random-unique-number-5338">a
 link</a> followed by <sub>sub-</sub> and super<sup>script</sup>, as well as some *emphasized* and **strong** words as processed
-by [Markdown](http://daringfireball.net/projects/markdown/). These words are marked as `code` and <kbd>kdb</kbd>. Here's some old-style numbers: 1018, 1997, 2012. "&Eacute; &Ccedil;" is to ensure ascenders and 
+by [Markdown](http://daringfireball.net/projects/markdown/). These words are marked as `code` and <kbd>kdb</kbd>. Here's some old-style numbers: 1018, 1997, 2012. "<span>&Eacute; &Ccedil;</span>" is to ensure ascenders and 
 descenders don't stomp beyond the leading, as well as use proper glyph fallbacks (i.e., these glyphs are not in our top
 of the font stack; intentionally so). And lastly, TLA should be marked up with the ABBR tag, since HTML5 currently deprecates the acronym tag.
 
@@ -42,16 +42,16 @@ other pages on this website, typically in paragraph-sized chunks.
 
 ## Some typography
 
-<span style="font-family: tsi4n, serif; font-size: 16px; font-style: italic">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
-<span style="font-family: tsn4n, serif; font-size: 16px; font-style: italic">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
-<span style="font-family: tsn4n, serif; font-size: 16px">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
-<span style="font-family: georgia, serif; font-size: 16px">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="font-family: tsn4n, serif; font-size: 16px">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="font-family: tsn4n-tnum-lnum, serif; font-size: 16px">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="font-family: tsn4n-smcp, tsn4n, serif; font-size: 16px">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="font-family: tsi4n, serif; font-size: 16px; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="font-family: tsi4n-tnum-lnum, serif; font-size: 16px; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="font-family: tsi4n-smcp, tsi4n, serif; font-size: 16px; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsi4n, serif; font-style: italic">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
+<span style="line-height: 0; font-family: tsn4n, serif; font-style: italic">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
+<span style="line-height: 0; font-family: tsn4n, serif;">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
+<span style="line-height: 0; font-family: georgia, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsn4n, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsn4n-tnum-lnum, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsn4n-smcp, tsn4n, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsi4n, serif; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsi4n-tnum-lnum, serif; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
+<span style="line-height: 0; font-family: tsi4n-smcp, tsi4n, serif; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
 
 ## Type metrics
 

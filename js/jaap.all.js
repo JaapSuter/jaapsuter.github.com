@@ -608,11 +608,10 @@
   };
 
   exports.getMetrics = getMetrics = function(families) {
-    var data, easel, family, metrics, ok, resp, ___iced_passed_deferral, __iced_deferrals, __iced_k, _ref2;
+    var data, easel, family, metrics, ok, resp, ___iced_passed_deferral, __iced_deferrals, __iced_k;
     __iced_k = __iced_k_noop;
     ___iced_passed_deferral = iced.findDeferral(arguments);
-    families = ["psn7n-inv", "tan2n", "tan4c", "tan4n", "tan7n", "tao4n", "tmn4n", "tsi4n", "tsi4n-smcp", "tsi4n-tnum-lnum", "tsi7n", "tsn4n", "tsn4n-smcp", "tsn4n-tnum-lnum", "tsn7n", "pan2n", "pan2n-inv", "pan4n", "pan4n-inv", "pan7n", "pan7n-inv", "psi4n", "psi4n-inv", "psi7n", "psi7n-inv", "psn4n", "psn4n-inv", "psn7n"];
-    if ((_ref2 = global.jaap) != null ? _ref2.dev : void 0) families = ["tan2n"];
+    families = ["tan2n", "tan4c", "tan4n", "tan7n", "tao4n", "tmn4n", "tsi4n", "tsi4n-smcp", "tsi4n-tnum-lnum", "tsi7n", "tsn4n", "tsn4n-smcp", "tsn4n-tnum-lnum", "tsn7n", "pan2n", "pan4n", "pan4n-smcp", "pan7n", "pan7n-smcp", "psi4n", "psi7n", "psn4n", "psn7n"];
     families = fallbacks.concat(families);
     families = (function() {
       var _i, _len, _results;
@@ -624,8 +623,8 @@
       return _results;
     })();
     easel = new Easel({
-      minFontSize: 8,
-      maxFontSize: 237
+      minFontSize: 9,
+      maxFontSize: 183
     });
     (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
@@ -640,7 +639,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 249
+        lineno: 243
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -662,7 +661,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 252
+            lineno: 246
           }), data);
           __iced_deferrals._fulfill();
         })(function() {
@@ -701,7 +700,7 @@
     return typeof obj === 'undefined';
   };
 
-  exports.delay = delay = function(func, wait) {
+  exports.delay = delay = function(wait, func) {
     var args;
     args = this.tail(arguments, 2);
     return setTimeout((function() {
@@ -710,7 +709,7 @@
   };
 
   exports.soon = soon = function(func) {
-    return this.delay.apply(this, [func, 1].concat(this.tail(arguments)));
+    return this.delay.apply(this, [1, func].concat(this.tail(arguments)));
   };
 
   exports.tail = tail = function(array, index) {
@@ -964,14 +963,22 @@
       isHeightWholeNumber = name === 'html' || name === 'body' ? "" : " " + height + " / " + ppgd + " = " + (height / ppgd);
       return "" + ppem + "/" + pplh + isHeightWholeNumber + ": " + name + "<br/>";
     };
-    return document.querySelector('#dimensions').innerHTML = "" + (get('html')) + "\n" + (get('body')) + "\n" + (get('p')) + "\n" + (get('h1')) + "\n" + (get('h2')) + "\n" + (get('h3')) + "\n" + (get('.small'));
+    return document.querySelector('#dimensions').innerHTML = "" + (get('html')) + "\n" + (get('body')) + "\n" + (get('p')) + "\n" + (get('h1')) + "\n" + (get('h2')) + "\n" + (get('h3')) + "\n" + (get('.small')) + "\nviewport: " + window.innerWidth + "\u00D7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + body.offsetWidth + "\u00D7" + body.offsetWidth;
   };
 
   entryPoint = function() {
+    var repeated_diagnose;
     if (top !== window) return;
     keys.on('ctrl+b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
-    return keys.on('d', diagnose);
+    keys.on('d', diagnose);
+    repeated_diagnose = function() {
+      var every_num_ms;
+      every_num_ms = 300;
+      diagnose();
+      return util.delay(every_num_ms, repeated_diagnose);
+    };
+    return repeated_diagnose();
   };
 
   entryPoint();

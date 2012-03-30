@@ -12,7 +12,7 @@ $type-name-stretch-idx:  4;
   $f: get_char_at($name, $type-name-family-idx);
   $d: get_char_at($name, $type-name-stretch-idx);
   $f: if($f == 's', $serif-fallback,
-      if($f == 'a', if($d == 'c', $sans-fallback, $sans-condensed-fallback),
+      if($f == 'a', if($d == 'c', $sans-condensed-fallback, $sans-fallback),
       if($f == 'm', $mono-fallback,
                     type-name-get-font-family-fallback-error)));
   @return $f;
@@ -44,17 +44,21 @@ $type-name-stretch-idx:  4;
   @return $s;
 }
 
-@function rhythm-get-baseline($font-family, $ppem, $ppel) {
-  $leading: ($ppel - $ppem);
-  
-  // $dummy: debug-warn-if(is-odd($leading), "Leading (line-height #{$ppel} - font-size #{$ppem}) is #{$leading}, which isn't an even number, so that a whole pixel amount lands above and below the lines.");
-
-  @return ($leading / 2) + get_metric_for_metric(baseline, $font-family, ppem, $ppem);
-  
+@function em($px) {
+  @if type_of($px) is list {
+    @return multiply-each($px, 1.0 / $body-ppem * 1em);
+  } @else {
+    @return if(0 == $px, 0, $px / $body-ppem * 1em);
+  }
 }
 
-@function rhythm-distance-to-next($font-family, $ppem, $ppel, $root-font-family, $root-ppem, $root-ppel) {
+@function rem($px) {
+  $scale: 1.0 / $pprem * 1rem;
+  // $scale: 1px;
   
-  @return rhythm-get-baseline($root-font-family, $root-ppem, $root-ppel) 
-        - rhythm-get-baseline($font-family, $ppem, $ppel) % $ppel;
+  @if type_of($px) is list {
+    @return multiply-each($px, $scale);
+  } @else {
+    @return if(0 == $px, 0, $px * $scale);
+  }
 }

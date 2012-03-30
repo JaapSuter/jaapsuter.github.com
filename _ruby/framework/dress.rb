@@ -20,7 +20,7 @@ module Jaap
       else
         @@last_update_cache[src] = File.mtime(src)
       end
-      
+            
       tidy_args = "--tidy-mark no --indent no --wrap 0 --ascii-chars no --preserve-entities yes
                    --break-before-br yes --sort-attributes none --vertical-space no --hide-endtags yes
                    --char-encoding ascii --numeric-entities yes --output-html yes --show-errors 2 --quiet 1
@@ -32,6 +32,14 @@ module Jaap
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html        
         text = html.to_html :encoding => 'US-ASCII'
+        
+        # Todo:
+        # <a ref='external' href="http://wikipedia.org">go to wikipedia</a>
+        # <a rel='license' href="http://www.opensource.org/licenses/mit-license.php">MIT Licensed</a>
+        # <a rel='help' href="help.html">Site help</a>
+        # <a rel='tag' href="site/help/">Music</a>
+        # <a rel="bookmark" href="a.html">Post Permalink</a>
+
         
         # Unclusterhug some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
         text = text.gsub "-->", "-->\n"

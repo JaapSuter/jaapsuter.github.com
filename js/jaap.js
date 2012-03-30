@@ -30,14 +30,22 @@
       isHeightWholeNumber = name === 'html' || name === 'body' ? "" : " " + height + " / " + ppgd + " = " + (height / ppgd);
       return "" + ppem + "/" + pplh + isHeightWholeNumber + ": " + name + "<br/>";
     };
-    return document.querySelector('#dimensions').innerHTML = "" + (get('html')) + "\n" + (get('body')) + "\n" + (get('p')) + "\n" + (get('h1')) + "\n" + (get('h2')) + "\n" + (get('h3')) + "\n" + (get('.small'));
+    return document.querySelector('#dimensions').innerHTML = "" + (get('html')) + "\n" + (get('body')) + "\n" + (get('p')) + "\n" + (get('h1')) + "\n" + (get('h2')) + "\n" + (get('h3')) + "\n" + (get('.small')) + "\nviewport: " + window.innerWidth + "\u00D7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + body.offsetWidth + "\u00D7" + body.offsetWidth;
   };
 
   entryPoint = function() {
+    var repeated_diagnose;
     if (top !== window) return;
     keys.on('ctrl+b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
-    return keys.on('d', diagnose);
+    keys.on('d', diagnose);
+    repeated_diagnose = function() {
+      var every_num_ms;
+      every_num_ms = 300;
+      diagnose();
+      return util.delay(every_num_ms, repeated_diagnose);
+    };
+    return repeated_diagnose();
   };
 
   entryPoint();

@@ -360,12 +360,7 @@
     return $testFontLoaded$$()
   };
   $exports$$2$$.$getMetrics$ = function $$exports$$2$$$$getMetrics$$($families$$1$$) {
-    var $data$$20$$, $easel$$, $family$$7$$, $metrics$$3$$, $ok$$2$$, $resp$$, $__iced_deferrals$$2$$, $_ref2$$5$$, $families$$1$$ = "psn7n-inv,tan2n,tan4c,tan4n,tan7n,tao4n,tmn4n,tsi4n,tsi4n-smcp,tsi4n-tnum-lnum,tsi7n,tsn4n,tsn4n-smcp,tsn4n-tnum-lnum,tsn7n,pan2n,pan2n-inv,pan4n,pan4n-inv,pan7n,pan7n-inv,psi4n,psi4n-inv,psi7n,psi7n-inv,psn4n,psn4n-inv,psn7n".split(",");
-    if(($_ref2$$5$$ = $global$$2$$.$jaap$) != $JSCompiler_alias_NULL$$ && $_ref2$$5$$.$dev$) {
-      $families$$1$$ = ["tan2n"]
-    }
-    $families$$1$$ = $fallbacks$$.concat($families$$1$$);
-    $families$$1$$ = function() {
+    var $data$$20$$, $easel$$, $family$$7$$, $metrics$$3$$, $ok$$2$$, $resp$$, $__iced_deferrals$$2$$, $families$$1$$ = "tan2n,tan4c,tan4n,tan7n,tao4n,tmn4n,tsi4n,tsi4n-smcp,tsi4n-tnum-lnum,tsi7n,tsn4n,tsn4n-smcp,tsn4n-tnum-lnum,tsn7n,pan2n,pan4n,pan4n-smcp,pan7n,pan7n-smcp,psi4n,psi7n,psn4n,psn7n".split(","), $families$$1$$ = $fallbacks$$.concat($families$$1$$), $families$$1$$ = function() {
       var $_i$$4$$, $_len$$3$$, $_results$$3$$;
       $_results$$3$$ = [];
       $_i$$4$$ = 0;
@@ -374,7 +369,7 @@
       }
       return $_results$$3$$
     }();
-    $easel$$ = new $Easel$$({$minFontSize$:8, $maxFontSize$:237});
+    $easel$$ = new $Easel$$({$minFontSize$:9, $maxFontSize$:183});
     (function($__iced_k$$15$$) {
       $__iced_deferrals$$2$$ = new $iced$$3$$.$Deferrals$($__iced_k$$15$$, {parent:$JSCompiler_alias_NULL$$, filename:"B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee", $funcname$:"getMetrics"});
       $easel$$.$getMetrics$($families$$1$$, $__iced_deferrals$$2$$.defer({$assign_fn$:function() {
@@ -382,7 +377,7 @@
           $ok$$2$$ = $JSCompiler_OptimizeArgumentsArray_p6$$;
           return $metrics$$3$$ = $JSCompiler_OptimizeArgumentsArray_p7$$
         }
-      }(), $lineno$:249}));
+      }(), $lineno$:243}));
       $__iced_deferrals$$2$$.$_fulfill$()
     })(function() {
       if($ok$$2$$) {
@@ -393,7 +388,7 @@
               $ok$$2$$ = $JSCompiler_OptimizeArgumentsArray_p8$$;
               return $resp$$ = $JSCompiler_OptimizeArgumentsArray_p9$$
             }
-          }(), $lineno$:252}), $data$$20$$);
+          }(), $lineno$:246}), $data$$20$$);
           $__iced_deferrals$$2$$.$_fulfill$()
         }(function() {
           return $__iced_k_noop$$(alert("ok: " + $ok$$2$$ + ", resp: " + $resp$$))
@@ -424,7 +419,7 @@
   $exports$$3$$.$isUndefined$ = function $$exports$$3$$$$isUndefined$$($obj$$17$$) {
     return"undefined" === typeof $obj$$17$$
   };
-  $exports$$3$$.$delay$ = function $$exports$$3$$$$delay$$($func$$3$$, $wait$$) {
+  $exports$$3$$.$delay$ = function $$exports$$3$$$$delay$$($wait$$, $func$$3$$) {
     var $args$$;
     $args$$ = this.$tail$(arguments, 2);
     return setTimeout(function() {
@@ -432,7 +427,7 @@
     }, $wait$$)
   };
   $exports$$3$$.$soon$ = function $$exports$$3$$$$soon$$($func$$4$$) {
-    return this.$delay$.apply(this, [$func$$4$$, 1].concat(this.$tail$(arguments)))
+    return this.$delay$.apply(this, [1, $func$$4$$].concat(this.$tail$(arguments)))
   };
   $exports$$3$$.$tail$ = function $$exports$$3$$$$tail$$($array$$9$$, $index$$51$$) {
     return Array.prototype.slice.call($array$$9$$, this.$isUndefined$($index$$51$$) ? 1 : $index$$51$$)
@@ -569,14 +564,21 @@
   }
   return window.$jaap$.$dom$
 }());
-(function($global$$6_keys$$1$$) {
-  var $_ref$$4_diagnose$$, $font$$;
-  $_ref$$4_diagnose$$ = $global$$6_keys$$1$$.$jaap$;
-  $global$$6_keys$$1$$ = $_ref$$4_diagnose$$.keys;
-  $font$$ = $_ref$$4_diagnose$$.font;
-  $_ref$$4_diagnose$$ = function $$_ref$$4_diagnose$$$() {
-    var $get$$, $ppgd$$;
-    $ppgd$$ = parseFloat(window.getComputedStyle(document.body).lineHeight);
+(function($_ref$$4_global$$6$$) {
+  var $diagnose$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$4_global$$6$$ = $_ref$$4_global$$6$$.$jaap$;
+  $util$$1$$ = $_ref$$4_global$$6$$.$util$;
+  $keys$$1$$ = $_ref$$4_global$$6$$.keys;
+  $font$$ = $_ref$$4_global$$6$$.font;
+  $toggleBaseline$$ = function $$toggleBaseline$$$() {
+    var $elem$$2$$;
+    if($elem$$2$$ = document.querySelector("#baseline-checkbox")) {
+      return $elem$$2$$.checked = !$elem$$2$$.checked
+    }
+  };
+  $diagnose$$ = function $$diagnose$$$() {
+    var $body$$1$$, $get$$, $ppgd$$;
+    $body$$1$$ = document.body;
+    $ppgd$$ = parseFloat(window.getComputedStyle($body$$1$$).lineHeight);
     $get$$ = function $$get$$$($name$$54$$) {
       var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$;
       $pplh_style$$ = {fontSize:"0", lineHeight:"0"};
@@ -586,14 +588,17 @@
       $elem$$3_height$$9$$ = $elem$$3_height$$9$$.getBoundingClientRect().height;
       return"" + $ppem$$ + "/" + $pplh_style$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
     };
-    return document.querySelector("#dimensions").innerHTML = "" + $get$$("html") + "\n" + $get$$("body") + "\n" + $get$$("p") + "\n" + $get$$("h1") + "\n" + $get$$("h2") + "\n" + $get$$("h3") + "\n" + $get$$(".small")
+    return document.querySelector("#dimensions").innerHTML = "" + $get$$("html") + "\n" + $get$$("body") + "\n" + $get$$("p") + "\n" + $get$$("h1") + "\n" + $get$$("h2") + "\n" + $get$$("h3") + "\n" + $get$$(".small") + "\nviewport: " + window.innerWidth + "\u00d7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + $body$$1$$.offsetWidth + "\u00d7" + $body$$1$$.offsetWidth
   };
-  top === window && ($global$$6_keys$$1$$.$on$("ctrl+b", function() {
-    var $elem$$2$$;
-    if($elem$$2$$ = document.querySelector("#baseline-checkbox")) {
-      return $elem$$2$$.checked = !$elem$$2$$.checked
+  (function() {
+    var $repeated_diagnose$$;
+    if(top === window) {
+      return $keys$$1$$.$on$("ctrl+b", $toggleBaseline$$), $keys$$1$$.$on$("shift+t", $font$$.$getMetrics$), $keys$$1$$.$on$("d", $diagnose$$), $repeated_diagnose$$ = function $$repeated_diagnose$$$() {
+        $diagnose$$();
+        return $util$$1$$.$delay$(300, $repeated_diagnose$$)
+      }, $repeated_diagnose$$()
     }
-  }), $global$$6_keys$$1$$.$on$("shift+t", $font$$.$getMetrics$), $global$$6_keys$$1$$.$on$("d", $_ref$$4_diagnose$$))
+  })()
 }).call($JSCompiler_alias_VOID$$, window, function() {
   window.$jaap$ == $JSCompiler_alias_NULL$$ && (window.$jaap$ = {});
   return window.$jaap$

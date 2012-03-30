@@ -12,6 +12,10 @@
   @return $min + ((abs($current - $from) / $domain) * $range);
 }
 
+@function round-two-decimals($n) {
+  @return round($n * 100) / 100;
+}
+
 @function multiply-each($list, $f) {
     
     $idx: 1;
@@ -27,21 +31,4 @@
     }
     
     @return $ret;
-}
-
-// $get-from-example-objects: (
-//   (instance-a, instance-b, instance-c), 
-//   (prop-a, prop-b, prop-c), 
-//   ((true, 5, 'f'), (false, 234, 'rwww'), (true, 0, ''))
-// );
-
-@function get-from($class, $instance, $member) {
-  $instances: nth($class, 1);
-  $members: nth($class, 2);
-  $values: nth($class, 3);
-
-  $instance-idx: index($instances, $instance);
-  $member-idx: index($members, $member);
-
-  @return nth(nth($values, $instance-idx), $member-idx);
 }
