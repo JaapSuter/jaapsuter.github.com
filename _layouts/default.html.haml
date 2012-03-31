@@ -22,12 +22,12 @@
       This is a paragraph with some text in it. It goes on for a while but 
       doesn't really say anything useful. That's fine, I'm just testing
       whether it's possible to create an em-based typographic rhythm.
-    %h1
+    %h1.stripe
       Short H1
     %p
       Voila, the second paragraph.
-    %h1
-      Here's an H1 header <span class="h1-mid">that is likely to wrap to</span> the next line.
+    %h1.stripe
+      Here's a H1 header that is likely to wrap to the next line.
     %p
       Voila, the third paragraph. Isn't it great?
     %h2
@@ -46,7 +46,7 @@
   #ajax(data-body-id="{{ page.id }}")
     #main
       %article
-        %h1 {{page.title}}
+        %h1.stripe {{page.title}}
         {% include other/copyright_pubdate_author.html %}
         #content
           {{ content }}

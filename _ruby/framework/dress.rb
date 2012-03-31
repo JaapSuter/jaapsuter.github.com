@@ -30,7 +30,8 @@ module Jaap
         
         text = Typogruby.improve text        
         html = Nokogiri::HTML text
-        html = @@abbrs.abbreviate html        
+        html = @@abbrs.abbreviate html
+        html = stripify html
         text = html.to_html :encoding => 'US-ASCII'
         
         # Todo:
@@ -40,7 +41,6 @@ module Jaap
         # <a rel='tag' href="site/help/">Music</a>
         # <a rel="bookmark" href="a.html">Post Permalink</a>
 
-        
         # Unclusterhug some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
         text = text.gsub "-->", "-->\n"
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
@@ -74,6 +74,14 @@ module Jaap
       end
     end
     
+    def self.stripify(html)
+      html.css('.stripe').each do |elem|
+        elem['data-content'] = elem.content = elem.content.gsub("\n", ' ').squeeze.strip
+      end
+        
+      html
+    end
+        
     def self.wrap_font_size_changes(html)
       html.css('h1', 'h2', 'h3', 'h4', 'h5', 'h6', '.small').each do |elem|
         elem.inner_html = html.create_element('span', :class => "font-resize") {
@@ -82,7 +90,7 @@ module Jaap
       end
         
       html
-    end
+    end    
     
     def self.add_anchor_data_content_attrs(html)
       html.css('a').each do |a|

@@ -121,8 +121,8 @@ module Jaap
         [ppem, ppgd, baseline, ascent, cap, ex, descent].map { |e| e * grid_height_px.to_f / ppgd }
         
       img = %Q{
-        <rect fill="#005869" width="1" y="#{round_to_str(ex)}" height="#{one_pixel.ceil}"/>
-        <rect fill="#971f03" width="1" y="#{round_to_str(baseline     )}" height="#{one_pixel.ceil}"/>
+        <rect fill="#005869" fill-opacity="0.37" width="1" y="#{round_to_str(ex      )}" height="#{one_pixel.ceil}"/>
+        <rect fill="#971f03" fill-opacity="0.63" width="1" y="#{round_to_str(baseline)}" height="#{one_pixel.ceil}"/>
       }
       
       svg_envelope img, "1", "#{grid_height_px}", nil, path

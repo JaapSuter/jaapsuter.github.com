@@ -6,11 +6,53 @@
   src: url("/fonts/pan2n-inv.eot?#iefix") format("eot"), url("/fonts/pan2n-inv.woff") format("woff"), url("/fonts/pan2n-inv.otf") format("opentype"), url("/fonts/pan2n-inv.ttf") format("truetype"); }
 
 @font-face {
+  font-family: "pan2n-smcp-inv";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/pan2n-smcp-inv.eot");
+  src: url("/fonts/pan2n-smcp-inv.eot?#iefix") format("eot"), url("/fonts/pan2n-smcp-inv.woff") format("woff"), url("/fonts/pan2n-smcp-inv.otf") format("opentype"), url("/fonts/pan2n-smcp-inv.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan2n-smcp";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/pan2n-smcp.eot");
+  src: url("/fonts/pan2n-smcp.eot?#iefix") format("eot"), url("/fonts/pan2n-smcp.woff") format("woff"), url("/fonts/pan2n-smcp.otf") format("opentype"), url("/fonts/pan2n-smcp.ttf") format("truetype"); }
+
+@font-face {
   font-family: "pan2n";
   font-weight: 200;
   font-style: normal;
   src: url("/fonts/pan2n.eot");
   src: url("/fonts/pan2n.eot?#iefix") format("eot"), url("/fonts/pan2n.woff") format("woff"), url("/fonts/pan2n.otf") format("opentype"), url("/fonts/pan2n.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan4c-inv";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/pan4c-inv.eot");
+  src: url("/fonts/pan4c-inv.eot?#iefix") format("eot"), url("/fonts/pan4c-inv.woff") format("woff"), url("/fonts/pan4c-inv.otf") format("opentype"), url("/fonts/pan4c-inv.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan4c-smcp-inv";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/pan4c-smcp-inv.eot");
+  src: url("/fonts/pan4c-smcp-inv.eot?#iefix") format("eot"), url("/fonts/pan4c-smcp-inv.woff") format("woff"), url("/fonts/pan4c-smcp-inv.otf") format("opentype"), url("/fonts/pan4c-smcp-inv.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan4c-smcp";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/pan4c-smcp.eot");
+  src: url("/fonts/pan4c-smcp.eot?#iefix") format("eot"), url("/fonts/pan4c-smcp.woff") format("woff"), url("/fonts/pan4c-smcp.otf") format("opentype"), url("/fonts/pan4c-smcp.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan4c";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/pan4c.eot");
+  src: url("/fonts/pan4c.eot?#iefix") format("eot"), url("/fonts/pan4c.woff") format("woff"), url("/fonts/pan4c.otf") format("opentype"), url("/fonts/pan4c.ttf") format("truetype"); }
 
 @font-face {
   font-family: "pan4n-inv";
@@ -41,6 +83,34 @@
   src: url("/fonts/pan4n.eot?#iefix") format("eot"), url("/fonts/pan4n.woff") format("woff"), url("/fonts/pan4n.otf") format("opentype"), url("/fonts/pan4n.ttf") format("truetype"); }
 
 @font-face {
+  font-family: "pan7c-inv";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/pan7c-inv.eot");
+  src: url("/fonts/pan7c-inv.eot?#iefix") format("eot"), url("/fonts/pan7c-inv.woff") format("woff"), url("/fonts/pan7c-inv.otf") format("opentype"), url("/fonts/pan7c-inv.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan7c-smcp-inv";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/pan7c-smcp-inv.eot");
+  src: url("/fonts/pan7c-smcp-inv.eot?#iefix") format("eot"), url("/fonts/pan7c-smcp-inv.woff") format("woff"), url("/fonts/pan7c-smcp-inv.otf") format("opentype"), url("/fonts/pan7c-smcp-inv.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan7c-smcp";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/pan7c-smcp.eot");
+  src: url("/fonts/pan7c-smcp.eot?#iefix") format("eot"), url("/fonts/pan7c-smcp.woff") format("woff"), url("/fonts/pan7c-smcp.otf") format("opentype"), url("/fonts/pan7c-smcp.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan7c";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/pan7c.eot");
+  src: url("/fonts/pan7c.eot?#iefix") format("eot"), url("/fonts/pan7c.woff") format("woff"), url("/fonts/pan7c.otf") format("opentype"), url("/fonts/pan7c.ttf") format("truetype"); }
+
+@font-face {
   font-family: "pan7n-inv";
   font-weight: 700;
   font-style: normal;
@@ -60,6 +130,13 @@
   font-style: normal;
   src: url("/fonts/pan7n-smcp.eot");
   src: url("/fonts/pan7n-smcp.eot?#iefix") format("eot"), url("/fonts/pan7n-smcp.woff") format("woff"), url("/fonts/pan7n-smcp.otf") format("opentype"), url("/fonts/pan7n-smcp.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "pan7n-stripe";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/pan7n-stripe.eot");
+  src: url("/fonts/pan7n-stripe.eot?#iefix") format("eot"), url("/fonts/pan7n-stripe.woff") format("woff"), url("/fonts/pan7n-stripe.otf") format("opentype"), url("/fonts/pan7n-stripe.ttf") format("truetype"); }
 
 @font-face {
   font-family: "pan7n";
@@ -139,25 +216,18 @@
   src: url("/fonts/tan4c.eot?#iefix") format("eot"), url("/fonts/tan4c.woff") format("woff"), url("/fonts/tan4c.ttf") format("truetype"); }
 
 @font-face {
-  font-family: "tan4n-smcp";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/fonts/tan4n-smcp.eot");
-  src: url("/fonts/tan4n-smcp.eot?#iefix") format("eot"), url("/fonts/tan4n-smcp.woff") format("woff"), url("/fonts/tan4n-smcp.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "tan4n-tnum-lnum";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/fonts/tan4n-tnum-lnum.eot");
-  src: url("/fonts/tan4n-tnum-lnum.eot?#iefix") format("eot"), url("/fonts/tan4n-tnum-lnum.woff") format("woff"), url("/fonts/tan4n-tnum-lnum.ttf") format("truetype"); }
-
-@font-face {
   font-family: "tan4n";
   font-weight: 400;
   font-style: normal;
   src: url("/fonts/tan4n.eot");
   src: url("/fonts/tan4n.eot?#iefix") format("eot"), url("/fonts/tan4n.woff") format("woff"), url("/fonts/tan4n.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "tan7c";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/tan7c.eot");
+  src: url("/fonts/tan7c.eot?#iefix") format("eot"), url("/fonts/tan7c.woff") format("woff"), url("/fonts/tan7c.ttf") format("truetype"); }
 
 @font-face {
   font-family: "tan7n";

@@ -33,11 +33,10 @@ body {
   body {
     @include emerem(font-size, $body-ppem);
     @include emerem(line-height, $body-ppgd);
-  
     @include background-image-baseline-grid($body-ppem, $body-ppgd);
   }
 
-  p, h1, h2, h3 {
+  p, h1, .stripe:after, h2, h3 {
     @include emerem(margin, 0 0 $body-ppgd 0);
     @include emerem(padding, 0 ($body-ppgd / 2));
   }
@@ -47,10 +46,35 @@ body {
     @include emerem(max-width, 35 * $body-ppem);
   }
 
-  h1 { @include change-type(pan2n, cap, 2 * $body-ppgd) {} }
+  h1 { @include change-type(pan7n, ex, 2 * $body-ppgd) {} }
   h2 { @include change-type(pan4n, ex, $body-ppgd) {} }
   h3 { @include change-type(pan4n, cap, $body-ppgd) {} }
   .small { @include change-type(pan4n, cap, $body-ppex) {} }
+}
+
+.stripe {
+
+  $color-a: $transparent;
+  $color-b: $red; // rgba($red, 0.8);
+  
+  position: relative;
+  color: $color-a;  
+  &::selection { background: $color-a; color: $color-b; }
+  &::-moz-selection { background: $color-a; color: $color-b; }
+  
+  &:after {
+    color: $color-b;
+        
+    display: block;
+    pointer-events: none;
+    content: attr(data-content);
+    @extend %pan7n-stripe;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;    
+  }
 }
 
 // #{elements-of-type(inline)} { line-height: 1; }
@@ -83,9 +107,10 @@ mark {
 
 pre, code, kbd, samp {
   // Corrects font family set oddly in IE6, S4/5, Chrome - en.wikipedia.org/wiki/User:Davidgothberg/Test59
-  font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  font-family: tmn4n, monospace, serif;
+  _font-family: tmn4n, 'courier new', monospace;
   font-size: 1em;
+  line-height: 1;
 }
 
 pre {
@@ -102,85 +127,27 @@ q {
   }
 }
 
+a {
+  @include link-colors(/* normal  */ lighten($black, 35%),
+                        /* hover   */ lighten($black, 45%),
+                        /* active  */ lighten($black, 45%),
+                        /* visited */ lighten($black, 25%),
+                        /* focus   */ lighten($black, 35%));
+}
+
+#container {
+  position: relative;
+}
+
+#{headings()} {
+  clear: both;
+}
+
+i, cite, em, var { @extend %tsi4n; line-height: 1; }
+strong, b { @extend %tsn7n; line-height: 1; }
+
 @if false {
  
-  
-  a {
-    @include link-colors(/* normal  */ lighten($black, 35%),
-                         /* hover   */ lighten($black, 45%),
-                         /* active  */ lighten($black, 45%),
-                         /* visited */ lighten($black, 25%),
-                         /* focus   */ lighten($black, 35%));
-  }
-
-  #container {
-    position: relative;
-  }
-
-  #{headings()} {
-    clear: both;
-  }
-
-  h1 {  
-    @include rhythm-scope(large-5x, pan7n-inv) {
-      @include rhythm-line-height;
-      @include rhythm-font-size;
-      @include rhythm-font-family;
-      margin: 0 0 tem() 0;
-    }
-
-    &:before {
-      display: block;
-      position: absolute;
-      width: 100em;
-      right: 99.8%;
-      top: 0;
-      height: 100%;
-      z-index: 1;
-      background-color: rgba(#000, 1.0);
-      content: " ";
-    }
-
-    // line-height: 0.3;
-    // border: 0.5em solid #000;
-    // @include text-shadow(3px 3px 5px rgba(#000, 0.9));
-    color: rgba(#000, 1.0);
-  }
-
-  h2 {
-    @include rhythm-scope(large-3x, $sans-large) {
-      @include rhythm-line-height;
-      @include rhythm-font-size;
-      @include rhythm-font-family;
-      margin: 0 0 tem() 0;
-    }
-  }
-
-  h3, h4, h5 {
-    @include rhythm-scope(large-2x, $sans-medium) {
-      @include rhythm-line-height;
-      @include rhythm-font-size;
-      @include rhythm-font-family;
-      margin: 0 0 tem() 0;
-    }
-  }
-
-  .p-like, p, ul, ol, dl {
-    @include rhythm-scope(body, tsn4n) {
-      @include rhythm-line-height;
-      @include rhythm-font-size;
-      @include rhythm-font-family;
-      margin: 0 0 tem() 0;
-      padding: 0;    
-    }
-  }
-
-  code, kbd, samp { @include rhythm-scope(body, tmn4n) { @include rhythm-font-family; line-height: 0; } }
-  i, cite, em, var { @include rhythm-scope(body, tsi4n) { @include rhythm-font-family; line-height: 0; } }
-  strong, b { @include rhythm-scope(body, tsn7n) { @include rhythm-font-family; line-height: 0; } }
-
-  p { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
-
   .copyright {
     @include rhythm-scope(small, $sans-small) { 
       @include rhythm-line-height;

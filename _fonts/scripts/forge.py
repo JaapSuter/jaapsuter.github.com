@@ -10,6 +10,7 @@ import glob
 import psMat
 import fontforge
 import math
+import random
 
 # 0x002d = hyphen-minus
 # 0x00ad = soft hyphen
@@ -258,6 +259,95 @@ def make_underline(f, name, src, dst):
 
   m.close()
 
+def make_stripe(f, name, src, dst):
+
+  if name != 'pan7n':
+    return
+
+  name += '-stripe'
+
+  shutil.copy2(src, dst)
+
+  m = fontforge.open(dst)  
+  m.selection.all()
+  
+  for g in m.glyphs():
+
+    ow, olb, orb = g.width, g.left_side_bearing, g.right_side_bearing
+
+    bbox = g.boundingBox()
+    
+    angle = random.randint(7, 83) + 90 * random.randint(0, 1)
+    thickness = random.randint(math.floor(m.xHeight / 6), math.ceil(m.xHeight * 3 / 4))
+    x_middle = bbox[2] - bbox[0]
+    y_middle = bbox[3] - bbox[1]
+    top = y_middle + thickness / 2
+    bottom = y_middle - thickness / 2
+    left = -m.em
+    right = m.em * 2
+
+    log("#{g.glyphname} #{thickness}, #{x_middle}, #{y_middle}, #{top}, #{bottom}");
+
+    left_sb = min(g.left_side_bearing, 0)
+    right_sb = g.width - min(g.right_side_bearing, 0)
+    advance_width = g.width
+
+    rect = fontforge.contour()
+    rect.is_quadratic = False
+    rect.moveTo(left, top)
+    rect.lineTo(right, top)
+    rect.lineTo(right, bottom)
+    rect.lineTo(left, bottom)
+    rect.closed = True
+
+    mat_to_origin = psMat.translate(-x_middle, -y_middle)
+    mat_from_origin = psMat.translate(x_middle, y_middle)
+    mat_rotate = psMat.rotate(math.radians(angle))
+    mat_transform = psMat.compose(psMat.compose(mat_to_origin, mat_rotate), mat_from_origin)
+
+    rect.transform(mat_transform)
+
+    mask = fontforge.layer()
+    mask += rect
+
+    foreground_idx = 1
+    foreground = g.layers[foreground_idx]
+    mask.exclude(foreground)
+    g.layers[foreground_idx] = mask
+
+    correct_round_and_clean(g)
+
+    bbox = g.boundingBox()
+    
+    if g.layers[foreground_idx].isEmpty():
+      log("#{g.glyphname}: isEmpty")
+      g.left_side_bearing = 0
+      g.right_side_bearing = 0
+    elif bbox[0] == bbox[2]:
+      log("#{g.glyphname}: bbox same")
+      g.left_side_bearing = 0
+      g.right_side_bearing = 0
+    else:
+      log("#{g.glyphname}: still volume")
+      g.left_side_bearing = bbox[0]
+      g.right_side_bearing = advance_width - bbox[2]
+    
+    g.width = advance_width
+
+    nw, nlb, nrb = g.width, g.left_side_bearing, g.right_side_bearing
+
+    log("#{g.glyphname}: #{ow}, #{olb}, #{orb} -> #{nw}, #{nlb}, #{nrb}")
+    
+  autohint_entire_font(m, use_existing_privates = True)
+  
+  # Handy for debugging, not needed otherwise: 
+  m.save(dst.replace('.otf', '.sfd'))
+
+
+  generate(m, name, dst)
+
+  m.close()
+
 def invert_glyphs(f, is_serif):
   
   line_height = 1.4
@@ -433,6 +523,7 @@ def forge_one(name, src, dir, unicodes):
     
   is_for_postscript = name[0] == 'p'
   is_serif = name[1] == 's'
+  is_sans = name[1] == 'a'
   is_monospace = name[1] == 'm'
   is_italic = name[2] == 'i'
   is_condensed = name[4] == 'c'  
@@ -443,6 +534,7 @@ def forge_one(name, src, dir, unicodes):
   ttf = os.path.join(dir, name + ".ttf")
   otf = os.path.join(dir, name + ".otf")
   otf_inv = os.path.join(dir, name + "-inv.otf")  
+  otf_stripe = os.path.join(dir, name + "-stripe.otf")  
   
   f = fontforge.open(src)
     
@@ -516,16 +608,20 @@ def forge_one(name, src, dir, unicodes):
         
   generate(f, name, ttf)
 
-  if True: 
+  if True:
     make_underline(f, name, ttf, os.path.join(dir, name + "-underline.ttf"))
 
   if True:
     if is_for_postscript:
       convert_to_postscript_curves(f)
       generate(f, name, otf)
+
+      if True and is_sans:
+        make_stripe(f, name, otf, otf_stripe)
       
-      invert_glyphs(f, is_serif)
-      generate(f, name, otf_inv)
+      if True:
+        invert_glyphs(f, is_serif)
+        generate(f, name, otf_inv)
 
   f.close()
 
@@ -534,6 +630,8 @@ def forge_all(cmds):
     forge_one(cmd['name'], cmd['src'], cmd['dir'], cmd['unicodes'])
 
 def main(argv):
+  random.seed()
+
   with open(argv[0]) as f:
     cmds = [ast.literal_eval(line.strip()) for line in f.readlines()]
   
