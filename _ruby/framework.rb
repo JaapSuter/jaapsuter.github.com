@@ -1,13 +1,8 @@
 # encoding: UTF-8
 
-gem 'sass', '3.2.0.alpha.0'
-gem 'compass', '0.13.alpha.0.48d532b'
-gem 'jekyll', '0.11.2.jaap'
-gem 'livereload', '1.6.1'
-gem 'redcarpet', '2.1.0'
-gem 'windows-pr', '1.2.1'
+require "rubygems"
+require "bundler/setup"
 
-require 'rubygems'
 require 'fileutils'
 require 'pathname'
 require 'open3'

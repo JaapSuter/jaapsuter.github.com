@@ -27,11 +27,11 @@ module Jaap
                    --show-warnings no --bare yes --write-back yes".gsub(/\s+/, ' ')
       
       begin
-        
+      
         text = Typogruby.improve text        
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html
-        html = stripify html
+        html = stripeify html
         text = html.to_html :encoding => 'US-ASCII'
         
         # Todo:
@@ -74,7 +74,7 @@ module Jaap
       end
     end
     
-    def self.stripify(html)
+    def self.stripeify(html)
       html.css('.stripe').each do |elem|
         elem['data-content'] = elem.content = elem.content.gsub("\n", ' ').squeeze.strip
       end
@@ -82,16 +82,6 @@ module Jaap
       html
     end
         
-    def self.wrap_font_size_changes(html)
-      html.css('h1', 'h2', 'h3', 'h4', 'h5', 'h6', '.small').each do |elem|
-        elem.inner_html = html.create_element('span', :class => "font-resize") {
-          |span| span.inner_html = elem.inner_html
-        }
-      end
-        
-      html
-    end    
-    
     def self.add_anchor_data_content_attrs(html)
       html.css('a').each do |a|
         has_elements = 0 < a.children.count {|c| c.element? }

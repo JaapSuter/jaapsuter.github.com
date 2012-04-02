@@ -4,7 +4,7 @@
 // essentially a smaller scope local reset. One could argue it should go in here, but I
 // don't want to make too many changes to here, so future merges are easier.
 
-@if in_development_mode { @import url(normalize.dev.css) }
+@if $import-base-normalize-separately { @import url(normalize.dev.css) }
 @else {
 
 // normalize.css 2012-03-09T19:40 UTC - http://github.com/necolas/normalize.css */

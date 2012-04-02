@@ -29,6 +29,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <None Include="at-font-face.dev.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
     <None Include="base\_base-figure.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
@@ -66,6 +72,12 @@
       <DebugInfo>False</DebugInfo>
     </None>
     <None Include="extern\_yahoo-debug.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="framework\const\_const-base.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
@@ -210,6 +222,12 @@
       <DebugInfo>False</DebugInfo>
     </None>
     <None Include="layout\_layout.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="normalize.dev.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>

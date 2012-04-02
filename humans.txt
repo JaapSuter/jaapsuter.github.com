@@ -3,30 +3,27 @@ Tinkerer: Jaap Suter
 Contact: contact [at] jaapsuter.com
 Site: http://jaapsuter.com/
 Location: Vancouver, Canada
-                 							
-/* THANKS */	
-Name: Dianamite, for being patient and incredible.
            
 /* SITE */                  
 Last update: {{ site.time }}
 Hosting: http://pages.github.com/
-Fonts:    Deja Vu:              http://dejavu-fonts.org/ 
-Software: Jekyll:               http://jekyllrb.com/
-          Sass:                 http://sass-lang.com/
-          Compass:              http://compass-style.org/
-          Stitch CSS:           http://stitchcss.com/
-          Coffee Script:        http://jashkenas.github.com/coffee-script/
-          Coffee For Windows:   https://github.com/alisey/CoffeeScript-Compiler-for-Windows
-          Font Forge:           http://fontforge.sourceforge.net/
-          Closure:              http://code.google.com/closure/
-          sfnt2woff:            http://people.mozilla.com/~jkew/woff/
-          eotfast:              http://eotfast.com/
-          ttfautohint:          http://www.freetype.org/ttfautohint/
-          Scour:                http://www.codedread.com/scour/
-          pngslim:              http://graphicsoptimization.com/blog/?p=7
-          ImageMagick:          http://www.imagemagick.org/script/index.php
-          csstidy:              http://csstidy.sourceforge.net/
-          Web Workbench:        http://www.mindscapehq.com/products/web-workbench
-          Google Font Tools:    http://googlefontdirectory.googlecode.com/
-          Eddie's FLV Player:   http://www.chickenwingsw.com/scratches/programming/eddies-flv-player
-          Miro Video Converter: http://www.mirovideoconverter.com/
+Typefaces:    Deja Vu:              http://dejavu-fonts.org/ 
+Software:   Jekyll:               http://jekyllrb.com/
+            Sass:                 http://sass-lang.com/
+            Compass:              http://compass-style.org/
+            Stitch CSS:           http://stitchcss.com/
+            Coffee Script:        http://jashkenas.github.com/coffee-script/
+            Coffee For Windows:   https://github.com/alisey/CoffeeScript-Compiler-for-Windows
+            Font Forge:           http://fontforge.sourceforge.net/
+            Closure:              http://code.google.com/closure/
+            sfnt2woff:            http://people.mozilla.com/~jkew/woff/
+            eotfast:              http://eotfast.com/
+            ttfautohint:          http://www.freetype.org/ttfautohint/
+            Scour:                http://www.codedread.com/scour/
+            pngslim:              http://graphicsoptimization.com/blog/?p=7
+            ImageMagick:          http://www.imagemagick.org/script/index.php
+            csstidy:              http://csstidy.sourceforge.net/
+            Web Workbench:        http://www.mindscapehq.com/products/web-workbench
+            Eddie's FLV Player:   http://www.chickenwingsw.com/scratches/programming/eddies-flv-player
+            Miro Video Converter: http://www.mirovideoconverter.com/
+            ...et. al. (let me know if what I forgot to mention...)

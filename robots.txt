@@ -1,1 +1,5 @@
-# This file exists only to avoid 404s.
+# In production this file exists only to
+# avoid 404s. During development, we kindly
+# ask robots to have a look elsewhere.
+User-agent: *
+Disallow: /

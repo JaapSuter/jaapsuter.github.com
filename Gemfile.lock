@@ -1,0 +1,80 @@
+PATH
+  remote: B:/Projects/Web/compass
+  specs:
+    compass (0.13.jaap.0.48d532b)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.0.jaap.0)
+
+PATH
+  remote: B:/Projects/Web/jekyll
+  specs:
+    jekyll (0.11.2.jaap)
+      albino (~> 1.3)
+      classifier (~> 1.3)
+      directory_watcher (~> 1.1)
+      kramdown (~> 0.13)
+      liquid (~> 2.3)
+      maruku (~> 0.5)
+
+PATH
+  remote: B:/Projects/Web/sass
+  specs:
+    sass (3.2.0.jaap.0)
+
+GEM
+  specs:
+    addressable (2.2.7)
+    albino (1.3.3)
+      posix-spawn (>= 0.3.6)
+    chunky_png (1.2.5)
+    classifier (1.3.3)
+      fast-stemmer (>= 1.0.0)
+    closure-compiler (1.1.6)
+    colorize (0.5.8)
+    directory_watcher (1.4.1)
+    em-dir-watcher (0.9.4)
+    em-websocket (0.3.6)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+    eventmachine (1.0.0.beta.4.1-x86-mingw32)
+    fast-stemmer (1.0.0)
+    fssm (0.2.8.1)
+    haml (3.1.4)
+    json (1.6.5)
+    kramdown (0.13.5)
+    liquid (2.3.0)
+    livereload (1.6.1)
+      em-dir-watcher (>= 0.1)
+      em-websocket (>= 0.3.5)
+      json (>= 1.5.3)
+    maruku (0.6.0)
+      syntax (>= 1.0.0)
+    nokogiri (1.5.0-x86-mingw32)
+    posix-spawn (0.3.6)
+    redcarpet (2.1.0)
+    rubypants (0.2.0)
+    syntax (1.0.0)
+    win32-api (1.4.8-x86-mingw32)
+    windows-api (0.4.1)
+      win32-api (>= 1.4.5)
+    windows-pr (1.2.1)
+      win32-api (>= 1.4.5)
+      windows-api (>= 0.3.0)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  closure-compiler
+  colorize
+  compass!
+  haml
+  jekyll!
+  json
+  livereload (= 1.6.1)
+  nokogiri
+  redcarpet (= 2.1.0)
+  rubypants
+  sass!
+  windows-pr (= 1.2.1)

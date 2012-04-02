@@ -137,9 +137,12 @@ module Jaap
     
     def self.css_minify(src)
       return if not File.exists? src
+      name = File.basename(src, '.css')
+      
+      return unless name == 'head'
       
       with_rescue do
-        min_src = File.join Pathname.new(src).parent, File.basename(src, '.css') + '.min.css'
+        min_src = File.join Pathname.new(src).parent, name  + '.min.css'
         
         ::Jaap::Tool.yui_compressor '--type css -v -o', min_src, src        
       
