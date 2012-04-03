@@ -76,7 +76,7 @@
 
 @include responsify() {
   
-  $width-msg: undefined;
+  $width-msg: undefined;  
 
   @if      $mq-min-px == undefined { $width-msg: "width < #{$mq-max-px / $body-ppgd}" }
   @else if $mq-max-px == undefined { $width-msg: "#{$mq-min-px / $body-ppgd} < width" }

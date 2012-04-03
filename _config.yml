@@ -4,7 +4,7 @@ auto: true
 server: false
 safe: false
 permalink: /:title/
-exclude: ["do.cmd", "**/*.haml", "**/*.coffee"]
+exclude: ["do.cmd", "**/*.haml", "**/*.coffee", "Gemfile", "Gemfile.lock"]
 leave: ["css/", ".livereload", "**/*.ajax.html"]
 
 markdown: redcarpet

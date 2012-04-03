@@ -16,7 +16,7 @@ import random
 # 0x00ad = soft hyphen
 # 0x2010 = non ambiguous hyphen
 # 0x2010 = non breaking hyphen
-# 0x2212 = non ambiguous minus;
+# 0x2212 = non ambiguous minus
 
 # IE9               shy = 0x002d
 # Firefox 8         shy = 0x2010
