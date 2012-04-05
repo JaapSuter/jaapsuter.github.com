@@ -7,7 +7,7 @@ module Jaap
   module SassExtensions
    
     def try_reload_extensions()
-      Jaap::Reload.try_reload      
+      Jaap::Reload.try_reload
       Sass::Script::Bool.new(true)
     end
     

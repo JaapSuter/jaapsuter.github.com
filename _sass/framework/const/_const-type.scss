@@ -1,14 +1,16 @@
 $serif-fallback:           Georgia, serif;
 $sans-fallback:            Verdana, sans-serif;
 $sans-condensed-fallback:  Arial, sans-serif;
-$mono-fallback:            "Courier New", monospace;
+$mono-fallback:            Courier New, monospace;
 
 @unless $type-fallback-common-web-safe-only {
-  $serif-fallback:           "DejaVu Serif",           "Bitstream Vera Serif",     $serif-fallback;
-  $sans-fallback:            "DejaVu Sans",            "Bitstream Vera Sans",      $sans-fallback;
-  $sans-condensed-fallback:  "DejaVu Sans Condensed",  "Bitstream Vera Sans",      $sans-condensed-fallback;
-  $mono-fallback:            "DejaVu Sans Mono",       "Bitstream Vera Sans Mono", $mono-fallback;
+  $serif-fallback:           DejaVu Serif,           Bitstream Vera Serif,     $serif-fallback;
+  $sans-fallback:            DejaVu Sans,            Bitstream Vera Sans,      $sans-fallback;
+  $sans-condensed-fallback:  DejaVu Sans Condensed,  Bitstream Vera Sans,      $sans-condensed-fallback;
+  $mono-fallback:            DejaVu Sans Mono,       Bitstream Vera Sans Mono, $mono-fallback;
 }
+
+@debug $serif-fallback;
 
 @if $type-fallback-make-obvious {
   $obvious-fallback: fallback, unifont, LastResort, LocalFallback, Impact, cursive, fantasy;
@@ -18,6 +20,8 @@ $mono-fallback:            "Courier New", monospace;
   $sans-condensed-fallback:   $obvious-fallback, $sans-condensed-fallback;
   $mono-fallback:             $obvious-fallback, $mono-fallback;
 }
+
+@debug $serif-fallback;
 
 $root-font-family:    tsn4n;
 

@@ -46,6 +46,10 @@ body {
     @include emerem(max-width, 35 * $body-ppem);
   }
 
+  h1 {
+    // font-size: is-where-its($ex: 1gd);
+  }
+
   h1 { @include change-type(pan7n, ex, 2 * $body-ppgd) {} }
   h2 { @include change-type(pan4n, ex, $body-ppgd) {} }
   h3 { @include change-type(pan4n, cap, $body-ppgd) {} }

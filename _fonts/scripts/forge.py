@@ -1,3 +1,6 @@
+# Todo, Jaap Suter, February 2012, investigate INSTCTRL 3, 4, see
+# here for more information: http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx
+
 import sys, re
 reload(sys)
 sys.setdefaultencoding('utf-8')
