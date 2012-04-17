@@ -11,13 +11,6 @@
 {% include other/head.html %}  
 %body(lang="en" id="{{ page.id }}")
   #rhythm
-    .type-comparison
-      %p.custom
-        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-        g 0123456789 
-      %p.installed
-        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-        g 0123456789 
     %p
       This is a paragraph with some text in it. It goes on for a while but 
       doesn't really say anything useful. That's fine, I'm just testing
@@ -44,6 +37,14 @@
       And here's a fourth paragraph. Once again, containing no useful
       information whatsoever. It's merely to give the CSS something
       to experiment with.
+    .type-comparison
+      %p.custom
+        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+        g 0123456789 
+      %p.installed
+        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+        g 0123456789 
+    
   #header
     %header(role="banner")
       {% include modules/header.html %}
@@ -79,3 +80,4 @@
     %script(src="/js/jaap/font.js")
     %script(src="/js/jaap/ajax.js")
   %script(src=script_src)
+  %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}

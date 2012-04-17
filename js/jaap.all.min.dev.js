@@ -355,7 +355,7 @@
       return $cont$$3$$($ok$$1$$, $family$$6$$)
     };
     $testFontLoaded$$ = function $$testFontLoaded$$$() {
-      return $fallback$$.offsetWidth !== $loaded$$.offsetWidth ? 0 === $repeats_until_valid$$-- ? $complete$$($JSCompiler_alias_TRUE$$, $family$$5$$) : $util$$.$soon$($testFontLoaded$$) : 0 === $attempts$$-- ? $complete$$($JSCompiler_alias_FALSE$$, $family$$5$$) : $util$$.$delay$($testFontLoaded$$, 40)
+      return $fallback$$.offsetWidth !== $loaded$$.offsetWidth ? 0 === $repeats_until_valid$$-- ? $complete$$($JSCompiler_alias_TRUE$$, $family$$5$$) : $util$$.$soon$($testFontLoaded$$) : 0 === $attempts$$-- ? $complete$$($JSCompiler_alias_FALSE$$, $family$$5$$) : $util$$.$delay$(40, $testFontLoaded$$)
     };
     return $testFontLoaded$$()
   };

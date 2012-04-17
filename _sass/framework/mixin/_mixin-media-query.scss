@@ -1,37 +1,96 @@
-$media-types: (
-  // name, trigger-width-px, body-ppem,  body-ppgd, 
+$responsive-type-table: (
+  // name,         width in initial rem,         bem,        el,
 
   // default, no query
-      ( 0,        undefined,        16,        24),
+      ( 0,        undefined /* default */,   16px,  24px),
 
-  // narrower  
-      (-1,              552,        16,        23),
-      (-2,              396,        16,        22),
-      
-  // wider      
-      ( 1,              750,        16,        25),
-      ( 2,              825,        17,        25),
-      ( 3,              884,        17,        26),
-      ( 4,              936,        18,        27),
-      ( 5,             1026,        19,        28),
-      ( 6,             1092,        20,        29),
-      ( 7,             1160,        20,        30),
-      ( 8,             1260,        20,        31),
-      ( 9,             1344,        21,        32),
-      (10,             1408,        22,        33),
-      (10,             1504,        22,        34)
+  // narrower, max-width 
+      (-1,             32em /*   512px */,   16px,  23px),
+      (-2,             24em /*   384px */,   16px,  22px),
+                                
+  // wider, min-width           
+      ( 1,             46em /*   736px */,   16px,  25px),
+      ( 2,             52em /*   832px */,   17px,  25px),
+      ( 3,             55em /*   880px */,   17px,  26px),
+      ( 4,             58em /*   928px */,   18px,  27px),
+      ( 5,             64em /*  1024px */,   19px,  28px),
+      ( 6,             68em /*  1088px */,   20px,  29px),
+      ( 7,             72em /*  1152px */,   20px,  30px),
+      ( 8,             78em /*  1248px */,   20px,  31px),
+      ( 9,             84em /*  1344px */,   21px,  32px),
+      (10,             88em /*  1408px */,   22px,  33px),
+      (11,             94em /*  1504px */,   22px,  34px),
+      (12,             98em /*  1504px */,   23px,  35px),
+      (13,            102em /*  1504px */,   24px,  36px)
 );
 
-@function get-media-type($name) {
-  @each $media-type in $media-types {
-    @if $name == nth($media-type, 1) {
-      @return $media-type;
+$body-font-family:    tsn4n;
+$rem-assumed-initial: 16px;
+$rem:                 20px;
+
+$bem:            undefined;
+$el:             undefined;
+$responsive-msg: undefined;
+
+@mixin responsive-type() {
+  @each $breakpoint in $responsive-type-table {
+    
+    $ordinal: nth($breakpoint, 1);
+    $trigger: nth($breakpoint, 2);
+  
+    @if $ordinal == 0 {
+      $bem: nth($breakpoint, 3);
+      $el: nth($breakpoint, 4);
+      $responsive-msg: "default: #{$bem}/#{$el}";
+    }
+    
+    @if $ordinal < 0 {
+      @if responsive(max-width, $trigger) {
+        $bem: nth($breakpoint, 3);
+        $el: nth($breakpoint, 4);
+        $responsive-msg: "default: #{$bem}/#{$el}";
+      }
+    }
+
+    @if $ordinal > 0 {
+      @if responsive(min-width, $trigger) {
+        $bem: nth($breakpoint, 3);
+        $el: nth($breakpoint, 4);
+        $responsive-msg: "default: #{$bem}/#{$el}";
+      }
     }
   }
-
-  @return undefined;
 }
 
+@mixin diet {
+  $call: responsive-capture(_all);
+  @media _all {
+    @include responsive-type();
+    @content;
+  }
+
+  $call: responsive-capture(_none);
+  @media _none {
+    @include responsive-type();
+    @content;
+  }
+
+  @debug get_responsive_properties();
+  @each $property in get_responsive_properties() {
+    @if $property != '_all' and 
+        $property != '_none' {
+  
+      @debug get-responsive-values($property);
+      @each $value in get-responsive-values($property) {
+        $call: responsive-capture($property, $value);
+        @media ($property: $value) {
+          @include responsive-type();
+          @content;
+        }
+      }
+    }
+  }
+}
 
 @mixin set-body-ppem-ppgd($ppem, $ppgd) {
   $body-ppem: $ppem;

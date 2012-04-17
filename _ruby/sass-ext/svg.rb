@@ -16,12 +16,16 @@ module Jaap
     end
       
     def make_svg_baseline_grid(family, ppem, ppgd)
-      ppgd = unwrap ppgd
-      ppem = unwrap ppem
+      
+      Jaap::Reload.try_reload
+      
+      ppgd = (unwrap ppgd).to_i
+      ppem = (unwrap ppem).to_i
+
       family = unwrap family
       
-      half_leading = (ppgd - ppem) / 2
-    
+      half_leading = (ppgd - ppem) / 2.0
+      
       metrics = @@textMetrics[family]
       
       baseline = half_leading + metrics['baseline'][ppem]
@@ -34,25 +38,34 @@ module Jaap
     end
     
     def make_grid_svg(family, ppem, ppgd, baseline, ascent, cap, ex, descent)
-      grid_height_px = 256
-          
       ppem, ppgd, baseline, ascent, cap, ex, descent = 
         unwrap(ppem, ppgd, baseline, ascent, cap, ex, descent)
-      
+
       path = nil # In production, return an inline data-url
-      # path = "img/grid-#{family}-#{ppem}-#{ppgd}.svg" # Useful during development
+      path = "img/grid-#{family}-#{ppem}-#{ppgd}.svg" # Useful during development        
+
+      if false
+        img = %Q{
+          <rect fill-opacity="0.1" width="1" y="#{two_decimals(ex)}" height="#{two_decimals(baseline - ex)}"/>
+        }
       
-      one_pixel = grid_height_px.to_f / ppgd
+        svg_envelope img, "1", ppgd, nil, path
+
+      else
+        grid_height_px = 256
+          
+        one_pixel = grid_height_px.to_f / ppgd
       
-      ppem, ppgd, baseline, ascent, cap, ex, descent = 
-        [ppem, ppgd, baseline, ascent, cap, ex, descent].map { |e| e * grid_height_px.to_f / ppgd }
+        ppem, ppgd, baseline, ascent, cap, ex, descent = 
+          [ppem, ppgd, baseline, ascent, cap, ex, descent].map { |e| e * grid_height_px.to_f / ppgd }
         
-      img = %Q{
-        <rect fill="#005869" fill-opacity="0.37" width="1" y="#{two_decimals(ex      )}" height="#{one_pixel.ceil}"/>
-        <rect fill="#971f03" fill-opacity="0.63" width="1" y="#{two_decimals(baseline)}" height="#{one_pixel.ceil}"/>
-      }
+        img = %Q{
+          <rect fill="#005869" fill-opacity="0.37" width="1" y="#{two_decimals(ex      )}" height="#{one_pixel.ceil}"/>
+          <rect fill="#971f03" fill-opacity="0.63" width="1" y="#{two_decimals(baseline)}" height="#{one_pixel.ceil}"/>        
+        }
       
-      svg_envelope img, "1", "#{grid_height_px}", nil, path
+        svg_envelope img, "1", "#{grid_height_px}", nil, path
+      end
       
       # scale = 4 # Making this much larger breaks background repeating
       #           # in Firefox (11ish) at large zoom values. This value

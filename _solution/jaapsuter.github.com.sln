@@ -169,12 +169,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sass-ext", "sass-ext", "{A8CCBB73-7CBE-46A1-A4B1-A175ACEF17BF}"
 	ProjectSection(SolutionItems) = preProject
 		..\_ruby\sass-ext\color.rb = ..\_ruby\sass-ext\color.rb
+		..\_ruby\sass-ext\diet.rb = ..\_ruby\sass-ext\diet.rb
 		..\_ruby\sass-ext\font.rb = ..\_ruby\sass-ext\font.rb
 		..\_ruby\sass-ext\grid-unit.rb = ..\_ruby\sass-ext\grid-unit.rb
-		..\_ruby\sass-ext\log.rb.disable = ..\_ruby\sass-ext\log.rb.disable
 		..\_ruby\sass-ext\post-process.rb = ..\_ruby\sass-ext\post-process.rb
-		..\_ruby\sass-ext\responsify.rb.disable = ..\_ruby\sass-ext\responsify.rb.disable
 		..\_ruby\sass-ext\svg.rb = ..\_ruby\sass-ext\svg.rb
+		..\_ruby\sass-ext\tree-logger.rb = ..\_ruby\sass-ext\tree-logger.rb
 		..\_ruby\sass-ext\util.rb = ..\_ruby\sass-ext\util.rb
 	EndProjectSection
 EndProject

@@ -39,6 +39,12 @@ module Jaap
       v = v.map { |e| 
         if e.is_a? Fixnum
           e
+        elsif e.is_a?(Sass::Script::Number)
+          if e.unitless?
+            e.value
+          else
+            e.inspect
+          end
         elsif e.respond_to? 'value'
           e.value
         else

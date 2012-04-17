@@ -10,11 +10,11 @@ module Jaap
     def self.get_synchronized() @@stdout_sem.synchronize { @@stdout_params[Thread.current.object_id] } end
    
     def self.initialize()
-      $stdout.sync = true
-      $stderr.sync = true
+      $stdout.sync = false
+      $stderr.sync = false
       
-      hook_threading = true
-      hook_std_out_and_err = true
+      hook_threading = false
+      hook_std_out_and_err = false
       
       if hook_threading
         Thread.instance_eval { 

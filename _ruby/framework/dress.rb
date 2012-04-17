@@ -1,5 +1,5 @@
 require 'nokogiri'
-require_relative '../typogruby'        
+require_relative '../typogruby-fork/typogruby'
 
 module Jaap
   module Dress

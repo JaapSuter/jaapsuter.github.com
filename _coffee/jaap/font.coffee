@@ -206,7 +206,7 @@ exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
       if 0 == attempts--
         complete false, family
       else
-        util.delay testFontLoaded, interval_ms
+        util.delay interval_ms, testFontLoaded
 
   testFontLoaded()
 

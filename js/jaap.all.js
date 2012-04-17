@@ -600,7 +600,7 @@
         if (0 === attempts--) {
           return complete(false, family);
         } else {
-          return util.delay(testFontLoaded, interval_ms);
+          return util.delay(interval_ms, testFontLoaded);
         }
       }
     };

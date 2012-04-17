@@ -50,6 +50,8 @@ $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
     outline: #000 solid 1px;
   }  
 }
+  
+  
 
 .fig-caption {
   @include rhythm-scope(small-3x2, tan4n) {

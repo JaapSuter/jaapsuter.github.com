@@ -1,5 +1,5 @@
 # encoding: UTF-8
-system 'cls'
+# system 'cls'
 
 require_relative 'framework'
 
@@ -12,17 +12,16 @@ module Jaap
       Kernel::load File.join(Gem.loaded_specs['jekyll'].full_gem_path, 'bin/jekyll')
     end
     
-    def self.compass()
+    def self.compass(*args)
+      args = ['watch'] if args.empty?
+
       Dir.chdir(Paths.get())
       require 'compass'
       require 'compass/exec'
       Jaap::Daemon.change('Compass', :red, :yellow)
-      args = [
-        'watch',
-        '--config', Paths.get('_ruby/compass-config.rb'),
-        '--environment', 'development',
-      ]
-      Compass::Exec::SubCommandUI.new(args).run!.call
+      args << '--config' << Paths.get('_ruby/compass-config.rb')
+      args << '--environment' << 'development'
+      Compass::Exec::SubCommandUI.new(args).run!
     end
     
     def self.server()

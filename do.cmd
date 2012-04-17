@@ -12,7 +12,7 @@ ruby .\_ruby\do.rb clean
 ruby .\_ruby\do.rb font
 
 start cmd /k ruby .\_ruby\do.rb jekyll
-start cmd /k ruby .\_ruby\do.rb compass
+start cmd /k ruby .\_ruby\do.rb compass watch
 start cmd /k ruby .\_ruby\do.rb server
 start cmd /k ruby .\_ruby\do.rb livereload
 

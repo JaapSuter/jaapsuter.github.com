@@ -43,4 +43,8 @@ class String
   def smart_capitalize!
     replace(smart_capitalize)
   end
+
+  def naturalized
+    scan(/[^\d\.]+|[\d\.]+/).collect { |f| f.match(/\d+(\.\d+)?/) ? f.to_f : f }
+  end
 end

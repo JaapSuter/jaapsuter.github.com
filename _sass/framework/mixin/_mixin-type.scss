@@ -77,11 +77,13 @@
   @content;
 }
 
-@mixin background-image-baseline-grid($ppem, $ppgd) {  
-  @include background-image(make_svg_baseline_grid($root-font-family, $ppem, $ppgd));
+@mixin background-image-baseline-grid() {  
+  @include background-image(make_svg_baseline_grid($body-font-family, $bem / 1px, $el / 1px));
 
-  @include background-size(em($ppgd) em($ppgd));
-  @include background-size(rem($ppgd) rem($ppgd));
+  $background-size-em: $el / $bem * 1em;
+  $background-size-rem: $el / $rem * 1rem;
+  @include background-size($background-size-em $background-size-em);
+  @include background-size($background-size-rem $background-size-rem);
   
   // $c0: rgba($black, 0.2);
   // $c1: rgba($blue, 0.9);

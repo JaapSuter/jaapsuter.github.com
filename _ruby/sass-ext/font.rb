@@ -4,8 +4,6 @@ require 'json'
 require_relative '../framework/config'
 require_relative 'util'
 
-puts "Jaap::SassExt::Font is rocking da kaboozle!"
-
 module Jaap
   module SassExt
    

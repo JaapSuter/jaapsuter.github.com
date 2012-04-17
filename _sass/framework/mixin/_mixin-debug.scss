@@ -1,6 +1,7 @@
-@mixin debug-message($message) { body > *:first-child:before { content: $message; } }
-@mixin debug-message-initialize() {
-  body > *:first-child:before {
+@mixin debug-message($message) { 
+  & > *:first-child:before {
+    content: $message;
+    
     @extend %tmn4n;
     background-color: rgba($black, 0.7);
     color: rgba(lighten(saturate($red, 50%), 50%), 0.9);

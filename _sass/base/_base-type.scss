@@ -3,11 +3,6 @@
 // 16/24 =
 // 16/25 =
 // 17/24
-  
-html {
-  font-size: $pprem / $pprem-assumed-default-initial * 100%;
-  line-height: 100%;
-}
 
 p {
   -webkit-locale: 'en';
@@ -33,7 +28,7 @@ body {
   body {
     @include emerem(font-size, $body-ppem);
     @include emerem(line-height, $body-ppgd);
-    @include background-image-baseline-grid($body-ppem, $body-ppgd);
+    // @include background-image-baseline-grid($body-ppem, $body-ppgd);
   }
 
   p, h1, .stripe:after, h2, h3 {
@@ -54,6 +49,76 @@ body {
   h2 { @include change-type(pan4n, ex, $body-ppgd) {} }
   h3 { @include change-type(pan4n, cap, $body-ppgd) {} }
   .small { @include change-type(pan4n, cap, $body-ppex) {} }
+}
+
+
+@if false {
+
+  @include debug-message-initialize();
+
+  figure { overflow: hidden; }
+
+  html {
+    min-height: 100%;
+    width: 100%;
+    max-width: 100%;  
+  }
+
+  body {
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #dimensions {
+    @extend %tmn4n;
+    font-size: 10px;
+    line-height: 12px;
+    position: fixed;
+    background-color: rgba($black, 0.5);
+    color: rgba(lighten(saturate($blue, 50%), 50%), 0.9);
+    position: fixed;
+    bottom: 2em;
+    left: 0;
+  }
+
+
+  .type-comparison {
+    $font-family: tsn4n;
+  
+    position: relative;
+
+    .custom {
+      color: rgba(#f33, 0.5);
+      @extend %#{$font-family};
+    }
+
+    .installed {
+      color: rgba(#33f, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: type-name-get-font-family-fallback($font-family);
+    }
+  }
+
+  body {
+    font-size: 4gd;
+  }
+
+  @include responsify() {
+  
+    $width-msg: undefined;  
+
+    @if      $mq-min-px == undefined { $width-msg: "width < #{$mq-max-px / $body-ppgd}" }
+    @else if $mq-max-px == undefined { $width-msg: "#{$mq-min-px / $body-ppgd} < width" }
+    @else                            { $width-msg: "#{$mq-min-px / $body-ppgd} < width < #{$mq-max-px / $body-ppgd}" }
+
+    @include debug-message("#{$width-msg}: #{$body-ppem}/#{$body-ppgd}(#{round-two-decimals($body-ppgd / $body-ppem)})");
+  }
+
 }
 
 .stripe {

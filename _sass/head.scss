@@ -18,69 +18,47 @@ $import-base-normalize-separately: in_development_mode();
 @import "base/base-normalize";
 
 @import "base/base-reset";
-@import "base/base-type";
-
-@include debug-message-initialize();
-
-figure { overflow: hidden; }
 
 html {
-  min-height: 100%;
-  width: 100%;
-  max-width: 100%;  
+  font-size: $rem / $rem-assumed-initial * 100%;
+  line-height: 100%;
 }
 
-body {
-  position: relative;
-  min-height: 100%;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-#dimensions {
-  @extend %tmn4n;
-  font-size: 10px;
-  line-height: 12px;
-  position: fixed;
-  background-color: rgba($black, 0.5);
-  color: rgba(lighten(saturate($blue, 50%), 50%), 0.9);
-  position: fixed;
-  bottom: 2em;
-  left: 0;
-}
-
-
-.type-comparison {
-  $font-family: tsn4n;
+@include diet { 
   
-  position: relative;
-
-  .custom {
-    color: rgba(#f33, 0.5);
-    @extend %#{$font-family};
+  @if in_development_mode() {
+    body {
+      @include debug-message($responsive-msg);
+      @include background-image-baseline-grid();  
+    }
   }
 
-  .installed {
-    color: rgba(#33f, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-family: type-name-get-font-family-fallback($font-family);
+  body {
+    
+    position:  relative;
+    color: $black;
+    background-color: $white;  
+    @extend %#{$body-font-family};
+    
+    -dev-font-size: $bem;
+    -dev-line-height: $el;
+    font-size: $bem / $rem * 1em;
+    line-height: $el / $bem * 1em;
+    line-height: $el / $rem * 1rem;
   }
-}
 
-body {
-  font-size: 5gd;
-}
+  p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: $el / $bem * 1em;
+    margin-bottom: $el / $rem * 1rem;
+  }
 
-@include responsify() {
-  
-  $width-msg: undefined;  
-
-  @if      $mq-min-px == undefined { $width-msg: "width < #{$mq-max-px / $body-ppgd}" }
-  @else if $mq-max-px == undefined { $width-msg: "#{$mq-min-px / $body-ppgd} < width" }
-  @else                            { $width-msg: "#{$mq-min-px / $body-ppgd} < width < #{$mq-max-px / $body-ppgd}" }
-
-  @include debug-message("#{$width-msg}: #{$body-ppem}/#{$body-ppgd}(#{round-two-decimals($body-ppgd / $body-ppem)})");
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    @extend %pan4n;
+    color: red;
+    margin: 0;
+    padding: 0;
+  }
 }

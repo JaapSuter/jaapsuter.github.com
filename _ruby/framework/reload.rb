@@ -20,6 +20,7 @@ module Jaap
     
     def self.try_reload
       file = parse_caller(caller(1).first).first
+
       timestamp = File.stat(file).mtime
       
       if @@timestamps[file] < timestamp
