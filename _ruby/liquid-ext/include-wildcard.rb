@@ -1,5 +1,5 @@
 module Jaap
-  module LiquidExtensions
+  module LiquidExt
     class IncludeWildcardTag < Liquid::Tag
       def initialize(tag_name, wildcard, tokens)
         super
@@ -21,4 +21,4 @@ module Jaap
   end
 end
 
-Liquid::Template.register_tag('include_wildcard', Jaap::LiquidExtensions::IncludeWildcardTag)
+Liquid::Template.register_tag('include_wildcard', Jaap::LiquidExt::IncludeWildcardTag)

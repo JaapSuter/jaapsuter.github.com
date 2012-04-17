@@ -14,7 +14,7 @@ require_relative 'framework/cached'
 require_relative 'framework/reload'
 require_relative 'framework/config'
 
-::Jaap::Paths.glob('_ruby/framework/monkey/*.rb') { |rb| require rb }
+::Jaap::Paths.glob('_ruby/monkey/*.rb') { |rb| require rb }
 
 $LOAD_PATH.unshift File.dirname __FILE__
 
@@ -24,8 +24,7 @@ module Jaap
   autoload :Daemon, 'framework/daemon'
   autoload :Tool, 'framework/tool'
   autoload :Server, 'framework/server'
-  autoload :Dress, 'framework/dress'
-  autoload :Typogruby, 'framework/forked/typogruby/typogruby'
+  autoload :Dress, 'framework/dress'  
 end
 
 

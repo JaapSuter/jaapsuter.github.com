@@ -1,5 +1,5 @@
 module Jaap
-  module LiquidExtensions
+  module LiquidExt
     class Hamlize < Liquid::Block
       def initialize(tag_name, markup, tokens)
         super
@@ -30,4 +30,4 @@ module Jaap
   end
 end
 
-Liquid::Template.register_tag('hamlize', Jaap::LiquidExtensions::Hamlize)
+Liquid::Template.register_tag('hamlize', Jaap::LiquidExt::Hamlize)

@@ -5,12 +5,12 @@ $type-name-weight-idx:   3;
 $type-name-stretch-idx:  4;
 
 @function type-name-is-postscript-flavored($name) {
-  @return 'p' == get_char_at($name, $type-name-tt-or-ps-idx);
+  @return 'p' == get-char-at($name, $type-name-tt-or-ps-idx);
 }
 
 @function type-name-get-font-family-fallback($name) {
-  $f: get_char_at($name, $type-name-family-idx);
-  $d: get_char_at($name, $type-name-stretch-idx);
+  $f: get-char-at($name, $type-name-family-idx);
+  $d: get-char-at($name, $type-name-stretch-idx);
   $f: if($f == 's', $serif-fallback,
       if($f == 'a', if($d == 'c', $sans-condensed-fallback, $sans-fallback),
       if($f == 'm', $mono-fallback,
@@ -19,7 +19,7 @@ $type-name-stretch-idx:  4;
 }
 
 @function type-name-get-font-weight($name) {
-  $w: get_char_at($name, $type-name-weight-idx);
+  $w: get-char-at($name, $type-name-weight-idx);
   $w: if($w == '2', 200,
       if($w == '4', 400,
       if($w == '7', 700,
@@ -28,7 +28,7 @@ $type-name-stretch-idx:  4;
 }
 
 @function type-name-get-font-style($name) {
-  $s: get_char_at($name, $type-name-style-idx);
+  $s: get-char-at($name, $type-name-style-idx);
   $s: if($s == 'n', normal,
       if($s == 'i', italic,
       if($s == 'o', oblique,
@@ -37,7 +37,7 @@ $type-name-stretch-idx:  4;
 }
 
 @function type-name-get-font-stretch($name) {
-  $s: get_char_at($name, $type-name-style-idx);
+  $s: get-char-at($name, $type-name-style-idx);
   $s: if($s == 'n', normal,
       if($s == 'c', condensed,
                     type-name-get-font-stretch-error));

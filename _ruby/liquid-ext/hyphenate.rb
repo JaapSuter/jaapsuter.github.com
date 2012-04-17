@@ -1,5 +1,5 @@
 module Jaap
-  module LiquidExtensions
+  module LiquidExt
     class Hyphenate < Liquid::Block
       require 'text/hyphen'
 
@@ -38,5 +38,5 @@ module Jaap
   end
 end
 
-Liquid::Template.register_filter(Jaap::LiquidExtensions)
-Liquid::Template.register_tag('hyphenate', Jaap::LiquidExtensions::Hyphenate)
+Liquid::Template.register_filter(Jaap::LiquidExt)
+Liquid::Template.register_tag('hyphenate', Jaap::LiquidExt::Hyphenate)

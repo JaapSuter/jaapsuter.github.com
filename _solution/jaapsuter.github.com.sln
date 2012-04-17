@@ -48,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{8D1165C3-726B-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_plugins", "_plugins", "{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540}"
 	ProjectSection(SolutionItems) = preProject
-		..\_plugins\liquid-extensions.rb = ..\_plugins\liquid-extensions.rb
+		..\_plugins\liquid-ext.rb = ..\_plugins\liquid-ext.rb
 		..\_plugins\page-and-post-post-write-hook.rb = ..\_plugins\page-and-post-post-write-hook.rb
 		..\_plugins\sitemap-generator.rb = ..\_plugins\sitemap-generator.rb
 	EndProjectSection
@@ -123,7 +123,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_ruby", "_ruby", "{D97496B9
 		..\_ruby\compass-config.rb = ..\_ruby\compass-config.rb
 		..\_ruby\do.rb = ..\_ruby\do.rb
 		..\_ruby\framework.rb = ..\_ruby\framework.rb
-		..\_ruby\sass-extensions.rb = ..\_ruby\sass-extensions.rb
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{672BFA03-BA8D-4B7C-AAEB-BAC4824B828F}"
@@ -140,33 +139,43 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{
 		..\_ruby\framework\tool.rb = ..\_ruby\framework\tool.rb
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid", "liquid", "{AA24D8C5-E899-4678-A647-60C986323EDB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid-ext", "liquid-ext", "{AA24D8C5-E899-4678-A647-60C986323EDB}"
 	ProjectSection(SolutionItems) = preProject
-		..\_ruby\framework\liquid\hamlize.rb = ..\_ruby\framework\liquid\hamlize.rb
-		..\_ruby\framework\liquid\hyphenate.rb = ..\_ruby\framework\liquid\hyphenate.rb
-		..\_ruby\framework\liquid\include-wildcard.rb = ..\_ruby\framework\liquid\include-wildcard.rb
-		..\_ruby\framework\liquid\sized-paragraph.rb = ..\_ruby\framework\liquid\sized-paragraph.rb
+		..\_ruby\liquid-ext\hamlize.rb = ..\_ruby\liquid-ext\hamlize.rb
+		..\_ruby\liquid-ext\hyphenate.rb = ..\_ruby\liquid-ext\hyphenate.rb
+		..\_ruby\liquid-ext\include-wildcard.rb = ..\_ruby\liquid-ext\include-wildcard.rb
+		..\_ruby\liquid-ext\sized-paragraph.rb = ..\_ruby\liquid-ext\sized-paragraph.rb
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "forked", "forked", "{1379CC38-4ABB-4223-8263-729B021CCC3F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "typogruby", "typogruby", "{DD145E17-90BD-4E35-8308-34DC0BE83B9E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "typogruby-fork", "typogruby-fork", "{DD145E17-90BD-4E35-8308-34DC0BE83B9E}"
 	ProjectSection(SolutionItems) = preProject
-		..\_ruby\framework\forked\typogruby\characters.txt = ..\_ruby\framework\forked\typogruby\characters.txt
-		..\_ruby\framework\forked\typogruby\typogruby.rb = ..\_ruby\framework\forked\typogruby\typogruby.rb
+		..\_ruby\typogruby-fork\characters.txt = ..\_ruby\typogruby-fork\characters.txt
+		..\_ruby\typogruby-fork\typogruby.rb = ..\_ruby\typogruby-fork\typogruby.rb
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monkey", "monkey", "{9D15AB5C-F3B5-4361-AD26-99F8FA3F9210}"
 	ProjectSection(SolutionItems) = preProject
-		..\_ruby\framework\monkey\hash.rb = ..\_ruby\framework\monkey\hash.rb
-		..\_ruby\framework\monkey\numeric.rb = ..\_ruby\framework\monkey\numeric.rb
-		..\_ruby\framework\monkey\string.rb = ..\_ruby\framework\monkey\string.rb
+		..\_ruby\monkey\hash.rb = ..\_ruby\monkey\hash.rb
+		..\_ruby\monkey\numeric.rb = ..\_ruby\monkey\numeric.rb
+		..\_ruby\monkey\string.rb = ..\_ruby\monkey\string.rb
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{DAE04D53-0DAE-41DA-B678-71E63762EB17}"
 	ProjectSection(SolutionItems) = preProject
 		..\_ruby\framework\server\default-servlet.rb = ..\_ruby\framework\server\default-servlet.rb
 		..\_ruby\framework\server\json-servlet.rb = ..\_ruby\framework\server\json-servlet.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sass-ext", "sass-ext", "{A8CCBB73-7CBE-46A1-A4B1-A175ACEF17BF}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\sass-ext\color.rb = ..\_ruby\sass-ext\color.rb
+		..\_ruby\sass-ext\font.rb = ..\_ruby\sass-ext\font.rb
+		..\_ruby\sass-ext\grid-unit.rb = ..\_ruby\sass-ext\grid-unit.rb
+		..\_ruby\sass-ext\log.rb.disable = ..\_ruby\sass-ext\log.rb.disable
+		..\_ruby\sass-ext\post-process.rb = ..\_ruby\sass-ext\post-process.rb
+		..\_ruby\sass-ext\responsify.rb.disable = ..\_ruby\sass-ext\responsify.rb.disable
+		..\_ruby\sass-ext\svg.rb = ..\_ruby\sass-ext\svg.rb
+		..\_ruby\sass-ext\util.rb = ..\_ruby\sass-ext\util.rb
 	EndProjectSection
 EndProject
 Global
@@ -188,7 +197,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1336C1DB-0800-4E65-A805-7A3785F02100} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
-		{1379CC38-4ABB-4223-8263-729B021CCC3F} = {672BFA03-BA8D-4B7C-AAEB-BAC4824B828F}
 		{278B1B56-D9DA-44AE-B739-9BB0B42698BB} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{33B17BCB-4312-4678-B1B3-E0411188E6CA} = {268607DF-F1FD-4312-9543-365234474E47}
 		{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540} = {268607DF-F1FD-4312-9543-365234474E47}
@@ -201,13 +209,14 @@ Global
 		{863DBB29-E63D-4094-B38D-6FC542071F96} = {8D1165C3-726B-422E-BB82-B3D58E2ECBE2}
 		{8D1165C3-726B-422E-BB82-B3D58E2ECBE2} = {268607DF-F1FD-4312-9543-365234474E47}
 		{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
-		{9D15AB5C-F3B5-4361-AD26-99F8FA3F9210} = {672BFA03-BA8D-4B7C-AAEB-BAC4824B828F}
-		{AA24D8C5-E899-4678-A647-60C986323EDB} = {672BFA03-BA8D-4B7C-AAEB-BAC4824B828F}
+		{9D15AB5C-F3B5-4361-AD26-99F8FA3F9210} = {D97496B9-839E-422C-B9DA-F52A40413354}
+		{A8CCBB73-7CBE-46A1-A4B1-A175ACEF17BF} = {D97496B9-839E-422C-B9DA-F52A40413354}
+		{AA24D8C5-E899-4678-A647-60C986323EDB} = {D97496B9-839E-422C-B9DA-F52A40413354}
 		{C4A66924-C309-4A4B-B937-D6994ED2B6D6} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{D391E781-3FA4-4463-A9FF-F8F2D163E201} = {5C7EE667-5933-4347-B8A8-EE64836C245F}
 		{D97496B9-839E-422C-B9DA-F52A40413354} = {268607DF-F1FD-4312-9543-365234474E47}
 		{DAE04D53-0DAE-41DA-B678-71E63762EB17} = {672BFA03-BA8D-4B7C-AAEB-BAC4824B828F}
-		{DD145E17-90BD-4E35-8308-34DC0BE83B9E} = {1379CC38-4ABB-4223-8263-729B021CCC3F}
+		{DD145E17-90BD-4E35-8308-34DC0BE83B9E} = {D97496B9-839E-422C-B9DA-F52A40413354}
 		{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7} = {268607DF-F1FD-4312-9543-365234474E47}
 		{F24DC583-8E87-4618-88C1-096CF33A3C66} = {268607DF-F1FD-4312-9543-365234474E47}
 		{F9DDAA7D-BE00-43B5-B38B-B58603DA463A} = {268607DF-F1FD-4312-9543-365234474E47}

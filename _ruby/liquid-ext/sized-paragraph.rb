@@ -1,5 +1,5 @@
 module Jaap
-  module LiquidExtensions
+  module LiquidExt
     class SizedParagraph < Liquid::Tag
       @@short = Set.new
       @@medium = Set.new
@@ -69,6 +69,6 @@ module Jaap
   end
 end
 
-Liquid::Template.register_tag('short_paragraph', Jaap::LiquidExtensions::ShortParagraph)
-Liquid::Template.register_tag('medium_paragraph', Jaap::LiquidExtensions::MediumParagraph)
-Liquid::Template.register_tag('long_paragraph', Jaap::LiquidExtensions::LongParagraph)
+Liquid::Template.register_tag('short_paragraph', Jaap::LiquidExt::ShortParagraph)
+Liquid::Template.register_tag('medium_paragraph', Jaap::LiquidExt::MediumParagraph)
+Liquid::Template.register_tag('long_paragraph', Jaap::LiquidExt::LongParagraph)

@@ -1,5 +1,5 @@
-require 'closure-compiler'
 require 'haml'
+require 'closure-compiler'
 require 'windows/window'
 require 'windows/console'
           

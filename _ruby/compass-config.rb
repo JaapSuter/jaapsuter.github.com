@@ -2,8 +2,10 @@
 # pulled in using ruby eval (during which the file location of 
 # the current stackframe and its parent aren't pointing to
 # this actual file)... so we do it old-school
-::Kernel::require File.expand_path File.join File.dirname(__FILE__), 'framework.rb'
-::Kernel::require File.expand_path File.join File.dirname(__FILE__), 'sass-extensions.rb'
+ruby_require_dir = File.expand_path File.join File.dirname(__FILE__)
+::Kernel::require File.join ruby_require_dir, 'framework.rb'
+
+Jaap::Paths.glob(File.join ruby_require_dir, 'sass-ext/*.rb') { |rb| require rb }
 
 http_path = "/"
 fonts_dir = "fonts"

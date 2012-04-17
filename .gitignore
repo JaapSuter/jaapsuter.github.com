@@ -1,6 +1,7 @@
 .sass-cache/
 .jaap-build/
 _site/
+_ruby/.idea
 _solution/*.suo
 bin/
 obj/
