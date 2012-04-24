@@ -52,10 +52,10 @@ $import-base-normalize-separately: in-development-mode();
     max-width: 40em;
     margin: 0 auto;  
     
-    @include color-and-background-color($black, $white);    
+    // @include color-and-background-color($black, $white);
     @extend %#{$body-font-family};
     
-    @include unit(font-size, 1bem, $rem);    
+    @include unit(font-size, 1bem, $rem);
     @include unit(line-height, 1el);
   }
 
@@ -70,7 +70,9 @@ $import-base-normalize-separately: in-development-mode();
   }
 
   @if in-development-mode() {
-    .baseline { @include background-image-baseline-grid(); }
+    .baseline {
+      @include background-image-baseline-grid();
+    }
   }
 
   @include debug-msg-install();

@@ -1,4 +1,22 @@
 
+@mixin diet {  
+  $call: responsive-capture(_all);
+  @media _all { @content; }
+
+  $call: responsive-capture(_none);
+  @media _none { @content; }
+
+  @each $property in get_responsive_properties() {
+    @if $property != '_all' and $property != '_none' {      
+      @each $value in get-responsive-values($property) {
+          
+        $call: responsive-capture($property, $value);
+        @media ($property: $value) { @content; }
+      }
+    }
+  }
+}
+
 @mixin responsive-type() {
   
   $breakpoint: undefined;   
@@ -28,37 +46,36 @@
   $bem: nth($breakpoint, 3);
   $el: nth($breakpoint, 4);
     
-  // $body-ppcap: get_metric_for_metric(cap, $root-font-family, ppem, $body-ppem);
-  // $body-ppex: get_metric_for_metric(ex, $root-font-family, ppem, $body-ppem);
-  // $body-ptbl: get_metric_for_metric(baseline, $root-font-family, ppem, $body-ppem);
+  $body-ppcap: get-font-metric($body-font-family, cap, $where-its: ppem, $will-be: $bem);
+  $body-ppex:  get_metric_for_metric(ex, $body-font-family, ppem, $bem);
+  $body-ptbl:  get_metric_for_metric(baseline, $body-font-family, ppem, $bem);
 }
 
-@mixin diet {  
-  $call: responsive-capture(_all);
-  @media _all { @content; }
+@function units($value, $em: $bem) {
+  $px: undefined;
+  $unit: undefined;
+  
+  @if type-of($value) == list {
+    $unit: unit(nth($value, 1)); //* Todo, Jaap Suter, April 2012 - Presumes all list elements are of the same unit, ugly solution. */
+  } @else {
+    $unit: unit($value);
+  }
 
-  $call: responsive-capture(_none);
-  @media _none { @content; }
+  @debug $unit,  $value;
+  
+  @if       el == $unit { $px: multiply-each($value, 1 /  1el *  $el); }
+  @else if bem == $unit { $px: multiply-each($value, 1 / 1bem * $bem); }
+  @else { $call: debug-warn("Unknown unit for #{$value}"); }
 
-  @each $property in get_responsive_properties() {
-    @if $property != '_all' and $property != '_none' {      
-      @each $value in get-responsive-values($property) {
-          
-        $call: responsive-capture($property, $value);
-        @media ($property: $value) { @content; }
-      }
-    }
+  @if in-development-mode() {
+    @return ($px, multiply-each($px, 1 / $em * 1em), multiply-each($px, 1 / $rem * 1rem));
+  } @else {
+    @return (     multiply-each($px, 1 / $em * 1em), multiply-each($px, 1 / $rem * 1rem));
   }
 }
 
-@mixin unit($property, $value, $pem: $bem) {
-  $px: $value;
-
-  @if       el == unit($value) { $px: ($value /  1el) * $el; }
-  @else if bem == unit($value) { $px: ($value / 1bem) * $bem; }
-  @else { @include debug-warn("Unknown unit for #{$property}: #{$value}"); }
-  
-  @if in-development-mode() { -dev-#{$property}: $px; }
-  #{$property}: $px / $pem * 1em;
-  #{$property}: $px / $rem * 1rem;
+@mixin unit($property, $value, $em: $bem) {
+  @each $value in units($value, $em) {  
+    #{$property}: $value;
+  }
 }

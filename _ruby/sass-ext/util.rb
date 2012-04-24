@@ -35,6 +35,11 @@ module Jaap
 
     private
 
+    def unwrap_px(v)
+      raise_error_message "px_unwrap on #{v}" if v.unit_str != 'px'
+      unwrap(v.div to_sass '1px').to_i
+    end
+
     def unwrap(*v)
       v = v.map { |e| 
         if e.is_a? Fixnum
@@ -60,8 +65,8 @@ module Jaap
     
     def is_bool?(object)
       !!object == object
-    end       
-    
+    end
+
     def to_sass(obj)
       if obj.kind_of?(Array)
         arr = obj.map! { |ar| to_sass(ar) }

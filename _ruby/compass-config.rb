@@ -37,7 +37,7 @@ end
 
 if true and not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, February 2012: ugly ugly ugly, last minute hack
   
-  if true
+  if false
     Jaap::Compile.build_now_then_watch "fonts/*.{ttf,otf}", self do |ttf_or_otf|
         Jaap::Compile.ttf_or_otf ttf_or_otf
         scss = ::Jaap::Paths.get '_sass/head.scss'
@@ -51,13 +51,15 @@ if true and not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap 
     end
   end
   
-  Jaap::Paths.get('../../coffee-script/').tap do |iced_dir|
-    Jaap::Compile.watch '**/*.{iced,coffee}', iced_dir, self do |coffee|
-        Jaap::Compile.iced_compiler coffee, iced_dir
+  if false
+    Jaap::Paths.get('../../coffee-script/').tap do |iced_dir|
+      Jaap::Compile.watch '**/*.{iced,coffee}', iced_dir, self do |coffee|
+          Jaap::Compile.iced_compiler coffee, iced_dir
+      end
     end
-  end
   
-  Jaap::Compile.build_now_then_watch "**/*.{iced,coffee}", self do |coffee|
-      Jaap::Compile.iced coffee      
+    Jaap::Compile.build_now_then_watch "**/*.{iced,coffee}", self do |coffee|
+        Jaap::Compile.iced coffee      
+    end
   end
 end

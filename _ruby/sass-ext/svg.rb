@@ -19,8 +19,8 @@ module Jaap
       
       Jaap::Reload.try_reload
       
-      ppgd = (unwrap ppgd).to_i
-      ppem = (unwrap ppem).to_i
+      ppgd = unwrap_px ppgd
+      ppem = unwrap_px ppem
 
       family = unwrap family
       

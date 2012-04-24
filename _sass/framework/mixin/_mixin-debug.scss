@@ -27,7 +27,7 @@ $debug-messages: '';
 
 @mixin debug-warn($message) {
     $message: "WARNING: " + $message;
-    @debug raise_error_message($message);
+    @call debug-warn($message);
     @include debug-msg($message);
 }
 

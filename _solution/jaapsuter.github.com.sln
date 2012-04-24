@@ -94,6 +94,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_json", "_json", "{7CEDF735-0340-4CB0-B3EB-A8C21156CFF8}"
 	ProjectSection(SolutionItems) = preProject
 		..\_json\coffee-lint.json = ..\_json\coffee-lint.json
+		..\_json\type-metrics.json = ..\_json\type-metrics.json
 		..\_json\type-subsets.json = ..\_json\type-subsets.json
 	EndProjectSection
 EndProject

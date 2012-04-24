@@ -173,15 +173,20 @@ module Jaap
           found = false
 
           state.children.reverse_each do |s|
-            if s.resolved_name == n.resolved_name              
-              if s.resolved_value == n.resolved_value
-                state.children.push deep_copy s
-                found = true
-                break
-              else
-                node_children_new.push deep_copy n
-                found = true
-                break
+            if s.resolved_name == n.resolved_name
+              s_unit = s.resolved_value.gsub /\d/, ''
+              n_unit = n.resolved_value.gsub /\d/, ''
+
+              if true or s_unit == n_unit
+                if s.resolved_value == n.resolved_value
+                  state.children.push deep_copy s
+                  found = true
+                  break
+                else
+                  node_children_new.push deep_copy n
+                  found = true
+                  break
+                end
               end
             end
           end

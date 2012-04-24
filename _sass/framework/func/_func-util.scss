@@ -20,20 +20,24 @@
   @return round($n * 100) / 100;
 }
 
-@function multiply-each($list, $f) {
-    
+@function multiply-each($val, $f) {
+  @if type-of($val) == list {
+  
     $idx: 1;
-    $len: length($list);
-    $ret: "";
+    $len: length($val);
+    $ret: ();
     
     @while $idx <= $len {
-      $val: nth($list, $idx);
-      $dummy: debug-warn-if(not unitless($val), "can't multiply #{$val}, is not unitless");
-
-      $ret: #{$ret + " " + if(0 == $val, 0, $f * $val)};
+      $elem: nth($val, $idx);
+      
+      $ret: append($ret, if(0 == $elem, 0, multiply-each($elem, $f)));
       $idx: $idx + 1;
     }
     
-    @return $ret;
+    @return $ret;  
+  } @else {
+    @debug type-of($val);
+    @return $val * $f;
+  }
 }
 

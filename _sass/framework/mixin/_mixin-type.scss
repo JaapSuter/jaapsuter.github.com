@@ -78,12 +78,11 @@
 }
 
 @mixin background-image-baseline-grid() {  
-  @include background-image(make_svg_baseline_grid($body-font-family, $bem / 1px, $el / 1px));
+  @include background-image(make_svg_baseline_grid($body-font-family, $bem, $el));
 
-  $background-size-em: $el / $bem * 1em;
-  $background-size-rem: $el / $rem * 1rem;
-  @include background-size($background-size-em $background-size-em);
-  @include background-size($background-size-rem $background-size-rem);
+  @each $value in units(1el 1el) {
+    @include background-size($value);
+  }  
   
   // $c0: rgba($black, 0.2);
   // $c1: rgba($blue, 0.9);

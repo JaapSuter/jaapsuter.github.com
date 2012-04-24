@@ -23,21 +23,27 @@ module Jaap
       end
     end.new
 
-    def get_metric_for_metric(unknown_metric, family, known_metric, known_value)
+    def get_font_metric(family, unknown, where_its, will_be)
+      Jaap::Reload.try_reload
+
       family = unwrap family
-      known_metric = unwrap known_metric
-      known_value = unwrap known_value
-      unknown_metric = unwrap unknown_metric
+      known_metric = unwrap where_its
+      known_value = unwrap_px will_be
+      unknown_metric = unwrap unknown
       
       if known_metric == 'ppem'
-        to_sass @@textMetrics.get(family, unknown_metric, known_value)
+        ret = @@textMetrics.get(family, unknown_metric, known_value)
       elsif unknown_metric == 'ppem'
-        ppem = @@textMetrics[family][known_metric].index(known_value)
-        raise Sass::SyntaxError, "#{family} has no font-size where #{known_metric} equals #{known_value}." if ppem == nil
-        to_sass ppem
+        ret = @@textMetrics[family][known_metric]
+        ret = ret.index(known_value) if ret != nil
+        if ret == nil
+          raise Sass::SyntaxError, "#{family} has no font-size where #{known_metric} equals #{known_value}."
+        end
       else
         raise Sass::SyntaxError, "To get a metric for a metric, either the known or the unknown must be the pixels-per-em (ppem)."
       end
+
+      to_sass ret
     end
 
     def self.add_font_extensions()
@@ -54,5 +60,6 @@ end
 module Sass::Script::Functions
   include Jaap::SassExt
 
-  declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]    
+  declare :get_font_metric, [:family, :metric, :where_its, :will_be]
+  declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
 end
