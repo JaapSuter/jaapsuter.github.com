@@ -1,9 +1,3 @@
-// 16/22 = 
-// 16/23 = 
-// 16/24 =
-// 16/25 =
-// 17/24
-
 p {
   -webkit-locale: 'en';
   -webkit-hyphens: auto;
@@ -24,37 +18,38 @@ body {
   text-rendering: optimizelegibility;
 }
 
-@include responsify {
-  body {
-    @include emerem(font-size, $body-ppem);
-    @include emerem(line-height, $body-ppgd);
-    // @include background-image-baseline-grid($body-ppem, $body-ppgd);
-  }
-
-  p, h1, .stripe:after, h2, h3 {
-    @include emerem(margin, 0 0 $body-ppgd 0);
-    @include emerem(padding, 0 ($body-ppgd / 2));
-  }
-
-  #main, #rhythm {
-    margin: 0 auto;
-    @include emerem(max-width, 35 * $body-ppem);
-  }
-
-  h1 {
-    // font-size: is-where-its($ex: 1gd);
-  }
-
-  h1 { @include change-type(pan7n, ex, 2 * $body-ppgd) {} }
-  h2 { @include change-type(pan4n, ex, $body-ppgd) {} }
-  h3 { @include change-type(pan4n, cap, $body-ppgd) {} }
-  .small { @include change-type(pan4n, cap, $body-ppex) {} }
-}
-
-
 @if false {
+    
+  @include responsify {
+    body {
+      @include emerem(font-size, $body-ppem);
+      @include emerem(line-height, $body-ppgd);
+      // @include background-image-baseline-grid($body-ppem, $body-ppgd);
+    }
 
-  @include debug-message-initialize();
+    p, h1, .stripe:after, h2, h3 {
+      @include emerem(margin, 0 0 $body-ppgd 0);
+      @include emerem(padding, 0 ($body-ppgd / 2));
+    }
+
+    #main, #rhythm {
+      margin: 0 auto;
+      @include emerem(max-width, 35 * $body-ppem);
+    }
+
+    h1 {
+      // font-size: is-where-its($ex: 1gd);
+    }
+
+    h1 { @include change-type(pan7n, ex, 2 * $body-ppgd) {} }
+    h2 { @include change-type(pan4n, ex, $body-ppgd) {} }
+    h3 { @include change-type(pan4n, cap, $body-ppgd) {} }
+    .small { @include change-type(pan4n, cap, $body-ppex) {} }
+  }
+
+
+
+  @include debug-msg-initialize();
 
   figure { overflow: hidden; }
 
@@ -104,9 +99,49 @@ body {
     }
   }
 
-  body {
-    font-size: 4gd;
+ 
+  $name: undefined;
+  $trigger-width-px: undefined;
+  $mq-min-px: undefined;
+  $mq-max-px: undefined;
+
+  @mixin responsify() {
+    @each $media-type in $media-types {
+
+      $name:             nth($media-type, 1);
+      $trigger-width-px: nth($media-type, 2);
+      $body-ppem:        nth($media-type, 3);
+      $body-ppgd:        nth($media-type, 4);
+
+      @include set-body-ppem-ppgd($body-ppem, $body-ppgd);
+
+      @if $name == 0 {
+        $mq-min-px: nth(get-media-type(-1), 2);
+        $mq-max-px: nth(get-media-type( 1), 2);
+      
+        @content;
+            
+      } @else {
+    
+        $trigger-width-em: $trigger-width-px / $pprem * 1em;
+    
+        @if $name < 0 {        
+          @media screen and (max-width: $trigger-width-em) {
+            $mq-min-px: undefined;
+            $mq-max-px: $trigger-width-px;
+            @content;
+          }
+        } @else if $name > 0 {
+          @media screen and (min-width: $trigger-width-em) {
+            $mq-min-px: $trigger-width-px;
+            $mq-max-px: undefined;
+            @content;
+          }
+        }
+      }
+    }
   }
+
 
   @include responsify() {
   
@@ -116,7 +151,7 @@ body {
     @else if $mq-max-px == undefined { $width-msg: "#{$mq-min-px / $body-ppgd} < width" }
     @else                            { $width-msg: "#{$mq-min-px / $body-ppgd} < width < #{$mq-max-px / $body-ppgd}" }
 
-    @include debug-message("#{$width-msg}: #{$body-ppem}/#{$body-ppgd}(#{round-two-decimals($body-ppgd / $body-ppem)})");
+    @include debug-msg("#{$width-msg}: #{$body-ppem}/#{$body-ppgd}(#{round-two-decimals($body-ppgd / $body-ppem)})");
   }
 
 }

@@ -1,17 +1,23 @@
-@mixin hide-from-all {
+%hide-from-all {
 	display:none;
 	visibility:hidden;
 } 
 
-@mixin screenreaders-only {
+%screenreaders-only {
 	position: absolute !important;    
   	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   	clip: rect(1px, 1px, 1px, 1px);
 }
 
-@mixin invisible {
+%invisible {
 	visibility: hidden;
 }
+
+%clickable {
+  cursor: pointer;
+  * { cursor: pointer; }
+}
+
 
 @mixin table-alternate($even-row-color, $odd-row-color) {
   thead {

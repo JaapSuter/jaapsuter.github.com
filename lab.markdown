@@ -4,6 +4,62 @@ title: Lab
 permalink: /lab/
 ---
 
+{% hamlize %}
+  %ul#colorize
+    %li.black       black
+    %li.white       white
+    %li.red-ddd     red-ddd
+    %li.red-dd      red-dd
+    %li.red-d       red-d
+    %li.red         red
+    %li.red-l       red-l
+    %li.red-ll      red-ll
+    %li.red-lll     red-lll
+    %li.blue-ddd    blue-ddd
+    %li.blue-dd     blue-dd
+    %li.blue-d      blue-d
+    %li.blue        blue
+    %li.blue-l      blue-l
+    %li.blue-ll     blue-ll
+    %li.blue-lll    blue-lll    
+{% endhamlize %}
+{% hamlize %}
+  #rhythm
+    %p
+      This is a paragraph with some text in it. It goes on for a while but 
+      doesn't really say anything useful. That's fine, I'm just testing
+      whether it's possible to create an em-based typographic rhythm.
+    %p(style="font-family: georgia;")
+      This is a paragraph with some text in it. It goes on for a while but 
+      doesn't really say anything useful. That's fine, I'm just testing
+      whether it's possible to create an em-based typographic rhythm.
+    %h1.stripe
+      Short H1
+    %p
+      Voila, the second paragraph.
+    %h1.stripe
+      Here's a H1 header that is likely to wrap to the next line.
+    %p
+      Voila, the third paragraph. Isn't it great?
+    %h2
+      Enjoy a second level header that is multiple lines long
+    %p.small
+      And here's a small paragraph. Once again, containing no useful
+      information whatsoever. It's merely to give the CSS something
+      to experiment with.
+    %p
+      And here's a fourth paragraph. Once again, containing no useful
+      information whatsoever. It's merely to give the CSS something
+      to experiment with.
+    .type-comparison
+      %p.custom
+        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+        g 0123456789 
+      %p.installed
+        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+        g 0123456789 
+{% endhamlize %}
+
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
 
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing

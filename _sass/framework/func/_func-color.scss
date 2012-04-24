@@ -18,7 +18,7 @@
 @function color-contrast-verify($color, $background-color) {
   
   $min-color-difference: 500;    
-  $color-difference: color-difference($color, $background-color);            
+  $color-difference: color-difference($color, $background-color);
   @if $color-difference < $min-color-difference {
       @return "color-difference(" + $color + ", " + $background-color + ") == " + $color-difference + " < " + $min-color-difference;
   }

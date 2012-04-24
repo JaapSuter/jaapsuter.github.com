@@ -7,9 +7,7 @@
   iced = global.iced, (_ref = global.jaap, util = _ref.util, ajax = _ref.ajax, dom = _ref.dom, keys = _ref.keys, font = _ref.font);
 
   toggleBaseline = function() {
-    var elem;
-    elem = document.querySelector('#baseline-checkbox');
-    if (elem) return elem.checked = !elem.checked;
+    return dom.toggleClass(document.body, 'baseline');
   };
 
   diagnose = function() {
@@ -36,16 +34,15 @@
   entryPoint = function() {
     var repeated_diagnose;
     if (top !== window) return;
-    keys.on('ctrl+b', toggleBaseline);
+    keys.on('b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
     keys.on('d', diagnose);
-    repeated_diagnose = function() {
+    return repeated_diagnose = function() {
       var every_num_ms;
       every_num_ms = 300;
       diagnose();
       return util.delay(every_num_ms, repeated_diagnose);
     };
-    return repeated_diagnose();
   };
 
   entryPoint();

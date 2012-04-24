@@ -55,7 +55,7 @@ module Jaap
         
         File.open(Paths.suffix(dst, '.ajax'), 'w') do |f|
           html = Nokogiri::HTML text, nil, 'US-ASCII'
-          ajax = html.at_css('title').to_html + "\n" + html.at_css('#ajax').to_html
+          ajax = "<!DOCTYPE html>\n" + html.at_css('title').to_html + "\n" + html.at_css('#ajax').to_html
           ajax = ajax.encode 'US-ASCII'
           ajax = Tool.tidy tidy_args, :stdin => ajax, :ok_exit_codes => [0, 1]
           ajax = ajax.gsub('[%presentational empty%]', '')

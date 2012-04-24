@@ -392,9 +392,10 @@
       }
       return _results;
     })();
+    families = ["tsn4n"];
     easel = new Easel({
-      minFontSize: 9,
-      maxFontSize: 183
+      minFontSize: 23,
+      maxFontSize: 25
     });
     (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
@@ -409,7 +410,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 243
+        lineno: 244
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -431,7 +432,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 246
+            lineno: 247
           }), data);
           __iced_deferrals._fulfill();
         })(function() {

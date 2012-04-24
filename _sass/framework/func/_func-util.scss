@@ -1,3 +1,7 @@
+@function debug-warn($message) { @debug raise_error_message($message); }
+@function debug-warn-if($expression, $message) { @if ($expression) { $dummy: debug-warn($message); }  @return 0; }
+@function debug-warn-if-message($message) { @return debug-warn-if($message != "", $message); }
+
 @function min($lhs, $rhs) { @return if($lhs < $rhs, $lhs, $rhs); }
 @function max($lhs, $rhs) { @return if($lhs > $rhs, $lhs, $rhs); }
 
@@ -32,3 +36,4 @@
     
     @return $ret;
 }
+

@@ -1,9 +1,7 @@
 { iced, jaap: { util, ajax, dom, keys, font } } = global
 
 toggleBaseline = ->
-  elem = document.querySelector('#baseline-checkbox')
-  if elem
-    elem.checked = !elem.checked
+  dom.toggleClass document.body, 'baseline'
 
 diagnose = ->
   body = document.body
@@ -40,7 +38,7 @@ diagnose = ->
 entryPoint = ->
   return if top != window
   
-  keys.on 'ctrl+b', toggleBaseline
+  keys.on 'b', toggleBaseline
   keys.on 'shift+t', font.getMetrics
   keys.on 'd', diagnose
 
@@ -49,7 +47,7 @@ entryPoint = ->
     diagnose()
     util.delay every_num_ms, repeated_diagnose
 
-  repeated_diagnose()
+  # repeated_diagnose()
   # $(window).bind('popstate ', onPopState)
   # $('#type-metrics-link').bind 'click', type.getMetrics
   # bindInternalAnchorClicks()

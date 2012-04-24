@@ -1,64 +1,98 @@
-@import "framework/extern";
+$call: try-reload-extensions();
+
+@import "compass/utilities";
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/css3/transform";
+
 @import "framework/const";
-@import "framework/func";
-@import "framework/mixin";
+@import "framework/globals";
+
+@import "framework/func/func-util";
+@import "framework/func/func-color";
+@import "framework/func/func-type";
+
+@import "framework/mixin/mixin-util";
+@import "framework/mixin/mixin-debug";
+@import "framework/mixin/mixin-color";
+@import "framework/mixin/mixin-type";
+@import "framework/mixin/mixin-media-query";
 
 // Up to this point, no styling should be applied - we've only defined
 // constants, functions, and mixins. Hence the resulting compressed CSS
 // file (with comments stripped, etc.) should be of zero size.
-
-@unless $type-disable-font-face {
-  @if in_development_mode { @import url(at-font-face.dev.css); }
-  @else { @each $font in get_font_list() { @include at-font-face($font); } }  
-} 
-
-@each $font in get_font_list() { @include abstract-font-face-family($font); }
-
-$import-base-normalize-separately: in_development_mode();
-@import "base/base-normalize";
-
-@import "base/base-reset";
 
 html {
   font-size: $rem / $rem-assumed-initial * 100%;
   line-height: 100%;
 }
 
-@include diet { 
-  
-  @if in_development_mode() {
-    body {
-      @include debug-message($responsive-msg);
-      @include background-image-baseline-grid();  
-    }
-  }
 
+@unless $type-disable-font-face {
+  @if in-development-mode() { @import url(at-font-face.dev.css); }
+  @else { @each $font in get_font_list() { @include at-font-face($font); } }  
+}
+
+@each $font in get_font_list() { @include abstract-font-face-family($font); }
+
+$import-base-normalize-separately: in-development-mode();
+@import "base/base-normalize";
+@import "base/base-reset";
+
+@include diet {
+  
+  @include responsive-type();  
+  @include debug-msg("#{$bem}/#{$el}");
+  
+  ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
+  ::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
+  
   body {
+    position:  relative;    
+    max-width: 40em;
+    margin: 0 auto;  
     
-    position:  relative;
-    color: $black;
-    background-color: $white;  
+    @include color-and-background-color($black, $white);    
     @extend %#{$body-font-family};
     
-    -dev-font-size: $bem;
-    -dev-line-height: $el;
-    font-size: $bem / $rem * 1em;
-    line-height: $el / $bem * 1em;
-    line-height: $el / $rem * 1rem;
+    @include unit(font-size, 1bem, $rem);    
+    @include unit(line-height, 1el);
   }
 
   p {
-    margin: 0;
-    padding: 0;
-    margin-bottom: $el / $bem * 1em;
-    margin-bottom: $el / $rem * 1rem;
+    @include unit(margin-bottom, 1el);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-size: 1em;
     @extend %pan4n;
     color: red;
-    margin: 0;
-    padding: 0;
   }
+
+  @if in-development-mode() {
+    .baseline { @include background-image-baseline-grid(); }
+  }
+
+  @include debug-msg-install();
 }
+
+#colorize {
+  li { list-style: none; display: block; }
+}
+
+.black       { color: $white; background-color: $black   ;}
+.white       { color: $black; background-color: $white   ;}
+.red-ddd     { color: $white; background-color: $red-ddd ;}
+.red-dd      { color: $white; background-color: $red-dd  ;}
+.red-d       { color: $white; background-color: $red-d   ;}
+.red         { color: $white; background-color: $red     ;}
+.red-l       { color: $black; background-color: $red-l   ;}
+.red-ll      { color: $black; background-color: $red-ll  ;}
+.red-lll     { color: $black; background-color: $red-lll ;}
+.blue-ddd    { color: $white; background-color: $blue-ddd;}
+.blue-dd     { color: $white; background-color: $blue-dd ;}
+.blue-d      { color: $white; background-color: $blue-d  ;}
+.blue        { color: $white; background-color: $blue    ;}
+.blue-l      { color: $black; background-color: $blue-l  ;}
+.blue-ll     { color: $black; background-color: $blue-ll ;}
+.blue-lll    { color: $black; background-color: $blue-lll;}

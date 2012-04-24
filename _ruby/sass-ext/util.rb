@@ -22,7 +22,7 @@ module Jaap
     def get_char_at(str, idx)
       assert_type str, :String
       assert_type idx, :Number
-      to_sass str.value[idx.value, 1]
+      Sass::Script::String.new str.value[idx.value, 1]
     end
         
     def split(str, sep = '.')

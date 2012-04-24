@@ -51,20 +51,14 @@ module Jaap
         
       def self.run(tree)
         Jaap::Reload.try_reload
-
-        # begin  
-        #   Math.sqrt (-1)
-        # rescue => e
-        #   puts e.inspect
-        #   puts e.backtrace
-        # end
-          
-        _run tree      
+        _run tree
       end
 
       private
 
       def self._run(tree)
+
+        remove_comments! tree
 
         media_nodes, rest = tree.children.partition { |c| c.is_a? Sass::Tree::MediaNode }
 
@@ -126,16 +120,37 @@ module Jaap
         Sass::Tree::Visitors::DeepCopy.visit(node)
       end
 
-      def self.visit_rules(state, node)
-        # puts "---- state ----"
-        # puts media_query_expr_as_str state
-        # puts "---- node ----"
-        # puts media_query_expr_as_str node
-        
-        if (node.children + state.children).any? { |n| ! n.is_a? Sass::Tree::RuleNode }
-          raise SyntaxError.new("Diet expected rule nodes only, but got other things. Weeeee!")
+      def self.remove_comments!(node)        
+        node.children.reject! do |child| 
+          remove_comments! child
+          child.is_a? Sass::Tree::CommentNode
         end
+      end
 
+      def self.ensure_children_only(node, klass)        
+        ok = true
+
+        node.children.each do |n|
+          if ! n.is_a? klass
+            ok = false
+
+            puts "ERROR: expected #{klass} only, but got #{n.class}"
+
+            if n.is_a? Sass::Tree::PropNode
+              puts "    #{n.resolved_name}: #{n.resolved_value}"
+            end
+          end
+        end
+        
+        unless ok
+          raise SyntaxError.new("ERROR, diet expected #{klass} nodes only, but got other things. Weeeee!")
+        end
+      end
+
+      def self.visit_rules(state, node)
+        ensure_children_only node, Sass::Tree::RuleNode
+        ensure_children_only state, Sass::Tree::RuleNode
+        
         node.children.reject! do |n|          
           state.children.reverse_each do |s|
             if s.resolved_rules == n.resolved_rules
@@ -148,9 +163,8 @@ module Jaap
       end
 
       def self.visit_properties(state, node)
-        if (node.children + state.children).any? { |n| ! n.is_a? Sass::Tree::PropNode }
-          raise SyntaxError.new("Diet expected property nodes only, but got other things. Weeeee!")
-        end
+        ensure_children_only node, Sass::Tree::PropNode
+        ensure_children_only state, Sass::Tree::PropNode
 
         node_children_new = []
 
@@ -177,13 +191,6 @@ module Jaap
             node_children_new.push deep_copy n
           end
         end
-
-
-        # puts '    ----------------------------'
-        # puts "    state #{state.children}"
-        # puts "    state`#{state_children_new}"        
-        # puts "    node  #{node.children}"
-        # puts "    node` #{node_children_new}"
         
         node.children = node_children_new
       end

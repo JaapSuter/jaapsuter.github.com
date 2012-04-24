@@ -59,12 +59,6 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="base\_base-util.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
     <None Include="extern\_holmes-debug.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
@@ -77,25 +71,7 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="framework\const\_const-base.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\const\_const-color.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\const\_const-grid.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\const\_const-type.scss">
+    <None Include="framework\_globals.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
@@ -119,24 +95,6 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="framework\func\_func-debug.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\mixin\_mixin-aspect-ratio.sass">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\mixin\_mixin-button.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
     <None Include="framework\mixin\_mixin-color.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
@@ -149,19 +107,7 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="framework\mixin\_mixin-media-query-tile.sass">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
     <None Include="framework\mixin\_mixin-media-query.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\mixin\_mixin-transitions.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
@@ -185,43 +131,7 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="framework\_extern.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\_func.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="framework\_mixin.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
     <None Include="head.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="layout\_layout-develop.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="layout\_layout-media-queries.sass">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="layout\_layout.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>

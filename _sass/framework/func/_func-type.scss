@@ -43,22 +43,3 @@ $type-name-stretch-idx:  4;
                     type-name-get-font-stretch-error));
   @return $s;
 }
-
-@function em($px) {
-  @if type_of($px) is list {
-    @return multiply-each($px, 1.0 / $body-ppem * 1em);
-  } @else {
-    @return if(0 == $px, 0, $px / $body-ppem * 1em);
-  }
-}
-
-@function rem($px) {
-  $scale: 1.0 / $pprem * 1rem;
-  // $scale: 1px;
-  
-  @if type_of($px) is list {
-    @return multiply-each($px, $scale);
-  } @else {
-    @return if(0 == $px, 0, $px * $scale);
-  }
-}

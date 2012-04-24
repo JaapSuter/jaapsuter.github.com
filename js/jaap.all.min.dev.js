@@ -368,8 +368,8 @@
         $family$$7$$ = $families$$1$$[$_i$$4$$], 0 > $family$$7$$.indexOf("inv") && $_results$$3$$.push($family$$7$$)
       }
       return $_results$$3$$
-    }();
-    $easel$$ = new $Easel$$({$minFontSize$:9, $maxFontSize$:183});
+    }(), $families$$1$$ = ["tsn4n"];
+    $easel$$ = new $Easel$$({$minFontSize$:23, $maxFontSize$:25});
     (function($__iced_k$$15$$) {
       $__iced_deferrals$$2$$ = new $iced$$3$$.$Deferrals$($__iced_k$$15$$, {parent:$JSCompiler_alias_NULL$$, filename:"B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee", $funcname$:"getMetrics"});
       $easel$$.$getMetrics$($families$$1$$, $__iced_deferrals$$2$$.defer({$assign_fn$:function() {
@@ -377,7 +377,7 @@
           $ok$$2$$ = $JSCompiler_OptimizeArgumentsArray_p6$$;
           return $metrics$$3$$ = $JSCompiler_OptimizeArgumentsArray_p7$$
         }
-      }(), $lineno$:243}));
+      }(), $lineno$:244}));
       $__iced_deferrals$$2$$.$_fulfill$()
     })(function() {
       if($ok$$2$$) {
@@ -388,7 +388,7 @@
               $ok$$2$$ = $JSCompiler_OptimizeArgumentsArray_p8$$;
               return $resp$$ = $JSCompiler_OptimizeArgumentsArray_p9$$
             }
-          }(), $lineno$:246}), $data$$20$$);
+          }(), $lineno$:247}), $data$$20$$);
           $__iced_deferrals$$2$$.$_fulfill$()
         }(function() {
           return $__iced_k_noop$$(alert("ok: " + $ok$$2$$ + ", resp: " + $resp$$))
@@ -555,6 +555,10 @@
     $elem$$1$$ = document.createElement($tag$$);
     $elem$$1$$.innerHTML = $innerHTML$$;
     return[$elem$$1$$, $elem$$1$$.children]
+  };
+  $exports$$5$$.$toggleClass$ = function $$exports$$5$$$$toggleClass$$() {
+    var $e$$9$$ = document.body;
+    return 0 <= $e$$9$$.className.indexOf("baseline") ? $e$$9$$.className = $e$$9$$.className.replace(/(?:^|\s)baseline(?!\S)/, "") : $e$$9$$.className += " baseline"
   }
 }).call($JSCompiler_alias_VOID$$, window, function() {
   var $_base$$4$$;
@@ -565,38 +569,36 @@
   return window.$jaap$.$dom$
 }());
 (function($_ref$$4_global$$6$$) {
-  var $diagnose$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$4_global$$6$$ = $_ref$$4_global$$6$$.$jaap$;
+  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$4_global$$6$$ = $_ref$$4_global$$6$$.$jaap$;
   $util$$1$$ = $_ref$$4_global$$6$$.$util$;
+  $dom$$1$$ = $_ref$$4_global$$6$$.$dom$;
   $keys$$1$$ = $_ref$$4_global$$6$$.keys;
   $font$$ = $_ref$$4_global$$6$$.font;
   $toggleBaseline$$ = function $$toggleBaseline$$$() {
-    var $elem$$2$$;
-    if($elem$$2$$ = document.querySelector("#baseline-checkbox")) {
-      return $elem$$2$$.checked = !$elem$$2$$.checked
-    }
+    return $dom$$1$$.$toggleClass$()
   };
   $diagnose$$ = function $$diagnose$$$() {
     var $body$$1$$, $get$$, $ppgd$$;
     $body$$1$$ = document.body;
     $ppgd$$ = parseFloat(window.getComputedStyle($body$$1$$).lineHeight);
     $get$$ = function $$get$$$($name$$54$$) {
-      var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$;
+      var $elem$$2_height$$9$$, $ppem$$, $pplh_style$$;
       $pplh_style$$ = {fontSize:"0", lineHeight:"0"};
-      ($elem$$3_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$ = window.getComputedStyle($elem$$3_height$$9$$));
+      ($elem$$2_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$ = window.getComputedStyle($elem$$2_height$$9$$));
       $ppem$$ = parseFloat($pplh_style$$.fontSize);
       $pplh_style$$ = parseFloat($pplh_style$$.lineHeight);
-      $elem$$3_height$$9$$ = $elem$$3_height$$9$$.getBoundingClientRect().height;
-      return"" + $ppem$$ + "/" + $pplh_style$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
+      $elem$$2_height$$9$$ = $elem$$2_height$$9$$.getBoundingClientRect().height;
+      return"" + $ppem$$ + "/" + $pplh_style$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$2_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$2_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
     };
     return document.querySelector("#dimensions").innerHTML = "" + $get$$("html") + "\n" + $get$$("body") + "\n" + $get$$("p") + "\n" + $get$$("h1") + "\n" + $get$$("h2") + "\n" + $get$$("h3") + "\n" + $get$$(".small") + "\nviewport: " + window.innerWidth + "\u00d7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + $body$$1$$.offsetWidth + "\u00d7" + $body$$1$$.offsetWidth
   };
   (function() {
     var $repeated_diagnose$$;
     if(top === window) {
-      return $keys$$1$$.$on$("ctrl+b", $toggleBaseline$$), $keys$$1$$.$on$("shift+t", $font$$.$getMetrics$), $keys$$1$$.$on$("d", $diagnose$$), $repeated_diagnose$$ = function $$repeated_diagnose$$$() {
+      return $keys$$1$$.$on$("b", $toggleBaseline$$), $keys$$1$$.$on$("shift+t", $font$$.$getMetrics$), $keys$$1$$.$on$("d", $diagnose$$), $repeated_diagnose$$ = function $$repeated_diagnose$$$() {
         $diagnose$$();
         return $util$$1$$.$delay$(300, $repeated_diagnose$$)
-      }, $repeated_diagnose$$()
+      }
     }
   })()
 }).call($JSCompiler_alias_VOID$$, window, function() {

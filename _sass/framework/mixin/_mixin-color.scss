@@ -1,13 +1,15 @@
-@mixin color-and-background-color($color, $background-color: false, $ignore-contrast: false) {
+@mixin color-and-background-color($color, $background-color: false, $verify-contrast: true) {
     color: rgba($color, 1);
     @if alpha($color) != 1 { color: $color; }
+    
     
     @if $background-color and alpha($background-color) > 0 {
       background-color: rgba($background-color, 1);
       @if alpha($background-color) != 1 { background-color: $background-color; }
     
-      @if not $ignore-contrast {
-        @include debug-warn-if-message(color-contrast-verify($color, $background-color));
+      @if $verify-contrast {
+        $color-contrast-verification: color-contrast-verify($color, $background-color);
+        @include debug-warn-if($color-contrast-verification != '', $color-contrast-verification);
       }
     }
 }

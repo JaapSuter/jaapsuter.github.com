@@ -97,7 +97,9 @@ textarea {
  */
 
 body {
+  @if $base-normalize-include-margin-padding {
     margin: 0;
+  }
 }
 
 
@@ -285,6 +287,8 @@ a:active {
  * Addresses margins set differently in IE6/7
  */
 
+@if $base-normalize-include-margin-padding {
+
 dl,
 menu,
 ol,
@@ -304,6 +308,8 @@ menu,
 ol,
 ul {
     padding: 0 0 0 40px;
+}
+
 }
 
 /*
@@ -350,7 +356,9 @@ svg:not(:root) {
  */
 
 figure {
+  @if $base-normalize-include-margin-padding {
     margin: 0;
+  }
 }
 
 @if $base-normalize-include-fields-forms-etcetera {

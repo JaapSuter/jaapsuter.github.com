@@ -22,8 +22,8 @@ line_comments = false
 Compass::BrowserSupport.add_support('repeating-linear-gradient', 'webkit', 'moz', 'o', 'ms')
 
 if environment == :development
-  output_style = :nested
-  line_comments = true
+  output_style = :expanded
+  line_comments = false
   Jaap::Config.enable_development_mode
 end
 
@@ -37,7 +37,7 @@ end
 
 if true and not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, February 2012: ugly ugly ugly, last minute hack
   
-  if false
+  if true
     Jaap::Compile.build_now_then_watch "fonts/*.{ttf,otf}", self do |ttf_or_otf|
         Jaap::Compile.ttf_or_otf ttf_or_otf
         scss = ::Jaap::Paths.get '_sass/head.scss'

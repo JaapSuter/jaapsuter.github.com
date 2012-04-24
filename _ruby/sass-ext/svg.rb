@@ -25,6 +25,13 @@ module Jaap
       family = unwrap family
       
       half_leading = (ppgd - ppem) / 2.0
+      half_leading_odd_half_pixel_round_direction_hardcoded_magic = 5
+      half_leading_odd_half_pixel_round_direction_hardcoded_magic_more = 20
+      if half_leading > half_leading_odd_half_pixel_round_direction_hardcoded_magic || ppem >= half_leading_odd_half_pixel_round_direction_hardcoded_magic_more
+        half_leading = half_leading.floor.to_i 
+      else
+        half_leading = half_leading.ceil.to_i 
+      end
       
       metrics = @@textMetrics[family]
       

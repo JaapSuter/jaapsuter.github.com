@@ -1,34 +1,38 @@
-@mixin debug-message($message) { 
-  & > *:first-child:before {
-    content: $message;
+$debug-messages: '';
+
+@mixin debug-msg-install() { 
+  @if in_development_mode() {
+    @if $debug-messages != '' {
+      body:before {
+        white-space: pre;
+        content: $debug-messages;
     
-    @extend %tmn4n;
-    background-color: rgba($black, 0.7);
-    color: rgba(lighten(saturate($red, 50%), 50%), 0.9);
-    position: fixed;
-    bottom: 0;
-    right: 0;
+        @extend %tmn4n;
+        background-color: rgba($black, 0.85);
+        color: rgba(lighten(saturate($red, 50%), 50%), 0.9);
+        position: fixed;
+        bottom: 0;
+        right: 0;
+      }
+    }
   }
+  
+  $debug-messages: '';
+}
+
+@mixin debug-msg($message) {
+  $message: if($message == '', "WARNING: passing empty debug message from unknown location", $message);
+  $debug-messages: $debug-messages + if($debug-messages != '', '\A ', '') + $message;
 }
 
 @mixin debug-warn($message) {
+    $message: "WARNING: " + $message;
     @debug raise_error_message($message);
-    
-    &:before {
-        content: "Warning: " + $message;
-        display: block;
-        font-weight: bold;
-        background-color: rgba(#ff8, 0.7);
-        color: red;
-    }
+    @include debug-msg($message);
 }
 
-@mixin debug-warn-if($expression, $message) {
+@mixin debug-warn-if($expression, $message: "Forgot to pass a message to debug-warn-if mixin.") {
     @if ($expression) {
         @include debug-warn($message);
     }
-}
-
-@mixin debug-warn-if-message($message) {
-    @include debug-warn-if($message != "", $message);
 }

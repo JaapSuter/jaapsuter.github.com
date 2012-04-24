@@ -10,6 +10,14 @@
     return [elem, elem.children];
   };
 
+  exports.toggleClass = function(e, n) {
+    if (0 <= e.className.indexOf(n)) {
+      return e.className = e.className.replace(RegExp("(?:^|\\s)" + n + "(?!\\S)"), '');
+    } else {
+      return e.className += " " + n;
+    }
+  };
+
 }).call(undefined, window, (function() {
   var _base;
   if (window.jaap == null) window.jaap = {};

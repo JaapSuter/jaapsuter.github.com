@@ -1,111 +1,116 @@
-$margin-add-for-rhythm: 3;
-$margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
+$if false {
+  
+  $margin-add-for-rhythm: 3;
+  $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
 
-.fig {
-  position: relative;
-  width: 100%;
-  margin-bottom: tem();
-}
-
-.fig-rhythm-trumps-semantics {
-  visibility: hidden;
-  overflow: hidden;
-  margin-right: -($margin-add-for-rhythm) * 1%;
-  
-  div.fig-rhythm-sizer {
-    float: left;
-    height: 0;
-    width: 100% * $margin-sub-rhythm;
-  }
-  
-  div {
-    float: left;
-    width: 2.4%;
-    height: tem();
-  }
-}
- 
-.fig-content {
-  position: absolute; 
-  top: 0;
-  left: 0;  
-  width: 100%;
-  z-index: 100;  
-  
-  img {
+  .fig {
     position: relative;
     width: 100%;
-    height: auto;
-    z-index: 10;
-    outline: #000 solid 1px;
+    margin-bottom: tem();
   }
+
+  .fig-rhythm-trumps-semantics {
+    visibility: hidden;
+    overflow: hidden;
+    margin-right: -($margin-add-for-rhythm) * 1%;
   
-  video, object, iframe, .fig-content-stretch {
-    position: absolute;
+    div.fig-rhythm-sizer {
+      float: left;
+      height: 0;
+      width: 100% * $margin-sub-rhythm;
+    }
+  
+    div {
+      float: left;
+      width: 2.4%;
+      height: tem();
+    }
+  }
+ 
+  .fig-content {
+    position: absolute; 
     top: 0;
-    left: 0;
+    left: 0;  
     width: 100%;
-    height: 100%;
-    z-index: 11;
-    outline: #000 solid 1px;
-  }  
-}
+    z-index: 100;  
+  
+    img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      z-index: 10;
+      outline: #000 solid 1px;
+    }
+  
+    video, object, iframe, .fig-content-stretch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 11;
+      outline: #000 solid 1px;
+    }  
+  }
   
   
 
-.fig-caption {
-  @include rhythm-scope(small-3x2, tan4n) {
-    @include rhythm-line-height;
-    @include rhythm-font-size;
-    @include rhythm-font-family;
-    margin: tem(-4) tem(1) tem(1) tem(1);
-    padding: tem(3) tem(1, 2) tem(1, 2) tem(1, 2);
-    max-width: tem(8);
+  .fig-caption {
+    @include rhythm-scope(small-3x2, tan4n) {
+      @include rhythm-line-height;
+      @include rhythm-font-size;
+      @include rhythm-font-family;
+      margin: tem(-4) tem(1) tem(1) tem(1);
+      padding: tem(3) tem(1, 2) tem(1, 2) tem(1, 2);
+      max-width: tem(8);
     
-    width: 32%;
-    float: right;
-    z-index: 3;
-    text-align: right;
-    clear: both;
-    outline: #000 solid 1px;
-    background-color: #eee;
-    background-color: rgba(#fff, 0.7);
+      width: 32%;
+      float: right;
+      z-index: 3;
+      text-align: right;
+      clear: both;
+      outline: #000 solid 1px;
+      background-color: #eee;
+      background-color: rgba(#fff, 0.7);
   
-    @media all and (max-width: 20em) {
-      width: 60%;
-      float: none;
+      @media all and (max-width: 20em) {
+        width: 60%;
+        float: none;
     
-      @include rhythm-scope(small-3x2, tan4n) {
-        margin: tem(-5) tem(1) tem(1.5) tem(1);
+        @include rhythm-scope(small-3x2, tan4n) {
+          margin: tem(-5) tem(1) tem(1.5) tem(1);
+        }
       }
     }
   }
-}
 
-@mixin fig-ratio($w, $h, $min-width: $layout-fig-min-width) {
-  .fig-ratio-#{$w}x#{$h} {
-    .fig-rhythm-first-tile { height: tem(ceil($min-width / $w * $h)); }
-    .fig-rhythm-sizer { padding-bottom: 100% * $margin-sub-rhythm * ($h / $w); }
-    .fig-content-sizer { padding-bottom: 100% * ($h / $w); }    
+  @mixin fig-ratio($w, $h, $min-width: $layout-fig-min-width) {
+    .fig-ratio-#{$w}x#{$h} {
+      .fig-rhythm-first-tile { height: tem(ceil($min-width / $w * $h)); }
+      .fig-rhythm-sizer { padding-bottom: 100% * $margin-sub-rhythm * ($h / $w); }
+      .fig-content-sizer { padding-bottom: 100% * ($h / $w); }    
+    }
   }
-}
 
-@include fig-ratio(3, 2);
-@include fig-ratio(4, 3);
-@include fig-ratio(6, 10, 5);
-@include fig-ratio(16, 9);
+  @include fig-ratio(3, 2);
+  @include fig-ratio(4, 3);
+  @include fig-ratio(6, 10, 5);
+  @include fig-ratio(16, 9);
 
-@if $fig-debug-visualize-rhythm {
+  @if $fig-debug-visualize-rhythm {
 
-  .figure { background-color: rgba(white, 0.05); }
-  .fig-content { background-color: rgba(red, 0.05); opacity: 0.2; }
-  .fig-caption { background-color: rgba(blue, 0.05); }
+    .figure { background-color: rgba(white, 0.05); }
+    .fig-content { background-color: rgba(red, 0.05); opacity: 0.2; }
+    .fig-caption { background-color: rgba(blue, 0.05); }
   
-  .fig-rhythm-trumps-semantics {
-    background-color: rgba(green, 0.05);
-    visibility: visible;
-    div:nth-child(2n) { background-color: rgba(yellow, 0.4); }
-    div:nth-child(2n + 1) { background-color: rgba(fuchsia, 0.2); }
-    div.fig-sizer { background-color: rgba(teal, 0.4); }
-  } 
+    .fig-rhythm-trumps-semantics {
+      background-color: rgba(green, 0.05);
+      visibility: visible;
+      div:nth-child(2n) { background-color: rgba(yellow, 0.4); }
+      div:nth-child(2n + 1) { background-color: rgba(fuchsia, 0.2); }
+      div.fig-sizer { background-color: rgba(teal, 0.4); }
+    } 
+  }
+
 }
+

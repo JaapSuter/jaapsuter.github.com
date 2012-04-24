@@ -622,9 +622,10 @@
       }
       return _results;
     })();
+    families = ["tsn4n"];
     easel = new Easel({
-      minFontSize: 9,
-      maxFontSize: 183
+      minFontSize: 23,
+      maxFontSize: 25
     });
     (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
@@ -639,7 +640,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 243
+        lineno: 244
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -661,7 +662,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 246
+            lineno: 247
           }), data);
           __iced_deferrals._fulfill();
         })(function() {
@@ -925,6 +926,14 @@
     return [elem, elem.children];
   };
 
+  exports.toggleClass = function(e, n) {
+    if (0 <= e.className.indexOf(n)) {
+      return e.className = e.className.replace(RegExp("(?:^|\\s)" + n + "(?!\\S)"), '');
+    } else {
+      return e.className += " " + n;
+    }
+  };
+
 }).call(undefined, window, (function() {
   var _base;
   if (window.jaap == null) window.jaap = {};
@@ -940,9 +949,7 @@
   iced = global.iced, (_ref = global.jaap, util = _ref.util, ajax = _ref.ajax, dom = _ref.dom, keys = _ref.keys, font = _ref.font);
 
   toggleBaseline = function() {
-    var elem;
-    elem = document.querySelector('#baseline-checkbox');
-    if (elem) return elem.checked = !elem.checked;
+    return dom.toggleClass(document.body, 'baseline');
   };
 
   diagnose = function() {
@@ -969,16 +976,15 @@
   entryPoint = function() {
     var repeated_diagnose;
     if (top !== window) return;
-    keys.on('ctrl+b', toggleBaseline);
+    keys.on('b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
     keys.on('d', diagnose);
-    repeated_diagnose = function() {
+    return repeated_diagnose = function() {
       var every_num_ms;
       every_num_ms = 300;
       diagnose();
       return util.delay(every_num_ms, repeated_diagnose);
     };
-    return repeated_diagnose();
   };
 
   entryPoint();
