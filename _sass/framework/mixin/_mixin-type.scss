@@ -78,11 +78,11 @@
 }
 
 @mixin background-image-baseline-grid() {  
-  @include background-image(make_svg_baseline_grid($body-font-family, $bem, $el));
+  @include background-image(make_svg_baseline_grid($body-font-family, $pp-em, $pp-el));
 
   @each $value in units(1el 1el) {
     @include background-size($value);
-  }  
+  }
   
   // $c0: rgba($black, 0.2);
   // $c1: rgba($blue, 0.9);

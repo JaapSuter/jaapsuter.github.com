@@ -60,6 +60,5 @@ end
 module Sass::Script::Functions
   include Jaap::SassExt
 
-  declare :get_font_metric, [:family, :metric, :where_its, :will_be]
-  declare :get_metric_for_metric, [:unknown_metric, :family, :known_metric, :known_value]
+  declare :get_font_metric, [:family, :metric, :where_its, :will_be]  
 end

@@ -5,19 +5,26 @@ require_relative 'framework'
 
 module Jaap
   module Do
+  
+    def self.dirs_loaded_from
+      $LOADED_FEATURES.map { |p| Pathname.new(Paths.realdirpath p).parent }.uniq.sort
+    end
+
     def self.jekyll()
       Dir.chdir(Paths.get())
       require 'jekyll'
+      puts dirs_loaded_from
       Jaap::Daemon.change('Jekyll', :white, :green)
       Kernel::load File.join(Gem.loaded_specs['jekyll'].full_gem_path, 'bin/jekyll')
     end
     
     def self.compass(*args)
-      args = ['watch'] if args.empty?
+      args = ['compile'] if args.empty?
 
       Dir.chdir(Paths.get())
       require 'compass'
       require 'compass/exec'
+      puts dirs_loaded_from
       Jaap::Daemon.change('Compass', :red, :yellow)
       args << '--config' << Paths.get('_ruby/compass-config.rb')
       args << '--environment' << 'development'
@@ -33,6 +40,7 @@ module Jaap
     def self.livereload()
       Dir.chdir(Paths.get())
       require 'livereload'
+      puts dirs_loaded_from
       Jaap::Daemon.change('LiveReload', :blue, :white)
       conf = LiveReload::Config.new do |c|
         c.debug = false

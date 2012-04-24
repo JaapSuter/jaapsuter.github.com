@@ -17,15 +17,15 @@ module Jaap
       to_sass true
     end
 
-    def responsive(property, value)
-      property = unwrap unquote property
-      value = unwrap value
+    def responsive(*args)
+      property = unwrap unquote args[0]
+      value = value = args.length > 1 ? (unwrap args[1]) : nil
 
       self.responsive_conditions[property] << value
 
       allow = case self.responsive_property
       when '_all' then true
-      when '_none' then false
+      when '_default' then property == '_default'
       when property then value == self.responsive_value
       else false end
 
@@ -67,7 +67,7 @@ module Jaap
         end
 
         all_node = (categorized['_all'] || [nil]).first
-        none_node = (categorized['_none'] || [nil]).first
+        none_node = (categorized['_default'] || [nil]).first
 
         if !all_node || !none_node
           return tree
@@ -76,7 +76,7 @@ module Jaap
         min_width_nodes = categorized['min-width'] || []
         max_width_nodes = categorized['max-width'] || []
         
-        supported = %w{_all _none min-width max-width}
+        supported = %w{_all _default min-width max-width}
         not_supported = categorized.keys.any? { |key| ! supported.include? key }
         if not_supported
           puts "Error: diet plan encountered unsupported media query among #{categorized.keys}."

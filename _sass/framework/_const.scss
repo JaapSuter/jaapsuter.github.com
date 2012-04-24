@@ -50,27 +50,7 @@ $red-l: tint($red, 25);
 $red-ll: tint($red, 50);
 $red-lll: tint($red, 75);
 
-$rem-assumed-initial: 16px;
-$rem:                 20px;
+$pp-rem-initial-value: 16px;
+$pp-rem:               20px;
 
 $body-font-family:    tsn4n;
-
-$responsive-type-table: (
-  //* (name,     width in rem-initial,    bem,    el   */
-
-  //* default, no query                                */
-      (   0,  undefined /* default */,   16px,  24px),
-         
-  //* narrower, max-width                              */
-      (  -1,  32em      /*   512px */,   16px,  23px),
-      (  -2,  24em      /*   384px */,   16px,  22px),
-                                  
-  //* wider, min-width                                 */          
-      (   1,  46em      /*   736px */,   17px,  25px),
-      (   3,  55em      /*   880px */,   18px,  26px),
-      (   5,  64em      /*  1024px */,   19px,  27px),
-      (   7,  72em      /*  1152px */,   20px,  30px),
-      (   9,  84em      /*  1344px */,   21px,  31px),
-      (  11,  94em      /*  1504px */,   22px,  34px),
-      (  13, 102em      /*  1504px */,   24px,  36px)
-);

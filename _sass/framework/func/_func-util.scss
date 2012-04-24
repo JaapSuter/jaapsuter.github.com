@@ -36,7 +36,6 @@
     
     @return $ret;  
   } @else {
-    @debug type-of($val);
     @return $val * $f;
   }
 }

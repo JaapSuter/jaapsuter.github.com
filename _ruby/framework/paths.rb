@@ -1,6 +1,12 @@
+require 'pathname'
+require 'windows/file'
+require 'windows/handle'
+# require 'windows/ntfs/winternl'
+require 'windows/msvcrt/io'      
+    
 module Jaap
   module Paths
-    require 'pathname'
+    
     
     @@ROOT = Pathname.new(File.join(File.dirname(__FILE__), '../..')).cleanpath
 
@@ -38,6 +44,47 @@ module Jaap
 
     def self.to_xming(dir)
        '/' + File.expand_path(dir).sub(':', '').sub('\\', '/')
+    end
+
+    def self.realdirpath(path)
+      RealDirPath.get path
+    end
+
+    private
+
+    class RealDirPath
+
+      include Windows::Handle
+      include Windows::File
+      # include Windows::NTFS::Winternl
+      include Windows::MSVCRT::IO
+
+      def self.get(p)
+        RealDirPath.new(p).realdirpath.gsub /^\\\\\?\\/, ''
+      end
+
+      attr_reader :realdirpath
+
+      def initialize(p)
+        if (! File.exist?(p) && ! Dir.exist?(p))
+          @realdirpath = p          
+        else      
+          h = nil
+          begin
+            max_path_plus_one = 260 + 1
+            buffer = 0.chr * max_path_plus_one
+            flags = 0
+            ok = nil
+        
+            fh = File.open p, 'r'
+            oh = get_osfhandle fh.fileno
+            len = GetFinalPathNameByHandle(oh, buffer, buffer.size - 1, flags)
+            @realdirpath = buffer[0, len]          
+          ensure
+            fh.close if fh
+          end
+        end
+      end
     end
   end
 end

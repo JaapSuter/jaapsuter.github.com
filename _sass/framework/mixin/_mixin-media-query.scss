@@ -3,11 +3,11 @@
   $call: responsive-capture(_all);
   @media _all { @content; }
 
-  $call: responsive-capture(_none);
-  @media _none { @content; }
+  $call: responsive-capture(_default);
+  @media _default { @content; }
 
   @each $property in get_responsive_properties() {
-    @if $property != '_all' and $property != '_none' {      
+    @if $property != '_all' and $property != '_default' {      
       @each $value in get-responsive-values($property) {
           
         $call: responsive-capture($property, $value);
@@ -17,41 +17,7 @@
   }
 }
 
-@mixin responsive-type() {
-  
-  $breakpoint: undefined;   
-  
-  @each $candidate in $responsive-type-table {
-    
-    $ordinal: nth($candidate, 1);
-    $trigger: nth($candidate, 2);    
-    
-    @if $ordinal == 0 {
-      $breakpoint: $candidate;
-    }
-    
-    @if $ordinal < 0 {
-      @if responsive(max-width, $trigger) {
-        $breakpoint: $candidate;
-      }
-    }
-
-    @if $ordinal > 0 {
-      @if responsive(min-width, $trigger) {
-        $breakpoint: $candidate;
-      }
-    }
-  }
-  
-  $bem: nth($breakpoint, 3);
-  $el: nth($breakpoint, 4);
-    
-  $body-ppcap: get-font-metric($body-font-family, cap, $where-its: ppem, $will-be: $bem);
-  $body-ppex:  get_metric_for_metric(ex, $body-font-family, ppem, $bem);
-  $body-ptbl:  get_metric_for_metric(baseline, $body-font-family, ppem, $bem);
-}
-
-@function units($value, $em: $bem) {
+@function units($value, $pp-em-override: $pp-em) {
   $px: undefined;
   $unit: undefined;
   
@@ -60,22 +26,21 @@
   } @else {
     $unit: unit($value);
   }
-
-  @debug $unit,  $value;
   
-  @if       el == $unit { $px: multiply-each($value, 1 /  1el *  $el); }
-  @else if bem == $unit { $px: multiply-each($value, 1 / 1bem * $bem); }
+  @if      el == $unit { $px: multiply-each($value, 1 / 1el * $pp-el); }
+  @else if em == $unit { $px: multiply-each($value, 1 / 1em * $pp-em-override); }
+  @else if px == $unit { $px: $value; }
   @else { $call: debug-warn("Unknown unit for #{$value}"); }
 
   @if in-development-mode() {
-    @return ($px, multiply-each($px, 1 / $em * 1em), multiply-each($px, 1 / $rem * 1rem));
+    @return ($px, multiply-each($px, 1 / $pp-em-override * 1em), multiply-each($px, 1 / $pp-rem * 1rem));
   } @else {
-    @return (     multiply-each($px, 1 / $em * 1em), multiply-each($px, 1 / $rem * 1rem));
+    @return (     multiply-each($px, 1 / $pp-em-override * 1em), multiply-each($px, 1 / $pp-rem * 1rem));
   }
 }
 
-@mixin unit($property, $value, $em: $bem) {
-  @each $value in units($value, $em) {  
+@mixin unit($property, $value, $pp-em-override: $pp-em) {
+  @each $value in units($value, $pp-em-override) {  
     #{$property}: $value;
   }
 }
