@@ -125,8 +125,8 @@ module Typogruby
         ((</(p|h[1-6]|li|dt|dd)>)|\z))                       # end with a closing p, h1-6, li or the end of the string
       }xm) { |match| 
         
-        min_characters_before_widont_nbsp = 16
-        $1 ? match : $2 + ((match.to_s.length < min_characters_before_widont_nbsp || match.include?('&nbsp;')) ? ' ' : '&nbsp;') + $3
+        min_characters_before_widont_nbsp = 22
+        $1 ? match : $2 + (((match.to_s.length < min_characters_before_widont_nbsp) || match.include?('&nbsp;')) ? ' ' : '&nbsp;') + $3
       }
     end
   end

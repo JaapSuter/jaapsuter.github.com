@@ -7,6 +7,13 @@
 
 @function is-odd($n) { @return 1 == ($n % 2); }
 
+@function even-up($m, $factor) { 
+  $n: floor($m * $factor);
+  $n: $n + if(is-odd($n - $m), 1, 0);
+  
+  @return $n;
+}
+
 @function percent($n, $t) { @return $n / $t * 100%; }
 
 @function interpolate($from, $to, $current, $min, $max) {
@@ -20,23 +27,35 @@
   @return round($n * 100) / 100;
 }
 
-@function multiply-each($val, $f) {
+@function to-pp($val, $pp-em-override: $pp-em) {
   @if type-of($val) == list {
-  
-    $idx: 1;
-    $len: length($val);
-    $ret: ();
     
-    @while $idx <= $len {
-      $elem: nth($val, $idx);
-      
-      $ret: append($ret, if(0 == $elem, 0, multiply-each($elem, $f)));
-      $idx: $idx + 1;
-    }
+    $ret: ();    
+    @each $elem in $val { $ret: append($ret, to-pp($elem, $pp-em-override)); }
+    @return $ret;
     
-    @return $ret;  
   } @else {
-    @return $val * $f;
+  
+    @if       el == unit($val) { @return $val * $pp-el / 1el; }
+    @else if  em == unit($val) { @return $val * $pp-em-override / 1em; }
+    @else if  px == unit($val) { @return $val; }
+    @else if '%' == unit($val) { @return $val; }
+    @else if    unitless($val) { @return $val; }
+    @else { $call: debug-warn("to-pp got unexpected unit for #{$val}"); @return $val; }
   }
 }
 
+@function from-pp($val, $factor) {
+  @if type-of($val) == list {
+    
+    $ret: ();    
+    @each $elem in $val { $ret: append($ret, from-pp($elem, $factor)); }
+    @return $ret;
+    
+  } @else {
+    @if       px == unit($val) { @return $val * $factor; }
+    @else if '%' == unit($val) { @return $val; }
+    @else if    unitless($val) { @return $val; }
+    @else { $call: debug-warn("from-pp got unexpected unit for #{$val}"); @return $val; }
+  }
+}

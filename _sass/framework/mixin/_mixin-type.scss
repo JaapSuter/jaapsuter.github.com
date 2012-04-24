@@ -39,58 +39,55 @@
   font-variant: small-caps;
 }
 
-@mixin emerem($prop, $val) {
-  #{$prop}: em($val);
-  #{$prop}: rem($val);
+@mixin background-image-baseline-grid() {  
+  $baseline-background-use-svg: true;
+  
+  @if $baseline-background-use-svg {
+    @include background-image(make_svg_baseline_grid($body-font-family, $pp-em, $pp-el));
+
+    @each $values in units(1el 1el) {
+      @include background-size($values);
+    }
+  
+  } @else {
+  
+    $c0: $transparent;
+    $c1: rgba($blue, 0.3);
+  
+    @include background-image(linear-gradient($c0 0, $c0 50%, $c1 50%, $c1 100%));
+    @each $values in units(100% 2el) {
+      @include background-size($values);
+    }
+
+    @include units(background-position, (0 $pp-bo));
+  }
 }
 
 @mixin change-type($to-font-family, $such-that-metric, $has-value) {
 
   @extend %#{$to-font-family};
-  font-weight: 400;
-  font-size: 1em;
+  
+  $new-pp-em: get-font-size-when-metric($to-font-family, $such-that-metric, to-pp($has-value));
+  $new-pp-el: ceil($new-pp-em / $pp-el) * $pp-el;
+  
+  $new-pp-half-leading: round(($new-pp-el - $new-pp-em) / 2);
+  $new-pp-em: $new-pp-el - 2 * $new-pp-half-leading;
+    
+  $new-pp-cap: get-font-metric-at-size($to-font-family, $new-pp-em, cap);
+  $new-pp-ex:  get-font-metric-at-size($to-font-family, $new-pp-em, ex);
+  $new-pp-bo:  get-font-metric-at-size($to-font-family, $new-pp-em, baseline) + $new-pp-half-leading;  
+  
+  @debug ($pp-el - $pp-em) / 2, ($new-pp-el - $new-pp-em) / 2;
+  
+  $modulo-up: 999;
+  $modulo-down: $pp-el / 1px;  
+  
+  $pp-top: 0 - $new-pp-bo + $pp-bo;  
+  $pp-top: ($pp-top + $modulo-up * $pp-el) % $modulo-down;
+  
   position: relative;
   
-  $line-height-scale: 1;
-  $abs-modulo-helper: 999;
-
-  $ppem: get_metric_for_metric(ppem, $to-font-family, $such-that-metric, $has-value);
-  $pplh: ceil($ppem * $line-height-scale / $body-ppgd) * $body-ppgd;
-  $ppem: $ppem + if(is-odd($pplh -$ppem), 1, 0);
-  
-  $ptbl: get_metric_for_metric(baseline, $to-font-family, ppem, $ppem);
-  
-  $half-leading: floor(($pplh - $ppem) / 2);
-  $body-half-leading: floor(($body-ppgd - $body-ppem) / 2);
-  
-  $top: 0;
-  $top: $top - $ptbl - $half-leading;
-  $top: $top + $body-ptbl + $body-half-leading;
-  $top: ($top + $abs-modulo-helper * $body-ppgd) % $body-ppgd;
-
-  // @debug "top = #{$top} for #{$to-font-family} with #{$such-that-metric}=#{$has-value} on a #{$body-ppem}/#{$body-ppgd} body means: #{$ppem}/#{$pplh} with baseline at #{$ptbl}+#{$half-leading} (from: #{$body-ptbl}+#{$body-half-leading})";
-      
-  @include emerem(font-size, $ppem);
-  @include emerem(line-height, $pplh);
-  @include emerem(top, $top);
-
-  @content;
-}
-
-@mixin background-image-baseline-grid() {  
-  @include background-image(make_svg_baseline_grid($body-font-family, $pp-em, $pp-el));
-
-  @each $value in units(1el 1el) {
-    @include background-size($value);
-  }
-  
-  // $c0: rgba($black, 0.2);
-  // $c1: rgba($blue, 0.9);
-  // $c2: $white;
-  // $c3: rgba($red, 0.9);
-  // 
-  // @include background-image(linear-gradient($c0 0, $c0 1gd, $c1 1gd, $c1 2gd, $c2 2gd, $c2 3gd, $c3 3gd, $c3 6gd));
-  // @include background-size(100% 4gd);
-  // background-position: 0 ($body-baseline / $body-ppem * 1em);
-  // background-position: 0 $body-baseline * 1px;
+  @include units(font-size, $new-pp-em, $pp-em);
+  @include units(line-height, $new-pp-el, $new-pp-em);  
+  @include units(top, $pp-top, $new-pp-em);
 }

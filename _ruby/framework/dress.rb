@@ -21,7 +21,7 @@ module Jaap
       else
         @@last_update_cache[src] = File.mtime(src)
       end
-            
+
       tidy_args = "--tidy-mark no --indent no --wrap 0 --ascii-chars no --preserve-entities yes
                    --break-before-br yes --sort-attributes none --vertical-space no --hide-endtags yes
                    --char-encoding ascii --numeric-entities yes --output-html yes --show-errors 2 --quiet 1
@@ -77,7 +77,7 @@ module Jaap
     
     def self.stripeify(html)
       html.css('.stripe').each do |elem|
-        elem['data-content'] = elem.content = elem.content.gsub("\n", ' ').squeeze.strip
+        elem['data-content'] = elem.content = elem.content.gsub("\n", ' ').squeeze(' ').strip
       end
         
       html

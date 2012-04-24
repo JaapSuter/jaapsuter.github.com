@@ -41,49 +41,62 @@ $import-base-normalize-separately: in-development-mode();
 
 @include diet {
   
+  $ideal-measure: 36em;
+  $ideal-em-over-el: 1.5;
+  
   @if responsive(max-width,  24em) { $pp-em: 16px; $pp-el: 22px; }
   @if responsive(max-width,  32em) { $pp-em: 16px; $pp-el: 23px; }
                                                     
   @if responsive(_default)         { $pp-em: 16px; $pp-el: 24px; }
                                                     
-  @if responsive(min-width,  46em) { $pp-em: 17px; $pp-el: 25px; }
-  @if responsive(min-width,  55em) { $pp-em: 18px; $pp-el: 27px; }
-  @if responsive(min-width,  64em) { $pp-em: 19px; $pp-el: 28px; }
-  @if responsive(min-width,  72em) { $pp-em: 20px; $pp-el: 30px; }
-  @if responsive(min-width,  84em) { $pp-em: 21px; $pp-el: 31px; }
-  @if responsive(min-width,  94em) { $pp-em: 22px; $pp-el: 34px; }
-  @if responsive(min-width, 102em) { $pp-em: 24px; $pp-el: 36px; }
+  @if responsive(min-width,  46em) { $pp-em: 17px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  51em) { $pp-em: 17px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  55em) { $pp-em: 18px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  60em) { $pp-em: 19px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  64em) { $pp-em: 19px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  72em) { $pp-em: 20px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  84em) { $pp-em: 21px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width,  94em) { $pp-em: 22px; $pp-el: $pp-em * $ideal-em-over-el; }
+  @if responsive(min-width, 102em) { $pp-em: 24px; $pp-el: $pp-em * $ideal-em-over-el; }
+
+  $pp-half-leading: round(($pp-el - $pp-em) / 2);
+  $pp-el: $pp-em + 2 * $pp-half-leading;
   
-  // $body-ppcap: get-font-metric($body-font-family, cap, $where-its: ppem, $will-be: $bem);
-  // $body-ppex:  get_metric_for_metric(ex, $body-font-family, ppem, $bem);
-  // $body-ptbl:  get_metric_for_metric(baseline, $body-font-family, ppem, $bem);
+  $pp-cap: get-font-metric-at-size($body-font-family, $pp-em, cap);
+  $pp-ex:  get-font-metric-at-size($body-font-family, $pp-em, ex);
+  $pp-bo:  get-font-metric-at-size($body-font-family, $pp-em, baseline) + $pp-half-leading;
     
-  @include debug-msg("#{$pp-em}/#{$pp-el}");
+  @include debug-msg("#{$pp-em}:#{$pp-el}=1:#{round-two-decimals($pp-el / $pp-em)}");
   
   ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
   ::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
   
   body {
     position:  relative;    
-    max-width: 40em;
+    max-width: $ideal-measure;
     margin: 0 auto;  
     
     @include color-and-background-color($black, $white);
     @extend %#{$body-font-family};
     
-    @include unit(font-size, $pp-em, $pp-rem);
-    @include unit(line-height, 1el);
+    @include units(font-size, $pp-em, $pp-rem);
+    @include units(line-height, 1el);
   }
 
   p {
-    @include unit(margin-bottom, 1el);
+    @include units(margin-bottom, 1el);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-size: 1em;
-    @extend %pan4n;
+    // @extend %pan4n;
     color: red;
   }
+  
+  h1 { @include change-type(pan7n, ex, 2el) {} }
+  h2 { @include change-type(pan4n, ex, 1el) {} }
+  h3 { @include change-type(pan4n, cap, 1el) {} }
+  .small { @include change-type(pan4n, cap, $pp-ex) {} }
 
   @if in-development-mode() {
     .baseline {

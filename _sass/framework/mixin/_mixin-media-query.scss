@@ -18,28 +18,16 @@
 }
 
 @function units($value, $pp-em-override: $pp-em) {
-  $px: undefined;
-  $unit: undefined;
+  $pp: to-pp($value, $pp-em-override);
   
-  @if type-of($value) == list {
-    $unit: unit(nth($value, 1)); //* Todo, Jaap Suter, April 2012 - Presumes all list elements are of the same unit, ugly solution. */
-  } @else {
-    $unit: unit($value);
-  }
-  
-  @if      el == $unit { $px: multiply-each($value, 1 / 1el * $pp-el); }
-  @else if em == $unit { $px: multiply-each($value, 1 / 1em * $pp-em-override); }
-  @else if px == $unit { $px: $value; }
-  @else { $call: debug-warn("Unknown unit for #{$value}"); }
-
   @if in-development-mode() {
-    @return ($px, multiply-each($px, 1 / $pp-em-override * 1em), multiply-each($px, 1 / $pp-rem * 1rem));
+    @return ($pp, from-pp($pp, 1 / $pp-em-override * 1em), from-pp($pp, 1 / $pp-rem * 1rem));
   } @else {
-    @return (     multiply-each($px, 1 / $pp-em-override * 1em), multiply-each($px, 1 / $pp-rem * 1rem));
+    @return (     from-pp($pp, 1 / $pp-em-override * 1em), from-pp($pp, 1 / $pp-rem * 1rem));
   }
 }
 
-@mixin unit($property, $value, $pp-em-override: $pp-em) {
+@mixin units($property, $value, $pp-em-override: $pp-em) {
   @each $value in units($value, $pp-em-override) {  
     #{$property}: $value;
   }
