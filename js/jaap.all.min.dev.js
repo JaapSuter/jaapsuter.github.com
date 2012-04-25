@@ -368,8 +368,8 @@
         $family$$7$$ = $families$$1$$[$_i$$4$$], 0 > $family$$7$$.indexOf("inv") && $_results$$3$$.push($family$$7$$)
       }
       return $_results$$3$$
-    }(), $families$$1$$ = ["tsn4n"];
-    $easel$$ = new $Easel$$({$minFontSize$:23, $maxFontSize$:25});
+    }();
+    $easel$$ = new $Easel$$({$minFontSize$:8, $maxFontSize$:213});
     (function($__iced_k$$15$$) {
       $__iced_deferrals$$2$$ = new $iced$$3$$.$Deferrals$($__iced_k$$15$$, {parent:$JSCompiler_alias_NULL$$, filename:"B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee", $funcname$:"getMetrics"});
       $easel$$.$getMetrics$($families$$1$$, $__iced_deferrals$$2$$.defer({$assign_fn$:function() {

@@ -21,5 +21,5 @@ As for the music, it's intentionally sappy. Tear up...
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.mp4">MP4</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.webm">WebM</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.ogv">Ogg</a>.{% endcapture %}
-{% capture figcontent %}{% include other/video.html %}{% endcapture %}
-{% include other/figure.html %}
+{% capture figcontent %}{% include component/video.html %}{% endcapture %}
+{% include component/figure.html %}

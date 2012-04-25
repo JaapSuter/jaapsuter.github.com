@@ -1,0 +1,13 @@
+#archive
+  %nav(role="navigation")
+  
+    %h1.visuallyhidden
+      Archive
+
+    %ol
+      {% for post in site.posts %}
+      %li
+        %a{:href => "{{ post.url }}"}
+          {{ post.title }}
+          %span {{ post.date | date: "%b %Y" }}
+      {% endfor %}

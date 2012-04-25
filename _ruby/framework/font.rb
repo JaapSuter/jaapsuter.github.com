@@ -97,7 +97,7 @@ module Jaap
             
             forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
             
-            if ['pan2n', 'pan4n', 'pan7n', 'pan4c', 'pan7c'].include? name
+            if ['psn4n'].include? name
               if smcpify
                 cmd['name'] = name + '-smcp'
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
@@ -290,12 +290,14 @@ module Jaap
     end
     
     def self.ensure_font_list_and_merge_unicode_superset_into_all_subsets()
-      %w[tsn4n tsi4n tsn7n tsi7n
-         psn4n psi4n psn7n psi7n
+      
+      # tan4c tan7c tsi7n
+      # pan4c pan7c psi7n
+         
+      %w[tsn4n tsi4n tsn7n
+         psn4n psi4n psn7n
          tan4n tan2n tan7n
-         tan4c tan7c
          pan4n pan2n pan7n
-         pan4c pan7c
          tao4n
          tmn4n].each { |name| @@subsets[name] = {} }
       

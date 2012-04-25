@@ -31,7 +31,9 @@ module Jaap
         Paths.glob('**/*.{html,markdown}') { |src|
           next if src.start_with? Paths.get('_site')
           next if not File.exists? src
-          with_err_ignored { FileUtils.touch src }
+          with_err_ignored { 
+            FileUtils.touch src
+          }
         }        
       end
     end

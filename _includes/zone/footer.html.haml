@@ -1,0 +1,39 @@
+#footer(role="contentinfo")
+  %footer
+    
+    %h2.visuallyhidden
+      Footer
+    
+    %address#contact.vcard
+      %ul
+        %li
+          %a.fn.n.uid.url{:href => "http://www.jaapsuter.com", :rel => "me"}
+            %span.given-name Jaap
+            %span.family-name Suter
+        %li
+          %a.email{:href => "mailto:contact@jaapsuter.com"} contact@jaapsuter.com
+        %li
+          %span.tel +1&nbsp;(604)&nbsp;313&nbsp;5227
+      %ul.hide-from-all
+        %li
+          %img.photo{:alt => "Jaap Suter Profile Photo", :height => "0", :src => "/img/portrait.jpg", :width => "0"}/
+        %li
+          %abbr.bday{:title => "1980-04-25"} April 25th 1980
+        %li
+          .geo
+            %span.latitude 49.275744
+            %span.longitude -123.068992
+        %li
+          .adr.address
+            %span.street-address 1738 Parker Street
+            %span.locality Vancouver
+            %abbr.region{:title => "British Columbia"} BC
+            %span.postal-code V5L 2K8
+            %abbr.country-name{:title => "Canada"} Canada
+
+    %p#license
+      The content on this page is licensed under a
+      = succeed "." do
+        %a{:href => "http://creativecommons.org/licenses/by/3.0/", :rel => "license"} Creative Commons Attribution 3.0 Unported License
+      %a{:href => "http://creativecommons.org/licenses/by/3.0/", :rel => "license"}
+        %img{:alt => "Creative Commons Licence", :height => "64", :src => "/img/cc-license.png", :width => "200"}/

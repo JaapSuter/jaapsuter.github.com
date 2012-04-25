@@ -1,6 +1,8 @@
 ---
 layout: default
 tags: [Video, Technical]
+title_mark_up: |
+  <span class="type-m">Choice&nbsp;Surprise&nbsp;Focus</span>
 ---
 
 {% assign class = 'full-bleed' %}
@@ -12,9 +14,9 @@ tags: [Video, Technical]
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.mp4">MP4</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.webm">WebM</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.ogv">Ogg</a>.{% endcapture %}
-{% capture figcontent %}{% include other/video.html %}{% endcapture %}
+{% capture figcontent %}{% include component/video.html %}{% endcapture %}
 {% assign ratio = '4x3' %}
-{% include other/figure.html %}
+{% include component/figure.html %}
 
 Excerpts of talk I did at Electronic Arts in April of 2008.
 

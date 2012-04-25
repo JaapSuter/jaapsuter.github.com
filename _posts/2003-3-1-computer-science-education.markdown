@@ -1,6 +1,9 @@
 ---
 layout: default
 tags: [Technical]
+title_mark_up: |
+  <span class="type-m">Computer&nbsp;Science</span><br>
+  <span class="type-l">Education</span><br>  
 ---
 
 A commercial disinterest in research is a thing of the past. Corporate funding of university programs is becoming more accepted every day, simply because

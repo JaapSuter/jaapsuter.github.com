@@ -32,7 +32,7 @@ FGHIJKLMNOPQRSTU: FGHIJKLMNOPQRSTU
 FOX: FOX
 FTP: <abbr title="File Transfer Protocol">$</abbr>
 GC: <abbr title="Garbage Collector">$</abbr>
-GC.: GC.
+GC.: <abbr title="Garbage Collector">$</abbr>.
 GIF: <abbr title="Graphics Interchange Format (file format)">$</abbr>
 H1: H1
 H2: H2
@@ -56,7 +56,7 @@ LAMP: <abbr title="Linux, Apache, MySQL, PHP (common server configuration)">$</a
 LAZY: LAZY
 LYATAVAWAYA: LYATAVAWAYA
 MP4: <abbr title="MPEG-4 Part 14 (formally ISO/IEC 14496-14:2003)">$</abbr>
-ONE: ONE
+ONE: <span class="caps">$</span>
 OOP: <abbr title="Object Oriented Programming">$</abbr>
 OVER: OVER
 PDF: <abbr title="Portable Document Format">$</abbr>
@@ -71,6 +71,7 @@ SASS: <abbr title="Syntactically Awesome Stylesheets">$</abbr>
 SEO: <abbr title="Search Engine Optimization">$</abbr>
 SQL: <abbr title="Structured Query Language">$</abbr>
 SSL: <abbr title="Secure Sockets Layer">$</abbr>
+SWENG: SWENG
 SaaS: <abbr title="Software as a Service">$</abbr>
 THE: THE
 TLA: <abbr title="Three Letter Acronym">$</abbr>

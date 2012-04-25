@@ -3,7 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 11
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_layouts", "_layouts", "{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7}"
 	ProjectSection(SolutionItems) = preProject
-		..\_layouts\default.html = ..\_layouts\default.html
 		..\_layouts\default.html.haml = ..\_layouts\default.html.haml
 	EndProjectSection
 EndProject
@@ -53,42 +52,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_plugins", "_plugins", "{38
 		..\_plugins\sitemap-generator.rb = ..\_plugins\sitemap-generator.rb
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{C4A66924-C309-4A4B-B937-D6994ED2B6D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zone", "zone", "{C4A66924-C309-4A4B-B937-D6994ED2B6D6}"
 	ProjectSection(SolutionItems) = preProject
-		..\_includes\modules\archive.html = ..\_includes\modules\archive.html
-		..\_includes\modules\archive.html.haml = ..\_includes\modules\archive.html.haml
-		..\_includes\modules\develop.html = ..\_includes\modules\develop.html
-		..\_includes\modules\develop.html.haml = ..\_includes\modules\develop.html.haml
-		..\_includes\modules\header.html = ..\_includes\modules\header.html
-		..\_includes\modules\header.html.haml = ..\_includes\modules\header.html.haml
-		..\_includes\modules\menu.html = ..\_includes\modules\menu.html
-		..\_includes\modules\menu.html.haml = ..\_includes\modules\menu.html.haml
+		..\_includes\zone\archive.html.haml = ..\_includes\zone\archive.html.haml
+		..\_includes\zone\footer.html.haml = ..\_includes\zone\footer.html.haml
+		..\_includes\zone\header.html.haml = ..\_includes\zone\header.html.haml
+		..\_includes\zone\main.html.haml = ..\_includes\zone\main.html.haml
+		..\_includes\zone\menu.html.haml = ..\_includes\zone\menu.html.haml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{1336C1DB-0800-4E65-A805-7A3785F02100}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "component", "component", "{1336C1DB-0800-4E65-A805-7A3785F02100}"
 	ProjectSection(SolutionItems) = preProject
-		..\_includes\modules\menu.html = ..\_includes\modules\menu.html
-		..\_includes\modules\menu.html.haml = ..\_includes\modules\menu.html.haml
-		..\_includes\other\copyright_pubdate_author.html = ..\_includes\other\copyright_pubdate_author.html
-		..\_includes\other\copyright_pubdate_author.html.haml = ..\_includes\other\copyright_pubdate_author.html.haml
-		..\_includes\other\figure.html = ..\_includes\other\figure.html
-		..\_includes\other\figure.html.haml = ..\_includes\other\figure.html.haml
-		..\_includes\other\flash.html = ..\_includes\other\flash.html
-		..\_includes\other\flash.html.haml = ..\_includes\other\flash.html.haml
-		..\_includes\other\footer.html = ..\_includes\other\footer.html
-		..\_includes\other\footer.html.haml = ..\_includes\other\footer.html.haml
-		..\_includes\other\head.html = ..\_includes\other\head.html
-		..\_includes\other\head.html.haml = ..\_includes\other\head.html.haml
-		..\_includes\other\pullquote.html = ..\_includes\other\pullquote.html
-		..\_includes\other\pullquote.html.haml = ..\_includes\other\pullquote.html.haml
-		..\_includes\other\script.html = ..\_includes\other\script.html
-		..\_includes\other\script.html.haml = ..\_includes\other\script.html.haml
-		..\_includes\other\search.html = ..\_includes\other\search.html
-		..\_includes\other\search.html.haml = ..\_includes\other\search.html.haml
-		..\_includes\other\video.html = ..\_includes\other\video.html
-		..\_includes\other\video.html.haml = ..\_includes\other\video.html.haml
-		..\_includes\other\vimeo.html = ..\_includes\other\vimeo.html
-		..\_includes\other\vimeo.html.haml = ..\_includes\other\vimeo.html.haml
+		..\_includes\component\figure.html.haml = ..\_includes\component\figure.html.haml
+		..\_includes\component\flash.html.haml = ..\_includes\component\flash.html.haml
+		..\_includes\component\pullquote.html.haml = ..\_includes\component\pullquote.html.haml
+		..\_includes\component\video.html.haml = ..\_includes\component\video.html.haml
+		..\_includes\component\vimeo.html.haml = ..\_includes\component\vimeo.html.haml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_json", "_json", "{7CEDF735-0340-4CB0-B3EB-A8C21156CFF8}"
@@ -108,6 +87,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_site", "_site", "{33B17BCB-4312-4678-B1B3-E0411188E6CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9DA-44AE-B739-9BB0B42698BB}"
+	ProjectSection(SolutionItems) = preProject
+		..\_site\css\at-font-face.dev.css = ..\_site\css\at-font-face.dev.css
+		..\_site\css\head.css = ..\_site\css\head.css
+		..\_site\css\head.min.css = ..\_site\css\head.min.css
+		..\_site\css\normalize.dev.css = ..\_site\css\normalize.dev.css
+		..\_site\css\old-site-head.dev.css = ..\_site\css\old-site-head.dev.css
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab", "lab", "{83DB6C1B-6560-45EB-972A-546386316CC6}"
 EndProject
@@ -179,6 +165,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sass-ext", "sass-ext", "{A8
 		..\_ruby\sass-ext\util.rb = ..\_ruby\sass-ext\util.rb
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{DA4813AD-2427-4D5E-A94C-C4B09D2060AB}"
+	ProjectSection(SolutionItems) = preProject
+		..\_includes\other\head.html.haml = ..\_includes\other\head.html.haml
+		..\_includes\other\tail.html.haml = ..\_includes\other\tail.html.haml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|AnyCPU = Development|AnyCPU
@@ -216,6 +208,7 @@ Global
 		{C4A66924-C309-4A4B-B937-D6994ED2B6D6} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{D391E781-3FA4-4463-A9FF-F8F2D163E201} = {5C7EE667-5933-4347-B8A8-EE64836C245F}
 		{D97496B9-839E-422C-B9DA-F52A40413354} = {268607DF-F1FD-4312-9543-365234474E47}
+		{DA4813AD-2427-4D5E-A94C-C4B09D2060AB} = {F24DC583-8E87-4618-88C1-096CF33A3C66}
 		{DAE04D53-0DAE-41DA-B678-71E63762EB17} = {672BFA03-BA8D-4B7C-AAEB-BAC4824B828F}
 		{DD145E17-90BD-4E35-8308-34DC0BE83B9E} = {D97496B9-839E-422C-B9DA-F52A40413354}
 		{DD2EB20A-E7B2-4CC1-8A9D-5E27895D20A7} = {268607DF-F1FD-4312-9543-365234474E47}

@@ -1,45 +1,14 @@
 ﻿---
 ---
-!!!
-\<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
-\<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
-\<!--[if lt IE 8]><html class="no-js ielt9 ielt8"><![endif]-->
-\<!--[if lt IE 9]><html class="no-js ielt9"><![endif]-->
-<!--[if gte IE 9]><!-->
-<html class="no-js">
-<!--<![endif]-->
-{% include other/head.html %}  
+{% include other/head.html %}
+
 %body(lang="en" id="{{ page.id }}")
-  #header
-    %header(role="banner")
-      {% include modules/header.html %}
+  
+  {% include zone/header.html %}
+  
   #ajax(data-body-id="{{ page.id }}")
-    #main
-      %article
-        %h1.stripe {{page.title}}
-        {% include other/copyright_pubdate_author.html %}
-        #content
-          {{ content }}
-      #footer(role="contentinfo")
-        %footer
-          {% include other/footer.html %}
-  #menu
-    %nav(role="navigation")
-      {% include modules/menu.html %}
-  #archive
-    %nav(role="navigation")
-      {% include modules/archive.html %}
-  - script_style = '.all.min.dev'
-  - script_style = '.all.min'
-  - script_style = '.all'
-  - script_style = ''
-  - script_src = "/js/jaap#{script_style}.js"
-  - if script_style == ''
-    %script(src="/js/modules.js")
-    %script(src="/js/jaap/dom.js")
-    %script(src="/js/jaap/util.js")
-    %script(src="/js/jaap/keys.js")
-    %script(src="/js/jaap/font.js")
-    %script(src="/js/jaap/ajax.js")
-  %script(src=script_src)
-  %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
+    {% include zone/main.html %}
+  
+  {% include zone/menu.html %}  
+  {% include zone/archive.html %}
+  {% include other/tail.html %}  

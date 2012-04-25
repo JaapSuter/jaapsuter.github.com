@@ -1,0 +1,51 @@
+
+
+@mixin responsive-type($pp-em-define, $pp-el-define, $property, $value: undefined) {
+  $ideal-em-over-el: 1.5; 
+  
+  @if $pp-el-define == auto {
+    $pp-el-define: ceil($pp-em-define * $ideal-em-over-el);
+    $pp-el-define: $pp-el-define + if(is-odd($pp-el-define - $pp-em-define), 1px, 0);
+  
+    $over:  abs($ideal-em-over-el -  $pp-el-define        / $pp-em-define);
+    $under: abs($ideal-em-over-el - ($pp-el-define - 2px) / $pp-em-define);
+  
+    @if $under < $over {
+      $pp-el-define: $pp-el-define - 2px;  
+    }
+  }
+  
+  @if responsive($property, $value) {
+    
+    $pp-em: $pp-em-define;
+    $pp-el: $pp-el-define;
+  
+    $pp-half-leading: ($pp-el - $pp-em) / 2;
+  
+    $pp-cap: get-font-metric-at-size($body-font-family, $pp-em, cap);
+    $pp-ex:  get-font-metric-at-size($body-font-family, $pp-em, ex);
+    $pp-bo:  get-font-metric-at-size($body-font-family, $pp-em, baseline) + $pp-half-leading;
+    
+    @include debug-msg("@media (#{$property}: #{$value})");
+    @include debug-msg("#{$pp-em}:#{$pp-el}=1:#{round-two-decimals($pp-el / $pp-em)}");
+  }
+}
+
+@mixin responsive-diet {  
+  $call: responsive-capture(_all);
+  @media _all { @content; }
+
+  @each $property in get_responsive_properties() {
+    @if $property != '_all' and $property != '_default' {
+  
+      $call: responsive-capture(_default);
+      @media _default { @content; }
+
+      @each $value in get-responsive-values($property) {
+          
+        $call: responsive-capture($property, $value);
+        @media ($property: $value) { @content; }
+      }
+    }
+  }
+}

@@ -6,6 +6,11 @@ safe: false
 permalink: /:title/
 exclude: ["do.cmd", "**/*.haml", "**/*.coffee", "Gemfile", "Gemfile.lock"]
 leave: ["css/", ".livereload", "**/*.ajax.html"]
+ignore:
+  - _sass/**/*
+  - _solution/**/*
+  - _fonts/**/*
+  - _json/**/*
 
 markdown: redcarpet
 redcarpet:

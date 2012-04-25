@@ -17,19 +17,19 @@ module Jaap
       to_sass true
     end
 
-    def responsive(*args)
+    def responsive(*args)      
+
       property = unwrap unquote args[0]
       value = value = args.length > 1 ? (unwrap args[1]) : nil
 
       self.responsive_conditions[property] << value
 
-      allow = case self.responsive_property
-      when '_all' then true
-      when '_default' then property == '_default'
-      when property then value == self.responsive_value
-      else false end
-
-      to_sass allow      
+      to_sass case self.responsive_property
+        when '_all' then true
+        when '_default' then property == '_default'
+        when property then value == self.responsive_value
+        else false
+      end
     end
 
     def get_responsive_properties      
@@ -40,14 +40,29 @@ module Jaap
       property = unwrap property
       
       values = self.responsive_conditions[property]
-      values = values.uniq.sort_by { |v| v.to_s.naturalized }
-      values = values.reverse if property.start_with? 'max'
-      
+
+      min_max_width_em = 0
+      def_mid_width_em = 36
+      max_min_width_em = 108
+      step_width_em = 6
+
+      if property == 'max-width'
+        values += (min_max_width_em..def_mid_width_em).step(step_width_em).map { |value| "#{value}em" }
+      end
+
+      if property == 'min-width'
+        values += (def_mid_width_em..max_min_width_em).step(step_width_em).map { |value| "#{value}em" }
+      end
+
+      values = values.uniq.sort_by { |v| v.to_s.naturalized }      
+      values.reverse! if property == 'max-width'
+
       to_sass values
     end
 
     class Diet
-      SyntaxError = Sass::SyntaxError unless SyntaxError
+      SyntaxError = ::Sass::SyntaxError unless SyntaxError
+      include Sass
         
       def self.run(tree)
         Jaap::Reload.try_reload
@@ -60,8 +75,9 @@ module Jaap
 
         remove_comments! tree
 
-        media_nodes, rest = tree.children.partition { |c| c.is_a? Sass::Tree::MediaNode }
-
+        media_nodes, other_nodes = tree.children.partition { |c| c.is_a? Tree::MediaNode }
+        top_level_rule_nodes, other_nodes = other_nodes.partition { |c| c.is_a? Tree::RuleNode }
+        
         categorized = media_nodes.group_by do |m|
           media_query_expr_as_str m
         end
@@ -72,6 +88,10 @@ module Jaap
         if !all_node || !none_node
           return tree
         end
+        
+        none_node.children += top_level_rule_nodes
+        
+        canonify none_node
 
         min_width_nodes = categorized['min-width'] || []
         max_width_nodes = categorized['max-width'] || []
@@ -84,18 +104,97 @@ module Jaap
 
         if true
           state = deep_copy(none_node)
-          max_width_nodes.each { |max_width_node| visit_rules state, max_width_node }
+          max_width_nodes.each do |max_width_node| 
+            canonify max_width_node
+            visit_rules state, max_width_node
+          end
 
           state = deep_copy(none_node)
-          min_width_nodes.each { |min_width_node| visit_rules state, min_width_node }
+          min_width_nodes.each do |min_width_node|
+            canonify min_width_node
+            visit_rules state, min_width_node
+          end
         end
 
-        tree.children = rest + none_node.children + max_width_nodes + min_width_nodes
-
+        tree.children = other_nodes + none_node.children + max_width_nodes + min_width_nodes
         tree
       end
 
       protected
+
+      def self.canonify(node)
+        ensure_flat_list_of_rules_with_flat_list_of_properties node
+        expand_commas node
+        reorder_and_merge_rules node
+      end
+
+      def self.expand_commas(node)
+        
+        # Todo, Jaap Suter, April 2012
+        # Slightly modified from sass/lib/sass/css.rb line 118ish (which
+        # operates on parsed_rules, whereas here I operate on resolved_rules.
+
+        node.children.map! do |child|          
+
+          unless child.is_a?(Tree::RuleNode) && child.resolved_rules.members.size > 1
+            expand_commas(child) if child.is_a?(Tree::DirectiveNode)
+            next child
+          end
+          
+          child.resolved_rules.members.reject { |seq| seq.has_placeholder? }.map do |seq|
+            new_child = Tree::RuleNode.new([])
+            new_child.resolved_rules = new_child.parsed_rules = Selector::CommaSequence.new([seq])
+            new_child.children = child.children
+            new_child.options = child.options
+            new_child
+          end
+        end
+
+        node.children.flatten!
+      end
+
+      def self.reorder_and_merge_rules(node)
+        rule_nodes, rest = node.children.partition { |c| c.is_a? Tree::RuleNode }
+        rule_nodes.sort! do |a, b|
+          if a.resolved_rules.specificity == b.resolved_rules.specificity
+            a.resolved_rules.to_s <=> b.resolved_rules.to_s
+          else
+            a.resolved_rules.specificity <=> b.resolved_rules.specificity
+          end
+        end
+        
+        rule_nodes = merge_adjacent rule_nodes
+        node.children = rest + rule_nodes
+      end
+
+      def self.merge_adjacent(rule_nodes)
+        prev = nil
+        rule_nodes = rule_nodes.map do |curr|
+          if prev && (prev.resolved_rules.to_s == curr.resolved_rules.to_s)
+            prev.children += curr.children
+            next nil
+          end
+
+          prev = curr
+          curr
+        end
+        
+        rule_nodes = rule_nodes.compact
+        rule_nodes
+      end
+
+      
+      def self.reorder_rules(node)
+        rule_nodes, rest = node.children.partition { |c| c.is_a? Tree::RuleNode }
+        rule_nodes.sort! do |a, b|
+          if a.resolved_rules.specificity == b.resolved_rules.specificity
+            a.resolved_rules.to_s <=> b.resolved_rules.to_s
+          else
+            a.resolved_rules.specificity <=> b.resolved_rules.specificity
+          end
+        end
+        node.children = rest + rule_nodes
+      end
 
       def self.media_query_expr_as_str(node)
 
@@ -117,45 +216,59 @@ module Jaap
       end
 
       def self.deep_copy(node)
-        Sass::Tree::Visitors::DeepCopy.visit(node)
+        Tree::Visitors::DeepCopy.visit(node)
       end
 
       def self.remove_comments!(node)        
         node.children.reject! do |child| 
           remove_comments! child
-          child.is_a? Sass::Tree::CommentNode
+          child.is_a? Tree::CommentNode
         end
       end
 
-      def self.ensure_children_only(node, klass)        
+      def self.is_none_of?(val, classes)
+        for c in classes
+          return false if val.is_a?(c)
+        end
+        return true
+      end
+
+      def self.ensure_children_only(node, classes)        
         ok = true
 
         node.children.each do |n|
-          if ! n.is_a? klass
+          if is_none_of? n, classes
             ok = false
 
-            puts "ERROR: expected #{klass} only, but got #{n.class}"
+            puts "ERROR: expected #{classes} only, but got #{n.class}"
 
-            if n.is_a? Sass::Tree::PropNode
+            if n.is_a? Tree::PropNode
               puts "    #{n.resolved_name}: #{n.resolved_value}"
             end
           end
         end
         
         unless ok
-          raise SyntaxError.new("ERROR, diet expected #{klass} nodes only, but got other things. Weeeee!")
+          raise SyntaxError.new("ERROR, diet expected #{classes} nodes only, but got other things. Weeeee!")
+        end
+      end
+
+      def self.ensure_flat_list_of_rules_with_flat_list_of_properties(node)
+        ensure_children_only node, [Tree::RuleNode, Sass::Tree::CssImportNode]
+        node.children.each do |child|
+          if child.is_a? Tree::RuleNode
+            ensure_children_only child, [Tree::PropNode]
+          end
         end
       end
 
       def self.visit_rules(state, node)
-        ensure_children_only node, Sass::Tree::RuleNode
-        ensure_children_only state, Sass::Tree::RuleNode
-        
-        node.children.reject! do |n|          
-          state.children.reverse_each do |s|
-            if s.resolved_rules == n.resolved_rules
-              visit_properties s, n
-            end
+        node.children.reject! do |n|
+          
+          s = state.children.find { |s| n.resolved_rules == s.resolved_rules }
+          
+          if s
+            visit_properties s, n
           end
 
           n.children.empty?
@@ -163,43 +276,44 @@ module Jaap
       end
 
       def self.visit_properties(state, node)
-        ensure_children_only node, Sass::Tree::PropNode
-        ensure_children_only state, Sass::Tree::PropNode
 
-        node_children_new = []
-
-        node.children.each do |n|          
+        node.children.map! do |n|
           
-          found = false
-
-          state.children.reverse_each do |s|
-            if s.resolved_name == n.resolved_name
-              s_unit = s.resolved_value.gsub /\d/, ''
-              n_unit = n.resolved_value.gsub /\d/, ''
-
-              if true or s_unit == n_unit
-                if s.resolved_value == n.resolved_value
-                  state.children.push deep_copy s
-                  found = true
+          n_unit = n.resolved_value.gsub /[^a-z]/, ''
+          n_unit_must_match = ['em', 'rem', 'px'].any? { |unit| n_unit.include? unit }
+          
+          r = :previously_non_existing_prop
+          
+          state.children.each do |s|
+            if n.resolved_name == s.resolved_name
+              if (!n_unit_must_match) || (n_unit == s.resolved_value.gsub(/[^a-z]/, ''))
+                if n.resolved_value == s.resolved_value                  
+                  r = :existing_prop_same_value
                   break
                 else
-                  node_children_new.push deep_copy n
-                  found = true
+                  r = :existing_prop_new_value
+                  s.resolved_value = n.resolved_value
                   break
                 end
               end
             end
           end
 
-          if !found
-            state.children.push deep_copy n
-            node_children_new.push deep_copy n
+          # puts "#{r}: #{n.resolved_name}: #{n.resolved_value} #{n_unit_must_match}"
+
+          if r == :previously_non_existing_prop
+            state.children.push(deep_copy n)
+          end
+
+          if r == :existing_prop_same_value
+            nil
+          else
+            n
           end
         end
-        
-        node.children = node_children_new
+      
+        node.children.compact!
       end
-
     end
   end
 end

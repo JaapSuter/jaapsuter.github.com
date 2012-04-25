@@ -278,16 +278,15 @@ def make_stripe(f, name, src, dst):
 
     ow, olb, orb = g.width, g.left_side_bearing, g.right_side_bearing
 
-    bbox = g.boundingBox()
-    
-    angle = random.randint(7, 83) + 90 * random.randint(0, 1)
-    thickness = random.randint(math.floor(m.xHeight / 6), math.ceil(m.xHeight * 3 / 4))
-    x_middle = bbox[2] - bbox[0]
-    y_middle = bbox[3] - bbox[1]
+    bbox = g.boundingBox()    
+    angle = 90 + random.randint(17, 118)
+    thickness = random.randint(math.floor(m.xHeight / 9), math.ceil(m.xHeight / 4))
+    x_middle = bbox[0] + (bbox[2] - bbox[0]) / 2
+    y_middle = bbox[1] + (bbox[3] - bbox[1]) / 2
     top = y_middle + thickness / 2
     bottom = y_middle - thickness / 2
-    left = -m.em
-    right = m.em * 2
+    left = -m.em * 2
+    right = m.em * 3
 
     log("#{g.glyphname} #{thickness}, #{x_middle}, #{y_middle}, #{top}, #{bottom}");
 
@@ -309,14 +308,19 @@ def make_stripe(f, name, src, dst):
     mat_transform = psMat.compose(psMat.compose(mat_to_origin, mat_rotate), mat_from_origin)
 
     rect.transform(mat_transform)
-
-    mask = fontforge.layer()
-    mask += rect
-
-    foreground_idx = 1
+    
+    foreground_idx = 1    
     foreground = g.layers[foreground_idx]
-    mask.exclude(foreground)
-    g.layers[foreground_idx] = mask
+    foreground += rect
+    foreground.intersect()
+
+    # mask = fontforge.layer()
+    # mask += rect
+    # mask.intersect()
+    # foreground = g.layers[foreground_idx]
+    # foreground.exclude(mask)
+
+    g.layers[foreground_idx] = foreground
 
     correct_round_and_clean(g)
 
@@ -345,7 +349,6 @@ def make_stripe(f, name, src, dst):
   
   # Handy for debugging, not needed otherwise: 
   m.save(dst.replace('.otf', '.sfd'))
-
 
   generate(m, name, dst)
 
@@ -503,13 +506,14 @@ def make_small_caps(f, is_italic, is_serif, reinstructables):
   for lowercase, smallcap in lowercase_to_smallcap_map.iteritems():
     try_replace_glyph_with(f, reinstructables, lowercase, smallcap)
 
-  if False:
-    if not is_serif:
-      f.selection.all()
-      sep = (f.em / 40)
-      min_bearing = sep / 2
-      max_bearing = sep * 4
-      f.autoWidth(sep, min_bearing, max_bearing)
+  f.selection.all()
+  for g in f.selection.byGlyphs:
+    g.removePosSub('*')
+  
+  sep = (f.em / 10)
+  min_bearing = int(sep * 0.75)
+  max_bearing = int(sep * 1.25)
+  f.autoWidth(sep, min_bearing, max_bearing)
 
 def make_font_face_load_detection_glyph(f, unicodes, is_monospace):
   unicode = 0xA6

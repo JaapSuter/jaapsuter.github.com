@@ -1,0 +1,10 @@
+@mixin units($property, $value, $pp-em-override: $pp-em) {
+  @each $value in units($value, $pp-em-override) {  
+    #{$property}: $value;
+  }
+}
+
+@mixin stroke-using-four-shadows($color) {
+  @include text-shadow($color -1px -1px, $color 1px -1px, $color -1px  1px, $color 1px 1px,
+                       $color -2px -2px, $color 2px -2px, $color -2px  2px, $color 2px 2px);
+}

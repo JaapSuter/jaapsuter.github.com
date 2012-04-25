@@ -1,0 +1,13 @@
+- script_style = '.all.min.dev'
+- script_style = '.all.min'
+- script_style = '.all'
+- script_style = ''
+- script_src = "/js/jaap#{script_style}.js"
+- if script_style == ''
+  %script(src="/js/modules.js")
+  %script(src="/js/jaap/dom.js")
+  %script(src="/js/jaap/util.js")
+  %script(src="/js/jaap/keys.js")
+  %script(src="/js/jaap/font.js")
+  %script(src="/js/jaap/ajax.js")
+%script(src=script_src)

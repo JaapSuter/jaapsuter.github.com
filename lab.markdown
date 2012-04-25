@@ -1,64 +1,9 @@
 ---
 layout: default
-title: Lab
+title_mark_up: |
+  <span class="type-xxxl">Lab</span>
 permalink: /lab/
 ---
-
-{% hamlize %}
-  %ul#colorize
-    %li.black       black
-    %li.white       white
-    %li.red-ddd     red-ddd
-    %li.red-dd      red-dd
-    %li.red-d       red-d
-    %li.red         red
-    %li.red-l       red-l
-    %li.red-ll      red-ll
-    %li.red-lll     red-lll
-    %li.blue-ddd    blue-ddd
-    %li.blue-dd     blue-dd
-    %li.blue-d      blue-d
-    %li.blue        blue
-    %li.blue-l      blue-l
-    %li.blue-ll     blue-ll
-    %li.blue-lll    blue-lll    
-{% endhamlize %}
-{% hamlize %}
-  #rhythm
-    %p
-      This is a paragraph with some text in it. It goes on for a while but 
-      doesn't really say anything useful. That's fine, I'm just testing
-      whether it's possible to create an em-based typographic rhythm.
-    %p(style="font-family: georgia;")
-      This is a paragraph with some text in it. It goes on for a while but 
-      doesn't really say anything useful. That's fine, I'm just testing
-      whether it's possible to create an em-based typographic rhythm.
-    %h1.stripe
-      Short H1
-    %p
-      Voila, the second paragraph.
-    %h1.stripe
-      Here's a H1 header that is likely to wrap to the next line.
-    %p
-      Voila, the third paragraph. Isn't it great?
-    %h2
-      Enjoy a second level header that is multiple lines long
-    %p.small
-      And here's a small paragraph. Once again, containing no useful
-      information whatsoever. It's merely to give the CSS something
-      to experiment with.
-    %p
-      And here's a fourth paragraph. Once again, containing no useful
-      information whatsoever. It's merely to give the CSS something
-      to experiment with.
-    .type-comparison
-      %p.custom
-        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-        g 0123456789 
-      %p.installed
-        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-        g 0123456789 
-{% endhamlize %}
 
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
 
@@ -70,7 +15,7 @@ descenders don't stomp beyond the leading, as well as use proper glyph fallbacks
 of the font stack; intentionally so). And lastly, TLA should be marked up with the ABBR tag, since HTML5 currently deprecates the acronym tag.
 
 {% assign pullquote = 'Pull&shy;quotes are used to &#x263A; grab &#x270C; attention.' %}
-{% include other/pullquote.html %}
+{% include component/pullquote.html %}
 
 The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
 other pages on this website, typically in paragraph-sized chunks.
@@ -199,7 +144,7 @@ Testing baseline...
 {% capture figcaption %}
   16&times;9 'full-bleed' test image.
 {% endcapture %}
-{% include other/figure.html %}
+{% include component/figure.html %}
 
 This text should sit neatly on the baseline, typographical rhythm and all.
 
@@ -210,7 +155,7 @@ This text should sit neatly on the baseline, typographical rhythm and all.
 {% capture figcaption %}
   4&times;3 test image, with a caption that is likely to span multiple lines, because it has a lot of nonsense text in it.
 {% endcapture %}
-{% include other/figure.html %}
+{% include component/figure.html %}
 
 This text should sit neatly on the baseline, typographical rhythm and all.
 
@@ -225,7 +170,7 @@ space, in which case we should switch to full bleed instead.
 {% capture figcaption %}
   6&times;10 'half-bleed-right' test image.
 {% endcapture %}
-{% include other/figure.html %}
+{% include component/figure.html %}
 
 Metus diam sed tortor quam sit. Netus tempora sit. Habitasse velit nunc praesent ultrices porttitor dignissim sodales tincidunt orci morbi hymenaeos amet
 luctus porttitor nec nam fermentum.
@@ -247,29 +192,9 @@ lacinia nunc massa arcu vitae urna semper aliquam mauris porta pellentesque tort
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.mp4">MP4</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.webm">WebM</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.ogv">Ogg</a>.{% endcapture %}
-{% capture figcontent %}{% include other/video.html %}{% endcapture %}
+{% capture figcontent %}{% include component/video.html %}{% endcapture %}
 {% assign ratio = '4x3' %}
-{% include other/figure.html %}
-
-## Table
-
-<div class="full-bleed">
-  <table>
-    <thead>
-      <tr><th>thead th 1</th><th>thead th 2</th><th>thead th 3</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>tbody td 1.1</td><td>tbody td 2.1</td><td>tbody td 3.1</td></tr>
-      <tr><td>tbody td 1.2</td><td>tbody td 2.2</td><td>tbody td 3.2</td></tr>
-      <tr><td>tbody td 1.3</td><td>tbody td 2.3 has more content to encourage a cell with multiple lines.</td><td>tbody td 3.3</td></tr>
-      <tr><td>tbody td 1.4</td><td>tbody td 2.4</td><td>tbody td 3.4</td></tr>
-      <tr><td>tbody td 1.5</td><td>tbody td 2.5</td><td>tbody td 3.5</td></tr>
-      <tr><td>tbody td 1.6</td><td>tbody td 2.6</td><td>tbody td 3.6</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<pre id="type-metric-values"></pre>
+{% include component/figure.html %}
 
 ## Type Specimen
 
@@ -293,14 +218,6 @@ lacinia nunc massa arcu vitae urna semper aliquam mauris porta pellentesque tort
   <span style="text-rendering: optimizeSpeed;">The flower in the file made the office staff sniffle.</span><br>
   <span style="text-rendering: optimizeLegibility;">The flower in the file made the office staff sniffle.</span><br>
 </em></p>
-
-### Dimensions Todo
-
-<pre>
-  Baseline
-  0123456789 px em t dpr &times /;
-  ref: fl: vw: vh: bw: bh:
-</pre>
 
 ### Lists
 
@@ -373,13 +290,58 @@ More...
 <span class="smcp-fake">My name is Jaap Suter. A quick&rsquo;n brown fox jumped over the lazy dog.</span><br>
 <span class="smcp-font-variant-synth">My name is Jaap Suter. A quick&rsquo;n brown fox jumped over the lazy dog.</span>
 
-### Type Subset
-Testing
-<button type="button" id="type-subset-crawl">Crawl</button>
-<textarea id="type-subset-progress" readonly></textarea>
-Testing
-
-### Type Metrics
-<button type="button" id="type-metrics-calc">Calculate</button>
-<textarea id="type-metrics-values" readonly></textarea>
-
+{% hamlize %}
+  %ul#colorize
+    %li.black       black
+    %li.white       white
+    %li.red-ddd     red-ddd
+    %li.red-dd      red-dd
+    %li.red-d       red-d
+    %li.red         red
+    %li.red-l       red-l
+    %li.red-ll      red-ll
+    %li.red-lll     red-lll
+    %li.blue-ddd    blue-ddd
+    %li.blue-dd     blue-dd
+    %li.blue-d      blue-d
+    %li.blue        blue
+    %li.blue-l      blue-l
+    %li.blue-ll     blue-ll
+    %li.blue-lll    blue-lll
+{% endhamlize %}
+{% hamlize %}
+  #rhythm
+    %p
+      This is a paragraph with some text in it. It goes on for a while but 
+      doesn't really say anything useful. That's fine, I'm just testing
+      whether it's possible to create an em-based typographic rhythm.
+    %p(style="font-family: georgia;")
+      This is a paragraph with some text in it. It goes on for a while but 
+      doesn't really say anything useful. That's fine, I'm just testing
+      whether it's possible to create an em-based typographic rhythm.
+    %h1.stripe
+      Short H1
+    %p
+      Voila, the second paragraph.
+    %h1.stripe
+      Here's a H1 header that is likely to wrap to the next line.
+    %p
+      Voila, the third paragraph. Isn't it great?
+    %h2
+      Enjoy a second level header that is multiple lines long
+    %p.small
+      And here's a small paragraph. Once again, containing no useful
+      information whatsoever. It's merely to give the CSS something
+      to experiment with.
+    %p
+      And here's a fourth paragraph. Once again, containing no useful
+      information whatsoever. It's merely to give the CSS something
+      to experiment with.
+    .type-comparison
+      %p.custom
+        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+        g 0123456789 
+      %p.installed
+        Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+        g 0123456789 
+{% endhamlize %}

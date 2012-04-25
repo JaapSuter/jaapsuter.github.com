@@ -1,6 +1,9 @@
 ---
 layout: default
 tags: [Video, Personal]
+title_mark_up: |
+  <span class="type-xl">Sinterklaas</span><br>
+  <span class="type-xl">In&nbsp;Canada</span><br>
 ---
 
 
@@ -21,5 +24,5 @@ When I convinced him to visit Canada, I invited my friends using this video.
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.mp4">MP4</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.webm">WebM</a>,
 <a href="/videos/{{ name }}.{{ width }}x{{ height }}.ogv">Ogg</a>.{% endcapture %}
-{% capture figcontent %}{% include other/video.html %}{% endcapture %}
-{% include other/figure.html %}
+{% capture figcontent %}{% include component/video.html %}{% endcapture %}
+{% include component/figure.html %}

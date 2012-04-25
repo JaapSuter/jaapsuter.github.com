@@ -392,10 +392,9 @@
       }
       return _results;
     })();
-    families = ["tsn4n"];
     easel = new Easel({
-      minFontSize: 23,
-      maxFontSize: 25
+      minFontSize: 8,
+      maxFontSize: 213
     });
     (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {

@@ -1,0 +1,110 @@
+/*
+  Importing this file does (should) not bring in any
+  styling. It only provides constants, functions, mixins, and
+  abstract classes.
+  
+  In other words, if you included only
+  this file and nothing else, the resulting compressed CSS
+  file (i.e., with comments stripped, etc.) should be of zero size.
+*/
+
+$call: try-reload-extensions();
+
+/*
+  Development Toggles 
+  
+  Always defined so that the expected production
+  value is false (e.g., when you ship, these should
+  all be false.)
+*/
+
+$base-normalize-include-fields-forms-etcetera: false;
+$base-normalize-include-typography-etcetera:   false;
+$base-normalize-include-margin-padding:        false;
+
+$type-disable-font-face:                       false;
+$type-fallback-make-obvious:                   false;
+$type-fallback-common-web-safe-only:           false;
+
+/*
+  Typographic Constants
+  
+  Default font size, line-height, family,
+  fallbacks, that kind of thing.
+*/
+
+$pp-rem-initial-value: 16px;
+$pp-rem:               20px;
+
+$body-font-family:    tsn4n;
+
+$serif-fallback:           Georgia, serif;
+$sans-fallback:            Verdana, sans-serif;
+$sans-condensed-fallback:  Arial, sans-serif;
+$mono-fallback:            Courier New, monospace;
+
+@unless $type-fallback-common-web-safe-only {
+  $serif-fallback:           DejaVu Serif,           Bitstream Vera Serif,     $serif-fallback;
+  $sans-fallback:            DejaVu Sans,            Bitstream Vera Sans,      $sans-fallback;
+  $sans-condensed-fallback:  DejaVu Sans Condensed,  Bitstream Vera Sans,      $sans-condensed-fallback;
+  $mono-fallback:            DejaVu Sans Mono,       Bitstream Vera Sans Mono, $mono-fallback;
+}
+
+@if $type-fallback-make-obvious {
+  $obvious-fallback: fallback, unifont, LastResort, LocalFallback, Impact, cursive, fantasy;
+
+  $serif-fallback:            $obvious-fallback, $serif-fallback;
+  $sans-fallback:             $obvious-fallback, $sans-fallback;
+  $sans-condensed-fallback:   $obvious-fallback, $sans-condensed-fallback;
+  $mono-fallback:             $obvious-fallback, $mono-fallback;
+}
+
+/*
+  Color Constants
+    
+  Based on a pair of Diana's socks.
+  Courtesy of Susanne and Tumbleweed
+  Captured at http://kuler.adobe.com/#themeID/1804974
+*/
+$transparent: rgba(0, 0, 0, 0);
+
+$black: #0d0400;
+$white: #e7e5de;
+$white: tint($white, 56);
+
+$blue:  #005869;
+$blue-d: shade($blue, 25);
+$blue-dd: shade($blue, 50);
+$blue-ddd: shade($blue, 75);
+$blue-l: tint($blue, 25);
+$blue-ll: tint($blue, 50);
+$blue-lll: tint($blue, 75);
+
+$red:   #971f03;
+$red-d: shade($red, 25);
+$red-dd: shade($red, 50);
+$red-ddd: shade($red, 75);
+$red-l: tint($red, 25);
+$red-ll: tint($red, 50);
+$red-lll: tint($red, 75);
+
+/* 
+  Remaining Imports, e.g. external libraries, globals, 
+  functions, mixins, and abstract classes.
+*/
+@import "compass/utilities";
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/css3/transform";
+
+@import "prelude/globals";
+         
+@import "prelude/func-util";
+@import "prelude/func-color";
+@import "prelude/func-type";
+         
+@import "prelude/mixin-util";
+@import "prelude/mixin-debug";
+@import "prelude/mixin-color";
+@import "prelude/mixin-type";
+@import "prelude/mixin-responsive";

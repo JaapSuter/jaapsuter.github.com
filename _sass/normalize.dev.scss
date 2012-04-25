@@ -1,4 +1,3 @@
-@import "framework/const";
-
-$import-base-normalize-separately: false;
-@import "base/base-normalize";
+@import "prelude";
+$import-normalize-separately: false;
+@import "normalize";

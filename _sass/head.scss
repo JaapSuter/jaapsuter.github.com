@@ -1,32 +1,4 @@
-$call: try-reload-extensions();
-
-@import "compass/utilities";
-@import "compass/css3";
-@import "compass/layout";
-@import "compass/css3/transform";
-
-@import "framework/const";
-@import "framework/globals";
-
-@import "framework/func/func-util";
-@import "framework/func/func-color";
-@import "framework/func/func-type";
-
-@import "framework/mixin/mixin-util";
-@import "framework/mixin/mixin-debug";
-@import "framework/mixin/mixin-color";
-@import "framework/mixin/mixin-type";
-@import "framework/mixin/mixin-media-query";
-
-// Up to this point, no styling should be applied - we've only defined
-// constants, functions, and mixins. Hence the resulting compressed CSS
-// file (with comments stripped, etc.) should be of zero size.
-
-html {
-  font-size: $pp-rem / $pp-rem-initial-value * 100%;
-  line-height: 100%;
-}
-
+@import "prelude";
 
 @unless $type-disable-font-face {
   @if in-development-mode() { @import url(at-font-face.dev.css); }
@@ -35,68 +7,116 @@ html {
 
 @each $font in get_font_list() { @include abstract-font-face-family($font); }
 
-$import-base-normalize-separately: in-development-mode();
-@import "base/base-normalize";
-@import "base/base-reset";
+$import-normalize-separately: in-development-mode();
+@import "normalize";
+@import "reset";
 
-@include diet {
-  
-  $ideal-measure: 36em;
-  $ideal-em-over-el: 1.5;
-  
-  @if responsive(max-width,  24em) { $pp-em: 16px; $pp-el: 22px; }
-  @if responsive(max-width,  32em) { $pp-em: 16px; $pp-el: 23px; }
-                                                    
-  @if responsive(_default)         { $pp-em: 16px; $pp-el: 24px; }
-                                                    
-  @if responsive(min-width,  46em) { $pp-em: 17px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  51em) { $pp-em: 17px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  55em) { $pp-em: 18px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  60em) { $pp-em: 19px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  64em) { $pp-em: 19px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  72em) { $pp-em: 20px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  84em) { $pp-em: 21px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width,  94em) { $pp-em: 22px; $pp-el: $pp-em * $ideal-em-over-el; }
-  @if responsive(min-width, 102em) { $pp-em: 24px; $pp-el: $pp-em * $ideal-em-over-el; }
+@import "base/base-type";
+@import "base/base-util";
 
-  $pp-half-leading: round(($pp-el - $pp-em) / 2);
-  $pp-el: $pp-em + 2 * $pp-half-leading;
+html {
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
   
-  $pp-cap: get-font-metric-at-size($body-font-family, $pp-em, cap);
-  $pp-ex:  get-font-metric-at-size($body-font-family, $pp-em, ex);
-  $pp-bo:  get-font-metric-at-size($body-font-family, $pp-em, baseline) + $pp-half-leading;
-    
-  @include debug-msg("#{$pp-em}:#{$pp-el}=1:#{round-two-decimals($pp-el / $pp-em)}");
+  font-size: $pp-rem / $pp-rem-initial-value * 100%;
+  line-height: 100%;  
+  text-rendering: optimizelegibility;
+}
+
+::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
+::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
   
-  ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
-  ::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
+figure { overflow: hidden; }
+
+p {
+  -webkit-locale: 'en';
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+@include responsive-diet {
+  
+  @include responsive-type(16px, 24px, _default);
+  
+  @include responsive-type(16px, 23px, max-width, 32em);
+  @include responsive-type(16px, 22px, max-width, 24em);
+  
+  @include responsive-type(17px, auto, min-width, 44em);  
+  @include responsive-type(18px, auto, min-width, 50em);
+  @include responsive-type(19px, auto, min-width, 56em);
+  @include responsive-type(20px, auto, min-width, 62em);
+  @include responsive-type(21px, auto, min-width, 68em);
+  @include responsive-type(22px, auto, min-width, 74em);
+  @include responsive-type(23px, auto, min-width, 80em);
+  @include responsive-type(24px, auto, min-width, 86em);
   
   body {
-    position:  relative;    
-    max-width: $ideal-measure;
-    margin: 0 auto;  
+    position: relative;
+    max-width: 38em;
+    margin: 0 auto;
     
     @include color-and-background-color($black, $white);
     @extend %#{$body-font-family};
-    
+  
     @include units(font-size, $pp-em, $pp-rem);
     @include units(line-height, 1el);
   }
 
-  p {
-    @include units(margin-bottom, 1el);
+  p { @include units(margin-top, 1el); }
+
+  p + p {
+    text-indent: 2em;
+    margin-top: 0;  
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-size: 1em;
-    // @extend %pan4n;
-    color: red;
+  .type-m { @include change-type(pan7n, cap, 1el) {} }
+  .type-l { @include change-type(pan7n, cap, 2el) {} }
+  .type-xl { @include change-type(pan7n, ex, 2el) {} }
+  .type-xxl { @include change-type(pan7n, cap, 3el) {} }  
+  .type-xxxl { @include change-type(pan7n, ex, 3el) {} }
+
+  .type-margin-bottom-1el {
+    @include units(margin-bottom, 1el);
   }
   
-  h1 { @include change-type(pan7n, ex, 2el) {} }
-  h2 { @include change-type(pan4n, ex, 1el) {} }
-  h3 { @include change-type(pan4n, cap, 1el) {} }
+  #main h1 {
+    color: $blue-l;
+    @include stroke-using-four-shadows($blue-d);
+  }
+  
+  h2 {
+    @include change-type(pan7n, ex, 1el) {
+      color: $red-d;
+      @include units(margin-top, 1el);
+    }
+  }
+  
+  h3 {
+    @include change-type(tsn4n-smcp, ex, 1cap) {
+      text-transform: lowercase;
+      text-rendering: optimizespeed;
+      letter-spacing: 0.05em;
+      word-spacing: 0.3em;
+      @include units(margin-top, 1el);
+    }    
+  }
+  
+  h4, h5, h6 {
+    @include change-type(pan4n, cap, 1el) {
+      @include units(margin-top, 1el);
+    }
+  }
+    
   .small { @include change-type(pan4n, cap, $pp-ex) {} }
+
+  blockquote {    
+    color: $blue-dd;  
+    @include units(margin, 1el 0);
+    @include units(padding-left, 1em);
+  }
 
   @if in-development-mode() {
     .baseline {

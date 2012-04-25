@@ -1,15 +1,27 @@
+!!!
+\<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
+\<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
+\<!--[if lt IE 8]><html class="no-js ielt9 ielt8"><![endif]-->
+\<!--[if lt IE 9]><html class="no-js ielt9"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
 %head
+  
   %meta(charset="utf-8")
   /[if IE]
     <meta content='IE=edge' http-equiv='X-UA-Compatible' />
     <meta content='on' http-equiv='cleartype' />
     <meta content='True' name='HandheldFriendly' />
-  -# Haml doesn't always preserve attribute order, which is critical for some meta tags
-  -# on some devices. So we write these in plain old fashioned reliablish HTML and move on.
-  <meta name="viewport" content="initial-scale=1.0">
+  -# Haml doesn't preserve attribute order. It appears some devices are 
+  -# picky about this for the viewport tag, so we just use old
+  -# fashioned semi-reliablish HTML and get on with our day.
+  <meta name="viewport" content="width=device-width">
   <meta name="author" content="Jaap Suter">
+  
   %title   
     {{ page.title }}
+  
   %link{:href => "http://microformats.org/profile/specs/", :rel => "profile"}/
   %link{:href => "/atom.xml", :rel => "alternate", :type => "application/atom+xml"}/
   %link{:href => "/css/head.css", :rel => "stylesheet"}/

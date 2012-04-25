@@ -1,50 +1,10 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
-<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
-<!--[if lt IE 8]><html class="no-js ielt9 ielt8"><![endif]-->
-<!--[if lt IE 9]><html class="no-js ielt9"><![endif]-->
-<!--[if gte IE 9]><!-->
-<html class="no-js">
-<!--<![endif]-->
 {% include other/head.html %}
 <body id='{{ page.id }}' lang='en'>
-  <div id='header'>
-    <header role='banner'>
-      {% include modules/header.html %}
-    </header>
-  </div>
+  {% include zone/header.html %}
   <div data-body-id='{{ page.id }}' id='ajax'>
-    <div id='main'>
-      <article>
-        <h1 class='stripe'>{{page.title}}</h1>
-        {% include other/copyright_pubdate_author.html %}
-        <div id='content'>
-          {{ content }}
-        </div>
-      </article>
-      <div id='footer' role='contentinfo'>
-        <footer>
-          {% include other/footer.html %}
-        </footer>
-      </div>
-    </div>
+    {% include zone/main.html %}
   </div>
-  <div id='menu'>
-    <nav role='navigation'>
-      {% include modules/menu.html %}
-    </nav>
-  </div>
-  <div id='archive'>
-    <nav role='navigation'>
-      {% include modules/archive.html %}
-    </nav>
-  </div>
-  <script src='/js/modules.js'></script>
-  <script src='/js/jaap/dom.js'></script>
-  <script src='/js/jaap/util.js'></script>
-  <script src='/js/jaap/keys.js'></script>
-  <script src='/js/jaap/font.js'></script>
-  <script src='/js/jaap/ajax.js'></script>
-  <script src='/js/jaap.js'></script>
-  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+  {% include zone/menu.html %}
+  {% include zone/archive.html %}
+  {% include other/tail.html %}
 </body>

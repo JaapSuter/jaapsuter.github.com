@@ -1,9 +1,12 @@
 ---
 layout: default
 tags: [Technical]
+title_mark_up: |
+  <span class="type-xxl">Garbage</span><br>
+  <span class="type-xxl">Collection</span>
 ---
 
-On the **Sweng-GameDev** mailing list, Gil wrote...
+On the [Sweng GameDev](http://lists.midnightryder.com/listinfo.cgi/sweng-gamedev-midnightryder.com "Software Engineering, as it applies to Game Developers") mailing list, Gil wrote...
 
 > Seems like the death of C/C++ has been proclaimed for at least 20 years. The proposed
 > benefits of higher level languages strike me as naive and
@@ -20,7 +23,7 @@ He continues:
 
 > To me, "ownership and lifetime" is an important concept in software engineering.  When is something
 > created, when is it destroyed and what higher level object is accountable for it? Garbage collection
-> offers ONE answer to the question of ownership and lifetime: Everyone referencing something share
+> offers _one_ answer to the question of ownership and lifetime: Everyone referencing something share
 > ownership and the lifetime lasts until it can't be referred to anymore.
 > 
 > I feel that having only one answer to the ownership and lifetime question is very
@@ -46,11 +49,9 @@ Regretfully I don't have time to dissect Gil's email completely; if anybody want
  
 For now, I'm going to comment on one point only. Quoting Gil...
  
->To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers ONE answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore.
+>To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers _one_ answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore.
  
-Read the last sentence again.
-
-Now try to figure out what he means by "referencing" and "ownership"...
+Read that last sentence again. Then, try to figure out what he means by "referencing" and "ownership"...
  
 When it comes to resources, only one thing matters: "any resource that is referred to from a piece of code that *might* still run at some point in the future *must* be alive."
  
@@ -87,7 +88,7 @@ Remember the video where Steve Balmer cares about Developers?
   </iframe>
 </div>{% endcapture %}
 {% assign ratio = '4x3' %}
-{% include other/figure.html %}
+{% include component/figure.html %}
  
 If you ask me: *"What's the purpose of garbage collection?"*, there's a good chance I'll go all Steve Balmer on you and scream: **"Concurrency, Concurrency, Concurrency"**...
  

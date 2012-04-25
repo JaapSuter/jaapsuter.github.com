@@ -28,7 +28,7 @@ module Jaap
                    --show-warnings no --bare yes --write-back yes".gsub(/\s+/, ' ')
       
       begin
-      
+        
         text = Typogruby.improve text        
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html
@@ -77,11 +77,22 @@ module Jaap
     
     def self.stripeify(html)
       html.css('.stripe').each do |elem|
-        elem['data-content'] = elem.content = elem.content.gsub("\n", ' ').squeeze(' ').strip
+        # elem['data-content'] = elem.content = elem.content.gsub("\n", ' ').squeeze(' ').strip
+        word_idx = -1
+        elem.xpath('child::text()').each do |text|
+          replacement = text.content.gsub /[^\s]+/ do |word|
+            "<span class='s w-#{word_idx += 1} l-#{word.length}' data-content='#{word}'>#{word}</span>"
+          end
+          text.replace Nokogiri::XML::DocumentFragment.parse replacement
+        end
       end
         
       html
     end
+
+    def self.wrap_text(node)
+      
+    end    
         
     def self.add_anchor_data_content_attrs(html)
       html.css('a').each do |a|

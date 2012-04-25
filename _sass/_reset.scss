@@ -1,0 +1,8 @@
+//* Note, see _apply-normalize.scss for information on the purpose and scope of this reset. */
+
+* {
+  margin: 0;
+  padding: 0;
+  
+  @include box-sizing(border-box);
+}

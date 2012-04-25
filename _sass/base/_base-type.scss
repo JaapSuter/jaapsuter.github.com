@@ -1,168 +1,64 @@
-p {
-  -webkit-locale: 'en';
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;  
-}
 
-%tsi4n {
-  color: rgba(#222, 0.73);
-  @include text-shadow(0px 0px 1px rgba(#000, 0.1));
-}
-
-body {  
-  @include color-and-background-color($black, $white);
-  @extend %#{$root-font-family};
-
-  text-rendering: optimizelegibility;
-}
-
-@if false {
-    
-
-
-  @include debug-msg-initialize();
-
-  figure { overflow: hidden; }
-
-  html {
-    min-height: 100%;
-    width: 100%;
-    max-width: 100%;  
-  }
-
-  body {
-    position: relative;
-    min-height: 100%;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  #dimensions {
-    @extend %tmn4n;
-    font-size: 10px;
-    line-height: 12px;
-    position: fixed;
-    background-color: rgba($black, 0.5);
-    color: rgba(lighten(saturate($blue, 50%), 50%), 0.9);
-    position: fixed;
-    bottom: 2em;
-    left: 0;
-  }
-
-
-  .type-comparison {
-    $font-family: tsn4n;
-  
-    position: relative;
-
-    .custom {
-      color: rgba(#f33, 0.5);
-      @extend %#{$font-family};
-    }
-
-    .installed {
-      color: rgba(#33f, 0.5);
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-family: type-name-get-font-family-fallback($font-family);
-    }
-  }
-
- 
-  $name: undefined;
-  $trigger-width-px: undefined;
-  $mq-min-px: undefined;
-  $mq-max-px: undefined;
-
-  @mixin responsify() {
-    @each $media-type in $media-types {
-
-      $name:             nth($media-type, 1);
-      $trigger-width-px: nth($media-type, 2);
-      $body-ppem:        nth($media-type, 3);
-      $body-ppgd:        nth($media-type, 4);
-
-      @include set-body-ppem-ppgd($body-ppem, $body-ppgd);
-
-      @if $name == 0 {
-        $mq-min-px: nth(get-media-type(-1), 2);
-        $mq-max-px: nth(get-media-type( 1), 2);
-      
-        @content;
-            
-      } @else {
-    
-        $trigger-width-em: $trigger-width-px / $pprem * 1em;
-    
-        @if $name < 0 {        
-          @media screen and (max-width: $trigger-width-em) {
-            $mq-min-px: undefined;
-            $mq-max-px: $trigger-width-px;
-            @content;
-          }
-        } @else if $name > 0 {
-          @media screen and (min-width: $trigger-width-em) {
-            $mq-min-px: $trigger-width-px;
-            $mq-max-px: undefined;
-            @content;
-          }
-        }
-      }
-    }
-  }
-
-
-  @include responsify() {
-  
-    $width-msg: undefined;  
-
-    @if      $mq-min-px == undefined { $width-msg: "width < #{$mq-max-px / $body-ppgd}" }
-    @else if $mq-max-px == undefined { $width-msg: "#{$mq-min-px / $body-ppgd} < width" }
-    @else                            { $width-msg: "#{$mq-min-px / $body-ppgd} < width < #{$mq-max-px / $body-ppgd}" }
-
-    @include debug-msg("#{$width-msg}: #{$body-ppem}/#{$body-ppgd}(#{round-two-decimals($body-ppgd / $body-ppem)})");
-  }
-
-}
-
-.stripe {
-
-  $color-a: $transparent;
-  $color-b: $red; // rgba($red, 0.8);
+.type-comparison {
+  $font-family: tsn4n;
   
   position: relative;
-  color: $color-a;  
-  &::selection { background: $color-a; color: $color-b; }
-  &::-moz-selection { background: $color-a; color: $color-b; }
-  
-  &:after {
-    color: $color-b;
-        
-    display: block;
-    pointer-events: none;
-    content: attr(data-content);
-    @extend %pan7n-stripe;
+
+  .custom {
+    color: rgba(#f33, 0.5);
+    @extend %#{$font-family};
+  }
+
+  .installed {
+    color: rgba(#33f, 0.5);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    overflow: hidden;    
+    font-family: type-name-get-font-family-fallback($font-family);
+  }
+}
+
+.stripe {
+  .s {
+    position: relative;
+    @include inline-block;
+    @include text-shadow(
+      $blue-ddd -1px -1px,
+      $blue-ddd  1px -1px,
+      $blue-ddd -1px  1px,
+      $blue-ddd  1px  1px);
+  
+    color: $red-d;
+    ::moz-selection { color: $red-ll; }
+    ::selection { color: $red-ll; }
+  
+    &:after, .data-content {
+      color: $red-l;
+      @include text-shadow($red-lll 1px -1px, $red-ddd 1px 1px);
+        
+      @extend %pan7n-stripe;
+    
+      display: block;
+      pointer-events: none;
+      content: attr(data-content);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height:  100%;
+      width: 100%;
+      overflow: hidden;    
+    }
   }
 }
 
 // #{elements-of-type(inline)} { line-height: 1; }
 
-a {
-  color: saturate($blue, 10%);
-  @extend %tsn4n-underline;
-  text-decoration: none;
+.caps, abbr[title] {
+  @extend %tsn4n-smcp;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  font-size: 1.05em;
 }
-
-abbr[title] { border-bottom: 1px dotted; }
 
 b, strong { font-weight: bold; }
 
@@ -176,14 +72,8 @@ sub, sup {
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-mark {
-  //  Addresses styling not present in IE6/7/8/9
-  background: #ff0;
-  color: #000;
-}
-
 pre, code, kbd, samp {
-  // Corrects font family set oddly in IE6, S4/5, Chrome - en.wikipedia.org/wiki/User:Davidgothberg/Test59
+  //* Corrects font family set oddly in IE6, S4/5, Chrome - en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
   font-family: tmn4n, monospace, serif;
   _font-family: tmn4n, 'courier new', monospace;
   font-size: 1em;
@@ -196,24 +86,15 @@ pre {
   word-wrap: break-word;
 }
 
-q {
-  quotes: none;
-  &:before, &:after {
-    content: '';
-    /* @alternate */  content: none;
-  }
-}
-
 a {
-  @include link-colors(/* normal  */ lighten($black, 35%),
-                        /* hover   */ lighten($black, 45%),
-                        /* active  */ lighten($black, 45%),
-                        /* visited */ lighten($black, 25%),
-                        /* focus   */ lighten($black, 35%));
-}
-
-#container {
-  position: relative;
+  @include link-colors(/* normal  */ $blue-d,
+                       /* hover   */ $blue,
+                       /* active  */ $blue,
+                       /* visited */ $blue-dd,
+                       /* focus   */ $red);
+  
+  @extend %tsn4n-underline;
+  text-decoration: none;
 }
 
 #{headings()} {

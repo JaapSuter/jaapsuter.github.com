@@ -1,0 +1,24 @@
+<div id='main'>
+  <article>
+    <h1 class='margin-bottom-1el'>
+      {% if page.title_mark_up %}
+      {{ page.title_mark_up }}
+      {% else %}
+      <span class='type-l'>{{ page.title }}</span>
+      {% endif %}
+    </h1>
+    <aside>
+      &copy;&nbsp;
+      <time datetime='{{ page.date | date_to_xmlschema }}' pubdate><span class='month'>{{ page.date | date: "%B" }}&nbsp;</span><span class='year'>{{ page.date | date: "%Y" }}</span>
+      </time>
+      <a class='fn n uid url' href='http://www.jaapsuter.com' rel='me' title='Jaap Suter'>
+        <span class='given-name'>Jaap</span>
+        <span class='family-name'>Suter</span>
+      </a>
+    </aside>
+    <div id='content'>
+      {{ content }}
+    </div>
+  </article>
+  {% include zone/footer.html %}
+</div>

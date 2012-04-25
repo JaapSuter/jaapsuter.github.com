@@ -240,8 +240,8 @@ exports.getMetrics = getMetrics = (families) =>
 
   families = fallbacks.concat families
   families = (family for family in families when family.indexOf('inv') < 0)
-  families = ["tsn4n"]
-  easel = new Easel minFontSize: 23, maxFontSize: 25
+  
+  easel = new Easel minFontSize: 8, maxFontSize: 213
   await easel.getMetrics families, defer(ok, metrics)
   if ok
     data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4
