@@ -36,7 +36,8 @@
     if (top !== window) return;
     keys.on('b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
-    keys.on('d', diagnose);
+    keys.on('shift+d', diagnose);
+    keys.on('shift+c', dom.verifyCss);
     return repeated_diagnose = function() {
       var every_num_ms;
       every_num_ms = 300;

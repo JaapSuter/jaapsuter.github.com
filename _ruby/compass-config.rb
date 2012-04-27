@@ -35,7 +35,7 @@ on_stylesheet_error do |filename, message|
   Jaap::Compile.error filename, message
 end
 
-if false and not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, February 2012: ugly ugly ugly, last minute hack
+if true and not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap Suter, February 2012: ugly ugly ugly, last minute hack
   
   if true
     Jaap::Compile.build_now_then_watch "fonts/*.{ttf,otf}", self do |ttf_or_otf|

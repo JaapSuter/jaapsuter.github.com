@@ -31,21 +31,26 @@
   }
 }
 
-@mixin responsive-diet {  
+@mixin responsive-diet { 
+  @debug "diet _all";
   $call: responsive-capture(_all);
   @media _all { @content; }
 
   @each $property in get_responsive_properties() {
-    @if $property != '_all' and $property != '_default' {
+    @if $property != '_all' and $property != '_default' {  
   
+      @debug "diet _default";
       $call: responsive-capture(_default);
       @media _default { @content; }
 
       @each $value in get-responsive-values($property) {
-          
+        
+        @debug "diet #{$property}: #{$value}";          
         $call: responsive-capture($property, $value);
-        @media ($property: $value) { @content; }
+        @media screen and ($property: $value) { @content; }
       }
     }
   }
+
+  @debug "diet done";
 }

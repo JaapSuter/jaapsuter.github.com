@@ -1,33 +1,34 @@
 require 'sass'
 require 'facets/module/attr_class_accessor'
+require_relative '../monkey/enumerable'
 
 module Jaap
   module SassExt
 
     def responsive_capture(*args)
-      self.responsive_property = property = unwrap args[0]
+      self.responsive_prop = prop = unwrap args[0]
       self.responsive_value = value = args.length > 1 ? (unwrap args[1]) : nil
 
-      if self.responsive_property == '_all'
+      if self.responsive_prop == '_all'
         self.responsive_conditions.clear
       end
 
-      self.responsive_conditions[property] << value
+      self.responsive_conditions[prop] << value
       
       to_sass true
     end
 
     def responsive(*args)      
 
-      property = unwrap unquote args[0]
+      prop = unwrap unquote args[0]
       value = value = args.length > 1 ? (unwrap args[1]) : nil
 
-      self.responsive_conditions[property] << value
+      self.responsive_conditions[prop] << value
 
-      to_sass case self.responsive_property
+      to_sass case self.responsive_prop
         when '_all' then true
-        when '_default' then property == '_default'
-        when property then value == self.responsive_value
+        when '_default' then prop == '_default'
+        when prop then value == self.responsive_value
         else false
       end
     end
@@ -36,26 +37,26 @@ module Jaap
       to_sass self.responsive_conditions.keys
     end
 
-    def get_responsive_values(property)
-      property = unwrap property
+    def get_responsive_values(prop)
+      prop = unwrap prop
       
-      values = self.responsive_conditions[property]
+      values = self.responsive_conditions[prop]
 
-      min_max_width_em = 0
+      min_max_width_em = 10
       def_mid_width_em = 36
-      max_min_width_em = 108
-      step_width_em = 6
+      max_min_width_em = 63
+      step_width_em = 12
 
-      if property == 'max-width'
+      if prop == 'max-width'
         values += (min_max_width_em..def_mid_width_em).step(step_width_em).map { |value| "#{value}em" }
       end
 
-      if property == 'min-width'
+      if prop == 'min-width'
         values += (def_mid_width_em..max_min_width_em).step(step_width_em).map { |value| "#{value}em" }
       end
 
       values = values.uniq.sort_by { |v| v.to_s.naturalized }      
-      values.reverse! if property == 'max-width'
+      values.reverse! if prop == 'max-width'
 
       to_sass values
     end
@@ -124,52 +125,63 @@ module Jaap
 
       def self.canonify(node)
         ensure_flat_list_of_rules_with_flat_list_of_properties node
-        expand_commas node
-        reorder_and_merge_rules node
+
+        rest, rule_nodes  = node.children.partition { |c| ! c.is_a? Tree::RuleNode }
+
+        expand_comma_sequences! rule_nodes
+        rule_nodes = sort_rules rule_nodes
+        merge_adjacent_rules! rule_nodes
+        rule_nodes.each { |rule_node| rule_node.children = sort_properties rule_node.children }
+
+        node.children = rest + rule_nodes
       end
 
-      def self.expand_commas(node)
+      def self.expand_comma_sequences!(rule_nodes)
         
         # Todo, Jaap Suter, April 2012
         # Slightly modified from sass/lib/sass/css.rb line 118ish (which
         # operates on parsed_rules, whereas here I operate on resolved_rules.
 
-        node.children.map! do |child|          
+        rule_nodes.map! do |rule_node|
 
-          unless child.is_a?(Tree::RuleNode) && child.resolved_rules.members.size > 1
-            expand_commas(child) if child.is_a?(Tree::DirectiveNode)
-            next child
+          raise Sass::SyntaxError.new("expected a rule node, got something else") unless rule_node.is_a?(Tree::RuleNode)
+
+          unless rule_node.resolved_rules.members.size > 1
+            next rule_node
           end
           
-          child.resolved_rules.members.reject { |seq| seq.has_placeholder? }.map do |seq|
-            new_child = Tree::RuleNode.new([])
-            new_child.resolved_rules = new_child.parsed_rules = Selector::CommaSequence.new([seq])
-            new_child.children = child.children
-            new_child.options = child.options
-            new_child
+          rule_node.resolved_rules.members.reject { |seq| seq.has_placeholder? }.map do |seq|
+            new_rule = Tree::RuleNode.new([])
+            new_rule.resolved_rules = new_rule.parsed_rules = Selector::CommaSequence.new([seq])
+            new_rule.children = rule_node.children
+            new_rule.options = rule_node.options
+            new_rule
           end
         end
 
-        node.children.flatten!
+        rule_nodes.flatten!
       end
 
-      def self.reorder_and_merge_rules(node)
-        rule_nodes, rest = node.children.partition { |c| c.is_a? Tree::RuleNode }
-        rule_nodes.sort! do |a, b|
+      def self.sort_rules(rule_nodes)
+        rule_nodes.stable_sort do |a, b|
           if a.resolved_rules.specificity == b.resolved_rules.specificity
             a.resolved_rules.to_s <=> b.resolved_rules.to_s
           else
             a.resolved_rules.specificity <=> b.resolved_rules.specificity
           end
         end
-        
-        rule_nodes = merge_adjacent rule_nodes
-        node.children = rest + rule_nodes
       end
 
-      def self.merge_adjacent(rule_nodes)
+      def self.sort_properties(property_nodes)
+        property_nodes.stable_sort do |a, b|
+          a.resolved_name <=> b.resolved_name
+        end
+      end
+
+      def self.merge_adjacent_rules!(rule_nodes)
+        
         prev = nil
-        rule_nodes = rule_nodes.map do |curr|
+        rule_nodes.map! do |curr|
           if prev && (prev.resolved_rules.to_s == curr.resolved_rules.to_s)
             prev.children += curr.children
             next nil
@@ -179,23 +191,21 @@ module Jaap
           curr
         end
         
-        rule_nodes = rule_nodes.compact
-        rule_nodes
+        rule_nodes.compact!
       end
 
+      def self.insert_specificity_property!(rule_node)
+
+        specificity = rule_node.resolved_rules.specificity
+
+        prop_node = Tree::PropNode.new([""], Sass::Script::String.new(''), :new)
+        prop_node.resolved_name = "-dev-specificity"
+        prop_node.resolved_value = specificity.to_s
+        prop_node.options = rule_node.options
+
+        rule_node << prop_node
+      end
       
-      def self.reorder_rules(node)
-        rule_nodes, rest = node.children.partition { |c| c.is_a? Tree::RuleNode }
-        rule_nodes.sort! do |a, b|
-          if a.resolved_rules.specificity == b.resolved_rules.specificity
-            a.resolved_rules.to_s <=> b.resolved_rules.to_s
-          else
-            a.resolved_rules.specificity <=> b.resolved_rules.specificity
-          end
-        end
-        node.children = rest + rule_nodes
-      end
-
       def self.media_query_expr_as_str(node)
 
         qs = node.query.queries
@@ -323,11 +333,11 @@ module Sass::Script::Functions
 
   class EvaluationContext
     attr_class_accessor :responsive_conditions
-    attr_class_accessor :responsive_property
+    attr_class_accessor :responsive_prop
     attr_class_accessor :responsive_value
 
     self.responsive_conditions = Hash.new { |hash, key| hash[key] = Array.new }
-    self.responsive_property = nil
+    self.responsive_prop = nil
     self.responsive_value = nil
   end
 

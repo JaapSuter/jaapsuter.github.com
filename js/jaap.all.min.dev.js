@@ -550,6 +550,7 @@
   return window.$jaap$.keys
 }());
 (function($global$$5$$, $exports$$5$$) {
+  var $gatherCssSelectors$$, $specificity$$, $__slice$$1$$ = [].slice;
   $exports$$5$$.create = function $$exports$$5$$$create$($tag$$, $innerHTML$$) {
     var $elem$$1$$;
     $elem$$1$$ = document.createElement($tag$$);
@@ -559,6 +560,79 @@
   $exports$$5$$.$toggleClass$ = function $$exports$$5$$$$toggleClass$$() {
     var $e$$9$$ = document.body;
     return 0 <= $e$$9$$.className.indexOf("baseline") ? $e$$9$$.className = $e$$9$$.className.replace(/(?:^|\s)baseline(?!\S)/, "") : $e$$9$$.className += " baseline"
+  };
+  $exports$$5$$.$verifyCss$ = function $$exports$$5$$$$verifyCss$$() {
+    var $elem$$2$$, $matches_sel$$, $matchesSelector$$, $selectors$$8$$, $_i$$6$$, $_len$$4$$, $_ref$$4$$;
+    if($matchesSelector$$ = document.documentElement.matchesSelector || document.documentElement.webkitMatchesSelector || document.documentElement.mozMatchesSelector || document.documentElement.$oMatchesSelector$ || document.documentElement.msMatchesSelector) {
+      $selectors$$8$$ = $gatherCssSelectors$$.apply($JSCompiler_alias_NULL$$, document.styleSheets);
+      $_ref$$4$$ = document.querySelectorAll("*");
+      $_i$$6$$ = 0;
+      for($_len$$4$$ = $_ref$$4$$.length;$_i$$6$$ < $_len$$4$$;$_i$$6$$++) {
+        $elem$$2$$ = $_ref$$4$$[$_i$$6$$];
+        for(var $_j$$inline_2$$ = $JSCompiler_alias_VOID$$, $_len2$$inline_3$$ = $JSCompiler_alias_VOID$$, $_results$$inline_4$$ = $JSCompiler_alias_VOID$$, $_results$$inline_4$$ = [], $_j$$inline_2$$ = 0, $_len2$$inline_3$$ = $selectors$$8$$.length;$_j$$inline_2$$ < $_len2$$inline_3$$;$_j$$inline_2$$++) {
+          $matches_sel$$ = $selectors$$8$$[$_j$$inline_2$$], $matchesSelector$$.call($elem$$2$$, $matches_sel$$) && $_results$$inline_4$$.push($matches_sel$$)
+        }
+        $matches_sel$$ = $_results$$inline_4$$;
+        2 < $matches_sel$$.length && console.log("" + $elem$$2$$ + ":\n   " + $matches_sel$$.join("\n"))
+      }
+    }
+  };
+  $gatherCssSelectors$$ = function $$gatherCssSelectors$$$() {
+    var $rule$$2$$, $sheet$$, $sheets$$, $_ref$$5$$;
+    $sheets$$ = 1 <= arguments.length ? $__slice$$1$$.call(arguments, 0) : [];
+    return($_ref$$5$$ = []).concat.apply($_ref$$5$$, function() {
+      var $_i$$7$$, $_len$$5$$, $_ref$$6$$, $_results$$7$$;
+      $_results$$7$$ = [];
+      $_i$$7$$ = 0;
+      for($_len$$5$$ = $sheets$$.length;$_i$$7$$ < $_len$$5$$;$_i$$7$$++) {
+        $sheet$$ = $sheets$$[$_i$$7$$], $_results$$7$$.push(($_ref$$6$$ = []).concat.apply($_ref$$6$$, function() {
+          var $_j$$1$$, $_len2$$1$$, $_ref$$7$$, $_results2$$;
+          $_ref$$7$$ = $sheet$$.cssRules;
+          $_results2$$ = [];
+          $_j$$1$$ = 0;
+          for($_len2$$1$$ = $_ref$$7$$.length;$_j$$1$$ < $_len2$$1$$;$_j$$1$$++) {
+            $rule$$2$$ = $_ref$$7$$[$_j$$1$$], 1 === $rule$$2$$.type && $_results2$$.push($rule$$2$$.selectorText.split(","))
+          }
+          return $_results2$$
+        }()))
+      }
+      return $_results$$7$$
+    }())
+  };
+  $specificity$$ = function $$specificity$$$($elems_s$$2$$) {
+    for(var $_ref$$8_classes$$, $ids$$, $_ref2$$5$$, $_ref3$$3$$, $elems_s$$2$$ = $elems_s$$2$$.replace("*", ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/"[^"]*"/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/'[^"]*'/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/\[[^\]]*\]/g, "[]"), $elems_s$$2$$ = $elems_s$$2$$.replace(/[>+~]/g, " ");0 <= $elems_s$$2$$.indexOf("(");) {
+      $elems_s$$2$$ = $elems_s$$2$$.replace(/\([^\)]*?\)/, "")
+    }
+    $elems_s$$2$$ = $elems_s$$2$$.replace(/:(first-child|last-child|link|visited|hover|active|focus|lang)/g, ".pseudo-class");
+    $elems_s$$2$$ = $elems_s$$2$$.replace(/::?[\w-]+/g, " pseudo-elem");
+    $ids$$ = (($_ref$$8_classes$$ = $elems_s$$2$$.match(/#[\w-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref$$8_classes$$.length : $JSCompiler_alias_VOID$$) || 0;
+    $_ref$$8_classes$$ = (($_ref2$$5$$ = $elems_s$$2$$.match(/\.[\w-]+|\[\]/g)) != $JSCompiler_alias_NULL$$ ? $_ref2$$5$$.length : $JSCompiler_alias_VOID$$) || 0;
+    $elems_s$$2$$ = (($_ref3$$3$$ = $elems_s$$2$$.match(/(^|\s)[\w_-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref3$$3$$.length : $JSCompiler_alias_VOID$$) || 0;
+    return 1E6 * $ids$$ + 1E3 * $_ref$$8_classes$$ + $elems_s$$2$$
+  };
+  window.$tcs$ = function $window$$tcs$$() {
+    var $test$$;
+    $test$$ = function $$test$$$($s$$3$$, $e$$11$$) {
+      if($e$$11$$ !== $specificity$$($s$$3$$)) {
+        debugger
+      }
+    };
+    $test$$("*", 0);
+    $test$$("li", 1);
+    $test$$("li:first-line", 2);
+    $test$$("ul li", 2);
+    $test$$("ul ol+li", 3);
+    $test$$("h1 + *[rel=up]", 1001);
+    $test$$("ul ol li.red", 1003);
+    $test$$("li.red.level", 2001);
+    $test$$("body::before", 2);
+    $test$$("div p", 2);
+    $test$$(".sith", 1E3);
+    $test$$("div p.sith", 1002);
+    $test$$("##sith", 1E6);
+    $test$$("body ##darkside .sith p", 1001002);
+    $test$$("p:has( a[href] )", 2);
+    return $test$$("body##top:lang(fr-ca) div.alert", 1002002)
   }
 }).call($JSCompiler_alias_VOID$$, window, function() {
   var $_base$$4$$;
@@ -568,12 +642,12 @@
   }
   return window.$jaap$.$dom$
 }());
-(function($_ref$$4_global$$6$$) {
-  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$4_global$$6$$ = $_ref$$4_global$$6$$.$jaap$;
-  $util$$1$$ = $_ref$$4_global$$6$$.$util$;
-  $dom$$1$$ = $_ref$$4_global$$6$$.$dom$;
-  $keys$$1$$ = $_ref$$4_global$$6$$.keys;
-  $font$$ = $_ref$$4_global$$6$$.font;
+(function($_ref$$9_global$$6$$) {
+  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$9_global$$6$$ = $_ref$$9_global$$6$$.$jaap$;
+  $util$$1$$ = $_ref$$9_global$$6$$.$util$;
+  $dom$$1$$ = $_ref$$9_global$$6$$.$dom$;
+  $keys$$1$$ = $_ref$$9_global$$6$$.keys;
+  $font$$ = $_ref$$9_global$$6$$.font;
   $toggleBaseline$$ = function $$toggleBaseline$$$() {
     return $dom$$1$$.$toggleClass$()
   };
@@ -582,20 +656,20 @@
     $body$$1$$ = document.body;
     $ppgd$$ = parseFloat(window.getComputedStyle($body$$1$$).lineHeight);
     $get$$ = function $$get$$$($name$$54$$) {
-      var $elem$$2_height$$9$$, $ppem$$, $pplh_style$$;
+      var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$;
       $pplh_style$$ = {fontSize:"0", lineHeight:"0"};
-      ($elem$$2_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$ = window.getComputedStyle($elem$$2_height$$9$$));
+      ($elem$$3_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$ = window.getComputedStyle($elem$$3_height$$9$$));
       $ppem$$ = parseFloat($pplh_style$$.fontSize);
       $pplh_style$$ = parseFloat($pplh_style$$.lineHeight);
-      $elem$$2_height$$9$$ = $elem$$2_height$$9$$.getBoundingClientRect().height;
-      return"" + $ppem$$ + "/" + $pplh_style$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$2_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$2_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
+      $elem$$3_height$$9$$ = $elem$$3_height$$9$$.getBoundingClientRect().height;
+      return"" + $ppem$$ + "/" + $pplh_style$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
     };
     return document.querySelector("#dimensions").innerHTML = "" + $get$$("html") + "\n" + $get$$("body") + "\n" + $get$$("p") + "\n" + $get$$("h1") + "\n" + $get$$("h2") + "\n" + $get$$("h3") + "\n" + $get$$(".small") + "\nviewport: " + window.innerWidth + "\u00d7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + $body$$1$$.offsetWidth + "\u00d7" + $body$$1$$.offsetWidth
   };
   (function() {
     var $repeated_diagnose$$;
     if(top === window) {
-      return $keys$$1$$.$on$("b", $toggleBaseline$$), $keys$$1$$.$on$("shift+t", $font$$.$getMetrics$), $keys$$1$$.$on$("d", $diagnose$$), $repeated_diagnose$$ = function $$repeated_diagnose$$$() {
+      return $keys$$1$$.$on$("b", $toggleBaseline$$), $keys$$1$$.$on$("shift+t", $font$$.$getMetrics$), $keys$$1$$.$on$("shift+d", $diagnose$$), $keys$$1$$.$on$("shift+c", $dom$$1$$.$verifyCss$), $repeated_diagnose$$ = function $$repeated_diagnose$$$() {
         $diagnose$$();
         return $util$$1$$.$delay$(300, $repeated_diagnose$$)
       }

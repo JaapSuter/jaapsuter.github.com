@@ -142,6 +142,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "typogruby-fork", "typogruby
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monkey", "monkey", "{9D15AB5C-F3B5-4361-AD26-99F8FA3F9210}"
 	ProjectSection(SolutionItems) = preProject
+		..\_ruby\monkey\enumerable.rb = ..\_ruby\monkey\enumerable.rb
 		..\_ruby\monkey\hash.rb = ..\_ruby\monkey\hash.rb
 		..\_ruby\monkey\numeric.rb = ..\_ruby\monkey\numeric.rb
 		..\_ruby\monkey\string.rb = ..\_ruby\monkey\string.rb

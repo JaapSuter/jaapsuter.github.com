@@ -1,5 +1,5 @@
 
-.type-comparison {
+%type-comparison {
   $font-family: tsn4n;
   
   position: relative;
@@ -18,7 +18,7 @@
   }
 }
 
-.stripe {
+%stripe {
   .s {
     position: relative;
     @include inline-block;
@@ -51,13 +51,12 @@
   }
 }
 
-// #{elements-of-type(inline)} { line-height: 1; }
-
 .caps, abbr[title] {
   @extend %tsn4n-smcp;
   text-transform: lowercase;
   letter-spacing: 0.1em;
   font-size: 1.05em;
+  line-height:  1em;
 }
 
 b, strong { font-weight: bold; }

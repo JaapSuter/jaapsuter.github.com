@@ -24,6 +24,8 @@ html {
   text-rendering: optimizelegibility;
 }
 
+@if false {
+  
 ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
 ::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
   
@@ -34,7 +36,10 @@ p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
+  -epub-hyphens: auto;
   hyphens: auto;
+}
+
 }
 
 @include responsive-diet {
@@ -68,10 +73,12 @@ p {
   p { @include units(margin-top, 1el); }
 
   p + p {
-    text-indent: 2em;
+    // text-indent: 2em;
+    @include units(text-indent, 1el);
     margin-top: 0;  
   }
 
+  /*
   .type-m { @include change-type(pan7n, cap, 1el) {} }
   .type-l { @include change-type(pan7n, cap, 2el) {} }
   .type-xl { @include change-type(pan7n, ex, 2el) {} }
@@ -82,11 +89,18 @@ p {
     @include units(margin-bottom, 1el);
   }
   
-  #main h1 {
+  */
+  
+  h1 {
     color: $blue-l;
     @include stroke-using-four-shadows($blue-d);
+    @include change-type(pan4n, cap, 2el) {
+      @include units(margin-bottom, 1el);
+    }
   }
   
+  /*
+    
   h2 {
     @include change-type(pan7n, ex, 1el) {
       color: $red-d;
@@ -116,17 +130,19 @@ p {
     color: $blue-dd;  
     @include units(margin, 1el 0);
     @include units(padding-left, 1em);
-  }
-
+  }    
+  */
+  
   @if in-development-mode() {
     .baseline {
       @include background-image-baseline-grid();
     }
   }
-
+  
   @include debug-msg-install();
 }
 
+/*
 #colorize {
   li { list-style: none; display: block; }
 }
@@ -147,3 +163,4 @@ p {
 .blue-l      { color: $black; background-color: $blue-l  ;}
 .blue-ll     { color: $black; background-color: $blue-ll ;}
 .blue-lll    { color: $black; background-color: $blue-lll;}
+*/

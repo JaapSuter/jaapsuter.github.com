@@ -917,7 +917,9 @@
 
 (function(global, exports) {
   "use strict";    
-  
+    var gatherCssSelectors, specificity, testSpecificity,
+    __slice = [].slice;
+
   exports.create = function(tag, innerHTML) {
     var elem;
     elem = document.createElement(tag);
@@ -932,6 +934,107 @@
       return e.className += " " + n;
     }
   };
+
+  exports.verifyCss = function() {
+    var elem, matches, matchesSelector, sel, selectors, _i, _len, _ref;
+    matchesSelector = (function(e) {
+      return e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.oMatchesSelector || e.msMatchesSelector;
+    })(document.documentElement);
+    if (!matchesSelector) return;
+    selectors = gatherCssSelectors.apply(null, document.styleSheets);
+    _ref = document.querySelectorAll('*');
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      elem = _ref[_i];
+      matches = (function() {
+        var _j, _len2, _results;
+        _results = [];
+        for (_j = 0, _len2 = selectors.length; _j < _len2; _j++) {
+          sel = selectors[_j];
+          if (matchesSelector.call(elem, sel)) _results.push(sel);
+        }
+        return _results;
+      })();
+      if (matches.length > 2) {
+        console.log("" + elem + ":\n   " + (matches.join('\n')));
+      }
+    }
+  };
+
+  gatherCssSelectors = function() {
+    var CHARSET_RULE, FONT_FACE_RULE, IMPORT_RULE, MEDIA_RULE, PAGE_RULE, STYLE_RULE, UNKNOWN_RULE, rule, sheet, sheets, _ref;
+    sheets = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+    UNKNOWN_RULE = 0;
+    STYLE_RULE = 1;
+    CHARSET_RULE = 2;
+    IMPORT_RULE = 3;
+    MEDIA_RULE = 4;
+    FONT_FACE_RULE = 5;
+    PAGE_RULE = 6;
+    return (_ref = []).concat.apply(_ref, (function() {
+      var _i, _len, _ref, _results;
+      _results = [];
+      for (_i = 0, _len = sheets.length; _i < _len; _i++) {
+        sheet = sheets[_i];
+        _results.push((_ref = []).concat.apply(_ref, (function() {
+          var _j, _len2, _ref, _results2;
+          _ref = sheet.cssRules;
+          _results2 = [];
+          for (_j = 0, _len2 = _ref.length; _j < _len2; _j++) {
+            rule = _ref[_j];
+            if (rule.type === STYLE_RULE) {
+              _results2.push(rule.selectorText.split(','));
+            }
+          }
+          return _results2;
+        })()));
+      }
+      return _results;
+    })());
+  };
+
+  specificity = function(s) {
+    var classes, elems, ids, sufficient_base, _ref, _ref2, _ref3;
+    s = s.replace('*', '');
+    s = s.replace(/"[^"]*"/g, '');
+    s = s.replace(/'[^"]*'/g, '');
+    s = s.replace(/\[[^\]]*\]/g, '[]');
+    s = s.replace(/[>+~]/g, ' ');
+    while (0 <= s.indexOf('(')) {
+      s = s.replace(/\([^\)]*?\)/, '');
+    }
+    s = s.replace(/:(first-child|last-child|link|visited|hover|active|focus|lang)/g, '.pseudo-class');
+    s = s.replace(/::?[\w-]+/g, ' pseudo-elem');
+    ids = ((_ref = s.match(/#[\w-]+/g)) != null ? _ref.length : void 0) || 0;
+    classes = ((_ref2 = s.match(/\.[\w-]+|\[\]/g)) != null ? _ref2.length : void 0) || 0;
+    elems = ((_ref3 = s.match(/(^|\s)[\w_-]+/g)) != null ? _ref3.length : void 0) || 0;
+    sufficient_base = 1000;
+    return ids * sufficient_base * sufficient_base + classes * sufficient_base + elems;
+  };
+
+  testSpecificity = function() {
+    var test;
+    test = function(s, e) {
+      if (e !== specificity(s)) debugger;
+    };
+    test("*", 0);
+    test("li", 1);
+    test("li:first-line", 2);
+    test("ul li", 2);
+    test("ul ol+li", 3);
+    test("h1 + *[rel=up]", 1001);
+    test("ul ol li.red", 1003);
+    test("li.red.level", 2001);
+    test("body::before", 2);
+    test("div p", 2);
+    test(".sith", 1000);
+    test("div p.sith", 1002);
+    test("##sith", 1000000);
+    test("body ##darkside .sith p", 1001002);
+    test("p:has( a[href] )", 2);
+    return test("body##top:lang(fr-ca) div.alert", 1002002);
+  };
+
+  window.tcs = testSpecificity;
 
 }).call(undefined, window, (function() {
   var _base;
@@ -977,7 +1080,8 @@
     if (top !== window) return;
     keys.on('b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
-    keys.on('d', diagnose);
+    keys.on('shift+d', diagnose);
+    keys.on('shift+c', dom.verifyCss);
     return repeated_diagnose = function() {
       var every_num_ms;
       every_num_ms = 300;

@@ -40,7 +40,8 @@ entryPoint = ->
   
   keys.on 'b', toggleBaseline
   keys.on 'shift+t', font.getMetrics
-  keys.on 'd', diagnose
+  keys.on 'shift+d', diagnose
+  keys.on 'shift+c', dom.verifyCss
 
   repeated_diagnose = () ->
     every_num_ms = 300  
