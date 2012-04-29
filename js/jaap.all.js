@@ -917,7 +917,8 @@
 
 (function(global, exports) {
   "use strict";    
-    var gatherCss, specificity, testSpecificity,
+    var gatherCss, specificity, testSpecificity, _crawl,
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
     __slice = [].slice;
 
@@ -936,18 +937,60 @@
     }
   };
 
+  window.testCrawl = function() {
+    return jaap.dom.crawl(function(doc) {
+      return console.log(doc.location.href);
+    });
+  };
+
+  exports.crawl = function(fun) {
+    return _crawl(fun, document, [document.location.href.replace(/#.*/, '')]);
+  };
+
+  _crawl = function(fun, doc, visited, visits, iframe) {
+    var a, href, _i, _len, _ref;
+    if (visits == null) visits = [];
+    if (iframe == null) iframe = null;
+    fun(doc);
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe["class"] = 'no-hidden';
+      document.body.insertBefore(iframe, document.body.firstChild);
+    }
+    _ref = document.querySelectorAll('a');
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      a = _ref[_i];
+      href = a.href.replace(/#.*/, '');
+      if (!(__indexOf.call(visits, href) >= 0 || __indexOf.call(visited, href) >= 0 || href.match(/\.[^.]{0,5}/) || a.host !== document.location.host)) {
+        visits.push(href);
+      }
+    }
+    if (visits.length) {
+      href = visits.pop();
+      visited.push(href);
+      iframe.onload = function() {
+        return _crawl(fun, iframe.contentDocument, visited, visits, iframe);
+      };
+      return iframe.setAttribute('src', href);
+    } else {
+      return iframe.parentNode.removeChild(iframe);
+    }
+  };
+
   exports.verifyCss = function() {
-    var css, decl, elem, elemName, match, matches, matchesSelector, prop, sel, sels, specificity, tag, usedElems, val, _i, _j, _len, _len2, _ref, _ref2;
+    var className, css, decl, elem, elementsWithoutStyling, fullName, hasAtLeastOneStyledPropertyNotFromUniversal, idName, matches, matchesSelector, prop, sel, sels, specificity, tagName, usedElems, val, _i, _len, _ref, _ref2;
     matchesSelector = (function(e) {
       return e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.oMatchesSelector || e.msMatchesSelector;
     })(document.documentElement);
     if (!matchesSelector) return;
+    elementsWithoutStyling = ['head', 'title', 'link', 'meta', 'script', 'style', 'header', 'figure', 'figcaption', 'hgroup', 'nav', 'footer', 'summary', 'details', 'article', 'section', 'aside'];
     usedElems = {};
     css = gatherCss.apply(null, document.styleSheets);
     _ref = document.querySelectorAll('*');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       elem = _ref[_i];
-      tag = elem.nodeName.toLowerCase();
+      tagName = elem.nodeName.toLowerCase();
+      hasAtLeastOneStyledPropertyNotFromUniversal = false;
       _ref2 = css.properties;
       for (prop in _ref2) {
         if (!__hasProp.call(_ref2, prop)) continue;
@@ -960,22 +1003,27 @@
           specificity = css.selectors[sel];
           decl = "" + sel + " { " + prop + ": " + val + "; }";
           if (matches[specificity]) {
-            console.log("Error, element " + tag + " declares property " + prop + " more than once at same specificity:\n  Before: " + matches[specificity] + "\n  Now:    " + decl);
+            console.log("Error, element " + tagName + " declares property " + prop + " more than once at same specificity:\n  Before: " + matches[specificity] + "\n  Now:    " + decl);
           } else {
+            hasAtLeastOneStyledPropertyNotFromUniversal = sel !== '*';
             matches[specificity] = decl;
           }
         }
       }
-      elemName = elem.nodeName.toLowerCase();
-      if (usedElems[elemName] == null) usedElems[elemName] = {};
-      for (_j = 0, _len2 = matches.length; _j < _len2; _j++) {
-        match = matches[_j];
-        usedElems[elemName][match] = '';
-      }
-      if (matches.length > 2) {
-        console.log("" + elem + ":\n   " + (matches.join('\n')));
+      idName = elem.id ? '#' + elem.id : '';
+      className = elem.className ? '.' + elem.className.split(' ').join('.') : '';
+      fullName = "" + tagName + idName + className;
+      if (!hasAtLeastOneStyledPropertyNotFromUniversal) {
+        if (__indexOf.call(elementsWithoutStyling, tagName) < 0) {
+          console.log("Error, '" + fullName + "' only styling comes from the universal selector - likely an error.");
+        }
+      } else {
+        if (__indexOf.call(elementsWithoutStyling, tagName) >= 0) {
+          console.log("Error, '" + fullName + "' has unexpected styling applied beyond the universal selector - likely an error.");
+        }
       }
     }
+    console.log("Done verifying CSS.");
   };
 
   gatherCss = function() {

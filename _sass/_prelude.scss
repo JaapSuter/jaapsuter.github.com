@@ -41,7 +41,7 @@ $body-font-family:    tsn4n;
 $serif-fallback:           Georgia, serif;
 $sans-fallback:            Verdana, sans-serif;
 $sans-condensed-fallback:  Arial, sans-serif;
-$mono-fallback:            Courier New, monospace;
+$mono-fallback:            Courier New, monospace, serif;
 
 @unless $type-fallback-common-web-safe-only {
   $serif-fallback:           DejaVu Serif,           Bitstream Vera Serif,     $serif-fallback;

@@ -9,6 +9,38 @@ exports.toggleClass = (e, n) ->
   else
     e.className += " #{n}"
 
+window.testCrawl = ->
+  jaap.dom.crawl (doc) ->
+    console.log doc.location.href
+
+exports.crawl = (fun) ->
+  _crawl fun, document, [document.location.href.replace /#.*/, '']
+
+_crawl = (fun, doc, visited, visits = [], iframe = null) ->
+
+  fun doc
+  
+  if not iframe
+    iframe = document.createElement 'iframe'
+    iframe.class = 'no-hidden'
+    document.body.insertBefore iframe, document.body.firstChild  
+
+  for a in document.querySelectorAll 'a'
+    href = a.href.replace /#.*/, ''
+    visits.push href unless href in visits or
+                            href in visited or                            
+                            href.match(/\.[^.]{0,5}/) or # ignore links that non-html (such as pdf, xml, etc.) - not quite bulletproof, but hey..
+                            a.host != document.location.host # ignore externals links
+
+  if visits.length
+    href = visits.pop()
+    visited.push href  
+    iframe.onload = () -> 
+      _crawl fun, iframe.contentDocument, visited, visits, iframe
+    iframe.setAttribute 'src', href
+  else
+    iframe.parentNode.removeChild iframe
+
 exports.verifyCss = ->
   
   matchesSelector = do (e = document.documentElement) ->
@@ -16,12 +48,33 @@ exports.verifyCss = ->
 
   return if not matchesSelector
 
+  elementsWithoutStyling = [
+    'head'
+    'title'
+    'link'
+    'meta'
+    'script'
+    'style'
+    'header'
+    'figure'
+    'figcaption'
+    'hgroup'
+    'nav'
+    'footer'
+    'summary'
+    'details'
+    'article'
+    'section'
+    'aside'
+  ]
+
   usedElems  = {}
 
   css = gatherCss document.styleSheets...  
 
   for elem in document.querySelectorAll '*'
-    tag = elem.nodeName.toLowerCase()
+    tagName = elem.nodeName.toLowerCase()
+    hasAtLeastOneStyledPropertyNotFromUniversal = false
     for own prop, sels of css.properties
       matches = {}
       for own sel, val of sels when matchesSelector.call elem, sel
@@ -29,18 +82,27 @@ exports.verifyCss = ->
         decl = "#{sel} { #{prop}: #{val}; }"
         if matches[specificity]
           console.log """
-              Error, element #{tag} declares property #{prop} more than once at same specificity:
+              Error, element #{tagName} declares property #{prop} more than once at same specificity:
                 Before: #{matches[specificity]}
                 Now:    #{decl}
             """
         else
+          hasAtLeastOneStyledPropertyNotFromUniversal = sel != '*'
           matches[specificity] = decl
+      
+    idName = if elem.id then '#' + elem.id else ''
+    className = if elem.className then '.' + elem.className.split(' ').join('.') else ''        
+    fullName = "#{tagName}#{idName}#{className}"
+
+    if not hasAtLeastOneStyledPropertyNotFromUniversal
+      if tagName not in elementsWithoutStyling
+        console.log "Error, '#{fullName}' only styling comes from the universal selector - likely an error."
+    else
+      if tagName in elementsWithoutStyling
+        console.log "Error, '#{fullName}' has unexpected styling applied beyond the universal selector - likely an error."
         
-    elemName = elem.nodeName.toLowerCase()
-    usedElems[elemName] ?= {}
-    usedElems[elemName][match] = '' for match in matches    
-    if matches.length > 2
-      console.log "#{elem}:\n   #{matches.join '\n'}"
+
+  console.log "Done verifying CSS."
 
   return
 
@@ -126,4 +188,4 @@ testSpecificity = ->
   test "p:has( a[href] )", 2
   test "body##top:lang(fr-ca) div.alert", 1002002
 
-window.tcs = testSpecificity 
+window.tcs = testSpecificity

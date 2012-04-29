@@ -50,7 +50,7 @@
     @include background-image(make_svg_baseline_grid($body-font-family, $pp-em, $pp-el));
 
     @each $values in units(1el 1el) {
-      @include background-size($values);
+      background-size: $values;
     }
   
   } @else {
@@ -60,7 +60,7 @@
   
     @include background-image(linear-gradient($c0 0, $c0 50%, $c1 50%, $c1 100%));
     @each $values in units(100% 2el) {
-      @include background-size($values);
+      background-size: $values;
     }
 
     @include units(background-position, (0 $pp-bo));

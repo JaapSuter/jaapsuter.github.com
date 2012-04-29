@@ -50,33 +50,20 @@
     }
   }
 }
+  
+h1, h2, h3 { clear: both; }
 
 .caps, abbr[title] {
   @extend %tsn4n-smcp;
   text-transform: lowercase;
   letter-spacing: 0.1em;
   font-size: 1.05em;
-  line-height:  1em;
 }
-
-b, strong { font-weight: bold; }
-
-sub, sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
 
 pre, code, kbd, samp {
-  //* Corrects font family set oddly in IE6, S4/5, Chrome - en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
-  font-family: tmn4n, monospace, serif;
-  _font-family: tmn4n, 'courier new', monospace;
+  // @extend %tmn4n;
+  font-family: tmn4n, $mono-fallback;
   font-size: 1em;
-  line-height: 1;
 }
 
 pre {
@@ -84,6 +71,10 @@ pre {
   /* @alternate */  white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+
+i, cite, em, var { @extend %tsi4n; }
+strong, b { @extend %tsn7n; }
 
 a {
   @include link-colors(/* normal  */ $blue-d,
@@ -96,12 +87,6 @@ a {
   text-decoration: none;
 }
 
-#{headings()} {
-  clear: both;
-}
-
-i, cite, em, var { @extend %tsi4n; line-height: 1; }
-strong, b { @extend %tsn7n; line-height: 1; }
 
 @if false {
  

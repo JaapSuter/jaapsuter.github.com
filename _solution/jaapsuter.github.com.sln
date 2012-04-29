@@ -55,9 +55,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zone", "zone", "{C4A66924-C309-4A4B-B937-D6994ED2B6D6}"
 	ProjectSection(SolutionItems) = preProject
 		..\_includes\zone\archive.html.haml = ..\_includes\zone\archive.html.haml
+		..\_includes\zone\article.html.haml = ..\_includes\zone\article.html.haml
 		..\_includes\zone\footer.html.haml = ..\_includes\zone\footer.html.haml
 		..\_includes\zone\header.html.haml = ..\_includes\zone\header.html.haml
-		..\_includes\zone\main.html.haml = ..\_includes\zone\main.html.haml
 		..\_includes\zone\menu.html.haml = ..\_includes\zone\menu.html.haml
 	EndProjectSection
 EndProject
@@ -92,7 +92,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9D
 		..\_site\css\head.css = ..\_site\css\head.css
 		..\_site\css\head.min.css = ..\_site\css\head.min.css
 		..\_site\css\normalize.dev.css = ..\_site\css\normalize.dev.css
-		..\_site\css\old-site-head.dev.css = ..\_site\css\old-site-head.dev.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab", "lab", "{83DB6C1B-6560-45EB-972A-546386316CC6}"

@@ -550,7 +550,14 @@
   return window.$jaap$.keys
 }());
 (function($global$$5$$, $exports$$5$$) {
-  var $gatherCss$$, $specificity$$, $__hasProp$$1$$ = {}.hasOwnProperty, $__slice$$1$$ = [].slice;
+  var $gatherCss$$, $specificity$$, $_crawl$$, $__indexOf$$2$$ = [].indexOf || function($item$$2$$) {
+    for(var $i$$5$$ = 0, $l$$2$$ = this.length;$i$$5$$ < $l$$2$$;$i$$5$$++) {
+      if($i$$5$$ in this && this[$i$$5$$] === $item$$2$$) {
+        return $i$$5$$
+      }
+    }
+    return-1
+  }, $__hasProp$$1$$ = {}.hasOwnProperty, $__slice$$1$$ = [].slice;
   $exports$$5$$.create = function $$exports$$5$$$create$($tag$$, $innerHTML$$) {
     var $elem$$1$$;
     $elem$$1$$ = document.createElement($tag$$);
@@ -561,46 +568,68 @@
     var $e$$9$$ = document.body;
     return 0 <= $e$$9$$.className.indexOf("baseline") ? $e$$9$$.className = $e$$9$$.className.replace(/(?:^|\s)baseline(?!\S)/, "") : $e$$9$$.className += " baseline"
   };
+  window.$testCrawl$ = function $window$$testCrawl$$() {
+    return jaap.$dom$.$crawl$(function($doc$$) {
+      return console.log($doc$$.location.href)
+    })
+  };
+  $exports$$5$$.$crawl$ = function $$exports$$5$$$$crawl$$($fun$$6$$) {
+    return $_crawl$$($fun$$6$$, document, [document.location.href.replace(/#.*/, "")])
+  };
+  $_crawl$$ = function $$_crawl$$$($fun$$7$$, $a_doc$$1$$, $visited$$, $visits$$, $iframe$$) {
+    var $href$$, $_i$$6$$, $_len$$4$$, $_ref$$4$$;
+    $visits$$ == $JSCompiler_alias_NULL$$ && ($visits$$ = []);
+    $iframe$$ == $JSCompiler_alias_NULL$$ && ($iframe$$ = $JSCompiler_alias_NULL$$);
+    $fun$$7$$($a_doc$$1$$);
+    $iframe$$ || ($iframe$$ = document.createElement("iframe"), $iframe$$["class"] = "no-hidden", document.body.insertBefore($iframe$$, document.body.firstChild));
+    $_ref$$4$$ = document.querySelectorAll("a");
+    $_i$$6$$ = 0;
+    for($_len$$4$$ = $_ref$$4$$.length;$_i$$6$$ < $_len$$4$$;$_i$$6$$++) {
+      $a_doc$$1$$ = $_ref$$4$$[$_i$$6$$], $href$$ = $a_doc$$1$$.href.replace(/#.*/, ""), 0 <= $__indexOf$$2$$.call($visits$$, $href$$) || 0 <= $__indexOf$$2$$.call($visited$$, $href$$) || $href$$.match(/\.[^.]{0,5}/) || $a_doc$$1$$.host !== document.location.host || $visits$$.push($href$$)
+    }
+    return $visits$$.length ? ($href$$ = $visits$$.pop(), $visited$$.push($href$$), $iframe$$.onload = function $$iframe$$$onload$() {
+      return $_crawl$$($fun$$7$$, $iframe$$.contentDocument, $visited$$, $visits$$, $iframe$$)
+    }, $iframe$$.setAttribute("src", $href$$)) : $iframe$$.parentNode.removeChild($iframe$$)
+  };
   $exports$$5$$.$verifyCss$ = function $$exports$$5$$$$verifyCss$$() {
-    var $css$$, $decl_val$$, $elem$$2$$, $elemName_sels$$, $match_specificity$$1$$, $matches$$, $matchesSelector$$, $prop$$4$$, $sel$$, $_j_tag$$1$$, $usedElems$$, $_i$$6$$, $_len$$4$$, $_len2__ref2$$5$$, $_ref$$4$$;
+    var $className$$1_elem$$2_fullName$$, $css$$, $decl_val$$, $elementsWithoutStyling$$, $hasAtLeastOneStyledPropertyNotFromUniversal$$, $idName_matches$$, $matchesSelector$$, $prop$$4$$, $sel$$, $sels$$, $specificity$$1$$, $tagName$$2$$, $_i$$7$$, $_len$$5$$, $_ref$$5$$, $_ref2$$5$$;
     if($matchesSelector$$ = document.documentElement.matchesSelector || document.documentElement.webkitMatchesSelector || document.documentElement.mozMatchesSelector || document.documentElement.$oMatchesSelector$ || document.documentElement.msMatchesSelector) {
-      $usedElems$$ = {};
+      $elementsWithoutStyling$$ = "head,title,link,meta,script,style,header,figure,figcaption,hgroup,nav,footer,summary,details,article,section,aside".split(",");
       $css$$ = $gatherCss$$.apply($JSCompiler_alias_NULL$$, document.styleSheets);
-      $_ref$$4$$ = document.querySelectorAll("*");
-      $_i$$6$$ = 0;
-      for($_len$$4$$ = $_ref$$4$$.length;$_i$$6$$ < $_len$$4$$;$_i$$6$$++) {
-        $elem$$2$$ = $_ref$$4$$[$_i$$6$$];
-        $_j_tag$$1$$ = $elem$$2$$.nodeName.toLowerCase();
-        $_len2__ref2$$5$$ = $css$$.$properties$;
-        for($prop$$4$$ in $_len2__ref2$$5$$) {
-          if($__hasProp$$1$$.call($_len2__ref2$$5$$, $prop$$4$$)) {
-            for($sel$$ in $elemName_sels$$ = $_len2__ref2$$5$$[$prop$$4$$], $matches$$ = {}, $elemName_sels$$) {
-              $__hasProp$$1$$.call($elemName_sels$$, $sel$$) && ($decl_val$$ = $elemName_sels$$[$sel$$], $matchesSelector$$.call($elem$$2$$, $sel$$) && ($match_specificity$$1$$ = $css$$.$selectors$[$sel$$], $decl_val$$ = "" + $sel$$ + " { " + $prop$$4$$ + ": " + $decl_val$$ + "; }", $matches$$[$match_specificity$$1$$] ? console.log("Error, element " + $_j_tag$$1$$ + " declares property " + $prop$$4$$ + " more than once at same specificity:\n  Before: " + $matches$$[$match_specificity$$1$$] + "\n  Now:    " + 
-              $decl_val$$) : $matches$$[$match_specificity$$1$$] = $decl_val$$))
+      $_ref$$5$$ = document.querySelectorAll("*");
+      $_i$$7$$ = 0;
+      for($_len$$5$$ = $_ref$$5$$.length;$_i$$7$$ < $_len$$5$$;$_i$$7$$++) {
+        $className$$1_elem$$2_fullName$$ = $_ref$$5$$[$_i$$7$$];
+        $tagName$$2$$ = $className$$1_elem$$2_fullName$$.nodeName.toLowerCase();
+        $hasAtLeastOneStyledPropertyNotFromUniversal$$ = $JSCompiler_alias_FALSE$$;
+        $_ref2$$5$$ = $css$$.$properties$;
+        for($prop$$4$$ in $_ref2$$5$$) {
+          if($__hasProp$$1$$.call($_ref2$$5$$, $prop$$4$$)) {
+            for($sel$$ in $sels$$ = $_ref2$$5$$[$prop$$4$$], $idName_matches$$ = {}, $sels$$) {
+              $__hasProp$$1$$.call($sels$$, $sel$$) && ($decl_val$$ = $sels$$[$sel$$], $matchesSelector$$.call($className$$1_elem$$2_fullName$$, $sel$$) && ($specificity$$1$$ = $css$$.$selectors$[$sel$$], $decl_val$$ = "" + $sel$$ + " { " + $prop$$4$$ + ": " + $decl_val$$ + "; }", $idName_matches$$[$specificity$$1$$] ? console.log("Error, element " + $tagName$$2$$ + " declares property " + $prop$$4$$ + " more than once at same specificity:\n  Before: " + $idName_matches$$[$specificity$$1$$] + "\n  Now:    " + 
+              $decl_val$$) : ($hasAtLeastOneStyledPropertyNotFromUniversal$$ = "*" !== $sel$$, $idName_matches$$[$specificity$$1$$] = $decl_val$$)))
             }
           }
         }
-        $elemName_sels$$ = $elem$$2$$.nodeName.toLowerCase();
-        $usedElems$$[$elemName_sels$$] == $JSCompiler_alias_NULL$$ && ($usedElems$$[$elemName_sels$$] = {});
-        $_j_tag$$1$$ = 0;
-        for($_len2__ref2$$5$$ = $matches$$.length;$_j_tag$$1$$ < $_len2__ref2$$5$$;$_j_tag$$1$$++) {
-          $match_specificity$$1$$ = $matches$$[$_j_tag$$1$$], $usedElems$$[$elemName_sels$$][$match_specificity$$1$$] = ""
-        }
-        2 < $matches$$.length && console.log("" + $elem$$2$$ + ":\n   " + $matches$$.join("\n"))
+        $idName_matches$$ = $className$$1_elem$$2_fullName$$.id ? "#" + $className$$1_elem$$2_fullName$$.id : "";
+        $className$$1_elem$$2_fullName$$ = $className$$1_elem$$2_fullName$$.className ? "." + $className$$1_elem$$2_fullName$$.className.split(" ").join(".") : "";
+        $className$$1_elem$$2_fullName$$ = "" + $tagName$$2$$ + $idName_matches$$ + $className$$1_elem$$2_fullName$$;
+        $hasAtLeastOneStyledPropertyNotFromUniversal$$ ? 0 <= $__indexOf$$2$$.call($elementsWithoutStyling$$, $tagName$$2$$) && console.log("Error, '" + $className$$1_elem$$2_fullName$$ + "' has unexpected styling applied beyond the universal selector - likely an error.") : 0 > $__indexOf$$2$$.call($elementsWithoutStyling$$, $tagName$$2$$) && console.log("Error, '" + $className$$1_elem$$2_fullName$$ + "' only styling comes from the universal selector - likely an error.")
       }
+      console.log("Done verifying CSS.")
     }
   };
   $gatherCss$$ = function $$gatherCss$$$() {
-    var $css$$1$$, $property$$3_rule$$2$$, $_base$$4_selector$$, $selectors$$8_sheet$$, $sheets$$, $_k_style$$, $_len3_value$$41$$, $_i$$7$$, $_j$$1$$, $_l$$, $_len$$5$$, $_len2$$1$$, $_len4$$, $_len5$$, $_m$$, $_ref$$5$$;
+    var $css$$1$$, $property$$3_rule$$2$$, $_base$$4_selector$$, $selectors$$8_sheet$$, $sheets$$, $_k_style$$, $_len3_value$$41$$, $_i$$8$$, $_j$$, $_l$$, $_len$$6$$, $_len2$$, $_len4$$, $_len5$$, $_m$$, $_ref$$6$$;
     $sheets$$ = 1 <= arguments.length ? $__slice$$1$$.call(arguments, 0) : [];
     $css$$1$$ = {$properties$:{}, $selectors$:{}, $values$:{}};
-    $_i$$7$$ = 0;
-    for($_len$$5$$ = $sheets$$.length;$_i$$7$$ < $_len$$5$$;$_i$$7$$++) {
-      $selectors$$8_sheet$$ = $sheets$$[$_i$$7$$];
-      $_ref$$5$$ = $selectors$$8_sheet$$.cssRules;
-      $_j$$1$$ = 0;
-      for($_len2$$1$$ = $_ref$$5$$.length;$_j$$1$$ < $_len2$$1$$;$_j$$1$$++) {
-        if($property$$3_rule$$2$$ = $_ref$$5$$[$_j$$1$$], 1 === $property$$3_rule$$2$$.type) {
+    $_i$$8$$ = 0;
+    for($_len$$6$$ = $sheets$$.length;$_i$$8$$ < $_len$$6$$;$_i$$8$$++) {
+      $selectors$$8_sheet$$ = $sheets$$[$_i$$8$$];
+      $_ref$$6$$ = $selectors$$8_sheet$$.cssRules;
+      $_j$$ = 0;
+      for($_len2$$ = $_ref$$6$$.length;$_j$$ < $_len2$$;$_j$$++) {
+        if($property$$3_rule$$2$$ = $_ref$$6$$[$_j$$], 1 === $property$$3_rule$$2$$.type) {
           $selectors$$8_sheet$$ = $property$$3_rule$$2$$.selectorText.split(",");
           $_k_style$$ = 0;
           for($_len3_value$$41$$ = $selectors$$8_sheet$$.length;$_k_style$$ < $_len3_value$$41$$;$_k_style$$++) {
@@ -625,15 +654,15 @@
     return $css$$1$$
   };
   $specificity$$ = function $$specificity$$$($elems_s$$2$$) {
-    for(var $_ref$$6_classes$$, $ids$$, $_ref2$$6$$, $_ref3$$3$$, $elems_s$$2$$ = $elems_s$$2$$.replace("*", ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/"[^"]*"/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/'[^"]*'/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/\[[^\]]*\]/g, "[]"), $elems_s$$2$$ = $elems_s$$2$$.replace(/[>+~]/g, " ");0 <= $elems_s$$2$$.indexOf("(");) {
+    for(var $_ref$$7_classes$$, $ids$$, $_ref2$$6$$, $_ref3$$3$$, $elems_s$$2$$ = $elems_s$$2$$.replace("*", ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/"[^"]*"/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/'[^"]*'/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/\[[^\]]*\]/g, "[]"), $elems_s$$2$$ = $elems_s$$2$$.replace(/[>+~]/g, " ");0 <= $elems_s$$2$$.indexOf("(");) {
       $elems_s$$2$$ = $elems_s$$2$$.replace(/\([^\)]*?\)/, "")
     }
     $elems_s$$2$$ = $elems_s$$2$$.replace(/:(first-child|last-child|link|visited|hover|active|focus|lang)/g, ".pseudo-class");
     $elems_s$$2$$ = $elems_s$$2$$.replace(/::?[\w-]+/g, " pseudo-elem");
-    $ids$$ = (($_ref$$6_classes$$ = $elems_s$$2$$.match(/#[\w-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref$$6_classes$$.length : $JSCompiler_alias_VOID$$) || 0;
-    $_ref$$6_classes$$ = (($_ref2$$6$$ = $elems_s$$2$$.match(/\.[\w-]+|\[\]/g)) != $JSCompiler_alias_NULL$$ ? $_ref2$$6$$.length : $JSCompiler_alias_VOID$$) || 0;
+    $ids$$ = (($_ref$$7_classes$$ = $elems_s$$2$$.match(/#[\w-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref$$7_classes$$.length : $JSCompiler_alias_VOID$$) || 0;
+    $_ref$$7_classes$$ = (($_ref2$$6$$ = $elems_s$$2$$.match(/\.[\w-]+|\[\]/g)) != $JSCompiler_alias_NULL$$ ? $_ref2$$6$$.length : $JSCompiler_alias_VOID$$) || 0;
     $elems_s$$2$$ = (($_ref3$$3$$ = $elems_s$$2$$.match(/(^|\s)[\w_-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref3$$3$$.length : $JSCompiler_alias_VOID$$) || 0;
-    return 1E6 * $ids$$ + 1E3 * $_ref$$6_classes$$ + $elems_s$$2$$
+    return 1E6 * $ids$$ + 1E3 * $_ref$$7_classes$$ + $elems_s$$2$$
   };
   window.$tcs$ = function $window$$tcs$$() {
     var $test$$;
@@ -667,12 +696,12 @@
   }
   return window.$jaap$.$dom$
 }());
-(function($_ref$$7_global$$6$$) {
-  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$7_global$$6$$ = $_ref$$7_global$$6$$.$jaap$;
-  $util$$1$$ = $_ref$$7_global$$6$$.$util$;
-  $dom$$1$$ = $_ref$$7_global$$6$$.$dom$;
-  $keys$$1$$ = $_ref$$7_global$$6$$.keys;
-  $font$$ = $_ref$$7_global$$6$$.font;
+(function($_ref$$8_global$$6$$) {
+  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$8_global$$6$$ = $_ref$$8_global$$6$$.$jaap$;
+  $util$$1$$ = $_ref$$8_global$$6$$.$util$;
+  $dom$$1$$ = $_ref$$8_global$$6$$.$dom$;
+  $keys$$1$$ = $_ref$$8_global$$6$$.keys;
+  $font$$ = $_ref$$8_global$$6$$.font;
   $toggleBaseline$$ = function $$toggleBaseline$$$() {
     return $dom$$1$$.$toggleClass$()
   };

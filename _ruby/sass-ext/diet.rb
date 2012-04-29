@@ -128,20 +128,24 @@ module Jaap
 
         rest, rule_nodes  = node.children.partition { |c| ! c.is_a? Tree::RuleNode }
 
-        expand_comma_sequences! rule_nodes
+        expand_comma_sequences! rule_nodes        
+        remove_abstract_rules! rule_nodes
+
         rule_nodes = sort_rules rule_nodes
         merge_adjacent_rules! rule_nodes
-        rule_nodes.each { |rule_node| rule_node.children = sort_properties rule_node.children }
+        
+        sort_properties! rule_nodes
+        merge_adjacent_properties! rule_nodes
+        
+        contract_comma_sequences! rule_nodes, 'font-family', 2
+        contract_comma_sequences! rule_nodes, 'line-height', 2
+        contract_comma_sequences! rule_nodes, 'clear', 2
 
         node.children = rest + rule_nodes
       end
 
       def self.expand_comma_sequences!(rule_nodes)
         
-        # Todo, Jaap Suter, April 2012
-        # Slightly modified from sass/lib/sass/css.rb line 118ish (which
-        # operates on parsed_rules, whereas here I operate on resolved_rules.
-
         rule_nodes.map! do |rule_node|
 
           raise Sass::SyntaxError.new("expected a rule node, got something else") unless rule_node.is_a?(Tree::RuleNode)
@@ -151,6 +155,13 @@ module Jaap
           end
           
           rule_node.resolved_rules.members.reject { |seq| seq.has_placeholder? }.map do |seq|
+            while seq.members.first.is_a? String
+              seq.members.shift
+            end
+            while seq.members.last.is_a? String
+              seq.members.pop
+            end
+
             new_rule = Tree::RuleNode.new([])
             new_rule.resolved_rules = new_rule.parsed_rules = Selector::CommaSequence.new([seq])
             new_rule.children = rule_node.children
@@ -160,6 +171,52 @@ module Jaap
         end
 
         rule_nodes.flatten!
+      end
+
+      def self.contract_comma_sequences!(rule_nodes, property, min_num_occurences)
+
+        occurences_per_value = Hash.new { |h, k| h[k] = 0 }
+        
+        rule_nodes.each do |rule_node|
+          rule_node.children.each do |property_node|
+            if property_node.resolved_name == property
+              occurences_per_value[property_node.resolved_value] += 1
+            end
+          end
+        end
+        
+        occurences_per_value.each do |value, num|
+          next if num < min_num_occurences
+        
+          selectors_per_value = []          
+          rule_nodes.map! do |rule_node|
+            rule_node.children.reject! do |property_node|
+              if property_node.resolved_name == property && property_node.resolved_value == value
+                selectors_per_value += rule_node.resolved_rules.members
+                true
+              else
+                false
+              end
+            end
+            
+            rule_node.children.empty? ? nil : rule_node
+          end
+
+          rule_nodes.compact!
+          
+          new_rule = Tree::RuleNode.new([])
+          new_rule.resolved_rules = new_rule.parsed_rules = Selector::CommaSequence.new(selectors_per_value)
+          new_rule.options = rule_nodes.first.options
+          add_property! new_rule, property, value
+          
+          rule_nodes.unshift new_rule
+        end
+      end
+
+      def self.remove_abstract_rules!(rule_nodes)
+        rule_nodes.reject! do |rule_node|
+          rule_node.invisible?
+        end
       end
 
       def self.sort_rules(rule_nodes)
@@ -172,9 +229,11 @@ module Jaap
         end
       end
 
-      def self.sort_properties(property_nodes)
-        property_nodes.stable_sort do |a, b|
-          a.resolved_name <=> b.resolved_name
+      def self.sort_properties!(rule_nodes)
+        rule_nodes.each do |rule_node| 
+          rule_node.children = rule_node.children.stable_sort do |a, b|
+            a.resolved_name <=> b.resolved_name
+          end
         end
       end
 
@@ -194,13 +253,22 @@ module Jaap
         rule_nodes.compact!
       end
 
-      def self.insert_specificity_property!(rule_node)
+      def self.merge_adjacent_properties!(rule_nodes)
+        rule_nodes.each do |rule_node|           
+          prev = nil
+          rule_node.children.reject! do |curr|
+            is_dupl = prev && (prev.resolved_name.to_s == curr.resolved_name.to_s) && (prev.resolved_value.to_s == curr.resolved_value.to_s)
+            prev = curr
+            is_dupl
+          end
+        end
+      end
 
-        specificity = rule_node.resolved_rules.specificity
+      def self.add_property!(rule_node, property, value)
 
         prop_node = Tree::PropNode.new([""], Sass::Script::String.new(''), :new)
-        prop_node.resolved_name = "-dev-specificity"
-        prop_node.resolved_value = specificity.to_s
+        prop_node.resolved_name = property
+        prop_node.resolved_value = value
         prop_node.options = rule_node.options
 
         rule_node << prop_node
