@@ -22,9 +22,10 @@
   
     $pp-half-leading: ($pp-el - $pp-em) / 2;
   
-    $pp-cap: get-font-metric-at-size($body-font-family, $pp-em, cap);
-    $pp-ex:  get-font-metric-at-size($body-font-family, $pp-em, ex);
-    $pp-bo:  get-font-metric-at-size($body-font-family, $pp-em, baseline) + $pp-half-leading;
+    $pp-ascent: get-font-metric-at-size($body-font-family, $pp-em, ascent);
+    $pp-cap:    get-font-metric-at-size($body-font-family, $pp-em, cap);
+    $pp-ex:     get-font-metric-at-size($body-font-family, $pp-em, ex);
+    $pp-bo:     get-font-metric-at-size($body-font-family, $pp-em, baseline) + $pp-half-leading;
     
     @include debug-msg("@media (#{$property}: #{$value})");
     @include debug-msg("#{$pp-em}:#{$pp-el}=1:#{round-two-decimals($pp-el / $pp-em)}");

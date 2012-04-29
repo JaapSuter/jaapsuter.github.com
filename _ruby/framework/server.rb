@@ -17,6 +17,7 @@ module Jaap
       mime_types.store 'mp4', 'video/mp4'
       mime_types.store 'webm', 'video/webm'
       mime_types.store 'svg', 'image/svg+xml'
+      mime_types.store 'woff', 'application/x-font-woff'
       
       s = HTTPServer.new(
         :Port            => 4000,

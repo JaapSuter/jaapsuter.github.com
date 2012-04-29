@@ -35,6 +35,20 @@
     return Array.prototype.slice.call(array, this.isUndefined(index) ? 1 : index);
   };
 
+  exports.unique = function(arr) {
+    var key, output, value, _i, _ref, _results;
+    output = {};
+    for (key = _i = 0, _ref = arr.length; 0 <= _ref ? _i < _ref : _i > _ref; key = 0 <= _ref ? ++_i : --_i) {
+      output[arr[key]] = arr[key];
+    }
+    _results = [];
+    for (key in output) {
+      value = output[key];
+      _results.push(value);
+    }
+    return _results;
+  };
+
 }).call(undefined, window, (function() {
   var _base;
   if (window.jaap == null) window.jaap = {};

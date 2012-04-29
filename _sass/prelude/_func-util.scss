@@ -24,7 +24,7 @@
   $pp: to-pp($value, $pp-em-override);
   
   @if in-development-mode() {
-    @return ($pp, from-pp($pp, 1 / $pp-em-override * 1em), from-pp($pp, 1 / $pp-rem * 1rem));
+    @return ($pp, from-pp($pp, 1 / $pp-em-override * 1em));
   } @else {
     @return (     from-pp($pp, 1 / $pp-em-override * 1em), from-pp($pp, 1 / $pp-rem * 1rem));
   }
@@ -62,4 +62,15 @@
     @else if    unitless($val) { @return $val; }
     @else { $call: debug-warn("from-pp got unexpected unit for #{$val}"); @return $val; }
   }
+}
+
+
+
+@function is-whole($n) { @return floor($n) == $n; }
+
+@function try-incremental($n, $numerator, $denominator, $r) {
+  @if $n != $r { @return $r; }
+  $r: $n * $numerator / $denominator;
+  @if is-whole($r) { @return $r; }
+  @return $n;
 }

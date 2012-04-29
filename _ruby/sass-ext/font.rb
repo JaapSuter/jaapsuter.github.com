@@ -24,13 +24,13 @@ module Jaap
     end.new
 
     def trim_to_family_base_name(family)
-      family[/^[^-]+/]
+      to_sass (unwrap family)[/^[^-]+/]
     end
 
     def get_font_metric_at_size(family, ppem, metric)
       Jaap::Reload.try_reload
 
-      family = trim_to_family_base_name unwrap family
+      family = unwrap trim_to_family_base_name family
       ppem = unwrap_px ppem
       metric = unwrap metric
       
@@ -40,8 +40,8 @@ module Jaap
     def get_font_size_when_metric(family, metric, value)
       Jaap::Reload.try_reload
 
-      family = trim_to_family_base_name unwrap family
-      metric = unwrap metric
+      family = unwrap trim_to_family_base_name family
+      metric = unwrap metric      
       value = unwrap_px value
       
       ret = @@textMetrics[family][metric]

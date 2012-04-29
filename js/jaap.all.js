@@ -232,10 +232,11 @@
 
 (function(global, exports) {
   "use strict";    
-    var Easel, ajax, dom, fallbacks, getFontStyle, getFontWeight, getMetrics, iced, util, whenFontLoaded, __iced_k_noop, _ref,
+    var Easel, ajax, dom, fallbacks, getFontStyle, getFontWeight, getMetrics, getTextFromElementStrict, iced, util, whenFontLoaded, __iced_k_noop, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    _this = this;
+    _this = this,
+    __hasProp = {}.hasOwnProperty;
 
   __iced_k_noop = function() {};
 
@@ -673,6 +674,53 @@
     });
   };
 
+  getTextFromElementStrict = function(el) {
+    var TEXT_NODE, childNode;
+    TEXT_NODE = 3;
+    return ((function() {
+      var _i, _len, _ref2, _results;
+      _ref2 = el.childNodes;
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        childNode = _ref2[_i];
+        if (childNode.nodeType === TEXT_NODE) _results.push(childNode.nodeValue);
+      }
+      return _results;
+    })()).join('');
+  };
+
+  exports.getSubsets = function() {
+    var getDocumentSubsets, textPerFontFamily;
+    textPerFontFamily = {};
+    getDocumentSubsets = function(doc) {
+      var el, fontFamily, style, _i, _len, _ref2, _results;
+      console.log("Crawling: " + doc.location.href + " for font subsets.");
+      _ref2 = [doc.body].concat(Array.prototype.slice.call(doc.querySelectorAll('body *')));
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        el = _ref2[_i];
+        style = window.getComputedStyle(el, null);
+        fontFamily = style.fontFamily.split(',')[0];
+        if (textPerFontFamily[fontFamily] == null) {
+          textPerFontFamily[fontFamily] = '';
+        }
+        _results.push(textPerFontFamily[fontFamily] += getTextFromElementStrict(el));
+      }
+      return _results;
+    };
+    return dom.crawl(getDocumentSubsets, function() {
+      var fontFamily, text, _results;
+      _results = [];
+      for (fontFamily in textPerFontFamily) {
+        if (!__hasProp.call(textPerFontFamily, fontFamily)) continue;
+        text = textPerFontFamily[fontFamily];
+        text = textPerFontFamily[fontFamily] = util.unique(text).sort().join('').replace('\n', '');
+        _results.push(console.log("" + fontFamily + ": '" + text + "'"));
+      }
+      return _results;
+    });
+  };
+
 }).call(undefined, window, (function() {
   var _base;
   if (window.jaap == null) window.jaap = {};
@@ -714,6 +762,20 @@
 
   exports.tail = tail = function(array, index) {
     return Array.prototype.slice.call(array, this.isUndefined(index) ? 1 : index);
+  };
+
+  exports.unique = function(arr) {
+    var key, output, value, _i, _ref, _results;
+    output = {};
+    for (key = _i = 0, _ref = arr.length; 0 <= _ref ? _i < _ref : _i > _ref; key = 0 <= _ref ? ++_i : --_i) {
+      output[arr[key]] = arr[key];
+    }
+    _results = [];
+    for (key in output) {
+      value = output[key];
+      _results.push(value);
+    }
+    return _results;
   };
 
 }).call(undefined, window, (function() {
@@ -937,24 +999,18 @@
     }
   };
 
-  window.testCrawl = function() {
-    return jaap.dom.crawl(function(doc) {
-      return console.log(doc.location.href);
-    });
+  exports.crawl = function(docFun, doneFun) {
+    return _crawl(docFun, doneFun, document, [document.location.href.replace(/#.*/, '')]);
   };
 
-  exports.crawl = function(fun) {
-    return _crawl(fun, document, [document.location.href.replace(/#.*/, '')]);
-  };
-
-  _crawl = function(fun, doc, visited, visits, iframe) {
+  _crawl = function(docFun, doneFun, doc, visited, visits, iframe) {
     var a, href, _i, _len, _ref;
     if (visits == null) visits = [];
     if (iframe == null) iframe = null;
-    fun(doc);
+    docFun(doc);
     if (!iframe) {
       iframe = document.createElement('iframe');
-      iframe["class"] = 'no-hidden';
+      iframe.className = 'hidden';
       document.body.insertBefore(iframe, document.body.firstChild);
     }
     _ref = document.querySelectorAll('a');
@@ -969,11 +1025,12 @@
       href = visits.pop();
       visited.push(href);
       iframe.onload = function() {
-        return _crawl(fun, iframe.contentDocument, visited, visits, iframe);
+        return _crawl(docFun, doneFun, iframe.contentDocument, visited, visits, iframe);
       };
       return iframe.setAttribute('src', href);
     } else {
-      return iframe.parentNode.removeChild(iframe);
+      iframe.parentNode.removeChild(iframe);
+      return doneFun();
     }
   };
 
@@ -1112,8 +1169,6 @@
     return test("body##top:lang(fr-ca) div.alert", 1002002);
   };
 
-  window.tcs = testSpecificity;
-
 }).call(undefined, window, (function() {
   var _base;
   if (window.jaap == null) window.jaap = {};
@@ -1158,6 +1213,7 @@
     if (top !== window) return;
     keys.on('b', toggleBaseline);
     keys.on('shift+t', font.getMetrics);
+    keys.on('shift+s', font.getSubsets);
     keys.on('shift+d', diagnose);
     keys.on('shift+c', dom.verifyCss);
     return repeated_diagnose = function() {

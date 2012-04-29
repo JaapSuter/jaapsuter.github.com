@@ -7,12 +7,13 @@ permalink: /lab/
 
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
 
-Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing
-implicit 'single' and "double" quotes with literal &lsquo;single&rsquo; and &ldquo;double&rdquo; HTML entities. Here's <a href="#random-unique-number-5338">a
-link</a> followed by <sub>sub-</sub> and super<sup>script</sup>, as well as some *emphasized* and **strong** words as processed
-by [Markdown](http://daringfireball.net/projects/markdown/). These words are marked as `code` and <kbd>kdb</kbd>. Here's some old-style numbers: 1018, 1997, 2012. "<span>&Eacute; &Ccedil;</span>" is to ensure ascenders and 
+Let's verify that various typographies are converted -- using [Smartypants](http://daringfireball.net/projects/smartypants/) -- by comparing
+implicit 'single' and "double" quotes with their literal &lsquo;single&rsquo; and &ldquo;double&rdquo; entity counterpart. These words are *emphasized* and **strong** as processed
+by [Markdown](http://daringfireball.net/projects/markdown/). Water is H2O and
+<span class="math"><i>e</i><sup><i>i</i>&pi;</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;0</span>, verifying sub- and superscript, as well as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the minus sign.
+These words are marked as `code` and <kbd>kdb</kbd>. Here's some old-style numbers: 1018, 1997, 2012. "<span>&Eacute; &Ccedil;</span>" is to ensure ascenders and 
 descenders don't stomp beyond the leading, as well as use proper glyph fallbacks (i.e., these glyphs are not in our top
-of the font stack; intentionally so). And lastly, TLA should be marked up with the ABBR tag, since HTML5 currently deprecates the acronym tag.
+of the font stack; intentionally so). Three letter acronyms such as TLA, as well as others -- like WYSIWYG or IOTD -- should be contained `abbr` elements.
 
 {% assign pullquote = 'Pull&shy;quotes are used to &#x263A; grab &#x270C; attention.' %}
 {% include component/pullquote.html %}

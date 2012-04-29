@@ -2,10 +2,11 @@
 
 (function(global, exports) {
   "use strict";    
-    var Easel, ajax, dom, fallbacks, getFontStyle, getFontWeight, getMetrics, iced, util, whenFontLoaded, __iced_k_noop, _ref,
+    var Easel, ajax, dom, fallbacks, getFontStyle, getFontWeight, getMetrics, getTextFromElementStrict, iced, util, whenFontLoaded, __iced_k_noop, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    _this = this;
+    _this = this,
+    __hasProp = {}.hasOwnProperty;
 
   __iced_k_noop = function() {};
 
@@ -440,6 +441,53 @@
       } else {
         return __iced_k();
       }
+    });
+  };
+
+  getTextFromElementStrict = function(el) {
+    var TEXT_NODE, childNode;
+    TEXT_NODE = 3;
+    return ((function() {
+      var _i, _len, _ref2, _results;
+      _ref2 = el.childNodes;
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        childNode = _ref2[_i];
+        if (childNode.nodeType === TEXT_NODE) _results.push(childNode.nodeValue);
+      }
+      return _results;
+    })()).join('');
+  };
+
+  exports.getSubsets = function() {
+    var getDocumentSubsets, textPerFontFamily;
+    textPerFontFamily = {};
+    getDocumentSubsets = function(doc) {
+      var el, fontFamily, style, _i, _len, _ref2, _results;
+      console.log("Crawling: " + doc.location.href + " for font subsets.");
+      _ref2 = [doc.body].concat(Array.prototype.slice.call(doc.querySelectorAll('body *')));
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        el = _ref2[_i];
+        style = window.getComputedStyle(el, null);
+        fontFamily = style.fontFamily.split(',')[0];
+        if (textPerFontFamily[fontFamily] == null) {
+          textPerFontFamily[fontFamily] = '';
+        }
+        _results.push(textPerFontFamily[fontFamily] += getTextFromElementStrict(el));
+      }
+      return _results;
+    };
+    return dom.crawl(getDocumentSubsets, function() {
+      var fontFamily, text, _results;
+      _results = [];
+      for (fontFamily in textPerFontFamily) {
+        if (!__hasProp.call(textPerFontFamily, fontFamily)) continue;
+        text = textPerFontFamily[fontFamily];
+        text = textPerFontFamily[fontFamily] = util.unique(text).sort().join('').replace('\n', '');
+        _results.push(console.log("" + fontFamily + ": '" + text + "'"));
+      }
+      return _results;
     });
   };
 

@@ -8,13 +8,19 @@ $type-name-stretch-idx:  4;
   @return 'p' == get-char-at($name, $type-name-tt-or-ps-idx);
 }
 
-@function type-name-get-font-family-fallback($name) {
+@function type-name-get-font-family-fallback($name, $base-name) {
+  
   $f: get-char-at($name, $type-name-family-idx);
   $d: get-char-at($name, $type-name-stretch-idx);
   $f: if($f == 's', $serif-fallback,
       if($f == 'a', if($d == 'c', $sans-condensed-fallback, $sans-fallback),
       if($f == 'm', $mono-fallback,
                     type-name-get-font-family-fallback-error)));
+  
+  @if $base-name != $name {
+    $f: $base-name, $f;
+  }
+
   @return $f;
 }
 
@@ -42,4 +48,18 @@ $type-name-stretch-idx:  4;
       if($s == 'c', condensed,
                     type-name-get-font-stretch-error));
   @return $s;
+}
+
+@function incremental-leading($pp-el, $incremental) {
+  @if $incremental == same { @return $pp-el; }
+  @if $incremental == more { 
+    @return try-incremental($pp-el, 3, 4,
+            try-incremental($pp-el, 2, 3,
+            try-incremental($pp-el, 4, 5,
+            try-incremental($pp-el, 5, 7,
+            try-incremental($pp-el, 6, 7,
+            try-incremental($pp-el, 6, 8,
+            try-incremental($pp-el, 7, 8,
+            try-incremental($pp-el, 1, 1, $pp-el))))))));
+  }  
 }

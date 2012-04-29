@@ -93,7 +93,7 @@ module Jaap
         none_node.children += top_level_rule_nodes
         
         canonify none_node
-
+        
         min_width_nodes = categorized['min-width'] || []
         max_width_nodes = categorized['max-width'] || []
         
@@ -138,7 +138,7 @@ module Jaap
         merge_adjacent_properties! rule_nodes
         
         contract_comma_sequences! rule_nodes, 'font-family', 2
-        contract_comma_sequences! rule_nodes, 'line-height', 2
+        contract_comma_sequences! rule_nodes, 'line-height', 2, ['0.1']
         contract_comma_sequences! rule_nodes, 'clear', 2
 
         node.children = rest + rule_nodes
@@ -173,18 +173,20 @@ module Jaap
         rule_nodes.flatten!
       end
 
-      def self.contract_comma_sequences!(rule_nodes, property, min_num_occurences)
+      def self.contract_comma_sequences!(rule_nodes, property, min_num_occurences, values = [])
 
         occurences_per_value = Hash.new { |h, k| h[k] = 0 }
         
         rule_nodes.each do |rule_node|
           rule_node.children.each do |property_node|
             if property_node.resolved_name == property
-              occurences_per_value[property_node.resolved_value] += 1
+              if values.empty? || (values.include? property_node.resolved_value)
+                occurences_per_value[property_node.resolved_value] += 1
+              end
             end
           end
         end
-        
+
         occurences_per_value.each do |value, num|
           next if num < min_num_occurences
         
@@ -229,7 +231,6 @@ module Jaap
             special_ordering.each_with_index do |special_order, idx|              
               aq = a_rule.gsub! special_order, "#{idx}-#{special_order}"
               bq = b_rule.gsub! special_order, "#{idx}-#{special_order}"
-              puts "|#{special_order}|: #{aq} #{bq}"
             end
 
             a_rule <=> b_rule

@@ -16,3 +16,8 @@ exports.soon = soon = (func) ->
 
 exports.tail = tail = (array, index) ->
   Array::slice.call(array, if @isUndefined(index) then 1 else index)
+
+exports.unique = (arr) ->
+  output = {}
+  output[arr[key]] = arr[key] for key in [0...arr.length]
+  value for key, value of output

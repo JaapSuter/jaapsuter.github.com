@@ -8,21 +8,17 @@ exports.toggleClass = (e, n) ->
     e.className = e.className.replace ///(?:^|\s)#{n}(?!\S)/// , ''
   else
     e.className += " #{n}"
+    
+exports.crawl = (docFun, doneFun) ->
+  _crawl docFun, doneFun, document, [document.location.href.replace /#.*/, '']
 
-window.testCrawl = ->
-  jaap.dom.crawl (doc) ->
-    console.log doc.location.href
+_crawl = (docFun, doneFun, doc, visited, visits = [], iframe = null) ->
 
-exports.crawl = (fun) ->
-  _crawl fun, document, [document.location.href.replace /#.*/, '']
-
-_crawl = (fun, doc, visited, visits = [], iframe = null) ->
-
-  fun doc
+  docFun doc
   
   if not iframe
     iframe = document.createElement 'iframe'
-    iframe.class = 'no-hidden'
+    iframe.className = 'hidden'
     document.body.insertBefore iframe, document.body.firstChild  
 
   for a in document.querySelectorAll 'a'
@@ -36,10 +32,11 @@ _crawl = (fun, doc, visited, visits = [], iframe = null) ->
     href = visits.pop()
     visited.push href  
     iframe.onload = () -> 
-      _crawl fun, iframe.contentDocument, visited, visits, iframe
+      _crawl docFun, doneFun, iframe.contentDocument, visited, visits, iframe
     iframe.setAttribute 'src', href
   else
     iframe.parentNode.removeChild iframe
+    doneFun()
 
 exports.verifyCss = ->
   
@@ -187,5 +184,3 @@ testSpecificity = ->
   test "body ##darkside .sith p", 1001002
   test "p:has( a[href] )", 2
   test "body##top:lang(fr-ca) div.alert", 1002002
-
-window.tcs = testSpecificity

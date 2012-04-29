@@ -40,6 +40,7 @@ entryPoint = ->
   
   keys.on 'b', toggleBaseline
   keys.on 'shift+t', font.getMetrics
+  keys.on 'shift+s', font.getSubsets  
   keys.on 'shift+d', diagnose
   keys.on 'shift+c', dom.verifyCss
 
@@ -54,5 +55,3 @@ entryPoint = ->
   # bindInternalAnchorClicks()
 
 entryPoint()
-
-

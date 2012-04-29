@@ -23,19 +23,23 @@ body {
   min-height: 100%;
 }
 
-img { 
+img {
   border: 0;
-  max-width: 100%;
   height: auto;
   -ms-interpolation-mode: bicubic;
   vertical-align: middle;
 }
 
+img,
+object,
+iframe,
+video {
+  max-width: 100%;  
+}
+
 a:focus { outline: thin dotted; }
 a:hover,
 a:active { outline: 0; }
-
-abbr[title] { border-bottom: 1px dotted; }
 
 b,
 strong { font-weight: 700; }
@@ -48,12 +52,12 @@ pre {
 
 sub,
 sup {
-  font-size: 75%;
+  font-size: 80%;
   position: relative;
   vertical-align: baseline;
 }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
+sup { top: -0.45em; }
+sub { bottom: -0.2em; }
 
 .caps,
 abbr,

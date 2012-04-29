@@ -30,11 +30,13 @@ body {
   @extend %#{$body-font-family};
 }
 
-#header { background-color: rgba(#fdd, 0.6); }
-#article { background-color: rgba(#ddf, 0.6); }
-#footer { background-color: rgba(#dfd, 0.6); }
-#menu { background-color: rgba(#ffd, 0.6); }
-#archive { background-color: rgba(#fdf, 0.6); }
+/*
+  #header { background-color: rgba(#fdd, 0.6); }
+  #article { background-color: rgba(#ddf, 0.6); }
+  #footer { background-color: rgba(#dfd, 0.6); }
+  #menu { background-color: rgba(#ffd, 0.6); }
+  #archive { background-color: rgba(#fdf, 0.6); }
+*/
 
 ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
 ::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
@@ -77,13 +79,9 @@ p {
   p { @include units(margin-top, 1el); }
 
   p + p {
-    // text-indent: 2em;
-    @include units(text-indent, 1el);
+    text-indent: 2em;
     margin-top: 0;  
   }
-
-  .foo { color: red; }
-  .bar { color: blue; }
 
   /*
   .type-m { @include change-type(pan7n, cap, 1el) {} }
@@ -99,8 +97,7 @@ p {
   */
   
   h1 {
-    color: $blue-l;
-    @include stroke-using-four-shadows($blue-d);
+    color: $black;
     @include change-type(pan4n, cap, 2el) {
       @include units(margin-bottom, 1el);
     }
@@ -140,6 +137,34 @@ p {
   }    
   */
   
+  .sidebar {
+    position: relative;
+    float: right;
+    width: 40%;
+    margin-left: 1em;
+    padding: 0 1em;
+    margin-bottom: 1em;
+    overflow: hidden;
+    
+    max-width: 12em;
+    text-align: justify;
+    -ms-text-justify: newspaper;
+    
+    @include units(margin-top, 1el);
+    @include units(padding, (1el 1em));
+    
+    $top: $pp-bo - $pp-ascent;
+    @include units(top, $top);
+    
+    @include color-and-background-color($red-lll, $blue-ddd, false);
+    
+    p {
+      @include change-type(tan4c, ppem, 0.8em, $incremental: more, $pp-bo-offset: -$top) {
+        @include units(margin-top, 0);
+      }
+    }
+  }
+  
   @if in-development-mode() {
     .baseline {
       @include background-image-baseline-grid();
@@ -171,32 +196,3 @@ p {
 .blue-ll     { color: $black; background-color: $blue-ll ;}
 .blue-lll    { color: $black; background-color: $blue-lll;}
 */
-
-
-.dt-full {
-  margin: 2em 0;
-  padding: 0;
-  border: none;
-  outline: green dashed 1px;
-}
-
-.dt-margin {
-  margin: 2em 1em;
-  padding: 0;
-  border: none;
-  outline: green dashed 1px;
-}
-
-.dt-padding {
-  margin: 2em 0;
-  padding: 0 2em;
-  border: none;
-  outline: green dashed 1px;
-}
-
-.dt-border {
-  margin: 2em 0;
-  padding: 0;
-  border: 1em solid red;
-  outline: green dashed 1px;
-}

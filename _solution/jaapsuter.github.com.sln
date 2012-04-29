@@ -89,12 +89,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9DA-44AE-B739-9BB0B42698BB}"
 	ProjectSection(SolutionItems) = preProject
 		..\_site\css\at-font-face.dev.css = ..\_site\css\at-font-face.dev.css
+		..\_site\css\head-2.css = ..\_site\css\head-2.css
 		..\_site\css\head.css = ..\_site\css\head.css
 		..\_site\css\head.min.css = ..\_site\css\head.min.css
 		..\_site\css\normalize.dev.css = ..\_site\css\normalize.dev.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab", "lab", "{83DB6C1B-6560-45EB-972A-546386316CC6}"
+	ProjectSection(SolutionItems) = preProject
+		..\_site\lab\index.html = ..\_site\lab\index.html
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52}"
 EndProject

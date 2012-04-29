@@ -247,4 +247,25 @@ exports.getMetrics = getMetrics = (families) =>
     data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4
     await ajax.send '/ajax/json/type-metrics', defer(ok, resp), data
     alert "ok: #{ok}, resp: #{resp}"
+
+getTextFromElementStrict = (el) ->
+  TEXT_NODE = 3;
+  (childNode.nodeValue for childNode in el.childNodes when childNode.nodeType == TEXT_NODE).join ''
+
+exports.getSubsets = ->
   
+  textPerFontFamily = {}
+
+  getDocumentSubsets = (doc) ->
+    console.log "Crawling: #{doc.location.href} for font subsets."
+    for el in [doc.body].concat(Array::slice.call doc.querySelectorAll('body *'))
+      style = window.getComputedStyle el, null
+      fontFamily = style.fontFamily.split(',')[0]
+      textPerFontFamily[fontFamily] ?= ''
+      textPerFontFamily[fontFamily] += getTextFromElementStrict el # .replace(/^\s+|\s+$/g, '')
+    
+  
+  dom.crawl getDocumentSubsets, () ->
+    for own fontFamily, text of textPerFontFamily
+      text = textPerFontFamily[fontFamily] = util.unique(text).sort().join('').replace('\n', '')
+      console.log "#{fontFamily}: '#{text}'"

@@ -35,9 +35,15 @@
 
 @mixin abstract-font-face-family($name, $unicode-range: false) {
   %#{$name} {
-    font-family: #{$name, type-name-get-font-family-fallback($name)};
+    $base-name: trim-to-family-base-name($name);  
+  
+    font-family: #{$name, type-name-get-font-family-fallback($name, $base-name)};
   
     @include font-style-and-weight($name);
+  
+    @if $base-name != $name {
+      text-rendering: optimizespeed;
+    }  
   }
 }
 
@@ -74,7 +80,7 @@
   }
 }
 
-@mixin change-type($to-font-family, $such-that-metric, $has-value, $line-height-adjust: 0) {
+@mixin change-type($to-font-family, $such-that-metric, $has-value, $incremental: same, $pp-bo-offset: 0) {
 
   @extend %#{$to-font-family};
   
@@ -85,18 +91,30 @@
     $new-pp-em: get-font-size-when-metric($to-font-family, $such-that-metric, to-pp($has-value));
   }
   
-  $new-pp-el: (ceil($new-pp-em / $pp-el) + $line-height-adjust) * $pp-el;  
+  $new-pp-el: ceil($new-pp-em / $pp-el) * $pp-el;
   $new-pp-half-leading: ($new-pp-el - $new-pp-em) / 2;
     
-  $new-pp-cap: get-font-metric-at-size($to-font-family, $new-pp-em, cap);
-  $new-pp-ex:  get-font-metric-at-size($to-font-family, $new-pp-em, ex);
-  $new-pp-bo:  get-font-metric-at-size($to-font-family, $new-pp-em, baseline) + $new-pp-half-leading;  
+  @if $incremental != same {
+    $incremental-more-leading-em-per-el: 1.3;
+  
+    $new-pp-el: incremental-leading($new-pp-el, more);    
+    $new-pp-em: min($new-pp-em, $new-pp-el / $incremental-more-leading-em-per-el);
+    $new-pp-em: $pp-em * ($new-pp-el / $pp-el);
+    $new-pp-half-leading: ($new-pp-el - $new-pp-em) / 2;
+  }
+  
+  $new-pp-bo: get-font-metric-at-size($to-font-family, $new-pp-em, baseline) + $new-pp-half-leading;  
   
   $modulo-up: 999;
   $modulo-down: $pp-el / 1px;  
   
-  $pp-top: ceil(0 - $new-pp-bo + $pp-bo); 
+  $pp-top: ceil(0 - $new-pp-bo + $pp-bo + $pp-bo-offset); 
   $pp-top: ($pp-top + $modulo-up * $pp-el) % $modulo-down;
+  
+  // Think carefully here Jaap, or you know; actually write a useful comment. Sigh...
+  @if $pp-top > ($pp-el / 2) {
+    $pp-top: $pp-top - $pp-el;
+  }
   
   position: relative;
   
