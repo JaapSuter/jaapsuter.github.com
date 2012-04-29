@@ -61,14 +61,13 @@ h1, h2, h3 { clear: both; }
 }
 
 pre, code, kbd, samp {
-  // @extend %tmn4n;
-  font-family: tmn4n, $mono-fallback;
+  @extend %tmn4n;
   font-size: 1em;
 }
 
 pre {
   white-space: pre;
-  /* @alternate */  white-space: pre-wrap;
+  /* @alternate */ white-space: pre-wrap;
   word-wrap: break-word;
 }
 

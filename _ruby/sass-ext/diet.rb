@@ -220,9 +220,19 @@ module Jaap
       end
 
       def self.sort_rules(rule_nodes)
+        special_ordering = %w[:link :visited :hover :focus :active]
+
         rule_nodes.stable_sort do |a, b|
           if a.resolved_rules.specificity == b.resolved_rules.specificity
-            a.resolved_rules.to_s <=> b.resolved_rules.to_s
+            a_rule = a.resolved_rules.to_s
+            b_rule = b.resolved_rules.to_s
+            special_ordering.each_with_index do |special_order, idx|              
+              aq = a_rule.gsub! special_order, "#{idx}-#{special_order}"
+              bq = b_rule.gsub! special_order, "#{idx}-#{special_order}"
+              puts "|#{special_order}|: #{aq} #{bq}"
+            end
+
+            a_rule <=> b_rule
           else
             a.resolved_rules.specificity <=> b.resolved_rules.specificity
           end

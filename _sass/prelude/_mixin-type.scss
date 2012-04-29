@@ -1,10 +1,17 @@
+@mixin font-style-and-weight($name) {
+  $font-weight: type-name-get-font-weight($name);
+  $font-style:  type-name-get-font-style($name);    
+      
+  @if $font-weight != 400 { font-weight: $font-weight; }
+  @if $font-style != normal { font-style: $font-style; }
+}
+
 @mixin at-font-face($name, $unicode-range: false) {
   @unless $type-disable-font-face {  
     @font-face {
 
       font-family: quote($name);
-      font-weight: type-name-get-font-weight($name);
-      font-style:  type-name-get-font-style($name);    
+      @include font-style-and-weight($name);
       
       src: url('/fonts/#{$name}.eot');
       
@@ -29,8 +36,8 @@
 @mixin abstract-font-face-family($name, $unicode-range: false) {
   %#{$name} {
     font-family: #{$name, type-name-get-font-family-fallback($name)};
-    font-weight: type-name-get-font-weight($name);
-    font-style:  type-name-get-font-style($name);
+  
+    @include font-style-and-weight($name);
   }
 }
 
