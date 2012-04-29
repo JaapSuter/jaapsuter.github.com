@@ -192,56 +192,101 @@ def make_underline(f, name, src, dst):
   m.private["StdVW"] =        f.private["StdVW"]
   m.private["StdVW"] =        f.private["StdVW"]
 
+  # Quoting from http://www.microsoft.com/typography/cursivescriptguidelines.mspx
+  #
+  #   "When designing connecting glyphs to avoid pixel dropout caused by rounding, it
+  #    is necessary to provide for a minimum of a 70 font unit overlap when a 2048 em
+  #    square (recommended value) is used for TrueType outlines. The amount of 70 units
+  #    will allow for at least the width of the character to be maintained during the
+  #    rasterization process at all PPEM sizes.
+  #
+  #    To make the overlap most effective, the overlap should be totally on either the left
+  #    side of the glyph or the right side of the glyph. My recommendation would be that the
+  #    overlap would be on the trailing side of the glyph.
+  #
+  # In other words, these conditions must apply to resulting glyph metrics:
+  #
+  #     1. Advance width must stay the same (so that the underlined
+  #        font advances exactly like the original does.)
+  #     2. The left side goes as far left as necessary; that means 0 in most
+  #        cases, and further left (negative) for characters with an existing 
+  #        negative left bearing (like the letter 'j' might have for example).
+  #     3. The right side goes as far right as necessary; that means the advance
+  #        width in most cases... _plus_ the furthest of a negative right side bearing and
+  #        the above mentioned overshoot.
+
+  recommended_overshoot = 70
+
+  # The slash is a 'tricky' character (read: don't feel like firing up font-forge
+  # right now), so let's raise its bottom by dumping a hardcoded contour in there.
+  hardcoded_slash = fontforge.contour()
+  hardcoded_slash.is_quadratic = True
+  hardcoded_slash.moveTo(530, 1493)
+  hardcoded_slash.lineTo(60, 0)
+  hardcoded_slash.lineTo(270, 0)
+  hardcoded_slash.lineTo(690, 1493)
+  hardcoded_slash.closed = True
+  
   # Descender test line: p:/ajaqug, (3241527890); J-$_@.
   manual_descenders = {
+    # Pair of left and right fix-ups (0 on the rhs means end of glyph, per above).
     fontforge.nameFromUnicode(ord('g')): [],
     fontforge.nameFromUnicode(ord('j')): [],
-    fontforge.nameFromUnicode(ord('p')): [(0, 98), (558, 1311)],
-    fontforge.nameFromUnicode(ord('q')): [(0, 702), (1213, 1311)],
-    fontforge.nameFromUnicode(ord('y')): [(-6, 160), (755, 1157)],
-    fontforge.nameFromUnicode(ord(',')): [(433, 651)],
-    fontforge.nameFromUnicode(ord(';')): [(460, 689)],
+    fontforge.nameFromUnicode(ord('p')): [(578, 0)], # Not used: (0, 78)
+    fontforge.nameFromUnicode(ord('q')): [(0, 690)], # Not used: (1213, 1311 + recommended_overshoot)
+    fontforge.nameFromUnicode(ord('y')): [(-6, 160), (755, 0)],
+    fontforge.nameFromUnicode(ord(',')): [(433, 0)],
+    fontforge.nameFromUnicode(ord(';')): [(460, 0)],
     fontforge.nameFromUnicode(ord('(')): [(0, 288)],
-    fontforge.nameFromUnicode(ord(')')): [(509, 799)],
-    fontforge.nameFromUnicode(ord('$')): [(0, 498), (786, 1301)],
-    fontforge.nameFromUnicode(ord('@')): [(0, 320), (1720, 2048)],
+    fontforge.nameFromUnicode(ord(')')): [(509, 0)],
+    fontforge.nameFromUnicode(ord('$')): [(0, 490), (790, 0)],
+    fontforge.nameFromUnicode(ord('@')): [(0, 300), (1720, 0)],
     fontforge.nameFromUnicode(ord('J')): [],
     fontforge.nameFromUnicode(ord('3')): [],
-    fontforge.nameFromUnicode(ord('4')): [(0, 593), (1025, 1265)],
+    fontforge.nameFromUnicode(ord('4')): [(0, 567), (1036, 0)],
     fontforge.nameFromUnicode(ord('5')): [],
-    fontforge.nameFromUnicode(ord('7')): [(0, 332), (658, 1126)],
+    fontforge.nameFromUnicode(ord('7')): [(0, 312), (682, 0)],
     fontforge.nameFromUnicode(ord('9')): [],
     fontforge.nameFromUnicode(ord('_')): [],
   }
 
   thickness = 90
-  position = -175
-  top = position + thickness / 2
-  bottom = position - thickness / 2
+  vertical_pos = -180
+  top = vertical_pos + thickness / 2
+  bottom = vertical_pos - thickness / 2
     
   for g in m.glyphs():
 
     ow, olb, orb = g.width, g.left_side_bearing, g.right_side_bearing
+    
+    width = g.width
+    far_left = min(g.left_side_bearing, 0)
+    far_right = g.width - min(-recommended_overshoot, min(g.right_side_bearing, 0))
 
-    left = min(g.left_side_bearing, 0)
-    right = g.width - min(g.right_side_bearing, 0)    
-
-    underline_sections = [(left, right)]
+    underline_sections = [(far_left, far_right)]
 
     if g.glyphname in manual_descenders:
       underline_sections = manual_descenders[g.glyphname]
 
     for section in underline_sections:
-      log("#{underline_sections}: #{section}")
+      
+      # Some hard-coded fixups defined in the table above use 0 for the right
+      # side, implying the glyph's full-width
+      left = section[0]
+      right = section[1] if section[1] != 0 else far_right
+
       underline = fontforge.contour()
       underline.is_quadratic = True
-      underline.moveTo(section[0], top)
-      underline.lineTo(section[0], bottom)
-      underline.lineTo(section[1], bottom)
-      underline.lineTo(section[1], top)
+      underline.moveTo(left, top)
+      underline.lineTo(left, bottom)
+      underline.lineTo(right, bottom)
+      underline.lineTo(right, top)
       underline.closed = True
     
-      foreground_idx = 1       
+      foreground_idx = 1
+      if g.glyphname == 'slash':
+        g.layers[foreground_idx] = hardcoded_slash 
+
       g.layers[foreground_idx] += underline
 
     correct_round_and_clean(g)

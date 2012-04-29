@@ -917,7 +917,8 @@
 
 (function(global, exports) {
   "use strict";    
-    var gatherCssSelectors, specificity, testSpecificity,
+    var gatherCss, specificity, testSpecificity,
+    __hasProp = {}.hasOwnProperty,
     __slice = [].slice;
 
   exports.create = function(tag, innerHTML) {
@@ -936,32 +937,49 @@
   };
 
   exports.verifyCss = function() {
-    var elem, matches, matchesSelector, sel, selectors, _i, _len, _ref;
+    var css, decl, elem, elemName, match, matches, matchesSelector, prop, sel, sels, specificity, tag, usedElems, val, _i, _j, _len, _len2, _ref, _ref2;
     matchesSelector = (function(e) {
       return e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.oMatchesSelector || e.msMatchesSelector;
     })(document.documentElement);
     if (!matchesSelector) return;
-    selectors = gatherCssSelectors.apply(null, document.styleSheets);
+    usedElems = {};
+    css = gatherCss.apply(null, document.styleSheets);
     _ref = document.querySelectorAll('*');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       elem = _ref[_i];
-      matches = (function() {
-        var _j, _len2, _results;
-        _results = [];
-        for (_j = 0, _len2 = selectors.length; _j < _len2; _j++) {
-          sel = selectors[_j];
-          if (matchesSelector.call(elem, sel)) _results.push(sel);
+      tag = elem.nodeName.toLowerCase();
+      _ref2 = css.properties;
+      for (prop in _ref2) {
+        if (!__hasProp.call(_ref2, prop)) continue;
+        sels = _ref2[prop];
+        matches = {};
+        for (sel in sels) {
+          if (!__hasProp.call(sels, sel)) continue;
+          val = sels[sel];
+          if (!(matchesSelector.call(elem, sel))) continue;
+          specificity = css.selectors[sel];
+          decl = "" + sel + " { " + prop + ": " + val + "; }";
+          if (matches[specificity]) {
+            console.log("Error, element " + tag + " declares property " + prop + " more than once at same specificity:\n  Before: " + matches[specificity] + "\n  Now:    " + decl);
+          } else {
+            matches[specificity] = decl;
+          }
         }
-        return _results;
-      })();
+      }
+      elemName = elem.nodeName.toLowerCase();
+      if (usedElems[elemName] == null) usedElems[elemName] = {};
+      for (_j = 0, _len2 = matches.length; _j < _len2; _j++) {
+        match = matches[_j];
+        usedElems[elemName][match] = '';
+      }
       if (matches.length > 2) {
         console.log("" + elem + ":\n   " + (matches.join('\n')));
       }
     }
   };
 
-  gatherCssSelectors = function() {
-    var CHARSET_RULE, FONT_FACE_RULE, IMPORT_RULE, MEDIA_RULE, PAGE_RULE, STYLE_RULE, UNKNOWN_RULE, rule, sheet, sheets, _ref;
+  gatherCss = function() {
+    var CHARSET_RULE, FONT_FACE_RULE, IMPORT_RULE, MEDIA_RULE, PAGE_RULE, STYLE_RULE, UNKNOWN_RULE, css, property, rule, selector, selectors, sheet, sheets, style, value, _base, _i, _j, _k, _l, _len, _len2, _len3, _len4, _len5, _m, _ref;
     sheets = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     UNKNOWN_RULE = 0;
     STYLE_RULE = 1;
@@ -970,26 +988,38 @@
     MEDIA_RULE = 4;
     FONT_FACE_RULE = 5;
     PAGE_RULE = 6;
-    return (_ref = []).concat.apply(_ref, (function() {
-      var _i, _len, _ref, _results;
-      _results = [];
-      for (_i = 0, _len = sheets.length; _i < _len; _i++) {
-        sheet = sheets[_i];
-        _results.push((_ref = []).concat.apply(_ref, (function() {
-          var _j, _len2, _ref, _results2;
-          _ref = sheet.cssRules;
-          _results2 = [];
-          for (_j = 0, _len2 = _ref.length; _j < _len2; _j++) {
-            rule = _ref[_j];
-            if (rule.type === STYLE_RULE) {
-              _results2.push(rule.selectorText.split(','));
+    css = {
+      properties: {},
+      selectors: {},
+      values: {}
+    };
+    for (_i = 0, _len = sheets.length; _i < _len; _i++) {
+      sheet = sheets[_i];
+      _ref = sheet.cssRules;
+      for (_j = 0, _len2 = _ref.length; _j < _len2; _j++) {
+        rule = _ref[_j];
+        if (!(rule.type === STYLE_RULE)) continue;
+        selectors = rule.selectorText.split(',');
+        for (_k = 0, _len3 = selectors.length; _k < _len3; _k++) {
+          selector = selectors[_k];
+          css.selectors[selector] = specificity(selector);
+        }
+        style = rule.style;
+        for (_l = 0, _len4 = style.length; _l < _len4; _l++) {
+          property = style[_l];
+          value = style.getPropertyValue(property);
+          if ((_base = css.properties)[property] == null) _base[property] = {};
+          for (_m = 0, _len5 = selectors.length; _m < _len5; _m++) {
+            selector = selectors[_m];
+            if (css.properties[property][selector]) {
+              puts("Oddity: " + css.properties[property][selector]);
             }
+            css.properties[property][selector] = value;
           }
-          return _results2;
-        })()));
+        }
       }
-      return _results;
-    })());
+    }
+    return css;
   };
 
   specificity = function(s) {

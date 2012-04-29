@@ -34,9 +34,13 @@
   }
 }
 
-@mixin small-caps {
+@mixin type-smcp {
   text-rendering: optimizeSpeed;
   font-variant: small-caps;
+}
+
+@mixin type-c2sc {
+  text-transform: lowercase;
 }
 
 @mixin background-image-baseline-grid() {  

@@ -16,16 +16,35 @@ exports.verifyCss = ->
 
   return if not matchesSelector
 
-  selectors = gatherCssSelectors document.styleSheets...  
+  usedElems  = {}
+
+  css = gatherCss document.styleSheets...  
 
   for elem in document.querySelectorAll '*'
-    matches = (sel for sel in selectors when matchesSelector.call elem, sel)    
+    tag = elem.nodeName.toLowerCase()
+    for own prop, sels of css.properties
+      matches = {}
+      for own sel, val of sels when matchesSelector.call elem, sel
+        specificity = css.selectors[sel]
+        decl = "#{sel} { #{prop}: #{val}; }"
+        if matches[specificity]
+          console.log """
+              Error, element #{tag} declares property #{prop} more than once at same specificity:
+                Before: #{matches[specificity]}
+                Now:    #{decl}
+            """
+        else
+          matches[specificity] = decl
+        
+    elemName = elem.nodeName.toLowerCase()
+    usedElems[elemName] ?= {}
+    usedElems[elemName][match] = '' for match in matches    
     if matches.length > 2
       console.log "#{elem}:\n   #{matches.join '\n'}"
 
   return
 
-gatherCssSelectors = (sheets...) ->
+gatherCss = (sheets...) ->
 
   UNKNOWN_RULE                   = 0
   STYLE_RULE                     = 1
@@ -35,9 +54,29 @@ gatherCssSelectors = (sheets...) ->
   FONT_FACE_RULE                 = 5
   PAGE_RULE                      = 6
 
-  [].concat (for sheet in sheets
-    [].concat (for rule in sheet.cssRules when rule.type is STYLE_RULE
-      rule.selectorText.split ',')...)...
+  css =
+    properties: {}
+    selectors: {}
+    values: {}
+
+  for sheet in sheets
+    for rule in sheet.cssRules when rule.type is STYLE_RULE
+      selectors = rule.selectorText.split ','
+
+      for selector in selectors
+        css.selectors[selector] = specificity selector
+      
+      style = rule.style
+      for property in style
+        value = style.getPropertyValue property
+        
+        css.properties[property] ?= {}        
+        for selector in selectors
+          if css.properties[property][selector]
+            puts "Oddity: #{css.properties[property][selector]}"
+          css.properties[property][selector] = value
+
+  css
 
 specificity = (s) ->
   

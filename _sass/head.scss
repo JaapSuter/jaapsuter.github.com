@@ -24,6 +24,24 @@ html {
   text-rendering: optimizelegibility;
 }
 
+body {
+  position: relative;
+  width: 100%;
+  max-width: 38em;
+  margin: 0 auto;
+    
+  @include color-and-background-color($black, $white);  
+  @extend %#{$body-font-family};
+}
+
+img {
+  width: 100%;
+}
+
+#main {
+  background-color: #ddf;
+}
+
 @if false {
   
 ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
@@ -32,12 +50,17 @@ html {
 figure { overflow: hidden; }
 
 p {
+  -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word; // Non standard for webkit  
+
   -webkit-locale: 'en';
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -epub-hyphens: auto;
-  hyphens: auto;
+    -epub-hyphens: auto;
+     -moz-hyphens: auto;
+       ms-hyphens: auto;
+        o-hyphens: auto;
+          hyphens: auto;
 }
 
 }
@@ -59,13 +82,6 @@ p {
   @include responsive-type(24px, auto, min-width, 86em);
   
   body {
-    position: relative;
-    max-width: 38em;
-    margin: 0 auto;
-    
-    @include color-and-background-color($black, $white);
-    @extend %#{$body-font-family};
-  
     @include units(font-size, $pp-em, $pp-rem);
     @include units(line-height, 1el);
   }
@@ -77,6 +93,9 @@ p {
     @include units(text-indent, 1el);
     margin-top: 0;  
   }
+
+  .foo { color: red; }
+  .bar { color: blue; }
 
   /*
   .type-m { @include change-type(pan7n, cap, 1el) {} }
@@ -164,3 +183,32 @@ p {
 .blue-ll     { color: $black; background-color: $blue-ll ;}
 .blue-lll    { color: $black; background-color: $blue-lll;}
 */
+
+
+.dt-full {
+  margin: 2em 0;
+  padding: 0;
+  border: none;
+  outline: green dashed 1px;
+}
+
+.dt-margin {
+  margin: 2em 1em;
+  padding: 0;
+  border: none;
+  outline: green dashed 1px;
+}
+
+.dt-padding {
+  margin: 2em 0;
+  padding: 0 2em;
+  border: none;
+  outline: green dashed 1px;
+}
+
+.dt-border {
+  margin: 2em 0;
+  padding: 0;
+  border: 1em solid red;
+  outline: green dashed 1px;
+}

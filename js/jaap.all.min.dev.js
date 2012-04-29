@@ -550,7 +550,7 @@
   return window.$jaap$.keys
 }());
 (function($global$$5$$, $exports$$5$$) {
-  var $gatherCssSelectors$$, $specificity$$, $__slice$$1$$ = [].slice;
+  var $gatherCss$$, $specificity$$, $__hasProp$$1$$ = {}.hasOwnProperty, $__slice$$1$$ = [].slice;
   $exports$$5$$.create = function $$exports$$5$$$create$($tag$$, $innerHTML$$) {
     var $elem$$1$$;
     $elem$$1$$ = document.createElement($tag$$);
@@ -562,53 +562,78 @@
     return 0 <= $e$$9$$.className.indexOf("baseline") ? $e$$9$$.className = $e$$9$$.className.replace(/(?:^|\s)baseline(?!\S)/, "") : $e$$9$$.className += " baseline"
   };
   $exports$$5$$.$verifyCss$ = function $$exports$$5$$$$verifyCss$$() {
-    var $elem$$2$$, $matches_sel$$, $matchesSelector$$, $selectors$$8$$, $_i$$6$$, $_len$$4$$, $_ref$$4$$;
+    var $css$$, $decl_val$$, $elem$$2$$, $elemName_sels$$, $match_specificity$$1$$, $matches$$, $matchesSelector$$, $prop$$4$$, $sel$$, $_j_tag$$1$$, $usedElems$$, $_i$$6$$, $_len$$4$$, $_len2__ref2$$5$$, $_ref$$4$$;
     if($matchesSelector$$ = document.documentElement.matchesSelector || document.documentElement.webkitMatchesSelector || document.documentElement.mozMatchesSelector || document.documentElement.$oMatchesSelector$ || document.documentElement.msMatchesSelector) {
-      $selectors$$8$$ = $gatherCssSelectors$$.apply($JSCompiler_alias_NULL$$, document.styleSheets);
+      $usedElems$$ = {};
+      $css$$ = $gatherCss$$.apply($JSCompiler_alias_NULL$$, document.styleSheets);
       $_ref$$4$$ = document.querySelectorAll("*");
       $_i$$6$$ = 0;
       for($_len$$4$$ = $_ref$$4$$.length;$_i$$6$$ < $_len$$4$$;$_i$$6$$++) {
         $elem$$2$$ = $_ref$$4$$[$_i$$6$$];
-        for(var $_j$$inline_2$$ = $JSCompiler_alias_VOID$$, $_len2$$inline_3$$ = $JSCompiler_alias_VOID$$, $_results$$inline_4$$ = $JSCompiler_alias_VOID$$, $_results$$inline_4$$ = [], $_j$$inline_2$$ = 0, $_len2$$inline_3$$ = $selectors$$8$$.length;$_j$$inline_2$$ < $_len2$$inline_3$$;$_j$$inline_2$$++) {
-          $matches_sel$$ = $selectors$$8$$[$_j$$inline_2$$], $matchesSelector$$.call($elem$$2$$, $matches_sel$$) && $_results$$inline_4$$.push($matches_sel$$)
+        $_j_tag$$1$$ = $elem$$2$$.nodeName.toLowerCase();
+        $_len2__ref2$$5$$ = $css$$.$properties$;
+        for($prop$$4$$ in $_len2__ref2$$5$$) {
+          if($__hasProp$$1$$.call($_len2__ref2$$5$$, $prop$$4$$)) {
+            for($sel$$ in $elemName_sels$$ = $_len2__ref2$$5$$[$prop$$4$$], $matches$$ = {}, $elemName_sels$$) {
+              $__hasProp$$1$$.call($elemName_sels$$, $sel$$) && ($decl_val$$ = $elemName_sels$$[$sel$$], $matchesSelector$$.call($elem$$2$$, $sel$$) && ($match_specificity$$1$$ = $css$$.$selectors$[$sel$$], $decl_val$$ = "" + $sel$$ + " { " + $prop$$4$$ + ": " + $decl_val$$ + "; }", $matches$$[$match_specificity$$1$$] ? console.log("Error, element " + $_j_tag$$1$$ + " declares property " + $prop$$4$$ + " more than once at same specificity:\n  Before: " + $matches$$[$match_specificity$$1$$] + "\n  Now:    " + 
+              $decl_val$$) : $matches$$[$match_specificity$$1$$] = $decl_val$$))
+            }
+          }
         }
-        $matches_sel$$ = $_results$$inline_4$$;
-        2 < $matches_sel$$.length && console.log("" + $elem$$2$$ + ":\n   " + $matches_sel$$.join("\n"))
+        $elemName_sels$$ = $elem$$2$$.nodeName.toLowerCase();
+        $usedElems$$[$elemName_sels$$] == $JSCompiler_alias_NULL$$ && ($usedElems$$[$elemName_sels$$] = {});
+        $_j_tag$$1$$ = 0;
+        for($_len2__ref2$$5$$ = $matches$$.length;$_j_tag$$1$$ < $_len2__ref2$$5$$;$_j_tag$$1$$++) {
+          $match_specificity$$1$$ = $matches$$[$_j_tag$$1$$], $usedElems$$[$elemName_sels$$][$match_specificity$$1$$] = ""
+        }
+        2 < $matches$$.length && console.log("" + $elem$$2$$ + ":\n   " + $matches$$.join("\n"))
       }
     }
   };
-  $gatherCssSelectors$$ = function $$gatherCssSelectors$$$() {
-    var $rule$$2$$, $sheet$$, $sheets$$, $_ref$$5$$;
+  $gatherCss$$ = function $$gatherCss$$$() {
+    var $css$$1$$, $property$$3_rule$$2$$, $_base$$4_selector$$, $selectors$$8_sheet$$, $sheets$$, $_k_style$$, $_len3_value$$41$$, $_i$$7$$, $_j$$1$$, $_l$$, $_len$$5$$, $_len2$$1$$, $_len4$$, $_len5$$, $_m$$, $_ref$$5$$;
     $sheets$$ = 1 <= arguments.length ? $__slice$$1$$.call(arguments, 0) : [];
-    return($_ref$$5$$ = []).concat.apply($_ref$$5$$, function() {
-      var $_i$$7$$, $_len$$5$$, $_ref$$6$$, $_results$$7$$;
-      $_results$$7$$ = [];
-      $_i$$7$$ = 0;
-      for($_len$$5$$ = $sheets$$.length;$_i$$7$$ < $_len$$5$$;$_i$$7$$++) {
-        $sheet$$ = $sheets$$[$_i$$7$$], $_results$$7$$.push(($_ref$$6$$ = []).concat.apply($_ref$$6$$, function() {
-          var $_j$$1$$, $_len2$$1$$, $_ref$$7$$, $_results2$$;
-          $_ref$$7$$ = $sheet$$.cssRules;
-          $_results2$$ = [];
-          $_j$$1$$ = 0;
-          for($_len2$$1$$ = $_ref$$7$$.length;$_j$$1$$ < $_len2$$1$$;$_j$$1$$++) {
-            $rule$$2$$ = $_ref$$7$$[$_j$$1$$], 1 === $rule$$2$$.type && $_results2$$.push($rule$$2$$.selectorText.split(","))
+    $css$$1$$ = {$properties$:{}, $selectors$:{}, $values$:{}};
+    $_i$$7$$ = 0;
+    for($_len$$5$$ = $sheets$$.length;$_i$$7$$ < $_len$$5$$;$_i$$7$$++) {
+      $selectors$$8_sheet$$ = $sheets$$[$_i$$7$$];
+      $_ref$$5$$ = $selectors$$8_sheet$$.cssRules;
+      $_j$$1$$ = 0;
+      for($_len2$$1$$ = $_ref$$5$$.length;$_j$$1$$ < $_len2$$1$$;$_j$$1$$++) {
+        if($property$$3_rule$$2$$ = $_ref$$5$$[$_j$$1$$], 1 === $property$$3_rule$$2$$.type) {
+          $selectors$$8_sheet$$ = $property$$3_rule$$2$$.selectorText.split(",");
+          $_k_style$$ = 0;
+          for($_len3_value$$41$$ = $selectors$$8_sheet$$.length;$_k_style$$ < $_len3_value$$41$$;$_k_style$$++) {
+            $_base$$4_selector$$ = $selectors$$8_sheet$$[$_k_style$$], $css$$1$$.$selectors$[$_base$$4_selector$$] = $specificity$$($_base$$4_selector$$)
           }
-          return $_results2$$
-        }()))
+          $_k_style$$ = $property$$3_rule$$2$$.style;
+          $_l$$ = 0;
+          for($_len4$$ = $_k_style$$.length;$_l$$ < $_len4$$;$_l$$++) {
+            $property$$3_rule$$2$$ = $_k_style$$[$_l$$];
+            $_len3_value$$41$$ = $_k_style$$.getPropertyValue($property$$3_rule$$2$$);
+            if(($_base$$4_selector$$ = $css$$1$$.$properties$)[$property$$3_rule$$2$$] == $JSCompiler_alias_NULL$$) {
+              $_base$$4_selector$$[$property$$3_rule$$2$$] = {}
+            }
+            $_m$$ = 0;
+            for($_len5$$ = $selectors$$8_sheet$$.length;$_m$$ < $_len5$$;$_m$$++) {
+              $_base$$4_selector$$ = $selectors$$8_sheet$$[$_m$$], $css$$1$$.$properties$[$property$$3_rule$$2$$][$_base$$4_selector$$] && puts("Oddity: " + $css$$1$$.$properties$[$property$$3_rule$$2$$][$_base$$4_selector$$]), $css$$1$$.$properties$[$property$$3_rule$$2$$][$_base$$4_selector$$] = $_len3_value$$41$$
+            }
+          }
+        }
       }
-      return $_results$$7$$
-    }())
+    }
+    return $css$$1$$
   };
   $specificity$$ = function $$specificity$$$($elems_s$$2$$) {
-    for(var $_ref$$8_classes$$, $ids$$, $_ref2$$5$$, $_ref3$$3$$, $elems_s$$2$$ = $elems_s$$2$$.replace("*", ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/"[^"]*"/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/'[^"]*'/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/\[[^\]]*\]/g, "[]"), $elems_s$$2$$ = $elems_s$$2$$.replace(/[>+~]/g, " ");0 <= $elems_s$$2$$.indexOf("(");) {
+    for(var $_ref$$6_classes$$, $ids$$, $_ref2$$6$$, $_ref3$$3$$, $elems_s$$2$$ = $elems_s$$2$$.replace("*", ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/"[^"]*"/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/'[^"]*'/g, ""), $elems_s$$2$$ = $elems_s$$2$$.replace(/\[[^\]]*\]/g, "[]"), $elems_s$$2$$ = $elems_s$$2$$.replace(/[>+~]/g, " ");0 <= $elems_s$$2$$.indexOf("(");) {
       $elems_s$$2$$ = $elems_s$$2$$.replace(/\([^\)]*?\)/, "")
     }
     $elems_s$$2$$ = $elems_s$$2$$.replace(/:(first-child|last-child|link|visited|hover|active|focus|lang)/g, ".pseudo-class");
     $elems_s$$2$$ = $elems_s$$2$$.replace(/::?[\w-]+/g, " pseudo-elem");
-    $ids$$ = (($_ref$$8_classes$$ = $elems_s$$2$$.match(/#[\w-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref$$8_classes$$.length : $JSCompiler_alias_VOID$$) || 0;
-    $_ref$$8_classes$$ = (($_ref2$$5$$ = $elems_s$$2$$.match(/\.[\w-]+|\[\]/g)) != $JSCompiler_alias_NULL$$ ? $_ref2$$5$$.length : $JSCompiler_alias_VOID$$) || 0;
+    $ids$$ = (($_ref$$6_classes$$ = $elems_s$$2$$.match(/#[\w-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref$$6_classes$$.length : $JSCompiler_alias_VOID$$) || 0;
+    $_ref$$6_classes$$ = (($_ref2$$6$$ = $elems_s$$2$$.match(/\.[\w-]+|\[\]/g)) != $JSCompiler_alias_NULL$$ ? $_ref2$$6$$.length : $JSCompiler_alias_VOID$$) || 0;
     $elems_s$$2$$ = (($_ref3$$3$$ = $elems_s$$2$$.match(/(^|\s)[\w_-]+/g)) != $JSCompiler_alias_NULL$$ ? $_ref3$$3$$.length : $JSCompiler_alias_VOID$$) || 0;
-    return 1E6 * $ids$$ + 1E3 * $_ref$$8_classes$$ + $elems_s$$2$$
+    return 1E6 * $ids$$ + 1E3 * $_ref$$6_classes$$ + $elems_s$$2$$
   };
   window.$tcs$ = function $window$$tcs$$() {
     var $test$$;
@@ -635,19 +660,19 @@
     return $test$$("body##top:lang(fr-ca) div.alert", 1002002)
   }
 }).call($JSCompiler_alias_VOID$$, window, function() {
-  var $_base$$4$$;
+  var $_base$$5$$;
   window.$jaap$ == $JSCompiler_alias_NULL$$ && (window.$jaap$ = {});
-  if(($_base$$4$$ = window.$jaap$).$dom$ == $JSCompiler_alias_NULL$$) {
-    $_base$$4$$.$dom$ = {}
+  if(($_base$$5$$ = window.$jaap$).$dom$ == $JSCompiler_alias_NULL$$) {
+    $_base$$5$$.$dom$ = {}
   }
   return window.$jaap$.$dom$
 }());
-(function($_ref$$9_global$$6$$) {
-  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$9_global$$6$$ = $_ref$$9_global$$6$$.$jaap$;
-  $util$$1$$ = $_ref$$9_global$$6$$.$util$;
-  $dom$$1$$ = $_ref$$9_global$$6$$.$dom$;
-  $keys$$1$$ = $_ref$$9_global$$6$$.keys;
-  $font$$ = $_ref$$9_global$$6$$.font;
+(function($_ref$$7_global$$6$$) {
+  var $diagnose$$, $dom$$1$$, $font$$, $keys$$1$$, $toggleBaseline$$, $util$$1$$, $_ref$$7_global$$6$$ = $_ref$$7_global$$6$$.$jaap$;
+  $util$$1$$ = $_ref$$7_global$$6$$.$util$;
+  $dom$$1$$ = $_ref$$7_global$$6$$.$dom$;
+  $keys$$1$$ = $_ref$$7_global$$6$$.keys;
+  $font$$ = $_ref$$7_global$$6$$.font;
   $toggleBaseline$$ = function $$toggleBaseline$$$() {
     return $dom$$1$$.$toggleClass$()
   };
@@ -656,13 +681,13 @@
     $body$$1$$ = document.body;
     $ppgd$$ = parseFloat(window.getComputedStyle($body$$1$$).lineHeight);
     $get$$ = function $$get$$$($name$$54$$) {
-      var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$;
-      $pplh_style$$ = {fontSize:"0", lineHeight:"0"};
-      ($elem$$3_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$ = window.getComputedStyle($elem$$3_height$$9$$));
-      $ppem$$ = parseFloat($pplh_style$$.fontSize);
-      $pplh_style$$ = parseFloat($pplh_style$$.lineHeight);
+      var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$1$$;
+      $pplh_style$$1$$ = {fontSize:"0", lineHeight:"0"};
+      ($elem$$3_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$1$$ = window.getComputedStyle($elem$$3_height$$9$$));
+      $ppem$$ = parseFloat($pplh_style$$1$$.fontSize);
+      $pplh_style$$1$$ = parseFloat($pplh_style$$1$$.lineHeight);
       $elem$$3_height$$9$$ = $elem$$3_height$$9$$.getBoundingClientRect().height;
-      return"" + $ppem$$ + "/" + $pplh_style$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
+      return"" + $ppem$$ + "/" + $pplh_style$$1$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
     };
     return document.querySelector("#dimensions").innerHTML = "" + $get$$("html") + "\n" + $get$$("body") + "\n" + $get$$("p") + "\n" + $get$$("h1") + "\n" + $get$$("h2") + "\n" + $get$$("h3") + "\n" + $get$$(".small") + "\nviewport: " + window.innerWidth + "\u00d7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + $body$$1$$.offsetWidth + "\u00d7" + $body$$1$$.offsetWidth
   };

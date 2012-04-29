@@ -5,6 +5,26 @@ title_mark_up: |
 permalink: /lab/
 ---
 
+<div class="dt-full">The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+other pages on this website, typically in paragraph-sized chunks. Blah blah blah, how about some more text? Sure, why not -- here you go.</div>
+
+<div class="dt-margin">The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+other pages on this website, typically in paragraph-sized chunks. Blah blah blah, how about some more text? Sure, why not -- here you go.</div>
+
+<div class="dt-padding">The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+other pages on this website, typically in paragraph-sized chunks. Blah blah blah, how about some more text? Sure, why not -- here you go.</div>
+
+<div class="dt-border">The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+other pages on this website, typically in paragraph-sized chunks. Blah blah blah, how about some more text? Sure, why not -- here you go.</div>
+
+<div class="dt-margin-padding">The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+other pages on this website, typically in paragraph-sized chunks. Blah blah blah, how about some more text? Sure, why not -- here you go.</div>
+
+<div class="dt-margin-border-padding">The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+other pages on this website, typically in paragraph-sized chunks. Blah blah blah, how about some more text? Sure, why not -- here you go.</div>
+
+<div class="foo bar">Test Specificity Peace</div>
+
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
 
 Let's verify that various typographies are converted [Smartypants](http://daringfireball.net/projects/smartypants/) style, comparing
@@ -198,12 +218,12 @@ lacinia nunc massa arcu vitae urna semper aliquam mauris porta pellentesque tort
 
 ## Type Specimen
 
-<h1>
+<p>
   <span style="text-rendering: optimizeSpeed;">LYATAVAWAYA Ta Te To Tu Ty Va Ve Vo Vu Vy Ya Ye Yo Yu Yy</span><br>
   <span style="text-rendering: optimizeLegibility;">LYATAVAWAYA Ta Te To Tu Ty Va Ve Vo Vu Vy Ya Ye Yo Yu Yy</span><br>
   <span style="text-rendering: optimizeSpeed;">The flower in the file made the office staff sniffle.</span><br>
   <span style="text-rendering: optimizeLegibility;">The flower in the file made the office staff sniffle.</span><br>
-</h1>
+</p>
 
 <p>      
   <span style="font-size: 16px; text-rendering: optimizeSpeed;">LYATAVAWAYA Ta Te To Tu Ty Va Ve Vo Vu Vy Ya Ye Yo Yu Yy</span><br>
