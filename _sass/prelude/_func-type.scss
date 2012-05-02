@@ -8,7 +8,7 @@ $type-name-stretch-idx:  4;
   @return 'p' == get-char-at($name, $type-name-tt-or-ps-idx);
 }
 
-@function type-name-get-font-family-fallback($name, $base-name) {
+@function type-name-get-font-family-fallback($name) {
   
   $f: get-char-at($name, $type-name-family-idx);
   $d: get-char-at($name, $type-name-stretch-idx);
@@ -17,6 +17,7 @@ $type-name-stretch-idx:  4;
       if($f == 'm', $mono-fallback,
                     type-name-get-font-family-fallback-error)));
   
+  $base-name: trim-to-font-base-name($name);
   @if $base-name != $name {
     $f: $base-name, $f;
   }

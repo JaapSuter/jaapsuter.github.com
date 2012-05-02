@@ -5,6 +5,8 @@ title_mark_up: |
 permalink: /lab/
 ---
 
+<h1 style='font-family: tsxxn, serif;'>&para;</h1>
+
 <h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
 <h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
 

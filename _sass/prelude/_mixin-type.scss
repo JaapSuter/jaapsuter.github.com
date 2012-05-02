@@ -1,18 +1,10 @@
-@mixin font-style-and-weight($name) {
-  // $font-weight: type-name-get-font-weight($name);
-  // $font-style:  type-name-get-font-style($name);  
-  // @if $font-weight != 400 { font-weight: $font-weight; }
-  // @if $font-style != normal { font-style: $font-style; }
-  font-weight: type-name-get-font-weight($name);
-  font-style:  type-name-get-font-style($name);    
-}
-
 @mixin at-font-face($name, $unicode-range: false) {
-  @unless $type-disable-font-face {  
+  @unless $type-disable-font-face {
     @font-face {
 
-      font-family: quote($name);
-      @include font-style-and-weight($name);
+      font-family: quote(blank-font-style-and-weight($name));
+      font-weight: type-name-get-font-weight($name);
+      font-style:  type-name-get-font-style($name);
       
       src: url('/fonts/#{$name}.eot');
       
@@ -26,35 +18,30 @@
              url('/fonts/#{$name}.woff') format('woff'),
              url('/fonts/#{$name}.ttf') format('truetype');
       }
-
-      @if $unicode-range {
-        unicode-range: unquote($unicode-range);
-      }
     }
   }
 }
 
-@mixin abstract-font-face-family($name, $unicode-range: false) {
-  %#{$name} {
-    $base-name: trim-to-family-base-name($name);  
+@mixin abstract-font-face-family($name) {
+  .#{$name} {
+    $fmly-name: blank-font-style-and-weight($name);
   
-    font-family: #{$name, type-name-get-font-family-fallback($name, $base-name)};
+    font-family: $fmly-name, type-name-get-font-family-fallback($name);
   
-    @include font-style-and-weight($name);
-  
-    @if $base-name != $name {
-      text-rendering: optimizespeed;
-    }  
+    font-weight: type-name-get-font-weight($name);
+    font-style:  type-name-get-font-style($name);
   }
 }
 
-@mixin type-smcp {
+%type-c2pc {
+  text-transform: uppercase; 
   text-rendering: optimizeSpeed;
-  font-variant: small-caps;
 }
 
-@mixin type-c2sc {
-  text-transform: lowercase;
+%type-c2sc {
+  @extend %type-c2pc;
+  letter-spacing: 0.1em;
+  font-size: 1.1em; 
 }
 
 @mixin background-image-baseline-grid() {  
@@ -83,7 +70,7 @@
 
 @mixin change-type($to-font-family, $such-that-metric, $has-value, $leading-el-per-el: 1, $pp-bo-offset: 0) {
 
-  @extend %#{$to-font-family};
+  @extend .#{$to-font-family};
   
   $new-pp-em: undefined;
   @if $such-that-metric == ppem {

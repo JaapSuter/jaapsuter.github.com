@@ -16,11 +16,38 @@ module Jaap
     def self.is_condensed(name) 'c' == name[4] end    
     
     def self.is_for_underline(name) name.end_with? '-underline' end    
-    def self.is_for_small_caps(name) name.end_with? '-smcp' end
+    def self.is_for_small_caps(name) name.end_with? '-c2pc' end
     def self.is_for_tabular_lining_numerals(name) name.end_with? '-tnum-lnum' end
     
     def self.get_font_list()
-      Paths.glob('fonts/*.woff').map { |file| File.basename(file, File.extname(file)) }
+      Jaap::Reload.try_reload
+      
+      available_fonts = Paths.glob('fonts/*.woff').map { |file| File.basename(file, File.extname(file)) }
+
+      ['truetype', 'postscript'].each do      |curve|
+        ['serif', 'sans', 'mono'].each do     |kind|
+          ['italic', 'normal'].each do        |style|
+            ['200', '400', '700'].each do     |weight|
+              ['normal', 'condensed'].each do |stretch|
+              
+                c = curve[0]
+                k = kind == 'sans' ? 'a' : kind[0]
+              
+
+                name = c + k + style[0] + weight[0] + stretch[0]
+                puts name if available_fonts.include? name
+                
+                ['c2pc', 'underline', 'tnum-lnum', 'inv'].each do |feature|
+                  name_and_feature = "#{name}-#{feature}"
+                  puts name_and_feature if available_fonts.include? name_and_feature
+                end
+              end
+            end
+          end
+        end
+      end
+
+      available_fonts
     end
     
     def self.build(filter = false, psify = true, smcpify = true, numify = true)
@@ -75,7 +102,7 @@ module Jaap
             
             if ['tsn4n', 'tsi4n'].include? name
               if smcpify
-                cmd['name'] = name + '-smcp'
+                cmd['name'] = name + '-c2pc'
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
               end
             

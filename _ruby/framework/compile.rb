@@ -92,8 +92,11 @@ module Jaap
         else        
           src_dir = Pathname.new(src).parent
 		      dst_dir = src_dir.sub Paths.get('_coffee'), Paths.get('js')
-        
           Dir.mkdir(dst_dir) if not Dir.exists? dst_dir
+
+          dst = Paths.get(dst_dir, File.basename(src, '.coffee') + '.js')
+
+          return unless stale src, dst
           
           ::Jaap::Tool.iced arg('modularize', Paths.get('_coffee')),
                             arg('runtime', 'inline', 'modules.coffee' == File.basename(src)),
@@ -128,12 +131,16 @@ module Jaap
     def self.js_minify_with_advanced_optimizations(src)
       with_rescue do
         dst = File.join Pathname.new(src).parent, File.basename(src, '.js') + '.min.js'
-        min = @@google_closure_compiler.compile File.read src
-        File.open(dst, 'w') { |f| f.write min }
+        if stale(src, dst)
+          min = @@google_closure_compiler.compile File.read src
+          File.open(dst, 'w') { |f| f.write min }
+        end
         
         dst = File.join Pathname.new(src).parent, File.basename(src, '.js') + '.min.dev.js'
-        min = @@google_closure_compiler_debug.compile File.read src
-        File.open(dst, 'w') { |f| f.write min }
+        if stale(src, dst)
+          min = @@google_closure_compiler_debug.compile File.read src
+          File.open(dst, 'w') { |f| f.write min }
+        end
       end
     end
     
@@ -163,15 +170,14 @@ module Jaap
         @@previous_file_size[min_src] = min_size
       end     
     end
-    
+
     def self.ttf_or_otf(src)
+
       woff = Pathname.new(src).sub_ext('.woff').to_s
-      FileUtils.remove woff if File.exists?(woff)
-      ::Jaap::Tool.sfnt2woff(src)
+      ::Jaap::Tool.sfnt2woff(src) if stale(src, woff)
       
       eot = Pathname.new(src).sub_ext('.eot').to_s
-      FileUtils.remove eot if File.exists?(eot)
-      ::Jaap::Tool.eotfast_1(src, eot)      
+      ::Jaap::Tool.eotfast_1(src, eot) if stale(src, eot)
     end
     
     def self.with_rescue()
@@ -229,6 +235,17 @@ module Jaap
       
       watch(glob, maybe_working_dir, watcher) do |file|
         yield Paths.get file
+      end
+    end
+
+    def self.stale(src, dst)
+      if !File.exists?(dst)
+        true
+      elsif File.stat(src).mtime >= File.stat(dst).mtime
+        FileUtils.remove dst
+        true
+      else
+        false
       end
     end
     

@@ -518,36 +518,33 @@ def do_possible_manual_glyphs(f, dir, name, reinstructables):
 def make_small_caps(f, is_italic, is_serif, reinstructables, unicodes):
 
   lowercase_to_smallcap_map = {
-    'a': 0x1D00,                                                              
-    'b': 0x0299, # other candidate maybe: 0x0432
-    'c': 0x1D04,                                                              
-    'd': 0x1D05,                                                              
-    'e': 0x1D07,                                                              
-    'f': 0xA730,                                                              
-    'g': 0x0262,                                                              
-    'h': 0x029C,                                                              
-    'i': 0x026A,                                                              
-    'j': 0x1D0A,                                                              
-    'k': 0x1D0B,                                                              
-    'l': 0x029F,                                                              
-    'm': 0x1D0D,                                                              
-    'n': 0x0274,                                                              
-    'o': 0x1D0F,                                                              
-    'p': 0x1D18,                                                              
-    'q': 0x01EB,                                                              
-    'r': 0x0280,                                                              
-    's': 0xA731,                                                              
-    't': 0x1D1B,                                                              
-    'u': 0x1D1C,                                                              
-    'v': 0x1D20,                                                              
-    'w': 0x1D21,                                                              
-         # reusing existing lowercase 'x' glyph                               
-    'y': 0x028F,                                                              
-    'z': 0x1D22,                                                              
+    'A': 0x1D00,                                                              
+    'B': 0x0299, # other candidate maybe: 0x0432
+    'C': 0x1D04,                                                              
+    'D': 0x1D05,                                                              
+    'E': 0x1D07,                                                              
+    'F': 0xA730,                                                              
+    'G': 0x0262,                                                              
+    'H': 0x029C,                                                              
+    'I': 0x026A,                                                              
+    'J': 0x1D0A,                                                              
+    'K': 0x1D0B,                                                              
+    'L': 0x029F,                                                              
+    'M': 0x1D0D,                                                              
+    'N': 0x0274,                                                              
+    'O': 0x1D0F,                                                              
+    'P': 0x1D18,                                                              
+    'Q': 0x01EB,                                                              
+    'R': 0x0280,                                                              
+    'S': 0xA731,                                                              
+    'T': 0x1D1B,                                                              
+    'U': 0x1D1C,                                                              
+    'V': 0x1D20,                                                              
+    'W': 0x1D21,                                                              
+    'X': ord('x'),
+    'Y': 0x028F,                                                              
+    'Z': 0x1D22,                                                              
   }
-
-  del unicodes[:]
-  unicodes.extend(range(ord('a'), ord('z') + 1))
 
   for lowercase, smallcap in lowercase_to_smallcap_map.iteritems():
     try_replace_glyph_with(f, reinstructables, lowercase, smallcap)
@@ -560,10 +557,14 @@ def make_small_caps(f, is_italic, is_serif, reinstructables, unicodes):
 
     bbox = g.boundingBox()
     current_top = max(bbox[1], bbox[3])
-    mat_move_down = psMat.translate(0, f.xHeight - current_top)
+    lower = psMat.translate(0, f.xHeight - current_top)
     
-    g.transform(mat_move_down)
+    g.transform(lower)
 
+  del unicodes[:]
+
+  unicodes.extend(range(ord('A'), ord('Z') + 1))
+  unicodes.extend(move_downables)
   unicodes.extend(range(ord('0'), ord('9') + 1))
   unicodes.append(ord('&'))
   unicodes.append(ord('('))
@@ -628,7 +629,7 @@ def forge_one(name, src, dir, unicodes):
   is_monospace = name[1] == 'm'
   is_italic = name[2] == 'i'
   is_condensed = name[4] == 'c'  
-  is_for_small_caps = name.endswith('-smcp')  
+  is_for_small_caps = name.endswith('-c2pc')  
     
   rehinstr = is_italic or is_condensed or is_for_small_caps
   
@@ -676,11 +677,10 @@ def forge_one(name, src, dir, unicodes):
     0x2028,                              # line separator
     0x2029])                             # paragraph separator
 
-  # Base serifs include ligatures. The ligatures in sans and monospace
-  # are unnecessary in my opinion, there are no collisions in those glyphs.
-   
+  # Base serifs include the ligatures. Sans and mono do not, they're not worth it.   
   if is_serif and is_base_no_exts:
     unicodes.extend([0xfb01, 0xfb02, 0xfb03, 0xfb04, 0xfb05])
+    unicodes.append(0xb6) # Pilcrow
 
   # The body font gets a vertical rhythm stick
   if name == 'tsn4n':

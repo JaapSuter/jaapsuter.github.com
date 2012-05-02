@@ -2,14 +2,20 @@
 
 (function(global, exports) {
   "use strict";    
-    var gatherCss, specificity, testSpecificity, _crawl,
+    var body, doc, gatherCss, html, matchesSelector, specificity, testSpecificity, _crawl,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
     __slice = [].slice;
 
+  doc = document;
+
+  body = doc.body;
+
+  html = doc.documentElement;
+
   exports.create = function(tag, innerHTML) {
     var elem;
-    elem = document.createElement(tag);
+    elem = doc.createElement(tag);
     elem.innerHTML = innerHTML;
     return [elem, elem.children];
   };
@@ -23,7 +29,7 @@
   };
 
   exports.crawl = function(docFun, doneFun) {
-    return _crawl(docFun, doneFun, document, [document.location.href.replace(/#.*/, '')]);
+    return _crawl(docFun, doneFun, doc, [doc.location.href.replace(/#.*/, '')]);
   };
 
   _crawl = function(docFun, doneFun, doc, visited, visits, iframe) {
@@ -32,15 +38,15 @@
     if (iframe == null) iframe = null;
     docFun(doc);
     if (!iframe) {
-      iframe = document.createElement('iframe');
+      iframe = doc.createElement('iframe');
       iframe.className = 'hidden';
-      document.body.insertBefore(iframe, document.body.firstChild);
+      body.insertBefore(iframe, body.firstChild);
     }
-    _ref = document.querySelectorAll('a');
+    _ref = doc.querySelectorAll('a');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       a = _ref[_i];
       href = a.href.replace(/#.*/, '');
-      if (!(__indexOf.call(visits, href) >= 0 || __indexOf.call(visited, href) >= 0 || href.match(/\.[^.]{0,5}/) || a.host !== document.location.host)) {
+      if (!(__indexOf.call(visits, href) >= 0 || __indexOf.call(visited, href) >= 0 || href.match(/\.[^.]{0,5}/) || a.host !== doc.location.host)) {
         visits.push(href);
       }
     }
@@ -48,26 +54,24 @@
       href = visits.pop();
       visited.push(href);
       iframe.onload = function() {
-        return _crawl(docFun, doneFun, iframe.contentDocument, visited, visits, iframe);
+        return _crawl(docFun, doneFun, iframe.contentdoc, visited, visits, iframe);
       };
       return iframe.setAttribute('src', href);
     } else {
-      console.log('removing iframe');
       iframe.parentNode.removeChild(iframe);
       return doneFun();
     }
   };
 
+  matchesSelector = html.matchesSelector || html.webkitMatchesSelector || html.mozMatchesSelector || html.oMatchesSelector || html.msMatchesSelector;
+
   exports.verifyCss = function() {
-    var className, css, decl, elem, elementsWithoutStyling, fullName, hasAtLeastOneStyledPropertyNotFromUniversal, idName, matches, matchesSelector, prop, sel, sels, specificity, tagName, usedElems, val, _i, _len, _ref, _ref2;
-    matchesSelector = (function(e) {
-      return e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.oMatchesSelector || e.msMatchesSelector;
-    })(document.documentElement);
+    var bodyElementsWithoutStyling, className, css, decl, elem, fullName, hasAtLeastOneStyledPropertyNotFromUniversal, idName, matches, prop, sel, sels, specificity, tagName, usedElems, val, _i, _len, _ref, _ref2;
     if (!matchesSelector) return;
-    elementsWithoutStyling = ['head', 'title', 'link', 'meta', 'script', 'style', 'header', 'figure', 'figcaption', 'hgroup', 'nav', 'footer', 'summary', 'details', 'article', 'section', 'aside'];
+    bodyElementsWithoutStyling = ['title', 'script', 'header', 'hgroup', 'nav', 'article', 'section', 'aside', 'footer', 'figure', 'figcaption', 'summary', 'details'];
     usedElems = {};
-    css = gatherCss.apply(null, document.styleSheets);
-    _ref = document.querySelectorAll('*');
+    css = gatherCss.apply(null, doc.styleSheets);
+    _ref = doc.querySelectorAll('html, body, body *');
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       elem = _ref[_i];
       tagName = elem.nodeName.toLowerCase();

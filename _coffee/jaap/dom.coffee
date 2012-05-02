@@ -1,5 +1,9 @@
+doc = document
+body = doc.body
+html = doc.documentElement
+
 exports.create = (tag, innerHTML) ->
-  elem = document.createElement(tag)
+  elem = doc.createElement(tag)
   elem.innerHTML = innerHTML
   [elem, elem.children]
 
@@ -10,67 +14,66 @@ exports.toggleClass = (e, n) ->
     e.className += " #{n}"
     
 exports.crawl = (docFun, doneFun) ->
-  _crawl docFun, doneFun, document, [document.location.href.replace /#.*/, '']
+  _crawl docFun, doneFun, doc, [doc.location.href.replace /#.*/, '']
 
 _crawl = (docFun, doneFun, doc, visited, visits = [], iframe = null) ->
 
   docFun doc
   
   if not iframe
-    iframe = document.createElement 'iframe'
+    iframe = doc.createElement 'iframe'
     iframe.className = 'hidden'
-    document.body.insertBefore iframe, document.body.firstChild  
+    body.insertBefore iframe, body.firstChild  
 
-  for a in document.querySelectorAll 'a'
+  for a in doc.querySelectorAll 'a'
     href = a.href.replace /#.*/, ''
     visits.push href unless href in visits or
                             href in visited or                            
-                            href.match(/\.[^.]{0,5}/) or # ignore links that non-html (such as pdf, xml, etc.) - not quite bulletproof, but hey..
-                            a.host != document.location.host # ignore externals links
+                            href.match(/\.[^.]{0,5}/) or  # ignore links that non-html (such as pdf, xml, etc.) - not quite bulletproof, but hey..
+                            a.host != doc.location.host   # ignore externals links
 
   if visits.length
     href = visits.pop()
     visited.push href  
     iframe.onload = () -> 
-      _crawl docFun, doneFun, iframe.contentDocument, visited, visits, iframe
+      _crawl docFun, doneFun, iframe.contentdoc, visited, visits, iframe
     iframe.setAttribute 'src', href
   else
-    console.log 'removing iframe'
     iframe.parentNode.removeChild iframe
     doneFun()
 
+matchesSelector = 
+    html.matchesSelector or 
+    html.webkitMatchesSelector or
+    html.mozMatchesSelector or
+    html.oMatchesSelector or
+    html.msMatchesSelector
+
 exports.verifyCss = ->
   
-  matchesSelector = do (e = document.documentElement) ->
-    e.matchesSelector or e.webkitMatchesSelector or e.mozMatchesSelector or e.oMatchesSelector or e.msMatchesSelector
-
   return if not matchesSelector
 
-  elementsWithoutStyling = [
-    'head'
+  bodyElementsWithoutStyling = [
     'title'
-    'link'
-    'meta'
     'script'
-    'style'
     'header'
-    'figure'
-    'figcaption'
     'hgroup'
     'nav'
-    'footer'
-    'summary'
-    'details'
     'article'
     'section'
     'aside'
+    'footer'
+    'figure'
+    'figcaption'
+    'summary'
+    'details'
   ]
 
   usedElems  = {}
 
-  css = gatherCss document.styleSheets...  
+  css = gatherCss doc.styleSheets...  
 
-  for elem in document.querySelectorAll '*'
+  for elem in doc.querySelectorAll 'html, body, body *'
     tagName = elem.nodeName.toLowerCase()
     hasAtLeastOneStyledPropertyNotFromUniversal = false
     for own prop, sels of css.properties

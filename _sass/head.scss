@@ -27,7 +27,7 @@ body {
   margin: 0 auto;
     
   @include color-and-background-color($black, $white);
-  @extend %#{$body-font-family};
+  @extend %#{blank-font-style-and-weight($body-font-family)};
 }
 
 /*
@@ -97,6 +97,11 @@ p {
     margin-top: 0;  
   }
 
+  %thematic-break {
+    text-indent: 0;
+    @include units(margin-top, 1el);
+  }
+
   /*
   .type-m { @include change-type(pan7n, cap, 1el) {} }
   .type-l { @include change-type(pan7n, cap, 2el) {} }
@@ -126,12 +131,9 @@ p {
   */
   
   h3 {
-    @include change-type(tsn4n-smcp, ex, 1cap) {
-      text-transform: lowercase;
-      text-rendering: optimizespeed;
-      letter-spacing: 0.1em;
-      word-spacing: 0.2em;
+    @include change-type(tsn4n-c2pc, ex, 1cap) {      
       @include units(margin-top, 1el);
+      @extend %type-c2sc;
     }    
   }
   /*

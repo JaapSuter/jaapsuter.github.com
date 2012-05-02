@@ -37,15 +37,13 @@ h1, h2, h3 {
 }
 
 .caps, abbr[title] {
-  @extend %tsn4n-smcp;
-  text-transform: lowercase;
-  letter-spacing: 0.1em;
-  font-size: 1.1em;
+  @extend %tsxxn-c2pc;
+  
 }
 
 .tnum-lnum,
 .math {
-  @extend %tsn4n-tnum-lnum;
+  @extend %tsxxn-tnum-lnum;
 }
 
 code,
@@ -61,7 +59,7 @@ code {
 abbr { border: none; }
 
 pre, code, kbd, samp {
-  @extend %tmn4n;
+  @extend %tmxxn;
   font-size: 1em;
 }
 
