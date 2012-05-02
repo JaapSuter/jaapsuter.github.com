@@ -103,7 +103,8 @@ def try_replace_glyph_with(f, reinstructables, corig, calt):
     if not h or not h.ttinstrs or len(h.ttinstrs) == 0:
       log("Reinstructing '#{corig}' because '#{calt}' had no instructions...")
       correct_round_and_clean(g)
-      reinstructables.append(g)
+      if reinstructables:
+        reinstructables.append(g)
     else:
       log("Reusing instructions for '#{corig}' coming from '#{calt}'...")
       g.ttinstrs = h.ttinstrs
@@ -161,13 +162,6 @@ def autohint_entire_font(f, use_existing_privates = False):
 
   for g in f.glyphs():
     g.autoHint()
-
-def adjust_left_side_bearings(f, min_bearing):
-  f.selection.all()
-  for g in f.glyphs():
-    xMin = g.boundingBox()[0]
-    if xMin < min_bearing:
-      g.transform(psMat.translate(min_bearing - xMin, 0))
 
 def make_underline(f, name, src, dst):
 
@@ -227,7 +221,7 @@ def make_underline(f, name, src, dst):
   hardcoded_slash.lineTo(690, 1493)
   hardcoded_slash.closed = True
   
-  # Descender test line: p:/ajaqug, (3241527890); J-$_@.
+  # Descender test line: ep:/ajaqug, (3241527890); JaQ-$_@.a
   manual_descenders = {
     # Pair of left and right fix-ups (0 on the rhs means end of glyph, per above).
     fontforge.nameFromUnicode(ord('g')): [],
@@ -242,6 +236,7 @@ def make_underline(f, name, src, dst):
     fontforge.nameFromUnicode(ord('$')): [(0, 490), (790, 0)],
     fontforge.nameFromUnicode(ord('@')): [(0, 300), (1720, 0)],
     fontforge.nameFromUnicode(ord('J')): [],
+    fontforge.nameFromUnicode(ord('Q')): [(0, 728), (1478, 0)],
     fontforge.nameFromUnicode(ord('3')): [],
     fontforge.nameFromUnicode(ord('4')): [(0, 567), (1036, 0)],
     fontforge.nameFromUnicode(ord('5')): [],
@@ -285,7 +280,7 @@ def make_underline(f, name, src, dst):
     
       foreground_idx = 1
       if g.glyphname == 'slash':
-        g.layers[foreground_idx] = hardcoded_slash 
+        g.layers[foreground_idx] = hardcoded_slash
 
       g.layers[foreground_idx] += underline
 
@@ -297,7 +292,7 @@ def make_underline(f, name, src, dst):
 
     nw, nlb, nrb = g.width, g.left_side_bearing, g.right_side_bearing
 
-    log("#{g.glyphname}: #{ow}, #{olb}, #{orb} -> #{nw}, #{nlb}, #{nrb}")
+    # log("#{g.glyphname}: #{ow}, #{olb}, #{orb} -> #{nw}, #{nlb}, #{nrb}")
         
   autohint_entire_font(m, use_existing_privates = True)
   m.selection.all()
@@ -514,14 +509,17 @@ def do_possible_manual_glyphs(f, dir, name, reinstructables):
         log("Replacement failure during #{c}, because #{n} does not exist in #{name}...")
         
     
-    # We don't close the font, because it appears to result in access violations... since we're going to exit
-    # soon anyway, it's not a big problem...        m.close()
+    # We don't close the font, because it appears to result in
+    # access violations... Might be fixed in newer FontForge version, but 
+    # since we're going to exit soon anyway, it's not a big problem.
+    #
+    #     m.close()
 
-def make_small_caps(f, is_italic, is_serif, reinstructables):
+def make_small_caps(f, is_italic, is_serif, reinstructables, unicodes):
 
   lowercase_to_smallcap_map = {
     'a': 0x1D00,                                                              
-    'b': 0x0432 if is_serif else 0x0299,
+    'b': 0x0299, # other candidate maybe: 0x0432
     'c': 0x1D04,                                                              
     'd': 0x1D05,                                                              
     'e': 0x1D07,                                                              
@@ -548,18 +546,31 @@ def make_small_caps(f, is_italic, is_serif, reinstructables):
     'z': 0x1D22,                                                              
   }
 
+  del unicodes[:]
+  unicodes.extend(range(ord('a'), ord('z') + 1))
+
   for lowercase, smallcap in lowercase_to_smallcap_map.iteritems():
     try_replace_glyph_with(f, reinstructables, lowercase, smallcap)
 
-  f.selection.all()
-  for g in f.selection.byGlyphs:
-    g.removePosSub('*')
-  
-  sep = (f.em / 10)
-  min_bearing = int(sep * 0.75)
-  max_bearing = int(sep * 1.25)
-  f.autoWidth(sep, min_bearing, max_bearing)
+  move_downables = [0x2018, 0x2019, 0x201c, 0x201d]
+  for md in move_downables:
+    unicodes.append(md)
 
+    g = f[fontforge.nameFromUnicode(md)]
+
+    bbox = g.boundingBox()
+    current_top = max(bbox[1], bbox[3])
+    mat_move_down = psMat.translate(0, f.xHeight - current_top)
+    
+    g.transform(mat_move_down)
+
+  unicodes.extend(range(ord('0'), ord('9') + 1))
+  unicodes.append(ord('&'))
+  unicodes.append(ord('('))
+  unicodes.append(ord(')'))
+  unicodes.append(ord('!'))
+  unicodes.append(ord('?'))  
+  
 def make_font_face_load_detection_glyph(f, unicodes, is_monospace):
   unicode = 0xA6
   width = 4 * f.em if not is_monospace else f['m'].width
@@ -570,16 +581,54 @@ def make_font_face_load_detection_glyph(f, unicodes, is_monospace):
   g.width = width
 
   unicodes.append(unicode)
-      
+
+def fix_and_add_rhythm_glyphs(f, unicodes):
+
+  unicodes.append(ord('|'))
+
+  # No special rhythm glyphs used at the moment, just the vertical
+  # bar. Remove remainder of function if stale (today is May 1st 2012)
+  return 
+
+  width = 512
+  height = f.ascent
+  unicode_x_left_x_right = [(0x258f, 0, width / 2), (0x2595, width / 2, width)]
+  for ulr in unicode_x_left_x_right:
+    
+    unicode = ulr[0]
+    left = ulr[1]
+    right = ulr[2]
+
+    unicodes.append(unicode)
+    g = f.createChar(unicode)
+    g.clear()
+    
+    rect = fontforge.contour()
+    rect.is_quadratic = True
+    rect.moveTo(left, height)
+    rect.lineTo(left, 0)
+    rect.lineTo(right, 0)
+    rect.lineTo(right, height)
+    rect.closed = True
+
+    foreground_idx = 1    
+    g.layers[foreground_idx] = rect
+
+    g.left_side_bearing = left
+    g.right_side_bearing = width - right
+    g.width = width
+
+
 def forge_one(name, src, dir, unicodes):
     
+  is_base_no_exts = len(name) == 5
   is_for_postscript = name[0] == 'p'
   is_serif = name[1] == 's'
   is_sans = name[1] == 'a'
   is_monospace = name[1] == 'm'
   is_italic = name[2] == 'i'
   is_condensed = name[4] == 'c'  
-  is_for_small_caps = name.endswith('-smcp')
+  is_for_small_caps = name.endswith('-smcp')  
     
   rehinstr = is_italic or is_condensed or is_for_small_caps
   
@@ -607,42 +656,45 @@ def forge_one(name, src, dir, unicodes):
     ]
 
   if is_for_small_caps:
-    make_small_caps(f, is_italic, is_serif, reinstructables)
-    unicodes = range(ord('a'), ord('z') + 1)
-
+    make_small_caps(f, is_italic, is_serif, reinstructables, unicodes)
+    
   do_possible_manual_glyphs(f, dir, name, reinstructables)
   
-  if False:
-    make_font_face_load_detection_glyph(f, unicodes, is_monospace)
+  unicodes.extend(range(0, ord(' ')))    # .null, .notdef, CR, etc.
+  unicodes.extend([     
+    ord(' '),                            # space
+    ord('x'),                            # x, for ex-height measurements
+    ord('-'),                            # hyphen-minus
+    0x0085,                              # next-line
+    0x00A0,                              # no break space
+    0x00AD,                              # soft hyphen
+    0x200A,                              # zero width space
+    0x200C,                              # zero width non-joiner
+    0x200D,                              # zero width joiner
+    0x2010,                              # hyphen
+    0x2011,                              # non-breaking hyphen as hyphen (U+2010), but not an allowed line break point
+    0x2028,                              # line separator
+    0x2029])                             # paragraph separator
 
-  if unicodes:
-    unicodes.extend(range(0, ord(' ')))    # .null, .notdef, CR, etc.
-    unicodes.extend([     
-      ord(' '),                            # space
-      ord('x'),                            # x, for ex-height measurements
-      ord('-'),                            # hyphen-minus
-      0x0085,                              # next-line
-      0x00A0,                              # no break space
-      0x00AD,                              # soft hyphen
-      0x200A,                              # zero width space
-      0x200C,                              # zero width non-joiner
-      0x200D,                              # zero width joiner
-      0x2010,                              # hyphen
-      0x2011,                              # non-breaking hyphen	as hyphen (U+2010), but not an allowed line break point
-      0x2028,                              # line separator
-      0x2029])                             # paragraph separator
+  # Base serifs include ligatures. The ligatures in sans and monospace
+  # are unnecessary in my opinion, there are no collisions in those glyphs.
+   
+  if is_serif and is_base_no_exts:
+    unicodes.extend([0xfb01, 0xfb02, 0xfb03, 0xfb04, 0xfb05])
 
-    ligatures = [0xfb01, 0xfb02, 0xfb03, 0xfb04, 0xfb05]
-    exclude = ligatures if not is_serif else []
+  # The body font gets a vertical rhythm stick
+  if name == 'tsn4n':
+    fix_and_add_rhythm_glyphs(f, unicodes)
 
-    unicodes = [unicode for unicode in set(unicodes) if unicode not in exclude]
+  # Remove any duplicates
+  unicodes = list(set(unicodes))
 
-    f.selection.none()
-    for unicode in unicodes:
-      select_more_unicode(f, name, unicode)
+  f.selection.none()
+  for unicode in unicodes:
+    select_more_unicode(f, name, unicode)
 
-    f.selection.invert()
-    f.clear()
+  f.selection.invert()
+  f.clear()
   
   if rehinstr:
     remove_cvt_fpgm_and_prep(f)

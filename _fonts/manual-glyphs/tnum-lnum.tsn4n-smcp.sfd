@@ -1,0 +1,2593 @@
+SplineFontDB: 3.0
+FontName: DejaVuSerif
+FullName: DejaVu Serif
+FamilyName: DejaVu Serif
+Weight: Book
+Copyright: Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved.\nDejaVu changes are in public domain\n
+Version: 2.33
+ItalicAngle: 0
+UnderlinePosition: -85
+UnderlineWidth: 90
+Ascent: 1556
+Descent: 492
+sfntRevision: 0x0002547a
+LayerCount: 2
+Layer: 0 1 "Back"  1
+Layer: 1 1 "Fore"  0
+NeedsXUIDChange: 1
+XUID: [1021 545 1002448030 16137756]
+FSType: 0
+OS2Version: 1
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1298817441
+ModificationTime: 1335953425
+PfmFamily: 17
+TTFWeight: 400
+TTFWidth: 5
+LineGap: 0
+VLineGap: 0
+Panose: 2 6 6 3 5 6 5 2 2 4
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 410
+OS2WinAscent: -371
+OS2WinAOffset: 1
+OS2WinDescent: -227
+OS2WinDOffset: 1
+HheadAscent: -371
+HheadAOffset: 1
+HheadDescent: 227
+HheadDOffset: 1
+OS2SubXSize: 1331
+OS2SubYSize: 1433
+OS2SubXOff: 0
+OS2SubYOff: 286
+OS2SupXSize: 1331
+OS2SupYSize: 1433
+OS2SupXOff: 0
+OS2SupYOff: 983
+OS2StrikeYSize: 102
+OS2StrikeYPos: 530
+OS2Vendor: 'PfEd'
+OS2CodePages: 6000009f.dfd70000
+OS2UnicodeRanges: e40006ff.5200f9fb.0a040020.00000000
+Lookup: 1 0 0 "'smcp' Lowercase to Small Capitals in Greek lookup 0"  {"'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable"  } ['smcp' ('DFLT' <'dflt' > 'grek' <'dflt' > ) ]
+Lookup: 1 0 0 "'c2sc' Capitals to Small Capitals in Greek lookup 0"  {"'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable"  } ['c2sc' ('DFLT' <'dflt' > 'grek' <'dflt' > ) ]
+Lookup: 6 0 0 "'ccmp' Glyph Composition/Decomposition lookup 0"  {"'ccmp' Glyph Composition/Decomposition lookup 0 subtable"  } ['ccmp' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 1 0 0 "'locl' Localized Forms in Cyrillic lookup 1"  {"'locl' Localized Forms in Cyrillic lookup 1 subtable"  } ['locl' ('cyrl' <'MKD ' 'SRB ' > ) ]
+Lookup: 1 0 0 "'locl' Localized Forms in Latin lookup 2"  {"'locl' Localized Forms in Latin lookup 2 subtable"  } ['locl' ('latn' <'ISM ' 'KSM ' 'LSM ' 'NSM ' 'SKS ' 'SSM ' > ) ]
+Lookup: 4 0 1 "'liga' Standard Ligatures lookup 3"  {"'liga' Standard Ligatures lookup 3 subtable"  } ['liga' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 4 0 1 "'liga' Standard Ligatures lookup 4"  {"'liga' Standard Ligatures lookup 4 subtable"  } ['liga' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'ISM ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'dflt' > ) ]
+Lookup: 4 0 0 "'dlig' Discretionary Ligatures lookup 5"  {"'dlig' Discretionary Ligatures lookup 5 subtable"  } ['dlig' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 3 0 0 "'salt' Stylistic Alternatives lookup 6"  {"'salt' Stylistic Alternatives lookup 6 subtable"  } ['salt' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 3 0 0 "'aalt' Access All Alternates lookup 7"  {"'aalt' Access All Alternates lookup 7 subtable"  } ['aalt' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 1 0 0 "Single Substitution lookup 8"  {"Single Substitution lookup 8 subtable"  } []
+Lookup: 1 0 0 "Single Substitution lookup 9"  {"Single Substitution lookup 9 subtable"  } []
+Lookup: 262 0 0 "'mkmk' Mark to Mark lookup 0"  {"'mkmk' Mark to Mark lookup 0 subtable"  } ['mkmk' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 260 0 0 "'mark' Mark Positioning lookup 1"  {"'mark' Mark Positioning lookup 1 subtable"  } ['mark' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+Lookup: 258 0 0 "'kern' Horizontal Kerning lookup 2"  {"'kern' Horizontal Kerning lookup 2 subtable"  } ['kern' ('DFLT' <'dflt' > 'cyrl' <'MKD ' 'SRB ' 'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'GAG ' 'ISM ' 'KAZ ' 'KRK ' 'KSM ' 'LSM ' 'MOL ' 'NSM ' 'ROM ' 'SKS ' 'SSM ' 'TAT ' 'TRK ' 'dflt' > ) ]
+DEI: 91125
+KernClass2: 41 63 "'kern' Horizontal Kerning lookup 2 subtable" 
+ 14 hyphen uni2010
+ 67 A Agrave Aacute Acircumflex Atilde Adieresis Amacron Abreve Aogonek
+ 1 B
+ 47 C Ccedilla Cacute Ccircumflex Cdotaccent Ccaron
+ 15 D Dcaron Dcroat
+ 50 E AE Egrave Eacute Ecircumflex Edieresis Ecaron OE
+ 1 F
+ 8 G Gbreve
+ 1 J
+ 1 K
+ 15 L Lacute Lcaron
+ 15 N Ntilde Ncaron
+ 51 O Ograve Oacute Ocircumflex Otilde Odieresis Oslash
+ 1 P
+ 1 Q
+ 15 R Racute Rcaron
+ 17 S Scedilla Scaron
+ 1 T
+ 43 U Ugrave Uacute Ucircumflex Udieresis Uring
+ 1 V
+ 1 W
+ 1 X
+ 18 Y Yacute Ydieresis
+ 8 Z Zcaron
+ 9 f uniFB00
+ 3 k x
+ 55 o eth ograve oacute ocircumflex otilde odieresis oslash
+ 15 r racute rcaron
+ 3 v w
+ 18 y yacute ydieresis
+ 3 Eth
+ 5 Thorn
+ 5 thorn
+ 4 ldot
+ 6 Lslash
+ 6 Tcaron
+ 11 wcircumflex
+ 17 uni02BB quoteleft
+ 12 quotedblleft
+ 12 quotedblbase
+ 5 comma
+ 6 hyphen
+ 6 period
+ 15 colon semicolon
+ 44 A Agrave Aacute Acircumflex Atilde Adieresis
+ 24 C Ccedilla Cacute Ccaron
+ 120 G Ccircumflex Cdotaccent Gcircumflex Gbreve Gdotaccent Gcommaaccent Omacron Obreve Ohungarumlaut uni01EA uni01EC uni022E
+ 1 J
+ 54 O Ograve Oacute Ocircumflex Otilde Odieresis Oslash OE
+ 17 S Scedilla Scaron
+ 8 T Tcaron
+ 43 U Ugrave Uacute Ucircumflex Udieresis Uring
+ 1 V
+ 1 W
+ 1 X
+ 18 Y Yacute Ydieresis
+ 1 a
+ 1 c
+ 5 d g q
+ 1 e
+ 9 f uniFB00
+ 1 i
+ 1 j
+ 1 l
+ 3 m n
+ 1 o
+ 1 p
+ 1 r
+ 1 s
+ 1 t
+ 1 u
+ 1 v
+ 1 w
+ 1 x
+ 1 y
+ 1 z
+ 2 AE
+ 41 agrave acircumflex atilde adieresis aring
+ 6 aacute
+ 2 ae
+ 22 ccedilla cacute ccaron
+ 28 egrave ecircumflex edieresis
+ 13 eacute ecaron
+ 35 ograve ocircumflex otilde odieresis
+ 6 oacute
+ 6 oslash
+ 41 ugrave uacute ucircumflex udieresis uring
+ 16 yacute ydieresis
+ 22 Amacron Abreve Aogonek
+ 30 amacron abreve aogonek uni01E3
+ 86 emacron ebreve edotaccent eogonek omacron obreve ohungarumlaut uni01EB uni01ED uni022F
+ 2 oe
+ 13 racute rcaron
+ 15 scedilla scaron
+ 20 Tcommaaccent uni021A
+ 33 tcommaaccent tcaron uni021B fi fl
+ 61 Wcircumflex ycircumflex Wgrave Wacute Wdieresis Ygrave ygrave
+ 11 wcircumflex
+ 19 Ycircumflex uni0232
+ 23 wgrave wacute wdieresis
+ 24 quoteright quotedblright
+ 12 quotedblleft
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -73 {} 0 {} -149 {} -112 {} -73 {} -225 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -112 {} 0 {} -102 {} -83 {} 0 {} -83 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} -83 {} -92 {} 0 {} -83 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -83 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -112 {} -36 {} -83 {} -92 {} -83 {} -92 {} -301 {} 0 {} 0 {} 0 {} 38 {} 0 {} 0 {} 0 {} 38 {} 38 {} 0 {} 38 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} -73 {} 0 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -73 {} 38 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 38 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -319 {} -92 {} -319 {} -73 {} -178 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -139 {} 0 {} 0 {} -112 {} 0 {} 0 {} 0 {} 0 {} 0 {} -112 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -139 {} -139 {} -139 {} 0 {} -112 {} -112 {} -112 {} -112 {} -112 {} 0 {} 0 {} -178 {} -139 {} -112 {} -112 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -73 {} 38 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -120 {} 0 {} -159 {} -83 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -149 {} 0 {} 0 {} -83 {} -55 {} 0 {} 0 {} -55 {} 0 {} 0 {} -73 {} 0 {} -73 {} 0 {} -55 {} 0 {} 0 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} 0 {} -131 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -55 {} -55 {} -55 {} -55 {} -36 {} -45 {} -131 {} 0 {} 0 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -167 {} -112 {} -243 {} -178 {} 0 {} -131 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -491 {} 0 {} 0 {} -131 {} 0 {} -131 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -120 {} 75 {} -120 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -415 {} -112 {} -415 {} -73 {} -188 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} -92 {} 0 {} 0 {} -92 {} 0 {} 0 {} 0 {} 0 {} 0 {} -83 {} 0 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -92 {} -92 {} -92 {} 0 {} -92 {} -92 {} -83 {} -83 {} -83 {} 0 {} 0 {} 0 {} 0 {} 0 {} -83 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -102 {} 75 {} -102 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 38 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} -73 {} -45 {} 0 {} -63 {} 47 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 47 {} 47 {} 47 {} 0 {} 0 {} 0 {} 0 {} 0 {} 38 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -112 {} 0 {} 0 {} -73 {} 75 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -301 {} -264 {} -301 {} -73 {} -112 {} 0 {} 0 {} 0 {} 0 {} 0 {} 38 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} -159 {} 0 {} -159 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} 0 {} 0 {} -149 {} 0 {} 0 {} 0 {} -73 {} 0 {} 0 {} 0 {} 0 {} -59 {} -159 {} -159 {} -159 {} -99 {} -159 {} -79 {} -159 {} -159 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} 0 {} -149 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -188 {} -36 {} -188 {} -73 {} -63 {} 0 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -358 {} -188 {} -358 {} -206 {} -139 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -188 {} 0 {} 0 {} -188 {} 0 {} -36 {} 0 {} 0 {} 0 {} -188 {} 0 {} 0 {} 0 {} 0 {} -131 {} 0 {} 0 {} 0 {} -83 {} 0 {} 0 {} -188 {} -188 {} -188 {} 0 {} -188 {} -188 {} -188 {} -188 {} -188 {} -131 {} -83 {} 0 {} 0 {} 0 {} -188 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 75 {} 0 {} 0 {} -358 {} -149 {} -358 {} -178 {} -102 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -178 {} 0 {} 0 {} -167 {} 0 {} -36 {} 0 {} 0 {} 0 {} -139 {} 0 {} -92 {} 0 {} 0 {} -83 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} -178 {} -178 {} -139 {} 0 {} -167 {} -167 {} -139 {} -139 {} -139 {} -83 {} -45 {} 0 {} 0 {} 0 {} -139 {} -92 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 38 {} 0 {} 0 {} 0 {} -73 {} 0 {} 0 {} -73 {} -36 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -264 {} -225 {} -264 {} -253 {} -159 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} 0 {} 0 {} -178 {} 0 {} -36 {} 0 {} 0 {} 0 {} -178 {} 0 {} 0 {} 0 {} 0 {} -178 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} -159 {} -196 {} 0 {} -178 {} -178 {} -178 {} -178 {} -178 {} -178 {} 0 {} 0 {} 0 {} 0 {} -215 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -73 {} -73 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 151 {} 38 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -225 {} 0 {} -225 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -243 {} 0 {} -243 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -272 {} 0 {} -272 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -73 {} 75 {} -73 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -339 {} 38 {} -339 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} -102 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -227 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -167 {} -36 {} -243 {} -178 {} 0 {} -206 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -491 {} 0 {} 0 {} -301 {} -264 {} -301 {} -73 {} -112 {} 0 {} 0 {} 0 {} 0 {} 0 {} 38 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} -159 {} 0 {} -159 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} 0 {} 0 {} -149 {} 0 {} 0 {} 0 {} -73 {} 0 {} 0 {} 0 {} 0 {} -159 {} -159 {} -159 {} -159 {} -159 {} -159 {} -159 {} -159 {} -159 {} 0 {} 0 {} 0 {} 0 {} 0 {} -159 {} 0 {} -149 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -307 {} 0 {} -274 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 110 {} 85 {} 97 {} 86 {} 220 {} 220 {} 218 {} 0 {} 125 {} 85 {} 140 {} 125 {} 155 {} 235 {} 144 {} 205 {} 166 {} 174 {} 205 {} 179 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 261 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -264 {} 0 {} 0 {} 47 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -225 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -264 {} 0 {} 0 {} 47 {} 0 {} 0 {} 0 {} 0 {} 57 {} 57 {} 57 {} 57 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -301 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -73 {} 0 {} -112 {} -73 {} 57 {} -73 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -36 {} -36 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {}
+ChainSub2: class "'ccmp' Glyph Composition/Decomposition lookup 0 subtable"  4 4 4 2
+  Class: 67 i j iogonek uni0268 uni029D uni03F3 uni0456 uni0458 uni1E2D uni1ECB
+  Class: 259 gravecomb acutecomb uni0302 tildecomb uni0304 uni0305 uni0306 uni0307 uni0308 hookabovecomb uni030A uni030B uni030C uni030D uni030E uni030F uni0310 uni0311 uni0312 uni0313 uni0314 uni033D uni033E uni033F uni0343 uni1DC4 uni1DC5 uni1DC6 uni1DC7 uni1DC8 uni1DC9
+  Class: 1047 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z f h l Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn germandbls Amacron Abreve Aogonek Cacute Ccircumflex Cdotaccent Ccaron Dcaron Dcroat Emacron Ebreve Edotaccent Eogonek Ecaron Gcircumflex Gbreve Gdotaccent Gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde Imacron Ibreve Iogonek Idotaccent IJ Jcircumflex Kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron Ldot ldot Lslash lslash Nacute Ncommaaccent Ncaron Eng Omacron Obreve Ohungarumlaut OE Racute Rcommaaccent Rcaron Sacute Scircumflex Scedilla Scaron Tcommaaccent Tcaron Tbar Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Wcircumflex Ycircumflex Ydieresis Zacute Zdotaccent Zcaron longs uni0186 uni0190 florin uni0194 uni01CD uni01CF uni01D0 uni01D1 uni01D3 uni01E2 uni01EA uni01EC Scommaaccent uni021A uni022E uni0232
+  BClass: 67 i j iogonek uni0268 uni029D uni03F3 uni0456 uni0458 uni1E2D uni1ECB
+  BClass: 259 gravecomb acutecomb uni0302 tildecomb uni0304 uni0305 uni0306 uni0307 uni0308 hookabovecomb uni030A uni030B uni030C uni030D uni030E uni030F uni0310 uni0311 uni0312 uni0313 uni0314 uni033D uni033E uni033F uni0343 uni1DC4 uni1DC5 uni1DC6 uni1DC7 uni1DC8 uni1DC9
+  BClass: 1047 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z f h l Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn germandbls Amacron Abreve Aogonek Cacute Ccircumflex Cdotaccent Ccaron Dcaron Dcroat Emacron Ebreve Edotaccent Eogonek Ecaron Gcircumflex Gbreve Gdotaccent Gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde Imacron Ibreve Iogonek Idotaccent IJ Jcircumflex Kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron Ldot ldot Lslash lslash Nacute Ncommaaccent Ncaron Eng Omacron Obreve Ohungarumlaut OE Racute Rcommaaccent Rcaron Sacute Scircumflex Scedilla Scaron Tcommaaccent Tcaron Tbar Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Wcircumflex Ycircumflex Ydieresis Zacute Zdotaccent Zcaron longs uni0186 uni0190 florin uni0194 uni01CD uni01CF uni01D0 uni01D1 uni01D3 uni01E2 uni01EA uni01EC Scommaaccent uni021A uni022E uni0232
+  FClass: 67 i j iogonek uni0268 uni029D uni03F3 uni0456 uni0458 uni1E2D uni1ECB
+  FClass: 259 gravecomb acutecomb uni0302 tildecomb uni0304 uni0305 uni0306 uni0307 uni0308 hookabovecomb uni030A uni030B uni030C uni030D uni030E uni030F uni0310 uni0311 uni0312 uni0313 uni0314 uni033D uni033E uni033F uni0343 uni1DC4 uni1DC5 uni1DC6 uni1DC7 uni1DC8 uni1DC9
+  FClass: 1047 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z f h l Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn germandbls Amacron Abreve Aogonek Cacute Ccircumflex Cdotaccent Ccaron Dcaron Dcroat Emacron Ebreve Edotaccent Eogonek Ecaron Gcircumflex Gbreve Gdotaccent Gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde Imacron Ibreve Iogonek Idotaccent IJ Jcircumflex Kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron Ldot ldot Lslash lslash Nacute Ncommaaccent Ncaron Eng Omacron Obreve Ohungarumlaut OE Racute Rcommaaccent Rcaron Sacute Scircumflex Scedilla Scaron Tcommaaccent Tcaron Tbar Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Wcircumflex Ycircumflex Ydieresis Zacute Zdotaccent Zcaron longs uni0186 uni0190 florin uni0194 uni01CD uni01CF uni01D0 uni01D1 uni01D3 uni01E2 uni01EA uni01EC Scommaaccent uni021A uni022E uni0232
+ 1 0 1
+  ClsList: 1
+  BClsList:
+  FClsList: 2
+ 1
+  SeqLookup: 0 "Single Substitution lookup 9" 
+ 1 1 0
+  ClsList: 2
+  BClsList: 3
+  FClsList:
+ 1
+  SeqLookup: 0 "Single Substitution lookup 8" 
+EndFPST
+TtTable: prep
+PUSHW_1
+ 640
+NPUSHB
+ 224
+ 199
+ 254
+ 3
+ 198
+ 19
+ 3
+ 197
+ 196
+ 36
+ 5
+ 197
+ 100
+ 3
+ 197
+ 64
+ 4
+ 196
+ 36
+ 3
+ 195
+ 13
+ 3
+ 194
+ 193
+ 39
+ 5
+ 194
+ 100
+ 3
+ 193
+ 39
+ 3
+ 192
+ 93
+ 3
+ 191
+ 125
+ 3
+ 188
+ 11
+ 3
+ 187
+ 11
+ 3
+ 186
+ 185
+ 20
+ 5
+ 186
+ 50
+ 3
+ 185
+ 20
+ 3
+ 184
+ 50
+ 3
+ 183
+ 254
+ 3
+ 182
+ 254
+ 3
+ 181
+ 254
+ 3
+ 179
+ 254
+ 3
+ 178
+ 254
+ 3
+ 177
+ 176
+ 71
+ 5
+ 177
+ 250
+ 3
+ 176
+ 71
+ 3
+ 175
+ 254
+ 3
+ 174
+ 125
+ 3
+ 173
+ 254
+ 3
+ 172
+ 14
+ 3
+ 171
+ 170
+ 12
+ 5
+ 171
+ 20
+ 3
+ 170
+ 12
+ 3
+ 169
+ 50
+ 3
+ 168
+ 100
+ 3
+ 167
+ 30
+ 3
+ 164
+ 50
+ 3
+ 163
+ 162
+ 100
+ 5
+ 163
+ 254
+ 3
+ 162
+ 100
+ 3
+ 161
+ 150
+ 14
+ 5
+ 161
+ 37
+ 3
+ 160
+ 120
+ 10
+ 5
+ 160
+ 37
+ 3
+ 159
+ 75
+ 3
+ 158
+ 16
+ 3
+ 157
+ 46
+ 3
+ 156
+ 136
+ 30
+ 5
+ 156
+ 254
+ 3
+ 155
+ 154
+ 16
+ 5
+ 155
+ 29
+ 3
+ 154
+ 16
+ 3
+ 153
+ 152
+ 14
+ 5
+ 153
+ 37
+ 3
+ 152
+ 120
+ 10
+ 5
+ 152
+ 14
+ 3
+ 152
+ 64
+ 4
+ 151
+ 150
+ 14
+ 5
+ 151
+ 20
+ 3
+ 151
+ 128
+ 4
+ 150
+ 14
+ 3
+ 150
+ 64
+ 4
+ 149
+ 37
+ 3
+ 148
+ 132
+ 48
+ 5
+ 148
+ 254
+ 3
+ 147
+ 146
+ 19
+ 5
+ 147
+ 37
+ 3
+ 146
+ 145
+ 13
+ 5
+ 146
+ 19
+ 3
+ 146
+PUSHW_1
+ 320
+NPUSHB
+ 9
+ 4
+ 145
+ 144
+ 10
+ 5
+ 145
+ 13
+ 3
+ 145
+PUSHW_1
+ 256
+NPUSHB
+ 73
+ 4
+ 144
+ 10
+ 3
+ 144
+ 192
+ 4
+ 143
+ 111
+ 125
+ 5
+ 143
+ 187
+ 3
+ 142
+ 129
+ 11
+ 5
+ 142
+ 17
+ 3
+ 142
+ 64
+ 4
+ 141
+ 129
+ 11
+ 5
+ 141
+ 58
+ 3
+ 140
+ 139
+ 187
+ 5
+ 140
+ 254
+ 3
+ 139
+ 138
+ 93
+ 5
+ 139
+ 187
+ 3
+ 139
+ 128
+ 4
+ 138
+ 137
+ 37
+ 5
+ 138
+ 93
+ 3
+ 138
+ 64
+ 4
+ 137
+ 136
+ 30
+ 5
+ 137
+ 37
+ 3
+ 136
+ 135
+ 17
+ 5
+ 136
+ 30
+ 3
+ 136
+PUSHW_1
+ -64
+NPUSHB
+ 255
+ 4
+ 135
+ 17
+ 3
+ 133
+ 132
+ 48
+ 5
+ 133
+ 100
+ 3
+ 132
+ 48
+ 3
+ 131
+ 22
+ 3
+ 130
+ 150
+ 3
+ 129
+ 11
+ 3
+ 128
+ 100
+ 100
+ 5
+ 128
+ 254
+ 3
+ 127
+ 108
+ 16
+ 5
+ 127
+ 25
+ 3
+ 126
+ 125
+ 14
+ 5
+ 126
+ 50
+ 3
+ 125
+ 14
+ 3
+ 124
+ 123
+ 15
+ 5
+ 124
+ 19
+ 3
+ 123
+ 15
+ 3
+ 122
+ 150
+ 3
+ 121
+ 17
+ 3
+ 120
+ 10
+ 3
+ 119
+ 118
+ 32
+ 5
+ 119
+ 250
+ 3
+ 118
+ 117
+ 28
+ 5
+ 118
+ 32
+ 3
+ 117
+ 28
+ 3
+ 116
+ 108
+ 16
+ 5
+ 116
+ 30
+ 3
+ 115
+ 254
+ 3
+ 114
+ 254
+ 3
+ 113
+ 112
+ 13
+ 5
+ 113
+ 254
+ 3
+ 112
+ 13
+ 3
+ 112
+ 64
+ 4
+ 111
+ 125
+ 3
+ 110
+ 109
+ 62
+ 5
+ 110
+ 107
+ 3
+ 109
+ 62
+ 3
+ 108
+ 107
+ 12
+ 5
+ 108
+ 16
+ 3
+ 108
+ 128
+ 4
+ 107
+ 12
+ 3
+ 107
+ 64
+ 4
+ 106
+ 100
+ 100
+ 5
+ 106
+ 250
+ 3
+ 105
+ 104
+ 187
+ 5
+ 105
+ 254
+ 3
+ 104
+ 103
+ 93
+ 5
+ 104
+ 187
+ 3
+ 104
+ 128
+ 4
+ 103
+ 102
+ 37
+ 5
+ 103
+ 93
+ 3
+ 103
+ 64
+ 4
+ 102
+ 37
+ 3
+ 101
+ 100
+ 100
+ 5
+ 101
+ 250
+ 3
+ 100
+ 100
+ 3
+ 99
+ 21
+ 3
+ 98
+ 254
+ 3
+ 97
+ 254
+ 3
+ 96
+ 95
+ 46
+ 5
+ 96
+ 254
+ 3
+ 95
+ 46
+ 3
+ 94
+ 254
+ 3
+ 93
+ 254
+ 3
+ 92
+ 75
+ 3
+ 91
+ 125
+ 3
+ 90
+ 254
+ 3
+ 89
+ 68
+ 3
+ 88
+ 254
+ 3
+ 87
+ 254
+ 3
+ 86
+ 187
+ 3
+ 85
+ 254
+ 3
+ 83
+ 100
+ 3
+ 82
+ 20
+ 3
+ 81
+ 50
+ 3
+ 80
+ 79
+ 15
+ 5
+ 80
+ 125
+ 3
+ 79
+ 15
+ 3
+ 78
+ 65
+NPUSHB
+ 66
+ 3
+ 76
+ 11
+ 3
+ 74
+ 100
+ 3
+ 73
+ 34
+ 8
+ 5
+ 73
+ 150
+ 3
+ 72
+ 50
+ 3
+ 71
+ 3
+ 16
+ 5
+ 71
+ 19
+ 3
+ 70
+ 18
+ 3
+ 69
+ 2
+ 10
+ 5
+ 69
+ 25
+ 3
+ 68
+ 67
+ 19
+ 5
+ 68
+ 107
+ 3
+ 67
+ 66
+ 16
+ 5
+ 67
+ 19
+ 3
+ 66
+ 65
+ 11
+ 5
+ 66
+ 16
+ 3
+ 65
+ 64
+ 9
+ 5
+ 65
+ 11
+ 3
+ 64
+ 9
+ 3
+ 64
+PUSHW_1
+ -64
+NPUSHB
+ 83
+ 4
+ 63
+ 150
+ 3
+ 62
+ 4
+ 45
+ 5
+ 62
+ 77
+ 3
+ 61
+ 60
+ 20
+ 5
+ 61
+ 75
+ 3
+ 60
+ 59
+ 10
+ 5
+ 60
+ 20
+ 3
+ 60
+ 64
+ 4
+ 59
+ 10
+ 3
+ 58
+ 57
+ 18
+ 5
+ 58
+ 93
+ 3
+ 57
+ 56
+ 17
+ 5
+ 57
+ 18
+ 3
+ 56
+ 17
+ 3
+ 55
+ 13
+ 3
+ 54
+ 254
+ 3
+ 53
+ 52
+ 20
+ 5
+ 53
+ 254
+ 3
+ 52
+ 51
+ 19
+ 5
+ 52
+ 20
+ 3
+ 51
+ 50
+ 10
+ 5
+ 51
+ 19
+ 3
+ 50
+ 49
+ 9
+ 5
+ 50
+ 10
+ 3
+ 50
+PUSHW_1
+ -64
+NPUSHB
+ 255
+ 4
+ 49
+ 9
+ 3
+ 48
+ 47
+ 24
+ 5
+ 48
+ 68
+ 3
+ 47
+ 46
+ 21
+ 5
+ 47
+ 24
+ 3
+ 47
+ 192
+ 4
+ 46
+ 30
+ 10
+ 5
+ 46
+ 21
+ 3
+ 46
+ 128
+ 4
+ 45
+ 9
+ 100
+ 5
+ 45
+ 150
+ 3
+ 44
+ 43
+ 20
+ 5
+ 44
+ 75
+ 3
+ 43
+ 34
+ 8
+ 5
+ 43
+ 20
+ 3
+ 43
+ 64
+ 4
+ 42
+ 2
+ 10
+ 5
+ 42
+ 100
+ 3
+ 41
+ 40
+ 48
+ 5
+ 41
+ 65
+ 3
+ 40
+ 4
+ 45
+ 5
+ 40
+ 48
+ 3
+ 39
+ 4
+ 45
+ 5
+ 39
+ 254
+ 3
+ 38
+ 58
+ 3
+ 37
+ 13
+ 24
+ 5
+ 37
+ 93
+ 3
+ 36
+ 35
+ 18
+ 5
+ 36
+ 83
+ 3
+ 35
+ 34
+ 8
+ 5
+ 35
+ 18
+ 3
+ 35
+ 64
+ 4
+ 34
+ 8
+ 3
+ 33
+ 32
+ 24
+ 5
+ 33
+ 93
+ 3
+ 32
+ 31
+ 17
+ 5
+ 32
+ 24
+ 3
+ 32
+ 192
+ 4
+ 31
+ 30
+ 10
+ 5
+ 31
+ 17
+ 3
+ 31
+ 128
+ 4
+ 30
+ 10
+ 3
+ 30
+ 64
+ 4
+ 29
+ 35
+ 3
+ 28
+ 15
+ 3
+ 27
+ 36
+ 3
+ 26
+ 25
+ 48
+ 5
+ 26
+ 83
+ 3
+ 25
+ 4
+ 45
+ 5
+ 25
+ 48
+ 3
+ 24
+ 254
+ 3
+ 23
+ 2
+ 10
+ 5
+ 23
+ 254
+ 3
+ 22
+ 16
+ 3
+ 21
+ 20
+ 20
+ 5
+ 21
+ 107
+ 3
+ 20
+ 19
+ 19
+ 5
+ 20
+ 20
+ 3
+ 20
+ 64
+ 4
+ 19
+ 19
+ 3
+ 18
+ 4
+ 45
+ 5
+ 18
+ 187
+ 3
+ 17
+ 3
+ 16
+ 5
+ 17
+ 254
+ 3
+ 16
+ 3
+ 16
+ 5
+ 16
+ 66
+ 3
+ 15
+ 9
+ 100
+ 5
+ 15
+ 150
+ 3
+ 14
+ 4
+ 45
+ 5
+ 14
+ 254
+ 3
+ 13
+ 2
+ 10
+ 5
+ 13
+ 24
+ 3
+ 13
+ 64
+ 4
+ 12
+ 254
+ 3
+ 11
+ 2
+ 10
+ 5
+ 11
+NPUSHB
+ 56
+ 107
+ 3
+ 10
+ 9
+ 100
+ 5
+ 10
+ 125
+ 3
+ 9
+ 100
+ 3
+ 8
+ 7
+ 17
+ 5
+ 8
+ 20
+ 3
+ 7
+ 17
+ 3
+ 6
+ 5
+ 50
+ 5
+ 6
+ 125
+ 3
+ 5
+ 4
+ 45
+ 5
+ 5
+ 50
+ 3
+ 4
+ 3
+ 16
+ 5
+ 4
+ 45
+ 3
+ 3
+ 16
+ 3
+ 2
+ 10
+ 3
+ 1
+ 83
+ 3
+ 0
+ 254
+ 3
+ 1
+PUSHW_1
+ 356
+SCANCTRL
+SCANTYPE
+SVTCA[x-axis]
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+SVTCA[y-axis]
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+CALL
+SCVTCI
+EndTTInstrs
+TtTable: fpgm
+PUSHB_7
+ 6
+ 5
+ 4
+ 3
+ 2
+ 1
+ 0
+FDEF
+DUP
+SRP0
+PUSHB_1
+ 2
+CINDEX
+MD[grid]
+ABS
+PUSHB_1
+ 64
+LTEQ
+IF
+DUP
+MDRP[min,grey]
+EIF
+POP
+ENDF
+FDEF
+PUSHB_1
+ 2
+CINDEX
+MD[grid]
+ABS
+PUSHB_1
+ 64
+LTEQ
+IF
+DUP
+MDRP[min,grey]
+EIF
+POP
+ENDF
+FDEF
+DUP
+SRP0
+SPVTL[orthog]
+DUP
+PUSHB_1
+ 0
+LT
+PUSHB_1
+ 13
+JROF
+DUP
+PUSHW_1
+ -1
+LT
+IF
+SFVTCA[y-axis]
+ELSE
+SFVTCA[x-axis]
+EIF
+PUSHB_1
+ 5
+JMPR
+PUSHB_1
+ 3
+CINDEX
+SFVTL[parallel]
+PUSHB_1
+ 4
+CINDEX
+SWAP
+MIRP[black]
+DUP
+PUSHB_1
+ 0
+LT
+PUSHB_1
+ 13
+JROF
+DUP
+PUSHW_1
+ -1
+LT
+IF
+SFVTCA[y-axis]
+ELSE
+SFVTCA[x-axis]
+EIF
+PUSHB_1
+ 5
+JMPR
+PUSHB_1
+ 3
+CINDEX
+SFVTL[parallel]
+MIRP[black]
+ENDF
+FDEF
+MPPEM
+LT
+IF
+DUP
+PUSHB_1
+ 201
+RCVT
+WCVTP
+EIF
+POP
+ENDF
+FDEF
+PUSHB_1
+ 2
+CINDEX
+RCVT
+ADD
+WCVTP
+ENDF
+FDEF
+MPPEM
+GTEQ
+IF
+PUSHB_1
+ 2
+CINDEX
+PUSHB_1
+ 2
+CINDEX
+RCVT
+WCVTP
+EIF
+POP
+POP
+ENDF
+FDEF
+RCVT
+WCVTP
+ENDF
+EndTTInstrs
+ShortTable: cvt  202
+  266
+  115
+  2
+  184
+  203
+  203
+  211
+  2
+  76
+  106
+  113
+  135
+  160
+  2
+  229
+  123
+  203
+  203
+  193
+  1032
+  1032
+  1032
+  2
+  217
+  1282
+  184
+  211
+  184
+  297
+  106
+  2
+  2
+  2
+  303
+  0
+  2
+  190
+  115
+  51
+  184
+  229
+  203
+  102
+  2
+  160
+  98
+  2
+  2
+  250
+  973
+  973
+  973
+  922
+  973
+  631
+  2
+  848
+  922
+  848
+  0
+  2
+  160
+  184
+  827
+  1028
+  973
+  1028
+  973
+  1028
+  102
+  2
+  203
+  61
+  186
+  170
+  102
+  2
+  1485
+  150
+  0
+  82
+  215
+  215
+  66
+  115
+  74
+  188
+  217
+  387
+  164
+  469
+  125
+  141
+  115
+  1024
+  0
+  29
+  266
+  1493
+  106
+  106
+  98
+  1493
+  1493
+  1493
+  1520
+  92
+  2
+  2
+  106
+  106
+  106
+  1493
+  1556
+  160
+  106
+  266
+  188
+  203
+  164
+  2
+  106
+  106
+  297
+  338
+  864
+  870
+  344
+  123
+  2
+  426
+  840
+  106
+  133
+  106
+  1120
+  1120
+  1063
+  1063
+  1063
+  1092
+  106
+  2
+  98
+  2
+  2
+  2
+  635
+  115
+  106
+  2
+  2
+  2
+  205
+  604
+  553
+  1063
+  426
+  92
+  106
+  106
+  205
+  160
+  170
+  61
+  1485
+  102
+  215
+  72
+  215
+  2
+  102
+  2
+  1001
+  160
+  780
+  0
+  25
+  1473
+  74
+  1866
+  1548
+  262
+  1917
+  84
+  2
+  123
+  819
+  410
+  1565
+  96
+  125
+  852
+  106
+  78
+  2
+  141
+  78
+  471
+  115
+  0
+  5120
+EndShort
+ShortTable: maxp 16
+  1
+  0
+  3399
+  521
+  43
+  152
+  8
+  2
+  16
+  153
+  7
+  0
+  1035
+  499
+  8
+  4
+EndShort
+LangName: 1033 "" "" "" "DejaVu Serif" "" "Version 2.33" "" "" "DejaVu fonts team" "" "" "http://dejavu.sourceforge.net" "" "Fonts are (c) Bitstream (see below). DejaVu changes are in public domain.+AAoACgAA-Bitstream Vera Fonts Copyright+AAoA-------------------------------+AAoACgAA-Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc.+AAoACgAA-Permission is hereby granted, free of charge, to any person obtaining a copy of the fonts accompanying this license (+ACIA-Fonts+ACIA) and associated documentation files (the +ACIA-Font Software+ACIA), to reproduce and distribute the Font Software, including without limitation the rights to use, copy, merge, publish, distribute, and/or sell copies of the Font Software, and to permit persons to whom the Font Software is furnished to do so, subject to the following conditions:+AAoACgAA-The above copyright and trademark notices and this permission notice shall be included in all copies of one or more of the Font Software typefaces.+AAoACgAA-The Font Software may be modified, altered, or added to, and in particular the designs of glyphs or characters in the Fonts may be modified and additional glyphs or  or characters may be added to the Fonts, only if the fonts are renamed to names not containing either the words +ACIA-Bitstream+ACIA or the word +ACIA-Vera+ACIA.+AAoACgAA-This License becomes null and void to the extent applicable to Fonts or Font Software that has been modified and is distributed under the +ACIA-Bitstream Vera+ACIA names.+AAoACgAA-The Font Software may be sold as part of a larger software package but no copy of one or more of the Font Software typefaces may be sold by itself.+AAoACgAA-THE FONT SOFTWARE IS PROVIDED +ACIA-AS IS+ACIA, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL BITSTREAM OR THE GNOME FOUNDATION BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.+AAoACgAA-Except as contained in this notice, the names of Gnome, the Gnome Foundation, and Bitstream Inc., shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Font Software without prior written authorization from the Gnome Foundation or Bitstream Inc., respectively. For further information, contact: fonts at gnome dot org. +AAoA" "http://dejavu.sourceforge.net/wiki/index.php/License" "" "DejaVu Serif" "Book" 
+GaspTable: 2 8 2 65535 3
+Encoding: UnicodeFull
+Compacted: 1
+UnicodeInterp: none
+NameList: Adobe Glyph List
+DisplaySize: -48
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 0 19 15
+AnchorClass2: "Anchor-0"  "'mkmk' Mark to Mark lookup 0 subtable" "Anchor-1"  "'mark' Mark Positioning lookup 1 subtable" "Anchor-2"  "'mark' Mark Positioning lookup 1 subtable" 
+BeginChars: 1114190 16
+
+StartChar: exclam
+Encoding: 33 33 0
+Width: 637
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+199 100 m 256,0,1
+ 199 151 199 151 233.5 186 c 128,-1,2
+ 268 221 268 221 319 221 c 0,3,4
+ 369 221 369 221 404.5 185.5 c 128,-1,5
+ 440 150 440 150 440 100 c 0,6,7
+ 440 50 440 50 404.5 14.5 c 128,-1,8
+ 369 -21 369 -21 319 -21 c 0,9,10
+ 267 -21 267 -21 233 14 c 128,-1,11
+ 199 49 199 49 199 100 c 256,0,1
+202 1063 m 1,12,-1
+ 436 1063 l 1,13,-1
+ 374 511 l 1,14,-1
+ 374 342 l 1,15,-1
+ 263 342 l 1,16,-1
+ 263 511 l 1,17,-1
+ 202 1063 l 1,12,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" exclam.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" exclam.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" exclam.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" exclam.smcp
+EndChar
+
+StartChar: ampersand
+Encoding: 38 38 1
+Width: 1472
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+884 179 m 1,0,-1
+ 408 610 l 1,1,2
+ 348 555 348 555 318.5 492 c 128,-1,3
+ 289 429 289 429 289 357 c 0,4,5
+ 289 241 289 241 379.5 162 c 128,-1,6
+ 470 83 470 83 605 83 c 0,7,8
+ 685 83 685 83 756.5 107.5 c 128,-1,9
+ 828 132 828 132 884 179 c 1,0,-1
+1404 0 m 1,10,-1
+ 1082 0 l 1,11,-1
+ 947 122 l 1,12,13
+ 862 47 862 47 766 10 c 128,-1,14
+ 670 -27 670 -27 558 -27 c 0,15,16
+ 349 -27 349 -27 227 67 c 128,-1,17
+ 105 161 105 161 105 322 c 0,18,19
+ 105 417 105 417 174 499 c 128,-1,20
+ 243 581 243 581 382 653 c 1,21,22
+ 336 697 336 697 314.5 740.5 c 128,-1,23
+ 293 784 293 784 293 832 c 0,24,25
+ 293 947 293 947 383 1014.5 c 128,-1,26
+ 473 1082 473 1082 628 1082 c 0,27,28
+ 681 1082 681 1082 751 1066.5 c 128,-1,29
+ 821 1051 821 1051 912 1020 c 1,30,-1
+ 912 786 l 1,31,-1
+ 810 786 l 1,32,33
+ 800 883 800 883 754.5 934 c 128,-1,34
+ 709 985 709 985 630 985 c 0,35,36
+ 557 985 557 985 511.5 946.5 c 128,-1,37
+ 466 908 466 908 466 847 c 0,38,39
+ 466 806 466 806 497 765 c 128,-1,40
+ 528 724 528 724 628 647 c 2,41,-1
+ 1043 272 l 1,42,43
+ 1065 325 1065 325 1077 386 c 128,-1,44
+ 1089 447 1089 447 1093 517 c 1,45,-1
+ 964 517 l 1,46,-1
+ 964 614 l 1,47,-1
+ 1325 614 l 1,48,-1
+ 1325 517 l 1,49,-1
+ 1203 517 l 1,50,51
+ 1194 431 1194 431 1169 356 c 128,-1,52
+ 1144 281 1144 281 1103 217 c 1,53,-1
+ 1237 96 l 1,54,-1
+ 1404 96 l 1,55,-1
+ 1404 0 l 1,10,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" ampersand.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" ampersand.smcp
+EndChar
+
+StartChar: parenleft
+Encoding: 40 40 2
+Width: 608
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+504 -227 m 1,0,1
+ 311 -149 311 -149 213 19 c 128,-1,2
+ 115 187 115 187 115 440 c 0,3,4
+ 115 693 115 693 213.5 861.5 c 128,-1,5
+ 312 1030 312 1030 504 1108 c 1,6,-1
+ 504 1038 l 1,7,8
+ 394 963 394 963 346.5 826 c 128,-1,9
+ 299 689 299 689 299 440 c 0,10,11
+ 299 192 299 192 347 55 c 128,-1,12
+ 395 -82 395 -82 504 -157 c 1,13,-1
+ 504 -227 l 1,0,1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" parenleft.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" parenleft.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" parenleft.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" parenleft.smcp
+EndChar
+
+StartChar: parenright
+Encoding: 41 41 3
+Width: 608
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+103 -227 m 1,0,-1
+ 103 -157 l 1,1,2
+ 213 -82 213 -82 261 55 c 128,-1,3
+ 309 192 309 192 309 440 c 0,4,5
+ 309 688 309 688 261 825.5 c 128,-1,6
+ 213 963 213 963 103 1038 c 1,7,-1
+ 103 1108 l 1,8,9
+ 296 1030 296 1030 394.5 861.5 c 128,-1,10
+ 493 693 493 693 493 440 c 0,11,12
+ 493 187 493 187 394.5 19 c 128,-1,13
+ 296 -149 296 -149 103 -227 c 1,0,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" parenright.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" parenright.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" parenright.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" parenright.smcp
+EndChar
+
+StartChar: zero
+Encoding: 48 48 4
+Width: 1008
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+504 59 m 256,0,1
+ 613 59 613 59 667 176 c 128,-1,2
+ 721 293 721 293 721 530 c 0,3,4
+ 721 767 721 767 667 884 c 128,-1,5
+ 613 1001 613 1001 504 1001 c 256,6,7
+ 395 1001 395 1001 341 884 c 128,-1,8
+ 287 767 287 767 287 530 c 0,9,10
+ 287 294 287 294 341 176.5 c 128,-1,11
+ 395 59 395 59 504 59 c 256,0,1
+504 -31 m 0,12,13
+ 312 -31 312 -31 204 117 c 128,-1,14
+ 96 265 96 265 96 530 c 0,15,16
+ 96 796 96 796 204 944 c 128,-1,17
+ 312 1092 312 1092 504 1092 c 4,18,19
+ 697 1092 697 1092 804.5 944 c 128,-1,20
+ 912 796 912 796 912 530 c 0,21,22
+ 912 265 912 265 804.5 117 c 128,-1,23
+ 697 -31 697 -31 504 -31 c 0,12,13
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" zero.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" zero.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" zero.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" zero.smcp
+EndChar
+
+StartChar: one
+Encoding: 49 49 5
+Width: 974
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+208 0 m 1,0,-1
+ 208 96 l 1,1,-1
+ 401 96 l 1,2,-1
+ 401 944 l 1,3,-1
+ 178 799 l 1,4,-1
+ 178 918 l 1,5,-1
+ 458 1099 l 1,6,-1
+ 583 1099 l 1,7,-1
+ 583 96 l 1,8,-1
+ 768 96 l 1,9,-1
+ 768 0 l 1,10,-1
+ 208 0 l 1,0,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" one.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" one.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" one.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" one.smcp
+EndChar
+
+StartChar: two
+Encoding: 50 50 6
+Width: 1041
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+211 802 m 1,0,-1
+ 109 802 l 1,1,-1
+ 109 980 l 1,2,3
+ 197 1030 197 1030 287 1056 c 128,-1,4
+ 377 1082 377 1082 463 1082 c 0,5,6
+ 656 1082 656 1082 767.5 999.5 c 128,-1,7
+ 879 917 879 917 879 775 c 0,8,9
+ 879 615 879 615 613 393 c 0,10,11
+ 594 377 594 377 585 369 c 2,12,-1
+ 327 149 l 1,13,-1
+ 792 149 l 1,14,-1
+ 792 272 l 1,15,-1
+ 898 272 l 1,16,-1
+ 898 0 l 1,17,-1
+ 99 0 l 1,18,-1
+ 99 95 l 1,19,-1
+ 470 412 l 2,20,21
+ 588 513 588 513 638 597.5 c 128,-1,22
+ 688 682 688 682 688 775 c 0,23,24
+ 688 877 688 877 626.5 934.5 c 128,-1,25
+ 565 992 565 992 456 992 c 0,26,27
+ 344 992 344 992 283 944.5 c 128,-1,28
+ 222 897 222 897 211 802 c 1,0,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" two.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" two.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" two.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" two.smcp
+EndChar
+
+StartChar: three
+Encoding: 51 51 7
+Width: 1016
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+150 1009 m 1,0,1
+ 242 1050 242 1050 327 1071 c 128,-1,2
+ 412 1092 412 1092 486 1092 c 0,3,4
+ 659 1092 659 1092 756 1023.5 c 128,-1,5
+ 853 955 853 955 853 833 c 0,6,7
+ 853 735 853 735 782 669.5 c 128,-1,8
+ 711 604 711 604 580 581 c 1,9,10
+ 736 562 736 562 822 484 c 128,-1,11
+ 908 406 908 406 908 282 c 0,12,13
+ 908 130 908 130 795.5 49.5 c 128,-1,14
+ 683 -31 683 -31 472 -31 c 0,15,16
+ 378 -31 378 -31 288.5 -8.5 c 128,-1,17
+ 199 14 199 14 111 60 c 1,18,-1
+ 111 258 l 1,19,-1
+ 213 258 l 1,20,21
+ 221 160 221 160 286 109.5 c 128,-1,22
+ 351 59 351 59 470 59 c 0,23,24
+ 585 59 585 59 651 119.5 c 128,-1,25
+ 717 180 717 180 717 285 c 0,26,27
+ 717 405 717 405 649 467 c 128,-1,28
+ 581 529 581 529 450 529 c 2,29,-1
+ 379 529 l 1,30,-1
+ 379 622 l 1,31,-1
+ 416 622 l 2,32,33
+ 543 622 543 622 606 671 c 128,-1,34
+ 669 720 669 720 669 819 c 0,35,36
+ 669 908 669 908 617 954.5 c 128,-1,37
+ 565 1001 565 1001 467 1001 c 256,38,39
+ 369 1001 369 1001 315 943 c 128,-1,40
+ 261 885 261 885 252 771 c 1,41,-1
+ 150 771 l 1,42,-1
+ 150 1009 l 1,0,1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" three.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" three.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" three.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" three.smcp
+EndChar
+
+StartChar: four
+Encoding: 52 52 8
+Width: 1008
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+552 375 m 1,0,-1
+ 552 911 l 1,1,-1
+ 177 375 l 1,2,-1
+ 552 375 l 1,0,-1
+904 0 m 1,3,-1
+ 365 0 l 1,4,-1
+ 365 96 l 1,5,-1
+ 552 96 l 1,6,-1
+ 552 278 l 1,7,-1
+ 45 278 l 1,8,-1
+ 45 376 l 1,9,-1
+ 548 1097 l 1,10,-1
+ 733 1097 l 1,11,-1
+ 733 375 l 1,12,-1
+ 936 375 l 1,13,-1
+ 936 278 l 1,14,-1
+ 733 278 l 1,15,-1
+ 733 96 l 1,16,-1
+ 904 96 l 1,17,-1
+ 904 0 l 1,3,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" four.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" four.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" four.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" four.smcp
+EndChar
+
+StartChar: five
+Encoding: 53 53 9
+Width: 1001
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+785 1063 m 5,0,-1
+ 785 914 l 1,1,-1
+ 279 914 l 1,2,-1
+ 279 626 l 1,3,4
+ 319 659 319 659 372 675 c 128,-1,5
+ 425 691 425 691 490 691 c 0,6,7
+ 675 691 675 691 782 596 c 128,-1,8
+ 889 501 889 501 889 336 c 0,9,10
+ 889 168 889 168 777.5 73.5 c 128,-1,11
+ 666 -21 666 -21 464 -21 c 0,12,13
+ 383 -21 383 -21 298 1.5 c 128,-1,14
+ 213 24 213 24 124 70 c 1,15,-1
+ 124 262 l 1,16,-1
+ 226 262 l 1,17,18
+ 233 168 233 168 292 118.5 c 128,-1,19
+ 351 69 351 69 459 69 c 0,20,21
+ 574 69 574 69 636 138 c 128,-1,22
+ 698 207 698 207 698 336 c 0,23,24
+ 698 464 698 464 637 532.5 c 128,-1,25
+ 576 601 576 601 462 601 c 0,26,27
+ 397 601 397 601 348 580 c 128,-1,28
+ 299 559 299 559 261 514 c 1,29,-1
+ 183 514 l 1,30,-1
+ 183 1063 l 5,31,-1
+ 785 1063 l 5,0,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" five.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" five.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" five.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" five.smcp
+EndChar
+
+StartChar: six
+Encoding: 54 54 10
+Width: 1009
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+518 59 m 256,0,1
+ 618 59 618 59 672.5 130 c 0,2,3
+ 727 200 727 200 727 334 c 256,4,5
+ 727 467 727 467 672.5 538.5 c 128,-1,6
+ 618 610 618 610 518 610 c 0,7,8
+ 416 610 416 610 362.5 541.5 c 128,-1,9
+ 309 473 309 473 309 343 c 0,10,11
+ 309 206 309 206 363.5 132.5 c 128,-1,12
+ 418 59 418 59 518 59 c 256,0,1
+286 576 m 1,13,14
+ 338 639 338 639 403 670 c 128,-1,15
+ 468 701 468 701 551 701 c 0,16,17
+ 721 701 721 701 819.5 603 c 128,-1,18
+ 918 505 918 505 918 335 c 0,19,20
+ 918 169 918 169 807.5 69 c 128,-1,21
+ 697 -31 697 -31 513 -31 c 0,22,23
+ 313 -31 313 -31 205.5 105.5 c 128,-1,24
+ 98 242 98 242 98 496 c 0,25,26
+ 98 780 98 780 223.5 936 c 128,-1,27
+ 349 1092 349 1092 578 1092 c 0,28,29
+ 640 1092 640 1092 707.5 1078 c 128,-1,30
+ 775 1064 775 1064 847 1037 c 1,31,-1
+ 847 814 l 1,32,-1
+ 745 814 l 1,33,34
+ 736 905 736 905 689.5 953 c 128,-1,35
+ 643 1001 643 1001 564 1001 c 0,36,37
+ 425 1001 425 1001 356.5 897 c 128,-1,38
+ 288 793 288 793 286 576 c 1,13,14
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" six.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" six.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" six.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" six.smcp
+EndChar
+
+StartChar: seven
+Encoding: 55 55 11
+Width: 1010
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+905 970 m 1,0,-1
+ 454 0 l 1,1,-1
+ 317 0 l 1,2,-1
+ 742 914 l 1,3,-1
+ 228 914 l 1,4,-1
+ 228 788 l 1,5,-1
+ 122 788 l 1,6,-1
+ 122 1063 l 1,7,-1
+ 905 1063 l 1,8,-1
+ 905 970 l 1,0,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" seven.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" seven.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" seven.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" seven.smcp
+EndChar
+
+StartChar: eight
+Encoding: 56 56 12
+Width: 1030
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+742 290 m 0,0,1
+ 742 399 742 399 682.5 459.5 c 128,-1,2
+ 623 520 623 520 515 520 c 256,3,4
+ 407 520 407 520 348 459.5 c 128,-1,5
+ 289 399 289 399 289 290 c 0,6,7
+ 289 180 289 180 348 119.5 c 128,-1,8
+ 407 59 407 59 515 59 c 256,9,10
+ 623 59 623 59 682.5 119.5 c 128,-1,11
+ 742 180 742 180 742 290 c 0,0,1
+705 806 m 0,12,13
+ 705 898 705 898 655 949.5 c 128,-1,14
+ 605 1001 605 1001 515 1001 c 0,15,16
+ 426 1001 426 1001 376 949.5 c 128,-1,17
+ 326 898 326 898 326 806 c 0,18,19
+ 326 713 326 713 376 662 c 128,-1,20
+ 426 611 426 611 515 611 c 0,21,22
+ 605 611 605 611 655 662 c 128,-1,23
+ 705 713 705 713 705 806 c 0,12,13
+626 566 m 1,24,25
+ 771 549 771 549 852 475 c 128,-1,26
+ 933 401 933 401 933 286 c 0,27,28
+ 933 134 933 134 824.5 51.5 c 128,-1,29
+ 716 -31 716 -31 515 -31 c 0,30,31
+ 314 -31 314 -31 206 51 c 128,-1,32
+ 98 133 98 133 98 286 c 0,33,34
+ 98 401 98 401 178.5 475 c 128,-1,35
+ 259 549 259 549 404 566 c 1,36,37
+ 277 586 277 586 209.5 649.5 c 128,-1,38
+ 142 713 142 713 142 811 c 0,39,40
+ 142 942 142 942 241.5 1017 c 128,-1,41
+ 341 1092 341 1092 515 1092 c 256,42,43
+ 689 1092 689 1092 789 1017 c 128,-1,44
+ 889 942 889 942 889 811 c 0,45,46
+ 889 712 889 712 820.5 649 c 128,-1,47
+ 752 586 752 586 626 566 c 1,24,25
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" eight.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" eight.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" eight.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" eight.smcp
+EndChar
+
+StartChar: nine
+Encoding: 57 57 13
+Width: 1009
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+723 485 m 1,0,1
+ 672 422 672 422 605.5 391 c 128,-1,2
+ 539 360 539 360 456 360 c 0,3,4
+ 287 360 287 360 189.5 458 c 128,-1,5
+ 92 556 92 556 92 726 c 0,6,7
+ 92 892 92 892 202 992 c 128,-1,8
+ 312 1092 312 1092 497 1092 c 0,9,10
+ 697 1092 697 1092 804 955.5 c 128,-1,11
+ 911 819 911 819 911 565 c 0,12,13
+ 911 281 911 281 785 125 c 128,-1,14
+ 659 -31 659 -31 431 -31 c 0,15,16
+ 369 -31 369 -31 301 -17.5 c 128,-1,17
+ 233 -4 233 -4 162 24 c 1,18,-1
+ 162 249 l 1,19,-1
+ 264 249 l 1,20,21
+ 273 157 273 157 320 108 c 128,-1,22
+ 367 59 367 59 445 59 c 0,23,24
+ 584 59 584 59 652.5 163 c 128,-1,25
+ 721 267 721 267 723 485 c 1,0,1
+491 1001 m 0,26,27
+ 390 1001 390 1001 336.5 930 c 128,-1,28
+ 283 859 283 859 283 726 c 256,29,30
+ 283 593 283 593 336.5 521.5 c 128,-1,31
+ 390 450 390 450 491 450 c 256,32,33
+ 592 450 592 450 646 519 c 128,-1,34
+ 700 588 700 588 700 718 c 0,35,36
+ 700 855 700 855 645.5 928 c 128,-1,37
+ 591 1001 591 1001 491 1001 c 0,26,27
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" nine.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" nine.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" nine.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" nine.smcp
+EndChar
+
+StartChar: question
+Encoding: 63 63 14
+Width: 902
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+280 73 m 256,0,1
+ 280 124 280 124 315 159.5 c 128,-1,2
+ 350 195 350 195 401 195 c 0,3,4
+ 451 195 451 195 486.5 159.5 c 128,-1,5
+ 522 124 522 124 522 73 c 0,6,7
+ 522 23 522 23 486.5 -12.5 c 128,-1,8
+ 451 -48 451 -48 401 -48 c 0,9,10
+ 349 -48 349 -48 314.5 -13 c 128,-1,11
+ 280 22 280 22 280 73 c 256,0,1
+99 1007 m 1,12,13
+ 189 1050 189 1050 270.5 1071 c 128,-1,14
+ 352 1092 352 1092 424 1092 c 0,15,16
+ 613 1092 613 1092 722.5 1016 c 128,-1,17
+ 832 940 832 940 832 811 c 0,18,19
+ 832 679 832 679 738.5 596 c 128,-1,20
+ 645 513 645 513 456 476 c 1,21,-1
+ 456 303 l 1,22,-1
+ 345 303 l 1,23,-1
+ 345 527 l 1,24,25
+ 492 556 492 556 566.5 625 c 128,-1,26
+ 641 694 641 694 641 800 c 0,27,28
+ 641 893 641 893 581 947 c 128,-1,29
+ 521 1001 521 1001 417 1001 c 0,30,31
+ 323 1001 323 1001 263.5 956.5 c 128,-1,32
+ 204 912 204 912 187 828 c 1,33,-1
+ 99 828 l 1,34,-1
+ 99 1007 l 1,12,13
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" question.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" question.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" question.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" question.smcp
+EndChar
+
+StartChar: at
+Encoding: 64 64 15
+Width: 1573
+VWidth: 0
+GlyphClass: 2
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+988 186 m 1,0,1
+ 943 116 943 116 887 82.5 c 128,-1,2
+ 831 49 831 49 760 49 c 0,3,4
+ 627 49 627 49 544 141.5 c 128,-1,5
+ 461 234 461 234 461 382 c 256,6,7
+ 461 530 461 530 544 622 c 128,-1,8
+ 627 714 627 714 760 714 c 0,9,10
+ 831 714 831 714 887 680 c 128,-1,11
+ 943 646 943 646 988 577 c 1,12,-1
+ 988 696 l 1,13,-1
+ 1129 696 l 1,14,-1
+ 1129 149 l 1,15,16
+ 1250 175 1250 175 1317 261.5 c 128,-1,17
+ 1384 348 1384 348 1384 478 c 0,18,19
+ 1384 555 1384 555 1358.5 624 c 128,-1,20
+ 1333 693 1333 693 1282 751 c 0,21,22
+ 1202 843 1202 843 1087 892 c 128,-1,23
+ 972 941 972 941 837 941 c 0,24,25
+ 769 941 769 941 702.5 927.5 c 128,-1,26
+ 636 914 636 914 572 887 c 0,27,28
+ 420 822 420 822 335 690.5 c 128,-1,29
+ 250 559 250 559 250 386 c 0,30,31
+ 250 269 250 269 288.5 171 c 128,-1,32
+ 327 73 327 73 399 1 c 0,33,34
+ 482 -82 482 -82 596.5 -125.5 c 128,-1,35
+ 711 -169 711 -169 843 -169 c 0,36,37
+ 942 -169 942 -169 1027.5 -144.5 c 128,-1,38
+ 1113 -120 1113 -120 1186 -71 c 1,39,-1
+ 1224 -116 l 1,40,41
+ 1140 -190 1140 -190 1033 -227.5 c 128,-1,42
+ 926 -265 926 -265 799 -265 c 0,43,44
+ 656 -265 656 -265 527 -217 c 128,-1,45
+ 398 -169 398 -169 300 -80 c 0,46,47
+ 200 12 200 12 148 130.5 c 128,-1,48
+ 96 249 96 249 96 386 c 0,49,50
+ 96 519 96 519 148 637 c 128,-1,51
+ 200 755 200 755 300 847 c 0,52,53
+ 399 938 399 938 533 987.5 c 128,-1,54
+ 667 1037 667 1037 817 1037 c 0,55,56
+ 983 1037 983 1037 1120.5 978 c 128,-1,57
+ 1258 919 1258 919 1350 808 c 0,58,59
+ 1409 738 1409 738 1439.5 656.5 c 128,-1,60
+ 1470 575 1470 575 1470 486 c 0,61,62
+ 1470 295 1470 295 1341 185 c 128,-1,63
+ 1212 75 1212 75 989 72 c 1,64,-1
+ 988 186 l 1,0,1
+988 347 m 2,65,-1
+ 988 418 l 2,66,67
+ 988 503 988 503 937 555 c 128,-1,68
+ 886 607 886 607 804 607 c 0,69,70
+ 718 607 718 607 670 548 c 128,-1,71
+ 622 489 622 489 622 382 c 0,72,73
+ 622 274 622 274 670.5 215 c 128,-1,74
+ 719 156 719 156 806 156 c 0,75,76
+ 887 156 887 156 937.5 209 c 128,-1,77
+ 988 262 988 262 988 347 c 2,65,-1
+EndSplineSet
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" at.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" at.smcp
+Substitution2: "'smcp' Lowercase to Small Capitals in Greek lookup 0 subtable" at.smcp
+Substitution2: "'c2sc' Capitals to Small Capitals in Greek lookup 0 subtable" at.smcp
+EndChar
+EndChars
+EndSplineFont

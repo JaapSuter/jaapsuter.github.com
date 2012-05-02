@@ -17,14 +17,9 @@ $call: try-reload-extensions();
   value is false (e.g., when you ship, these should
   all be false.)
 */
-
-$base-normalize-include-fields-forms-etcetera: false;
-$base-normalize-include-typography-etcetera:   false;
-$base-normalize-include-margin-padding:        false;
-
 $type-disable-font-face:                       false;
-$type-fallback-make-obvious:                   false;
-$type-fallback-common-web-safe-only:           false;
+$type-fallback-make-obvious:                   true;
+$type-fallback-common-web-safe-only:           true;
 
 /*
   Typographic Constants

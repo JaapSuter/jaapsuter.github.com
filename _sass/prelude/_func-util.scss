@@ -24,7 +24,7 @@
   $pp: to-pp($value, $pp-em-override);
   
   @if in-development-mode() {
-    @return ($pp, from-pp($pp, 1 / $pp-em-override * 1em));
+    @return ($pp, from-pp($pp, 1 / $pp-em-override * 1em), from-pp($pp, 1 / $pp-rem * 1rem));
   } @else {
     @return (     from-pp($pp, 1 / $pp-em-override * 1em), from-pp($pp, 1 / $pp-rem * 1rem));
   }

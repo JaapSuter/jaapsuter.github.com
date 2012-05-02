@@ -51,7 +51,7 @@ if true and not $PROGRAM_NAME.start_with? 'C:/Ruby193/bin/compass' # Todo, Jaap 
     end
   end
   
-  if true
+  if false
     Jaap::Paths.get('../../coffee-script/').tap do |iced_dir|
       Jaap::Compile.watch '**/*.{iced,coffee}', iced_dir, self do |coffee|
           Jaap::Compile.iced_compiler coffee, iced_dir

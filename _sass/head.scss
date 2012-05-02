@@ -41,11 +41,25 @@ body {
 ::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
 ::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
   
-p {
-  -ms-word-break: break-all;
+a {
+  @include link-colors(/* normal  */ $blue-d,
+                       /* hover   */ $red,
+                       /* active  */ $red-l,
+                       /* visited */ $blue-dd,
+                       /* focus   */ $red);
+  
+  @extend %tsn4n-underline;
+  text-decoration: none;
+  @include single-transition(color, 0.4s, ease-out);
+}
+
+%word-break-all {  
+    -ms-word-break: break-all;
       word-break: break-all;
       word-break: break-word; // Non standard for webkit  
-
+}
+  
+p {
   -webkit-locale: 'en';
   -webkit-hyphens: auto;
     -epub-hyphens: auto;
@@ -91,8 +105,7 @@ p {
   .type-xxxl { @include change-type(pan7n, ex, 3el) {} }
 
   .type-margin-bottom-1el {
-    @include units(margin-bottom, 1el);
-  }
+    @include units(margin-bottom, 1el);  }
   
   */
   
@@ -104,23 +117,24 @@ p {
   }
   
   /*
-    
   h2 {
     @include change-type(pan7n, ex, 1el) {
       color: $red-d;
       @include units(margin-top, 1el);
     }
   }
+  */
   
   h3 {
     @include change-type(tsn4n-smcp, ex, 1cap) {
       text-transform: lowercase;
       text-rendering: optimizespeed;
-      letter-spacing: 0.05em;
-      word-spacing: 0.3em;
+      letter-spacing: 0.1em;
+      word-spacing: 0.2em;
       @include units(margin-top, 1el);
     }    
   }
+  /*
   
   h4, h5, h6 {
     @include change-type(pan4n, cap, 1el) {
@@ -147,8 +161,8 @@ p {
     overflow: hidden;
     
     max-width: 12em;
-    text-align: justify;
-    -ms-text-justify: newspaper;
+    // text-align: justify;
+    // -ms-text-justify: newspaper;
     
     @include units(margin-top, 1el);
     @include units(padding, (1el 1em));
@@ -156,12 +170,12 @@ p {
     $top: $pp-bo - $pp-ascent;
     @include units(top, $top);
     
-    @include color-and-background-color($red-lll, $blue-ddd, false);
-    
-    p {
-      @include change-type(tan4c, ppem, 0.8em, $incremental: more, $pp-bo-offset: -$top) {
-        @include units(margin-top, 0);
-      }
+    @include color-and-background-color($red-ddd, rgba($blue-lll, 0.4));
+  }
+  
+  .leading-4x3 {
+    @include change-type(tan4n, ppem, max(0.75 * $pp-em, 14px), $leading-el-per-el: 4 / 3) {
+      // @include units(margin-top, 0);
     }
   }
   
@@ -196,3 +210,37 @@ p {
 .blue-ll     { color: $black; background-color: $blue-ll ;}
 .blue-lll    { color: $black; background-color: $blue-lll;}
 */
+
+
+.center-fifty {
+  margin: 0 auto;
+  width: 50%;
+}
+  
+$margin-add-for-rhythm: 2;
+$margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
+    
+.rhythm {
+  margin-right: -($margin-add-for-rhythm) * 1%;
+  margin-right: -1em;
+  overflow: hidden;
+}
+                
+.melody {
+  float: left;
+  width: 100% * $margin-sub-rhythm;
+  height: auto;
+}
+
+.drum {
+
+}
+
+.drum:after {
+  content: '| | | | | | | | | | | | | | | | | | | | | | | | | | |';
+  // visibility: hidden;
+}
+
+blockquote {
+  @extend %tsi4n;
+}

@@ -5,15 +5,55 @@ title_mark_up: |
 permalink: /lab/
 ---
 
-Testing underlines and descenders; [ep:/ajaqug, (3241527890); J-$_@.a](#)
+<h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
+<h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
 
+Test testing
+
+<div class="center-fifty">
+  <div class="rhythm">
+    <div class="melody">
+      <p class="leading-4x3">
+        The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+        other pages on this website, typically in paragraph-sized chunks.
+      </p>
+    </div>
+    <div class="drum" role="presentational"></div>
+  </div>
+  <div class="rhythm">
+    <div class="melody">
+      <p class="leading-4x3">
+        The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+        other pages on this website, typically in paragraph-sized chunks.
+      </p>
+    </div>
+    <div class="drum" role="presentational"></div>
+  </div>
+</div>
+
+Test testing
+
+<div class="center-fifty">  
+  <div class="rhythm">
+    <img class="melody" src="/img/aspect-ratio-4x3.png" alt="" width="800" height="600">
+    <div class="drum" role="presentational"></div>
+  </div>
+</div>
+
+Testing underlines and descenders; [ep:/ajaqug, (3241527890); JaQ-$_@.a](#)
+
+<div class="rhythm">
+  <div class="drum-before"></div>    
+  <div class="img-after">a b a b a b a b a b a b a</div>
+</div>
+  
 Let's verify that various typographies are converted -- using [Smartypants](http://daringfireball.net/projects/smartypants/) -- by comparing
 implicit 'single' and "double" quotes with their literal &lsquo;single&rsquo; and &ldquo;double&rdquo; entity counterpart. These words are *emphasized* and **strong** as processed
 by [Markdown](http://daringfireball.net/projects/markdown/). Water is H2O and
-<span class="math"><i>e</i><sup><i>i</i>&pi;</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;0</span>, verifying sub- and superscript, as well as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the minus sign.
-These words are marked as `code` and <kbd>kdb</kbd>. Here's some old-style numbers: 1018, 1997, 2012. "<span>&Eacute; &Ccedil;</span>" is to ensure ascenders and 
-descenders don't stomp beyond the leading, as well as use proper glyph fallbacks (i.e., these glyphs are not in our top
-of the font stack; intentionally so). Three letter acronyms such as TLA, as well as others -- like WYSIWYG or IOTD -- should be contained `abbr` elements.
+<span class="math"><i>e</i><sup><i>i</i>&pi;</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;0</span>, verifying sub- and superscript, as well as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the
+minus sign. Here's some old-style numbers: 1018, 1997, 2012. And HTML5 would mark up TLA and HMLAA -- such as WYSIWYG and IOTD -- using
+the `abbr` element, which [itself](http://en.wikipedia.org/wiki/Use-mention_distinction "Use Mention Distinction") should be
+wrapped in `code`, ad infinitum. Or stack overflow, take your pick.
 
 {% assign pullquote = 'Pull&shy;quotes are used to &#x263A; grab &#x270C; attention.' %}
 {% include component/pullquote.html %}
@@ -21,12 +61,26 @@ of the font stack; intentionally so). Three letter acronyms such as TLA, as well
 The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
 other pages on this website, typically in paragraph-sized chunks.
 
-<div class="sidebar"><aside>{% hyphenate %} 
-    <p>This is a multi&#x2011;paragraph sidebar block. There's not much of interest in it, but it'll be just
-    enough text to fill a sidebar alongside two main paragraphs.</p>
-    <p>Here's the second paragraph. It's about as boring as the first paragraph, but it manages
-    to fill up this block to a useful height for testing.</p>
-{% endhyphenate %}</aside></div>
+<div class="sidebar"><aside>
+ <div class="rhythm">
+    <div class="melody">
+      <p class="leading-4x3">{% hyphenate %}
+        This is a multi&#x2011;paragraph sidebar block. There's not much of interest in it, but it'll be just
+        enough text to fill a sidebar alongside two main paragraphs.{% endhyphenate %}
+      </p>
+    </div>
+    <div class="drum" role="presentational"></div>
+  </div>
+  <div class="rhythm">
+    <div class="melody">
+      <p class="leading-4x3">{% hyphenate %}
+        Here's the second paragraph. It's about as boring as the first paragraph, but it manages
+        to fill up this block to a useful height for testing.{% endhyphenate %}</p>
+      </p>
+    </div>
+    <div class="drum" role="presentational"></div>
+  </div>
+</aside></div>
 
 {% hyphenate %}
 {% long_paragraph %}

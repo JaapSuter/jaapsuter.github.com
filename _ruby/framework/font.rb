@@ -29,11 +29,16 @@ module Jaap
       smcpify = smcpify.to_bool if smcpify.is_a? String
       numify = numify.to_bool if numify.is_a? String
       
-      ensure_font_list_and_merge_unicode_superset_into_all_subsets()
+      if true
+        ensure_font_list_and_merge_unicode_superset_into_all_subsets()
+      end
       
       forge_temp_dir = Paths.get_or_make '.jaap-build'
       forge_cmd_path = File.join forge_temp_dir, '_forge-cmd.txt'
-      
+
+      log = Paths.get '.jaap-build/_forge-log.txt'
+      FileUtils.remove log if File.exists?(log)
+            
       name_to_original = Hash.new
       
       File.open(forge_cmd_path, 'w') do |forge_cmd_file|
@@ -259,7 +264,7 @@ module Jaap
       
       ttx = Pathname.new(src).sub_ext('.ttx').to_s
       FileUtils.remove ttx if File.exists?(ttx)
-      
+
       Tool.ttx "-e -i", src      
       xml = Nokogiri::XML File.read(ttx)
       yield xml
@@ -291,13 +296,12 @@ module Jaap
     
     def self.ensure_font_list_and_merge_unicode_superset_into_all_subsets()
       
-      # tan4c tan7c tsi7n
-      # pan4c pan7c psi7n
-         
       %w[tsn4n tsi4n tsn7n
          psn4n psi4n psn7n
          tan4n tan2n tan7n
          pan4n pan2n pan7n
+         tan4c tan7c tsi7n
+         pan4c pan7c psi7n
          tao4n
          tmn4n].each { |name| @@subsets[name] = {} }
       

@@ -52,6 +52,7 @@
       };
       return iframe.setAttribute('src', href);
     } else {
+      console.log('removing iframe');
       iframe.parentNode.removeChild(iframe);
       return doneFun();
     }

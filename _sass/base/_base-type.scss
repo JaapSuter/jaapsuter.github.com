@@ -39,7 +39,8 @@ h1, h2, h3 {
 .caps, abbr[title] {
   @extend %tsn4n-smcp;
   text-transform: lowercase;
-  letter-spacing: 0.05em; 
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
 }
 
 .tnum-lnum,
@@ -47,9 +48,14 @@ h1, h2, h3 {
   @extend %tsn4n-tnum-lnum;
 }
 
-.code,
+code,
 .math {
-  color: mix($black, $red-dd, 20);
+  color: mix($black, $red-d, 20);  
+}
+
+code {
+  &:before { content: '<'; }
+  &:after { content: '>'; }
 }
 
 abbr { border: none; }
@@ -61,18 +67,6 @@ pre, code, kbd, samp {
 
 i, cite, em, var { @extend %tsi4n; }
 strong, b { @extend %tsn7n; }
-
-a {
-  @include link-colors(/* normal  */ $blue-d,
-                       /* hover   */ $blue,
-                       /* active  */ $blue,
-                       /* visited */ $blue-dd,
-                       /* focus   */ $red);
-  
-  @extend %tsn4n-underline;
-  text-decoration: none;
-}
-
 
 @if false {
  

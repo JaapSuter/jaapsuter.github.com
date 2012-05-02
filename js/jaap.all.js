@@ -648,7 +648,7 @@
         data = JSON.stringify({
           'payload': metrics,
           'browser': 'unknown'
-        }, null, 4);
+        }, null, 2);
         (function(__iced_k) {
           __iced_deferrals = new iced.Deferrals(__iced_k, {
             parent: ___iced_passed_deferral,
@@ -690,8 +690,14 @@
   };
 
   exports.getSubsets = function() {
-    var getDocumentSubsets, textPerFontFamily;
+    var getDocumentSubsets, getFontFamilyTextForGeneratedContent, textPerFontFamily;
     textPerFontFamily = {};
+    getFontFamilyTextForGeneratedContent = function(el, pseudo) {
+      var fontFamily, style;
+      style = window.getComputedStyle(el, pseudo);
+      fontFamily = style.fontFamily.split(',')[0];
+      return textPerFontFamily[fontFamily] += style.content;
+    };
     getDocumentSubsets = function(doc) {
       var el, fontFamily, style, _i, _len, _ref2, _results;
       console.log("Crawling: " + doc.location.href + " for font subsets.");
@@ -704,20 +710,56 @@
         if (textPerFontFamily[fontFamily] == null) {
           textPerFontFamily[fontFamily] = '';
         }
-        _results.push(textPerFontFamily[fontFamily] += getTextFromElementStrict(el));
+        textPerFontFamily[fontFamily] += getTextFromElementStrict(el);
+        getFontFamilyTextForGeneratedContent(el, ':before');
+        _results.push(getFontFamilyTextForGeneratedContent(el, ':after'));
       }
       return _results;
     };
     return dom.crawl(getDocumentSubsets, function() {
-      var fontFamily, text, _results;
-      _results = [];
+      var char, data, fontFamily, ok, resp, text, ___iced_passed_deferral, __iced_deferrals, __iced_k,
+        _this = this;
+      __iced_k = __iced_k_noop;
+      ___iced_passed_deferral = iced.findDeferral(arguments);
       for (fontFamily in textPerFontFamily) {
         if (!__hasProp.call(textPerFontFamily, fontFamily)) continue;
         text = textPerFontFamily[fontFamily];
-        text = textPerFontFamily[fontFamily] = util.unique(text).sort().join('').replace('\n', '');
-        _results.push(console.log("" + fontFamily + ": '" + text + "'"));
+        text = util.unique(text).sort().join('').replace('\n', '');
+        textPerFontFamily[fontFamily] = {
+          characters: text,
+          unicodes: (function() {
+            var _i, _len, _results;
+            _results = [];
+            for (_i = 0, _len = text.length; _i < _len; _i++) {
+              char = text[_i];
+              _results.push(char.charCodeAt());
+            }
+            return _results;
+          })()
+        };
       }
-      return _results;
+      data = JSON.stringify({
+        'payload': textPerFontFamily,
+        'browser': 'unknown'
+      }, null, 2);
+      (function(__iced_k) {
+        __iced_deferrals = new iced.Deferrals(__iced_k, {
+          parent: ___iced_passed_deferral,
+          filename: "B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee"
+        });
+        ajax.send('/ajax/json/type-subsets', __iced_deferrals.defer({
+          assign_fn: (function() {
+            return function() {
+              ok = arguments[0];
+              return resp = arguments[1];
+            };
+          })(),
+          lineno: 282
+        }), data);
+        __iced_deferrals._fulfill();
+      })(function() {
+        return alert("ok: " + ok + ", resp: " + resp);
+      });
     });
   };
 
@@ -1029,6 +1071,7 @@
       };
       return iframe.setAttribute('src', href);
     } else {
+      console.log('removing iframe');
       iframe.parentNode.removeChild(iframe);
       return doneFun();
     }

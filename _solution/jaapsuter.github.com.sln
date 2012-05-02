@@ -89,7 +89,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9DA-44AE-B739-9BB0B42698BB}"
 	ProjectSection(SolutionItems) = preProject
 		..\_site\css\at-font-face.dev.css = ..\_site\css\at-font-face.dev.css
-		..\_site\css\head-2.css = ..\_site\css\head-2.css
 		..\_site\css\head.css = ..\_site\css\head.css
 		..\_site\css\head.min.css = ..\_site\css\head.min.css
 		..\_site\css\normalize.dev.css = ..\_site\css\normalize.dev.css

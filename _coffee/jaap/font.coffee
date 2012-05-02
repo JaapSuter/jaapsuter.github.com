@@ -244,7 +244,7 @@ exports.getMetrics = getMetrics = (families) =>
   easel = new Easel minFontSize: 8, maxFontSize: 213
   await easel.getMetrics families, defer(ok, metrics)
   if ok
-    data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 4
+    data = JSON.stringify { 'payload': metrics, 'browser': 'unknown' }, null, 2
     await ajax.send '/ajax/json/type-metrics', defer(ok, resp), data
     alert "ok: #{ok}, resp: #{resp}"
 
@@ -256,16 +256,29 @@ exports.getSubsets = ->
   
   textPerFontFamily = {}
 
+  getFontFamilyTextForGeneratedContent = (el, pseudo) ->
+    style = window.getComputedStyle el, pseudo
+    fontFamily = style.fontFamily.split(',')[0]
+    textPerFontFamily[fontFamily] += style.content
+
   getDocumentSubsets = (doc) ->
     console.log "Crawling: #{doc.location.href} for font subsets."
     for el in [doc.body].concat(Array::slice.call doc.querySelectorAll('body *'))
       style = window.getComputedStyle el, null
       fontFamily = style.fontFamily.split(',')[0]
       textPerFontFamily[fontFamily] ?= ''
-      textPerFontFamily[fontFamily] += getTextFromElementStrict el # .replace(/^\s+|\s+$/g, '')
-    
+      textPerFontFamily[fontFamily] += getTextFromElementStrict el
+
+      getFontFamilyTextForGeneratedContent el, ':before'
+      getFontFamilyTextForGeneratedContent el, ':after'    
   
   dom.crawl getDocumentSubsets, () ->
     for own fontFamily, text of textPerFontFamily
-      text = textPerFontFamily[fontFamily] = util.unique(text).sort().join('').replace('\n', '')
-      console.log "#{fontFamily}: '#{text}'"
+      text = util.unique(text).sort().join('').replace('\n', '')
+      textPerFontFamily[fontFamily] = 
+        characters: text
+        unicodes: (char.charCodeAt() for char in text)
+            
+    data = JSON.stringify { 'payload': textPerFontFamily, 'browser': 'unknown' }, null, 2
+    await ajax.send '/ajax/json/type-subsets', defer(ok, resp), data
+    alert "ok: #{ok}, resp: #{resp}"

@@ -35,6 +35,7 @@ _crawl = (docFun, doneFun, doc, visited, visits = [], iframe = null) ->
       _crawl docFun, doneFun, iframe.contentDocument, visited, visits, iframe
     iframe.setAttribute 'src', href
   else
+    console.log 'removing iframe'
     iframe.parentNode.removeChild iframe
     doneFun()
 

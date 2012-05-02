@@ -381,7 +381,7 @@
       $__iced_deferrals$$2$$.$_fulfill$()
     })(function() {
       if($ok$$2$$) {
-        $data$$20$$ = JSON.stringify({payload:$metrics$$3$$, browser:"unknown"}, $JSCompiler_alias_NULL$$, 4), function($__iced_k$$16$$) {
+        $data$$20$$ = JSON.stringify({payload:$metrics$$3$$, browser:"unknown"}, $JSCompiler_alias_NULL$$, 2), function($__iced_k$$16$$) {
           $__iced_deferrals$$2$$ = new $iced$$3$$.$Deferrals$($__iced_k$$16$$, {parent:$JSCompiler_alias_NULL$$, filename:"B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee", $funcname$:"getMetrics"});
           $ajax$$.send("/ajax/json/type-metrics", $__iced_deferrals$$2$$.defer({$assign_fn$:function() {
             return function($JSCompiler_OptimizeArgumentsArray_p8$$, $JSCompiler_OptimizeArgumentsArray_p9$$) {
@@ -409,25 +409,51 @@
     return $_results$$inline_6$$.join("")
   };
   $exports$$2$$.$getSubsets$ = function $$exports$$2$$$$getSubsets$$() {
-    var $textPerFontFamily$$;
+    var $getFontFamilyTextForGeneratedContent$$, $textPerFontFamily$$;
     $textPerFontFamily$$ = {};
-    return $dom$$.$crawl$(function($doc_el$$2$$) {
-      var $fontFamily_style$$, $_i$$6$$, $_len$$5$$, $_ref2$$6$$, $_results$$5$$;
-      console.log("Crawling: " + $doc_el$$2$$.location.href + " for font subsets.");
-      $_ref2$$6$$ = [$doc_el$$2$$.body].concat(Array.prototype.slice.call($doc_el$$2$$.querySelectorAll("body *")));
+    $getFontFamilyTextForGeneratedContent$$ = function $$getFontFamilyTextForGeneratedContent$$$($el$$2$$, $pseudo$$) {
+      var $fontFamily$$, $style$$;
+      $style$$ = window.getComputedStyle($el$$2$$, $pseudo$$);
+      $fontFamily$$ = $style$$.fontFamily.split(",")[0];
+      return $textPerFontFamily$$[$fontFamily$$] += $style$$.content
+    };
+    return $dom$$.$crawl$(function($doc_el$$3$$) {
+      var $fontFamily$$1_style$$1$$, $_i$$6$$, $_len$$5$$, $_ref2$$6$$, $_results$$5$$;
+      console.log("Crawling: " + $doc_el$$3$$.location.href + " for font subsets.");
+      $_ref2$$6$$ = [$doc_el$$3$$.body].concat(Array.prototype.slice.call($doc_el$$3$$.querySelectorAll("body *")));
       $_results$$5$$ = [];
       $_i$$6$$ = 0;
       for($_len$$5$$ = $_ref2$$6$$.length;$_i$$6$$ < $_len$$5$$;$_i$$6$$++) {
-        $doc_el$$2$$ = $_ref2$$6$$[$_i$$6$$], $fontFamily_style$$ = window.getComputedStyle($doc_el$$2$$, $JSCompiler_alias_NULL$$), $fontFamily_style$$ = $fontFamily_style$$.fontFamily.split(",")[0], $textPerFontFamily$$[$fontFamily_style$$] == $JSCompiler_alias_NULL$$ && ($textPerFontFamily$$[$fontFamily_style$$] = ""), $_results$$5$$.push($textPerFontFamily$$[$fontFamily_style$$] += $getTextFromElementStrict$$($doc_el$$2$$))
+        $doc_el$$3$$ = $_ref2$$6$$[$_i$$6$$], $fontFamily$$1_style$$1$$ = window.getComputedStyle($doc_el$$3$$, $JSCompiler_alias_NULL$$), $fontFamily$$1_style$$1$$ = $fontFamily$$1_style$$1$$.fontFamily.split(",")[0], $textPerFontFamily$$[$fontFamily$$1_style$$1$$] == $JSCompiler_alias_NULL$$ && ($textPerFontFamily$$[$fontFamily$$1_style$$1$$] = ""), $textPerFontFamily$$[$fontFamily$$1_style$$1$$] += $getTextFromElementStrict$$($doc_el$$3$$), $getFontFamilyTextForGeneratedContent$$($doc_el$$3$$, 
+        ":before"), $_results$$5$$.push($getFontFamilyTextForGeneratedContent$$($doc_el$$3$$, ":after"))
       }
       return $_results$$5$$
     }, function() {
-      var $fontFamily$$1$$, $text$$6$$, $_results$$6$$;
-      $_results$$6$$ = [];
-      for($fontFamily$$1$$ in $textPerFontFamily$$) {
-        $__hasProp$$.call($textPerFontFamily$$, $fontFamily$$1$$) && ($text$$6$$ = $textPerFontFamily$$[$fontFamily$$1$$], $text$$6$$ = $textPerFontFamily$$[$fontFamily$$1$$] = $util$$.unique($text$$6$$).sort().join("").replace("\n", ""), $_results$$6$$.push(console.log("" + $fontFamily$$1$$ + ": '" + $text$$6$$ + "'")))
+      var $char$$, $data$$21$$, $fontFamily$$2$$, $ok$$3$$, $resp$$1$$, $text$$6$$, $__iced_deferrals$$3$$;
+      for($fontFamily$$2$$ in $textPerFontFamily$$) {
+        $__hasProp$$.call($textPerFontFamily$$, $fontFamily$$2$$) && ($text$$6$$ = $textPerFontFamily$$[$fontFamily$$2$$], $text$$6$$ = $util$$.unique($text$$6$$).sort().join("").replace("\n", ""), $textPerFontFamily$$[$fontFamily$$2$$] = {$characters$:$text$$6$$, $unicodes$:function() {
+          var $_i$$7$$, $_len$$6$$, $_results$$6$$;
+          $_results$$6$$ = [];
+          $_i$$7$$ = 0;
+          for($_len$$6$$ = $text$$6$$.length;$_i$$7$$ < $_len$$6$$;$_i$$7$$++) {
+            $char$$ = $text$$6$$[$_i$$7$$], $_results$$6$$.push($char$$.charCodeAt())
+          }
+          return $_results$$6$$
+        }()})
       }
-      return $_results$$6$$
+      $data$$21$$ = JSON.stringify({payload:$textPerFontFamily$$, browser:"unknown"}, $JSCompiler_alias_NULL$$, 2);
+      (function($__iced_k$$18$$) {
+        $__iced_deferrals$$3$$ = new $iced$$3$$.$Deferrals$($__iced_k$$18$$, {parent:$JSCompiler_alias_NULL$$, filename:"B:/Projects/Web/jaapsuter.github.com/dev/_coffee/jaap/font.coffee"});
+        $ajax$$.send("/ajax/json/type-subsets", $__iced_deferrals$$3$$.defer({$assign_fn$:function() {
+          return function($JSCompiler_OptimizeArgumentsArray_p10$$, $JSCompiler_OptimizeArgumentsArray_p11$$) {
+            $ok$$3$$ = $JSCompiler_OptimizeArgumentsArray_p10$$;
+            return $resp$$1$$ = $JSCompiler_OptimizeArgumentsArray_p11$$
+          }
+        }(), $lineno$:282}), $data$$21$$);
+        $__iced_deferrals$$3$$.$_fulfill$()
+      })(function() {
+        return alert("ok: " + $ok$$3$$ + ", resp: " + $resp$$1$$)
+      })
     })
   }
 }).call($JSCompiler_alias_VOID$$, window, function() {
@@ -465,17 +491,17 @@
     return Array.prototype.slice.call($array$$9$$, this.$isUndefined$($index$$51$$) ? 1 : $index$$51$$)
   };
   $exports$$3$$.unique = function $$exports$$3$$$unique$($arr$$10_value$$41$$) {
-    var $key$$13$$, $output$$, $_i$$7__results$$7$$, $_ref$$3$$;
+    var $key$$13$$, $output$$, $_i$$8__results$$7$$, $_ref$$3$$;
     $output$$ = {};
-    $key$$13$$ = $_i$$7__results$$7$$ = 0;
-    for($_ref$$3$$ = $arr$$10_value$$41$$.length;0 <= $_ref$$3$$ ? $_i$$7__results$$7$$ < $_ref$$3$$ : $_i$$7__results$$7$$ > $_ref$$3$$;$key$$13$$ = 0 <= $_ref$$3$$ ? ++$_i$$7__results$$7$$ : --$_i$$7__results$$7$$) {
+    $key$$13$$ = $_i$$8__results$$7$$ = 0;
+    for($_ref$$3$$ = $arr$$10_value$$41$$.length;0 <= $_ref$$3$$ ? $_i$$8__results$$7$$ < $_ref$$3$$ : $_i$$8__results$$7$$ > $_ref$$3$$;$key$$13$$ = 0 <= $_ref$$3$$ ? ++$_i$$8__results$$7$$ : --$_i$$8__results$$7$$) {
       $output$$[$arr$$10_value$$41$$[$key$$13$$]] = $arr$$10_value$$41$$[$key$$13$$]
     }
-    $_i$$7__results$$7$$ = [];
+    $_i$$8__results$$7$$ = [];
     for($key$$13$$ in $output$$) {
-      $arr$$10_value$$41$$ = $output$$[$key$$13$$], $_i$$7__results$$7$$.push($arr$$10_value$$41$$)
+      $arr$$10_value$$41$$ = $output$$[$key$$13$$], $_i$$8__results$$7$$.push($arr$$10_value$$41$$)
     }
-    return $_i$$7__results$$7$$
+    return $_i$$8__results$$7$$
   }
 }).call($JSCompiler_alias_VOID$$, window, function() {
   var $_base$$2$$;
@@ -486,7 +512,7 @@
   return window.$jaap$.$util$
 }());
 (function($global$$4$$, $exports$$4$$) {
-  var $addEvent$$, $assignKey$$, $k$$, $_MAP$$, $_MODIFIERS$$, $_handlers$$, $_i$$8$$, $_mods$$, $__hasProp$$1$$ = {}.hasOwnProperty, $__indexOf$$1$$ = [].indexOf || function($item$$1$$) {
+  var $addEvent$$, $assignKey$$, $k$$, $_MAP$$, $_MODIFIERS$$, $_handlers$$, $_i$$9$$, $_mods$$, $__hasProp$$1$$ = {}.hasOwnProperty, $__indexOf$$1$$ = [].indexOf || function($item$$1$$) {
     for(var $i$$2$$ = 0, $l$$1$$ = this.length;$i$$2$$ < $l$$1$$;$i$$2$$++) {
       if($i$$2$$ in this && this[$i$$2$$] === $item$$1$$) {
         return $i$$2$$
@@ -529,7 +555,7 @@
   $_handlers$$ = {};
   $_mods$$ = {16:$JSCompiler_alias_FALSE$$, 18:$JSCompiler_alias_FALSE$$, 17:$JSCompiler_alias_FALSE$$, 91:$JSCompiler_alias_FALSE$$};
   $_MODIFIERS$$ = {shift:16, alt:18, $option$:18, $ctrl$:17, $command$:91};
-  for($k$$ = $_i$$8$$ = 1;20 > $_i$$8$$;$k$$ = ++$_i$$8$$) {
+  for($k$$ = $_i$$9$$ = 1;20 > $_i$$9$$;$k$$ = ++$_i$$9$$) {
     $_MODIFIERS$$["f" + $k$$] = 111 + $k$$
   }
   $_MAP$$ = {$backspace$:8, $tab$:9, clear:12, $enter$:13, "return":13, $esc$:27, escape:27, $space$:32, left:37, $up$:38, right:39, $down$:40, $del$:46, "delete":46, home:36, end:35, $pageup$:33, $pagedown$:34, ",":188, ".":190, "/":191, "`":192, "-":189, "=":187, ";":186, "'":222, "[":219, "]":221, "\\":220};
@@ -617,33 +643,34 @@
     return $_crawl$$($docFun$$, $doneFun$$, document, [document.location.href.replace(/#.*/, "")])
   };
   $_crawl$$ = function $$_crawl$$$($docFun$$1$$, $doneFun$$1$$, $a_doc$$1$$, $visited$$, $visits$$, $iframe$$) {
-    var $href$$, $_i$$9$$, $_len$$6$$, $_ref$$5$$;
+    var $href$$, $_i$$10$$, $_len$$7$$, $_ref$$5$$;
     $visits$$ == $JSCompiler_alias_NULL$$ && ($visits$$ = []);
     $iframe$$ == $JSCompiler_alias_NULL$$ && ($iframe$$ = $JSCompiler_alias_NULL$$);
     $docFun$$1$$($a_doc$$1$$);
     $iframe$$ || ($iframe$$ = document.createElement("iframe"), $iframe$$.className = "hidden", document.body.insertBefore($iframe$$, document.body.firstChild));
     $_ref$$5$$ = document.querySelectorAll("a");
-    $_i$$9$$ = 0;
-    for($_len$$6$$ = $_ref$$5$$.length;$_i$$9$$ < $_len$$6$$;$_i$$9$$++) {
-      $a_doc$$1$$ = $_ref$$5$$[$_i$$9$$], $href$$ = $a_doc$$1$$.href.replace(/#.*/, ""), 0 <= $__indexOf$$2$$.call($visits$$, $href$$) || 0 <= $__indexOf$$2$$.call($visited$$, $href$$) || $href$$.match(/\.[^.]{0,5}/) || $a_doc$$1$$.host !== document.location.host || $visits$$.push($href$$)
+    $_i$$10$$ = 0;
+    for($_len$$7$$ = $_ref$$5$$.length;$_i$$10$$ < $_len$$7$$;$_i$$10$$++) {
+      $a_doc$$1$$ = $_ref$$5$$[$_i$$10$$], $href$$ = $a_doc$$1$$.href.replace(/#.*/, ""), 0 <= $__indexOf$$2$$.call($visits$$, $href$$) || 0 <= $__indexOf$$2$$.call($visited$$, $href$$) || $href$$.match(/\.[^.]{0,5}/) || $a_doc$$1$$.host !== document.location.host || $visits$$.push($href$$)
     }
     if($visits$$.length) {
       return $href$$ = $visits$$.pop(), $visited$$.push($href$$), $iframe$$.onload = function $$iframe$$$onload$() {
         return $_crawl$$($docFun$$1$$, $doneFun$$1$$, $iframe$$.contentDocument, $visited$$, $visits$$, $iframe$$)
       }, $iframe$$.setAttribute("src", $href$$)
     }
+    console.log("removing iframe");
     $iframe$$.parentNode.removeChild($iframe$$);
     return $doneFun$$1$$()
   };
   $exports$$5$$.$verifyCss$ = function $$exports$$5$$$$verifyCss$$() {
-    var $className$$1_elem$$2_fullName$$, $css$$, $decl_val$$, $elementsWithoutStyling$$, $hasAtLeastOneStyledPropertyNotFromUniversal$$, $idName_matches$$, $matchesSelector$$, $prop$$4$$, $sel$$, $sels$$, $specificity$$1$$, $tagName$$2$$, $_i$$10$$, $_len$$7$$, $_ref$$6$$, $_ref2$$7$$;
+    var $className$$1_elem$$2_fullName$$, $css$$, $decl_val$$, $elementsWithoutStyling$$, $hasAtLeastOneStyledPropertyNotFromUniversal$$, $idName_matches$$, $matchesSelector$$, $prop$$4$$, $sel$$, $sels$$, $specificity$$1$$, $tagName$$2$$, $_i$$11$$, $_len$$8$$, $_ref$$6$$, $_ref2$$7$$;
     if($matchesSelector$$ = document.documentElement.matchesSelector || document.documentElement.webkitMatchesSelector || document.documentElement.mozMatchesSelector || document.documentElement.$oMatchesSelector$ || document.documentElement.msMatchesSelector) {
       $elementsWithoutStyling$$ = "head,title,link,meta,script,style,header,figure,figcaption,hgroup,nav,footer,summary,details,article,section,aside".split(",");
       $css$$ = $gatherCss$$.apply($JSCompiler_alias_NULL$$, document.styleSheets);
       $_ref$$6$$ = document.querySelectorAll("*");
-      $_i$$10$$ = 0;
-      for($_len$$7$$ = $_ref$$6$$.length;$_i$$10$$ < $_len$$7$$;$_i$$10$$++) {
-        $className$$1_elem$$2_fullName$$ = $_ref$$6$$[$_i$$10$$];
+      $_i$$11$$ = 0;
+      for($_len$$8$$ = $_ref$$6$$.length;$_i$$11$$ < $_len$$8$$;$_i$$11$$++) {
+        $className$$1_elem$$2_fullName$$ = $_ref$$6$$[$_i$$11$$];
         $tagName$$2$$ = $className$$1_elem$$2_fullName$$.nodeName.toLowerCase();
         $hasAtLeastOneStyledPropertyNotFromUniversal$$ = $JSCompiler_alias_FALSE$$;
         $_ref2$$7$$ = $css$$.$properties$;
@@ -664,26 +691,26 @@
     }
   };
   $gatherCss$$ = function $$gatherCss$$$() {
-    var $css$$1$$, $property$$3_rule$$2$$, $_base$$4_selector$$, $selectors$$8_sheet$$, $sheets$$, $_k_style$$1$$, $_len3_value$$42$$, $_i$$11$$, $_j$$, $_l$$, $_len$$8$$, $_len2$$, $_len4$$, $_len5$$, $_m$$, $_ref$$7$$;
+    var $css$$1$$, $property$$3_rule$$2$$, $_base$$4_selector$$, $selectors$$8_sheet$$, $sheets$$, $_k_style$$2$$, $_len3_value$$42$$, $_i$$12$$, $_j$$, $_l$$, $_len$$9$$, $_len2$$, $_len4$$, $_len5$$, $_m$$, $_ref$$7$$;
     $sheets$$ = 1 <= arguments.length ? $__slice$$1$$.call(arguments, 0) : [];
     $css$$1$$ = {$properties$:{}, $selectors$:{}, $values$:{}};
-    $_i$$11$$ = 0;
-    for($_len$$8$$ = $sheets$$.length;$_i$$11$$ < $_len$$8$$;$_i$$11$$++) {
-      $selectors$$8_sheet$$ = $sheets$$[$_i$$11$$];
+    $_i$$12$$ = 0;
+    for($_len$$9$$ = $sheets$$.length;$_i$$12$$ < $_len$$9$$;$_i$$12$$++) {
+      $selectors$$8_sheet$$ = $sheets$$[$_i$$12$$];
       $_ref$$7$$ = $selectors$$8_sheet$$.cssRules;
       $_j$$ = 0;
       for($_len2$$ = $_ref$$7$$.length;$_j$$ < $_len2$$;$_j$$++) {
         if($property$$3_rule$$2$$ = $_ref$$7$$[$_j$$], 1 === $property$$3_rule$$2$$.type) {
           $selectors$$8_sheet$$ = $property$$3_rule$$2$$.selectorText.split(",");
-          $_k_style$$1$$ = 0;
-          for($_len3_value$$42$$ = $selectors$$8_sheet$$.length;$_k_style$$1$$ < $_len3_value$$42$$;$_k_style$$1$$++) {
-            $_base$$4_selector$$ = $selectors$$8_sheet$$[$_k_style$$1$$], $css$$1$$.$selectors$[$_base$$4_selector$$] = $specificity$$($_base$$4_selector$$)
+          $_k_style$$2$$ = 0;
+          for($_len3_value$$42$$ = $selectors$$8_sheet$$.length;$_k_style$$2$$ < $_len3_value$$42$$;$_k_style$$2$$++) {
+            $_base$$4_selector$$ = $selectors$$8_sheet$$[$_k_style$$2$$], $css$$1$$.$selectors$[$_base$$4_selector$$] = $specificity$$($_base$$4_selector$$)
           }
-          $_k_style$$1$$ = $property$$3_rule$$2$$.style;
+          $_k_style$$2$$ = $property$$3_rule$$2$$.style;
           $_l$$ = 0;
-          for($_len4$$ = $_k_style$$1$$.length;$_l$$ < $_len4$$;$_l$$++) {
-            $property$$3_rule$$2$$ = $_k_style$$1$$[$_l$$];
-            $_len3_value$$42$$ = $_k_style$$1$$.getPropertyValue($property$$3_rule$$2$$);
+          for($_len4$$ = $_k_style$$2$$.length;$_l$$ < $_len4$$;$_l$$++) {
+            $property$$3_rule$$2$$ = $_k_style$$2$$[$_l$$];
+            $_len3_value$$42$$ = $_k_style$$2$$.getPropertyValue($property$$3_rule$$2$$);
             if(($_base$$4_selector$$ = $css$$1$$.$properties$)[$property$$3_rule$$2$$] == $JSCompiler_alias_NULL$$) {
               $_base$$4_selector$$[$property$$3_rule$$2$$] = {}
             }
@@ -730,13 +757,13 @@
     $body$$1$$ = document.body;
     $ppgd$$ = parseFloat(window.getComputedStyle($body$$1$$).lineHeight);
     $get$$ = function $$get$$$($name$$54$$) {
-      var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$2$$;
-      $pplh_style$$2$$ = {fontSize:"0", lineHeight:"0"};
-      ($elem$$3_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$2$$ = window.getComputedStyle($elem$$3_height$$9$$));
-      $ppem$$ = parseFloat($pplh_style$$2$$.fontSize);
-      $pplh_style$$2$$ = parseFloat($pplh_style$$2$$.lineHeight);
+      var $elem$$3_height$$9$$, $ppem$$, $pplh_style$$3$$;
+      $pplh_style$$3$$ = {fontSize:"0", lineHeight:"0"};
+      ($elem$$3_height$$9$$ = document.querySelector($name$$54$$)) && ($pplh_style$$3$$ = window.getComputedStyle($elem$$3_height$$9$$));
+      $ppem$$ = parseFloat($pplh_style$$3$$.fontSize);
+      $pplh_style$$3$$ = parseFloat($pplh_style$$3$$.lineHeight);
       $elem$$3_height$$9$$ = $elem$$3_height$$9$$.getBoundingClientRect().height;
-      return"" + $ppem$$ + "/" + $pplh_style$$2$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
+      return"" + $ppem$$ + "/" + $pplh_style$$3$$ + ("html" === $name$$54$$ || "body" === $name$$54$$ ? "" : " " + $elem$$3_height$$9$$ + " / " + $ppgd$$ + " = " + $elem$$3_height$$9$$ / $ppgd$$) + ": " + $name$$54$$ + "<br/>"
     };
     return document.querySelector("#dimensions").innerHTML = "" + $get$$("html") + "\n" + $get$$("body") + "\n" + $get$$("p") + "\n" + $get$$("h1") + "\n" + $get$$("h2") + "\n" + $get$$("h3") + "\n" + $get$$(".small") + "\nviewport: " + window.innerWidth + "\u00d7" + window.innerHeight + ", " + window.orientation + "<br/>\nbody:     " + $body$$1$$.offsetWidth + "\u00d7" + $body$$1$$.offsetWidth
   };
