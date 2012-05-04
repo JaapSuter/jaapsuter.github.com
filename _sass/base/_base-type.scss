@@ -37,13 +37,14 @@ h1, h2, h3 {
 }
 
 .caps, abbr[title] {
-  @extend %tsxxn-c2pc;
-  
+  @include font-family(tsn4n-c2pc);
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
 }
 
 .tnum-lnum,
 .math {
-  @extend %tsxxn-tnum-lnum;
+  @include font-family(tsn4n-tnum-lnum);
 }
 
 code,
@@ -59,12 +60,17 @@ code {
 abbr { border: none; }
 
 pre, code, kbd, samp {
-  @extend %tmxxn;
+  @include font-family(tmn4n);
   font-size: 1em;
 }
 
-i, cite, em, var { @extend %tsi4n; }
-strong, b { @extend %tsn7n; }
+i, cite, em, var {
+  @include font-family(tsi4n, $style: italic);
+}
+
+strong, b { 
+  @include font-family(tsn7n, $weight: 700);
+}
 
 @if false {
  

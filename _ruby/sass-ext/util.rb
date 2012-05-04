@@ -33,6 +33,20 @@ module Jaap
       Sass::Script::List.new(arr, :space)
     end
 
+    def peek(list)
+      
+      assert_type list, :List
+      list = unwrap list
+      list.last
+    end
+
+    def pop(list)
+      assert_type list, :List
+      list = unwrap list
+      list.pop
+      to_sass list
+    end
+
     private
 
     def unwrap_px(v)
@@ -68,7 +82,9 @@ module Jaap
     end
 
     def to_sass(obj)
-      if obj.kind_of?(Array)
+      if obj.is_a? Sass::Script::Node
+        obj
+      elsif obj.kind_of?(Array)
         arr = obj.map! { |ar| to_sass(ar) }
         Sass::Script::List.new(arr, :space)
       elsif is_number?(obj)

@@ -2,7 +2,11 @@
 ---
 {% include other/head.html %}
 
-%body(lang="en" id="{{ page.id }}")
+%body(id="{{ page.id }}")
+
+  {% if post.excerpt %}
+  {{ post.excerpt }}
+  {% endif %}
   
   {% include zone/header.html %}
   

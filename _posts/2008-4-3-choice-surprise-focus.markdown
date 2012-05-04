@@ -18,8 +18,18 @@ title_mark_up: |
 {% assign ratio = '4x3' %}
 {% include component/figure.html %}
 
-Excerpts of talk I did at Electronic Arts in April of 2008.
+[% excerpt-begin %]
 
-Segments that discussed proprietary EA technology have been edited out. About half of the original footage remains, just enough to entertain a small audience (e.g., some friends).
+Recording of a talk I did in April of 2008 at Electronic Arts. I explain how
+software development is influenced by psychology from three different angles.
 
-Credit where credit is due, this talk uses material from Lawrence Lessig (presentation style and font), Guy Kawasaki, Barry Schwartz (the Paradox of Choice), Jeff Atwood (microwaves), Jeff Hawkins, Jason Cooper, and Tipper (music).
+[% excerpt-end %]
+
+Segments that discussed proprietary EA technology have been
+remoevd. About half the footage remains, mostly non-technical -- just
+enough to entertain a small audience (e.g., some friends).
+
+Credit where credit is due, this talk uses material from
+Lawrence Lessig (presentation style and font), Guy Kawasaki, Barry
+Schwartz (the Paradox of Choice), Jeff Atwood (microwaves), Jeff Hawkins,
+JasonCooper, and Tipper (music).

@@ -351,6 +351,7 @@
     _ref2 = dom.create('div', '<span>b H x p</span><br><span>b H x p</span>'), div = _ref2[0], (_ref3 = _ref2[1], fallback = _ref3[0], br = _ref3[1], loaded = _ref3[2]);
     div.style.cssText = "visibility: visible;\nposition: absolute;\ntop: 0;\nleft: 0;\nfont-family: serif;\nfont-size: 137px;\nfont-style: " + (getFontStyle(family)) + ";\nfont-weight: " + (getFontWeight(family)) + ";\nline-height: 1;\nwhite-space: nowrap;";
     loaded.style.fontFamily = "" + family + ", serif";
+    console.log("Trying " + family);
     document.body.insertBefore(div, document.body.firstChild);
     interval_ms = 40;
     max_wait_ms = 3000;
@@ -363,14 +364,18 @@
     testFontLoaded = function() {
       if (fallback.offsetWidth !== loaded.offsetWidth) {
         if (0 === repeats_until_valid--) {
+          console.log("Ok " + family);
           return complete(true, family);
         } else {
+          console.log("Almost " + family);
           return util.soon(testFontLoaded);
         }
       } else {
         if (0 === attempts--) {
+          console.log("Timeout and Failed " + family);
           return complete(false, family);
         } else {
+          console.log("Taking a while " + family);
           return util.delay(interval_ms, testFontLoaded);
         }
       }
@@ -410,7 +415,7 @@
             return metrics = arguments[1];
           };
         })(),
-        lineno: 244
+        lineno: 250
       }));
       __iced_deferrals._fulfill();
     })(function() {
@@ -432,7 +437,7 @@
                 return resp = arguments[1];
               };
             })(),
-            lineno: 247
+            lineno: 253
           }), data);
           __iced_deferrals._fulfill();
         })(function() {
@@ -524,7 +529,7 @@
               return resp = arguments[1];
             };
           })(),
-          lineno: 282
+          lineno: 288
         }), data);
         __iced_deferrals._fulfill();
       })(function() {

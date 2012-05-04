@@ -1,5 +1,8 @@
 {% include other/head.html %}
-<body id='{{ page.id }}' lang='en'>
+<body id='{{ page.id }}'>
+  {% if post.excerpt %}
+  {{ post.excerpt }}
+  {% endif %}
   {% include zone/header.html %}
   <div data-body-id='{{ page.id }}' id='ajax'>
     {% include zone/article.html %}

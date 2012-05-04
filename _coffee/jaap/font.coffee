@@ -184,6 +184,8 @@ exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
     white-space: nowrap;"""
   
   loaded.style.fontFamily = "#{family}, serif"
+
+  console.log "Trying #{family}"
   
   document.body.insertBefore div, document.body.firstChild  
   
@@ -199,13 +201,17 @@ exports.whenFontLoaded = whenFontLoaded = (family, cont) ->
   testFontLoaded = () ->
     if fallback.offsetWidth != loaded.offsetWidth
       if 0 == repeats_until_valid--
-        complete true, family
+        console.log "Ok #{family}"
+        complete true, family        
       else
+        console.log "Almost #{family}"
         util.soon testFontLoaded
     else
       if 0 == attempts--
+        console.log "Timeout and Failed #{family}"
         complete false, family
       else
+        console.log "Taking a while #{family}"
         util.delay interval_ms, testFontLoaded
 
   testFontLoaded()

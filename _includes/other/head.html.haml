@@ -1,12 +1,6 @@
 !!!
-\<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
-\<!--[if lt IE 7]><html class="no-js ielt9 ielt8 ielt7"><![endif]-->
-\<!--[if lt IE 8]><html class="no-js ielt9 ielt8"><![endif]-->
-\<!--[if lt IE 9]><html class="no-js ielt9"><![endif]-->
-<!--[if gte IE 9]><!-->
-<html class="no-js">
-<!--<![endif]-->
-%head
+%html(lang="en" class="no-js")
+%head(lang="en")
   
   %meta(charset="utf-8")
   /[if IE]
@@ -22,7 +16,7 @@
   %title   
     {{ page.title }}
   
-  %link{:href => "http://microformats.org/profile/specs/", :rel => "profile"}/
-  %link{:href => "/atom.xml", :rel => "alternate", :type => "application/atom+xml"}/
   %link{:href => "/css/head.css", :rel => "stylesheet"}/
+  %link{:href => "http://microformats.org/profile/specs/", :rel => "profile"}/
+  %link{:href => "/feed.atom", :rel => "alternate", :type => "application/atom+xml"}/  
   

@@ -32,7 +32,7 @@ module Jaap
       name = name[0...2] + 'xx' + name[4..-1]
       to_sass name
     end
-
+    
     def get_font_metric_at_size(family, ppem, metric)
       Jaap::Reload.try_reload
 
@@ -62,6 +62,7 @@ module Jaap
     def self.add_font_extensions()
       Jaap::Font.singleton_methods.each do |m|
         m = m.to_s
+        puts m
         add_extension('Font', m) if m.start_with? 'is_' or m.start_with? 'get_'
       end
     end

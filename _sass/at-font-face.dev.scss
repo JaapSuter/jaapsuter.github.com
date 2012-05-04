@@ -1,4 +1,36 @@
 @import "prelude";
-@debug 'b';
-@each $font in get_font_list() { @include at-font-face($font); } 
 
+$available-fonts: get-available-fonts();
+
+@each $curve   in (truetype, postscript) {
+@each $kind    in (serif, /*s*/ans, mono) {
+@each $style   in (normal, italic, oblique) {
+@each $weight  in (400, 200, 700) {
+@each $stretch in (normal, condensed) {
+@each $feature in ('', '-c2pc', '-underline', '-tnum-lnum', '-inv') {
+  
+  $font:  get-char-at($curve,   0) +
+          get-char-at($kind,    0) +
+          get-char-at($style,   0) +
+          get-char-at('#{$weight}',  0) +
+          get-char-at($stretch, 0) + $feature;
+  
+  $exists: index($available-fonts, $font);  
+  
+  @include at-font-face($font, $style, $weight, $exists);
+  
+  @if in-development-mode() {
+    @each $style-synth in (normal, italic, oblique) {
+      @each $weight-synth in (400, 200, 700) {
+        @if      $style-synth  == $style {}
+        @else if $style-synth  == oblique and $style == italic {}
+        @else if $style-synth  == italic  and $style == oblique {}
+        @else if $weight-synth == $weight {}
+        @else {
+          @include at-font-face($font, $style-synth, $weight-synth, false);  
+        }
+      }
+    }
+  }
+  
+}}}}}}

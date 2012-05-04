@@ -1,76 +1,97 @@
-@mixin at-font-face($name, $unicode-range: false) {
+@mixin at-font-face($name, $style, $weight, $exists) {
   @unless $type-disable-font-face {
     @font-face {
 
-      font-family: quote(blank-font-style-and-weight($name));
-      font-weight: type-name-get-font-weight($name);
-      font-style:  type-name-get-font-style($name);
-      
-      src: url('/fonts/#{$name}.eot');
-      
-      @if type-name-is-postscript-flavored($name) {
-        src: url('/fonts/#{$name}.eot?#iefix') format('eot'), // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
-             url('/fonts/#{$name}.woff') format('woff'),
-             url('/fonts/#{$name}.otf') format('opentype'),
-             url('/fonts/#{$name}.ttf') format('truetype');
+      font-family: $name;
+      font-weight: $weight;
+      font-style:  $style;
+  
+      @if $exists {
+  
+        /* Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'), */
+        @if type-name-is-postscript-flavored($name) {
+          src: url(/fonts/#{$name}.eot);        
+          src: url(/fonts/#{$name}.eot?#oldie) format('eot'),
+               url(/fonts/#{$name}.woff)       format('woff')
+               url(/fonts/#{$name}.otf)        format('opentype')
+               url(/fonts/#{$name}.ttf)        format('truetype');
+        } @else {
+          src: url(/fonts/#{$name}.eot);        
+          src: url(/fonts/#{$name}.eot?#oldie) format('eot'),
+               url(/fonts/#{$name}.woff)       format('woff')
+               url(/fonts/#{$name}.ttf)        format('truetype');          
+        }
       } @else {  
-        src: url('/fonts/#{$name}.eot?#iefix') format('eot'),  // Todo, Jaap Suter, January 2012: investigate format('embedded-opentype'),
-             url('/fonts/#{$name}.woff') format('woff'),
-             url('/fonts/#{$name}.ttf') format('truetype');
+        src: local('Ahem');
       }
-    }
+    } 
   }
 }
 
-@mixin abstract-font-face-family($name) {
-  .#{$name} {
-    $fmly-name: blank-font-style-and-weight($name);
-  
-    font-family: $fmly-name, type-name-get-font-family-fallback($name);
-  
-    font-weight: type-name-get-font-weight($name);
-    font-style:  type-name-get-font-style($name);
+@mixin font-family($name, $style: false, $weight: false) {
+  font-family: $name, type-name-get-font-family-fallback($name);  
+  @if $style { font-style: $style; }  
+  @if $weight { font-weight: $weight; }
+
+  @if is-feature-c2pc($name) {
+    text-transform: uppercase;
+    text-rendering: optimizespeed;
   }
 }
 
-%type-c2pc {
-  text-transform: uppercase; 
-  text-rendering: optimizeSpeed;
-}
-
-%type-c2sc {
-  @extend %type-c2pc;
-  letter-spacing: 0.1em;
-  font-size: 1.1em; 
-}
-
-@mixin background-image-baseline-grid() {  
-  $baseline-background-use-svg: true;
+@mixin push-font($curves, $kind, $style, $weight, $stretch, $feature: none) {
   
-  @if $baseline-background-use-svg {
-    @include background-image(make_svg_baseline_grid($body-font-family, $pp-em, $pp-el));
+  @if $kind ==    inherited { $kind:      peek($font-kind-stack); }
+  @if $curves ==  inherited { $curves:    peek($font-curves-stack); }
+  @if $feature == inherited { $feature:   peek($font-feature-stack); }
+  @if $style ==   inherited { $style:     peek($font-style-stack); }
+  @if $weight ==  inherited { $weight:    peek($font-weight-stack); }
+  @if $stretch == inherited { $stretch:   peek($font-stretch-stack); }
 
-    @each $values in units(1el 1el) {
-      background-size: $values;
-    }
-  
-  } @else {
-  
-    $c0: $transparent;
-    $c1: rgba($blue, 0.3);
-  
-    @include background-image(linear-gradient($c0 0, $c0 50%, $c1 50%, $c1 100%));
-    @each $values in units(100% 2el) {
-      background-size: $values;
-    }
-
-    @include units(background-position, (0 $pp-bo));
+  @if $feature == 'c2pc' {
+    text-transform: uppercase;
+    text-rendering: optimizeSpeed;
   }
+  
+  @if $style !=    peek($font-style-stack) { font-style: $style; }
+  @if $weight !=   peek($font-weight-stack) { font-weight: $weight; }
+  @if $kind !=     peek($font-kind-stack) or 
+      $curves !=   peek($font-curves-stack) or 
+      $stretch !=  peek($font-stretch-stack) or
+      $feature  != peek($font-feature-stack) { 
+  
+    $name: font-family($curves, $kind, $stretch, $feature);
+    font-family: $name, type-name-get-font-family-fallback($name);
+  }
+
+  $font-kind-stack:     append($font-kind-stack, $kind);
+  $font-curves-stack:   append($font-curves-stack, $curves);
+  $font-feature-stack:  append($font-feature-stack, $feature);
+  $font-style-stack:    append($font-style-stack, $style);
+  $font-weight-stack:   append($font-weight-stack, $weight);
+  $font-stretch-stack:  append($font-stretch-stack, $stretch);
+}
+
+@mixin pop-font() {
+  @debug $font-kind-stack;
+  @debug $font-curves-stack;
+  @debug $font-feature-stack;
+  @debug $font-style-stack;
+  @debug $font-weight-stack;
+  @debug $font-stretch-stack;
+  
+  
+  $font-kind-stack:     pop($font-kind-stack);
+  $font-curves-stack:   pop($font-curves-stack);
+  $font-feature-stack:  pop($font-feature-stack);
+  $font-style-stack:    pop($font-style-stack);
+  $font-weight-stack:   pop($font-weight-stack);
+  $font-stretch-stack:  pop($font-stretch-stack);
 }
 
 @mixin change-type($to-font-family, $such-that-metric, $has-value, $leading-el-per-el: 1, $pp-bo-offset: 0) {
 
-  @extend .#{$to-font-family};
+  @include font-family($to-font-family);
   
   $new-pp-em: undefined;
   @if $such-that-metric == ppem {
@@ -111,4 +132,29 @@
   @content;
   
   $pp-em: $prev-pp-em;
+}
+
+
+@mixin background-image-baseline-grid() {  
+  $baseline-background-use-svg: true;
+  
+  @if $baseline-background-use-svg {
+    @include background-image(make_svg_baseline_grid($body-font-family, $pp-em, $pp-el));
+
+    @each $values in units(1el 1el) {
+      background-size: $values;
+    }
+  
+  } @else {
+  
+    $c0: $transparent;
+    $c1: rgba($blue, 0.3);
+  
+    @include background-image(linear-gradient($c0 0, $c0 50%, $c1 50%, $c1 100%));
+    @each $values in units(100% 2el) {
+      background-size: $values;
+    }
+
+    @include units(background-position, (0 $pp-bo));
+  }
 }

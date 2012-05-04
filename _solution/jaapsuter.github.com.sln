@@ -26,9 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 		..\Gemfile = ..\Gemfile
 		..\_abbr.yml = ..\_abbr.yml
 		..\_config.yml = ..\_config.yml
-		..\atom.xml = ..\atom.xml
 		..\do.cmd = ..\do.cmd
 		..\favicon.ico = ..\favicon.ico
+		..\feed.atom = ..\feed.atom
 		..\google415246fe73d6cc14.html = ..\google415246fe73d6cc14.html
 		..\humans.txt = ..\humans.txt
 		..\index.html = ..\index.html
@@ -48,8 +48,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_plugins", "_plugins", "{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540}"
 	ProjectSection(SolutionItems) = preProject
 		..\_plugins\liquid-ext.rb = ..\_plugins\liquid-ext.rb
-		..\_plugins\page-and-post-post-write-hook.rb = ..\_plugins\page-and-post-post-write-hook.rb
-		..\_plugins\sitemap-generator.rb = ..\_plugins\sitemap-generator.rb
+		..\_plugins\monkey.rb = ..\_plugins\monkey.rb
+		..\_plugins\sitemapper.rb = ..\_plugins\sitemapper.rb
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zone", "zone", "{C4A66924-C309-4A4B-B937-D6994ED2B6D6}"
@@ -85,6 +85,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{D391
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_site", "_site", "{33B17BCB-4312-4678-B1B3-E0411188E6CA}"
+	ProjectSection(SolutionItems) = preProject
+		..\_site\feed.atom = ..\_site\feed.atom
+		..\_site\index.html = ..\_site\index.html
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9DA-44AE-B739-9BB0B42698BB}"
 	ProjectSection(SolutionItems) = preProject

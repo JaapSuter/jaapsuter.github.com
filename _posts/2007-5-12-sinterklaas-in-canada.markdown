@@ -6,10 +6,9 @@ title_mark_up: |
   <span class="type-xl">In&nbsp;Canada</span><br>
 ---
 
-
-Rather than having Santa Claus show up for Christmas, in Holland the tradition
+[% excerpt-begin %] Rather than having Santa Claus show up for Christmas, in Holland the tradition
 involves a similar looking guy called _Sinterklaas_ who, on December
-5th, also goes from house to house to deliver presents.
+5th, also goes from house to house to deliver presents. [% excerpt-end %]
 
 When I convinced him to visit Canada, I invited my friends using this video.
 

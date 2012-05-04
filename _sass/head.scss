@@ -7,10 +7,7 @@
   @else { @each $font in get_font_list() { @include at-font-face($font); } }  
 }
 
-@each $font in get_font_list() { @include abstract-font-face-family($font); }
-
 @import "normalize";
-
 @import "base/base-type";
 @import "base/base-util";
 
@@ -27,7 +24,7 @@ body {
   margin: 0 auto;
     
   @include color-and-background-color($black, $white);
-  @extend %#{blank-font-style-and-weight($body-font-family)};
+  @include font-family($body-font-family);
 }
 
 /*
@@ -48,7 +45,7 @@ a {
                        /* visited */ $blue-dd,
                        /* focus   */ $red);
   
-  @extend %tsn4n-underline;
+  @include font-family(tsn4n-underline);
   text-decoration: none;
   @include single-transition(color, 0.4s, ease-out);
 }
@@ -131,10 +128,10 @@ p {
   */
   
   h3 {
-    @include change-type(tsn4n-c2pc, ex, 1cap) {      
+    @include change-type(tsn4n-c2pc, ex, 1cap) {
       @include units(margin-top, 1el);
-      @extend %type-c2sc;
-    }    
+      
+    }
   }
   /*
   
@@ -245,4 +242,23 @@ $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
 
 blockquote {
   @extend %tsi4n;
+}
+
+.foobar:before {
+  
+  $height: 213px;
+  $baseline: 180px;
+  $a: $baseline - 162px;
+  $c: $baseline - 155px;
+  $x: $baseline - 111px;
+  $d: $baseline +  44px;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:  100%;
+  heigth: $height;
+  
+  @include background-image(linear-gradient(top, $black $a, $red $a, $red $c, $white $c, $white $x, $blue $baseline));
+  background-size: 100% $height;
 }

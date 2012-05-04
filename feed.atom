@@ -6,7 +6,7 @@ title: "Atom Feed"
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title>Jaap Suter</title>
-  <link href="http://www.jaapsuter.com/atom.xml" rel="self"/>
+  <link href="http://www.jaapsuter.com/feed.atom" rel="self"/>
   <link href="http://www.jaapsuter.com/"/>
   <updated>{{site.time | date_to_xmlschema }}</updated>
   <id>http://www.jaapsuter.com/</id>
@@ -17,9 +17,16 @@ title: "Atom Feed"
   {% for post in site.posts %}
   <entry>
     <title>{{ post.title }}</title>
-    <link href="http://www.jaapsuter.com{{ post.url }}"/>
+    <link rel="alternate" href="http://www.jaapsuter.com{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>http://www.jaapsuter.com{{ post.id }}/</id>
+    <summary type="html">
+      {% capture more %}
+        <a href='http://www.jaapsuter.com{{ post.url }}'>Read more...</a>
+      {% endcapture %}
+      {{ post.excerpt | escape }}
+      {{ more | escape }}
+    </summary>
   </entry>
   {% endfor %}
 </feed>

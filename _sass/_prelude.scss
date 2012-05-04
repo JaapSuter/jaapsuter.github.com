@@ -46,7 +46,7 @@ $mono-fallback:            Courier New, monospace, serif;
 }
 
 @if $type-fallback-make-obvious {
-  $obvious-fallback: fallback, unifont, LastResort, LocalFallback, Impact, cursive, fantasy;
+  $obvious-fallback: Ahem; /* Alternatives: unifont, LastResort, LocalFallback, Impact, cursive, fantasy */
 
   $serif-fallback:            $obvious-fallback, $serif-fallback;
   $sans-fallback:             $obvious-fallback, $sans-fallback;

@@ -7,3 +7,10 @@ $pp-bo:            undefined;
 $pp-half-leading:  undefined;
 $max-width:        undefined;
 $min-width:        undefined;
+
+$font-kind-stack:     append((), undefined);
+$font-curves-stack:   append((), undefined);
+$font-weight-stack:   append((), 400);
+$font-style-stack:    append((), normal);
+$font-stretch-stack:  append((), undefined);
+$font-feature-stack:  append((), undefined);

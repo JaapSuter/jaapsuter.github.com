@@ -64,3 +64,21 @@ $type-name-stretch-idx:  4;
             try-incremental($pp-el, 1, 1, $pp-el))))))));
   }  
 }
+
+
+@function font-family($curves, $kind, $stretch, $feature) {
+  @if      $kind == serif { $kind: s; }
+  @else if $kind == sans  { $kind: a; }
+  @else if $kind == mono  { $kind: m; }
+
+  @if      $stretch == normal    { $stretch: n; }
+  @else if $stretch == condensed { $stretch: c; }
+
+  @if      $curves == truetype   { $curves: t; }
+  @else if $curves == postscript { $curves: p; }
+
+  @if $feature == none { $feature: ''; }
+  @else                { $feature: '-#{$feature}'; }
+
+  @return unquote('#{$curves}#{$kind}xx#{$stretch}#{$feature}');
+}

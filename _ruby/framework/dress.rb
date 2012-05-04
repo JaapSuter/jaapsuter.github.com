@@ -43,12 +43,15 @@ module Jaap
         # <a rel="bookmark" href="a.html">Post Permalink</a>
 
         # Unclusterhug some undesirable Nokogiri mashups, not pretty - but gotta get 'r done.
+        puts "Tidying: #{src}"        
         text = text.gsub "-->", "-->\n"
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
         text = text.gsub '<meta content="text/html; charset=utf-8" http-equiv="Content-Type">', ''
-        text = text.encode 'US-ASCII'        
+        text = text.encode 'US-ASCII'
         text = Tool.tidy tidy_args, :stdin => text, :ok_exit_codes => [0, 1]
-        text = text.gsub('[%presentational empty%]', '')
+        text = text.gsub /\[%\s*presentational-empty\s*%\]/, ''
+        text = text.gsub /\[%\s*excerpt-begin\s*%\]/, ''
+        text = text.gsub /\[%\s*excerpt-end[^%]*%\]/, ''
         
         dst_dir = Pathname.new(dst).parent
         Dir.mkdir(dst_dir) if not Dir.exists? dst_dir        

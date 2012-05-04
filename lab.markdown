@@ -5,12 +5,11 @@ title_mark_up: |
 permalink: /lab/
 ---
 
-<h1 style='font-family: tsxxn, serif;'>&para;</h1>
+<h1>&para;</h1>
 
 <h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
 <h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
 
-Test testing
 
 <div class="center-fifty">
   <div class="rhythm">
@@ -33,8 +32,6 @@ Test testing
   </div>
 </div>
 
-Test testing
-
 <div class="center-fifty">  
   <div class="rhythm">
     <img class="melody" src="/img/aspect-ratio-4x3.png" alt="" width="800" height="600">
@@ -44,18 +41,25 @@ Test testing
 
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); JaQ-$_@.a](#)
 
+Here's a clog &para;, isn't that neat?
+
 <div class="rhythm">
   <div class="drum-before"></div>    
   <div class="img-after">a b a b a b a b a b a b a</div>
 </div>
   
+[% excerpt-begin %]
+
 Let's verify that various typographies are converted -- using [Smartypants](http://daringfireball.net/projects/smartypants/) -- by comparing
-implicit 'single' and "double" quotes with their literal &lsquo;single&rsquo; and &ldquo;double&rdquo; entity counterpart. These words are *emphasized* and **strong** as processed
-by [Markdown](http://daringfireball.net/projects/markdown/). Water is H2O and
-<span class="math"><i>e</i><sup><i>i</i>&pi;</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;0</span>, verifying sub- and superscript, as well as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the
-minus sign. Here's some old-style numbers: 1018, 1997, 2012. And HTML5 would mark up TLA and HMLAA -- such as WYSIWYG and IOTD -- using
+implicit 'single' and "double" quotes with their literal &lsquo;single&rsquo; and &ldquo;double&rdquo; entity counterpart. These
+words are *emphasized* and **strong** as processed by [Markdown](http://daringfireball.net/projects/markdown/). Water is H2O and 
+<span class="math"><i>e</i><sup><i>i</i>&pi;</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;0</span>, verifying sub- and superscript, as well
+as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the minus sign. Here's some
+old-style numbers: 1018, 1997, 2012. And HTML5 would mark up TLA and HMLAA -- such as WYSIWYG and IOTD -- using
 the `abbr` element, which [itself](http://en.wikipedia.org/wiki/Use-mention_distinction "Use Mention Distinction") should be
 wrapped in `code`, ad infinitum. Or stack overflow, take your pick.
+
+[% excerpt-end %]
 
 {% assign pullquote = 'Pull&shy;quotes are used to &#x263A; grab &#x270C; attention.' %}
 {% include component/pullquote.html %}

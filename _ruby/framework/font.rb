@@ -11,41 +11,39 @@ module Jaap
     def self.is_mono(name) 'm' == name[1] end
     
     def self.is_italic(name) 'i' == name[2] end
+    def self.is_oblique(name) 'o' == name[2] end
     def self.is_bold(name) '7' == name[3] end
     def self.is_light(name) '2' == name[3] end
     def self.is_condensed(name) 'c' == name[4] end    
-    
+
     def self.is_for_underline(name) name.end_with? '-underline' end    
-    def self.is_for_small_caps(name) name.end_with? '-c2pc' end
+    def self.is_feature_c2pc(name) name.end_with? '-c2pc' end
     def self.is_for_tabular_lining_numerals(name) name.end_with? '-tnum-lnum' end
     
-    def self.get_font_list()
+    def self.get_available_fonts()
       Jaap::Reload.try_reload
       
       available_fonts = Paths.glob('fonts/*.woff').map { |file| File.basename(file, File.extname(file)) }
 
-      ['truetype', 'postscript'].each do      |curve|
-        ['serif', 'sans', 'mono'].each do     |kind|
-          ['italic', 'normal'].each do        |style|
-            ['200', '400', '700'].each do     |weight|
-              ['normal', 'condensed'].each do |stretch|
-              
-                c = curve[0]
-                k = kind == 'sans' ? 'a' : kind[0]
-              
-
-                name = c + k + style[0] + weight[0] + stretch[0]
-                puts name if available_fonts.include? name
-                
-                ['c2pc', 'underline', 'tnum-lnum', 'inv'].each do |feature|
-                  name_and_feature = "#{name}-#{feature}"
-                  puts name_and_feature if available_fonts.include? name_and_feature
-                end
-              end
-            end
-          end
-        end
-      end
+      # ['truetype', 'postscript'].each do          |curve|
+      #   ['serif', 'sans', 'mono'].each do         |kind|
+      #     ['italic', 'normal', 'oblique'].each do |style|
+      #       ['200', '400', '700'].each do         |weight|
+      #         ['normal', 'condensed'].each do     |stretch|
+      #         
+      #           c = curve[0]
+      #           k = kind == 'sans' ? 'a' : kind[0]              
+      # 
+      #           name = c + k + style[0] + weight[0] + stretch[0]
+      #           
+      #           ['c2pc', 'underline', 'tnum-lnum', 'inv'].each do |feature|
+      #             name_and_feature = "#{name}-#{feature}"
+      #           end
+      #         end
+      #       end
+      #     end
+      #   end
+      # end
 
       available_fonts
     end
@@ -323,14 +321,28 @@ module Jaap
     
     def self.ensure_font_list_and_merge_unicode_superset_into_all_subsets()
       
-      %w[tsn4n tsi4n tsn7n
-         psn4n psi4n psn7n
-         tan4n tan2n tan7n
-         pan4n pan2n pan7n
-         tan4c tan7c tsi7n
-         pan4c pan7c psi7n
-         tao4n
-         tmn4n].each { |name| @@subsets[name] = {} }
+      %w[
+          pan2n
+          pan4c
+          pan4n
+          pan7c
+          pan7n
+          psi4n
+          psi7n
+          psn4n
+          psn7n
+          tan2n
+          tan4c
+          tan4n
+          tan7c
+          tan7n
+          tao4n
+          tmn4n
+          tsi4n
+          tsi7n
+          tsn4n
+          tsn7n
+        ].each { |name| @@subsets[name] = {} }
       
       @@subsets.values.each { |subset|
         subset['unicodes'] = @@superset['unicodes']
