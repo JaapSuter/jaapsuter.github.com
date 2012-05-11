@@ -4,15 +4,16 @@
 
 %body(id="{{ page.id }}")
 
-  {% if post.excerpt %}
-  {{ post.excerpt }}
-  {% endif %}
+  {% include zone/site-header.html %}
   
-  {% include zone/header.html %}
-  
-  #ajax(data-body-id="{{ page.id }}")
-    {% include zone/article.html %}
-  
-  {% include zone/menu.html %}  
-  {% include zone/archive.html %}
+  #content.ajax(data-body-id="{{ page.id }}")    
+    %article
+      {% include zone/content-header.html %}
+      #content-body
+        {{ content }}
+      {% include zone/content-footer.html %}
+
+  {% include zone/site-menu.html %}  
+  {% include zone/site-archive.html %}
+
   {% include other/tail.html %}  

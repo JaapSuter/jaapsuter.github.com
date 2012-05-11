@@ -6,20 +6,21 @@ title_mark_up: |
   <span class="type-xxl">Collection</span>
 ---
 
-On the [Sweng GameDev](http://lists.midnightryder.com/listinfo.cgi/sweng-gamedev-midnightryder.com "Software Engineering, as it applies to Game Developers") mailing list, Gil wrote...
+Quoting from a post to the [Sweng GameDev](http://lists.midnightryder.com/listinfo.cgi/sweng-gamedev-midnightryder.com "Software Engineering, as it applies to Game Developers") mailing list...
 
-> Seems like the death of C/C++ has been proclaimed for at least 20 years. The proposed
-> benefits of higher level languages strike me as naive and
-> theoretical. In practice those benefits don't materialize, in my experience anyway."
+> Seems like the death of C/C++ has been proclaimed for at
+> least 20 years. The proposed benefits of higher level
+> languages strike me as naive and theoretical. In practice
+> those benefits don't materialize, in my experience anyway.
 >
-> Let me just pick on one thing today: *Garbage collection*. Having made big-budget commercial games both with and without garbage
+> Let me just pick on one thing today; garbage collection. Having made big-budget commercial games both with and without garbage
 > collection, in my experience, these are myths:
 >
->   * Myth: C++ does not "support" garbage collection.
->   * Myth: Garbage collection reduces bugs.
->   * Myth: Garbage collection saves development time.
+>   1. C++ does not 'support' garbage collection.
+>   2. Garbage collection reduces bugs.
+>   3. Garbage collection saves development time.
 
-He continues:
+Continuing:
 
 > To me, "ownership and lifetime" is an important concept in software engineering.  When is something
 > created, when is it destroyed and what higher level object is accountable for it? Garbage collection
@@ -35,9 +36,9 @@ He continues:
 > sorts of bugs. With garbage collection, you will spend your debugging time trying to understand what link in super
 > complex dependency chain is problematic, and even when it is identified you are left with only hacky approaches to
 > breaking the undesirable links. Realize that with a console game, an object that does not get destroyed soon
-> enough is just as fatal as an object that gets destroyed too soon, except the former is much harder to track down and fix.<br/>
+> enough is just as fatal as an object that gets destroyed too soon, except the former is much harder to track down and fix.
 > 
-> In the end using garbage collection isn't a huge problem; I'm satisfied with the products I've made that use GC.
+> In the end using garbage collection isn't a huge problem; I'm satisfied with the products I've made that use it.
 > But I will say that whoever thinks garbage collection offer significant benefits to game development doesn't
 > seem to be facing or solving the same problems that I confront.
  

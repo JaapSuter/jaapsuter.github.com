@@ -29,7 +29,7 @@ module Jaap
       
       begin
         
-        text = Typogruby.improve text        
+        text = Typogruby.improve text
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html
         html = stripeify html
@@ -48,19 +48,20 @@ module Jaap
         text = text.gsub '<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">', ''
         text = text.gsub '<meta content="text/html; charset=utf-8" http-equiv="Content-Type">', ''
         text = text.encode 'US-ASCII'
-        text = Tool.tidy tidy_args, :stdin => text, :ok_exit_codes => [0, 1]
+        text = Tool.w3c_tidy_html5 tidy_args, :stdin => text, :ok_exit_codes => [0, 1]
         text = text.gsub /\[%\s*presentational-empty\s*%\]/, ''
         text = text.gsub /\[%\s*excerpt-begin\s*%\]/, ''
         text = text.gsub /\[%\s*excerpt-end[^%]*%\]/, ''
-        
+        fix_boolean_attributes text
+                        
         dst_dir = Pathname.new(dst).parent
         Dir.mkdir(dst_dir) if not Dir.exists? dst_dir        
         
         File.open(Paths.suffix(dst, '.ajax'), 'w') do |f|
           html = Nokogiri::HTML text, nil, 'US-ASCII'
-          ajax = "<!DOCTYPE html>\n" + html.at_css('title').to_html + "\n" + html.at_css('#ajax').to_html
+          ajax = "<!DOCTYPE html>\n" + html.at_css('title').to_html + "\n" + html.at_css('.ajax').to_html
           ajax = ajax.encode 'US-ASCII'
-          ajax = Tool.tidy tidy_args, :stdin => ajax, :ok_exit_codes => [0, 1]
+          ajax = Tool.w3c_tidy_html5 tidy_args, :stdin => ajax, :ok_exit_codes => [0, 1]
           ajax = ajax.gsub('[%presentational empty%]', '')
           
           f.write ajax
@@ -93,8 +94,14 @@ module Jaap
       html
     end
 
-    def self.wrap_text(node)
-      
+    def self.fix_boolean_attributes(text)
+      %w[checked disabled autoplay async autofocus controls
+         default defer formnovalidate hidden ismap itemscope loop multiple
+         novalidate open pubdate readonly required reversed
+         scoped seamless selected
+      ].each do |ba|
+        text.gsub! "#{ba}=\"\"", ba
+      end
     end    
         
     def self.add_anchor_data_content_attrs(html)

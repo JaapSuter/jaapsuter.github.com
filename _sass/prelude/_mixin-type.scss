@@ -12,13 +12,13 @@
         @if type-name-is-postscript-flavored($name) {
           src: url(/fonts/#{$name}.eot);        
           src: url(/fonts/#{$name}.eot?#oldie) format('eot'),
-               url(/fonts/#{$name}.woff)       format('woff')
-               url(/fonts/#{$name}.otf)        format('opentype')
+               url(/fonts/#{$name}.woff)       format('woff'),
+               url(/fonts/#{$name}.otf)        format('opentype'),
                url(/fonts/#{$name}.ttf)        format('truetype');
         } @else {
           src: url(/fonts/#{$name}.eot);        
           src: url(/fonts/#{$name}.eot?#oldie) format('eot'),
-               url(/fonts/#{$name}.woff)       format('woff')
+               url(/fonts/#{$name}.woff)       format('woff'),
                url(/fonts/#{$name}.ttf)        format('truetype');          
         }
       } @else {  
@@ -148,7 +148,7 @@
   } @else {
   
     $c0: $transparent;
-    $c1: rgba($blue, 0.3);
+    $c1: rgba($clr0, 0.3);
   
     @include background-image(linear-gradient($c0 0, $c0 50%, $c1 50%, $c1 100%));
     @each $values in units(100% 2el) {

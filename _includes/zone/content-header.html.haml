@@ -1,0 +1,18 @@
+#content-header
+  %header
+    %h1.margin-bottom-1el
+      {% if page.title_mark_up %}
+      {{ page.title_mark_up }}
+      {% else %}
+      %span.type-l {{ page.title }}
+      {% endif %}
+    
+    %p.copy-date-author
+      %span.no-small
+        \&copy;&nbsp;
+        %time(datetime="{{ page.date | date: '%Y-%m-%d' }}" pubdate)
+          %span.month> {{ page.date | date: "%B" }}&nbsp;
+          %span.year {{ page.date | date: "%Y" }}
+        %a.fn.n.uid.url{:href => "http://www.jaapsuter.com", :rel => "author", :title => "Jaap Suter"}
+          %span.given-name Jaap
+          %span.family-name Suter

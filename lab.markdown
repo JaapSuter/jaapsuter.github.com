@@ -5,12 +5,6 @@ title_mark_up: |
 permalink: /lab/
 ---
 
-<h1>&para;</h1>
-
-<h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
-<h3>I'm written in smallcaps "neat, eh?" or 'singles'</h3>
-
-
 <div class="center-fifty">
   <div class="rhythm">
     <div class="melody">
@@ -380,11 +374,11 @@ More...
       This is a paragraph with some text in it. It goes on for a while but 
       doesn't really say anything useful. That's fine, I'm just testing
       whether it's possible to create an em-based typographic rhythm.
-    %h1.stripe
-      Short H1
+    %p.h1-like.stripe
+      Short H1 Like
     %p
       Voila, the second paragraph.
-    %h1.stripe
+    %p.h1-like.stripe
       Here's a H1 header that is likely to wrap to the next line.
     %p
       Voila, the third paragraph. Isn't it great?

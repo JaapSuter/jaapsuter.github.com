@@ -3,18 +3,18 @@
     position: relative;
     @include inline-block;
     @include text-shadow(
-      $blue-ddd -1px -1px,
-      $blue-ddd  1px -1px,
-      $blue-ddd -1px  1px,
-      $blue-ddd  1px  1px);
+      $clr0-ddd -1px -1px,
+      $clr0-ddd  1px -1px,
+      $clr0-ddd -1px  1px,
+      $clr0-ddd  1px  1px);
   
-    color: $red-d;
-    ::moz-selection { color: $red-ll; }
-    ::selection { color: $red-ll; }
+    color: $clr1-d;
+    ::moz-selection { color: $clr1-ll; }
+    ::selection { color: $clr1-ll; }
   
     &:after, .data-content {
-      color: $red-l;
-      @include text-shadow($red-lll 1px -1px, $red-ddd 1px 1px);
+      color: $clr1-l;
+      @include text-shadow($clr1-lll 1px -1px, $clr1-ddd 1px 1px);
         
       @extend %pan7n-stripe;
     
@@ -49,7 +49,7 @@ h1, h2, h3 {
 
 code,
 .math {
-  color: mix($black, $red-d, 20);  
+  color: mix($black, $clr1-d, 20);  
 }
 
 code {

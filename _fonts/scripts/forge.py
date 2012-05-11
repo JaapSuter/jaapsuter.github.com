@@ -396,30 +396,46 @@ def make_stripe(f, name, src, dst):
 
 def invert_glyphs(f, is_serif):
   
-  line_height = 1.4
-  box_size = f.em * line_height
-  leading = (f.em * line_height - (f.ascent + f.descent))
+  recommended_overshoot = math.ceil(70.0 * 1000 / 2048)
+  center_glyph = False
 
-  f.ascent = f.descent = box_size * 0.5
+  half_leading = math.ceil((1.5 * f.em - (f.ascent + f.descent)) / 2.0)
+  top = f.ascent + half_leading
+  bottom = -f.descent - half_leading
 
-  top = 0.5 * box_size
-  bottom = -top
+  if center_glyph:
+    line_height = 1.4
+
+    box_size = f.em * line_height
+    leading = (f.em * line_height - (f.ascent + f.descent))
+
+    f.ascent = f.descent = box_size * 0.5
+
+    top = 0.5 * box_size
+    bottom = -top
 
   f.selection.all()
   for g in f.glyphs():
 
-    bbox = g.boundingBox()
-    vertical_center = bbox[1] + (bbox[3] - bbox[1]) / 2
+    ow, olb, orb = g.width, g.left_side_bearing, g.right_side_bearing
+
+    width = g.width
+    left = min(g.left_side_bearing, 0)
+    right = g.width - min(-recommended_overshoot, min(g.right_side_bearing, 0))
     
-    g.transform(psMat.translate(0, -vertical_center))
-
-    g.left_side_bearing = g.right_side_bearing = 0
-    g.width = box_size;
-    g.left_side_bearing = g.right_side_bearing = (g.left_side_bearing + g.right_side_bearing) / 2
-
-    left = 0
-    right = g.width
-
+    if center_glyph:
+      bbox = g.boundingBox()    
+      vertical_center = bbox[1] + (bbox[3] - bbox[1]) / 2
+      
+      g.transform(psMat.translate(0, -vertical_center))
+      
+      g.left_side_bearing = g.right_side_bearing = 0
+      g.width = box_size;
+      g.left_side_bearing = g.right_side_bearing = (g.left_side_bearing + g.right_side_bearing) / 2
+      
+      left = 0
+      right = g.width
+      
     foreground_idx = 1
     
     # ...within FontForge all outer boundaries must be
@@ -449,9 +465,15 @@ def invert_glyphs(f, is_serif):
     g.layers[foreground_idx] = new_foreground
     g.layers[foreground_idx].correctDirection()
     
-    g.left_side_bearing = g.right_side_bearing = 0
-    
     correct_round_and_clean(g)
+    
+    bbox = g.boundingBox()
+    g.left_side_bearing = bbox[0]
+    g.right_side_bearing = g.width - bbox[2]
+
+    nw, nlb, nrb = g.width, g.left_side_bearing, g.right_side_bearing
+
+    log("#{g.glyphname}: #{ow}, #{olb}, #{orb} -> #{nw}, #{nlb}, #{nrb}")
     
   autohint_entire_font(f)
 

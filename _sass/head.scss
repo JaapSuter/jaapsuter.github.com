@@ -22,28 +22,20 @@ body {
   width: 100%;
   max-width: 38em;
   margin: 0 auto;
-    
+ 
   @include color-and-background-color($black, $white);
   @include font-family($body-font-family);
 }
 
-/*
-  #header { background-color: rgba(#fdd, 0.6); }
-  #article { background-color: rgba(#ddf, 0.6); }
-  #footer { background-color: rgba(#dfd, 0.6); }
-  #menu { background-color: rgba(#ffd, 0.6); }
-  #archive { background-color: rgba(#fdf, 0.6); }
-*/
-
-::moz-selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
-::selection { @include color-and-background-color($red-ll, $blue-dd, false); text-shadow: none; }
+::moz-selection { @include color-and-background-color($clr1-ll, $clr0-dd, false); text-shadow: none; }
+::selection { @include color-and-background-color($clr1-ll, $clr0-dd, false); text-shadow: none; }
   
 a {
-  @include link-colors(/* normal  */ $blue-d,
-                       /* hover   */ $red,
-                       /* active  */ $red-l,
-                       /* visited */ $blue-dd,
-                       /* focus   */ $red);
+  @include link-colors(/* normal  */ $clr0-d,
+                       /* hover   */ $clr1,
+                       /* active  */ $clr1-l,
+                       /* visited */ $clr0-dd,
+                       /* focus   */ $clr1);
   
   @include font-family(tsn4n-underline);
   text-decoration: none;
@@ -87,11 +79,13 @@ p {
     @include units(line-height, 1el);
   }
 
-  p { @include units(margin-top, 1el); }
+  p {
+    @include units(margin-bottom, 1el);
+  }
 
   p + p {
     text-indent: 2em;
-    margin-top: 0;  
+    @include units(margin-top, -1el);
   }
 
   %thematic-break {
@@ -113,15 +107,59 @@ p {
   
   h1 {
     color: $black;
-    @include change-type(pan4n, cap, 2el) {
+    @include change-type(pan7n-inv, cap, 2el) {
       @include units(margin-bottom, 1el);
+    
+      $c0: rgba($clr0, 0.3);
+      $c1: rgba($clr1, 0.3);
+  
+      span {
+        @include background-image(linear-gradient($c0 0, $c0 50%, $c1 50%, $c1 100%));
+        @each $values in units(100% 1el) {
+          background-size: $values;
+        }
+      }
+    }
+  }
+  
+  li {
+    display: block;
+    list-style-type: none;
+  }
+  
+  ol {      
+    counter-reset: olc;
+    li {
+      position: relative;
+      text-indent: 0;
+    
+      &:before {
+        display: inline-block;
+        text-indent: -1em;
+        width: 0;
+        counter-increment: olc;        
+        line-height: 1em;
+        color: $clr1-d;
+        text-rendering: optimizespeed;
+    
+        @include font-family(tsn4n-c2pc);
+        font-style: normal;
+        content: counter(olc) ".";        
+      }
+  
+      li {
+        margin-left: 2em;
+        &:before {
+          content: counter(olc, upper-alpha) ".";
+        }
+      }
     }
   }
   
   /*
   h2 {
     @include change-type(pan7n, ex, 1el) {
-      color: $red-d;
+      color: $clr1-d;
       @include units(margin-top, 1el);
     }
   }
@@ -141,14 +179,18 @@ p {
     }
   }
     
-  .small { @include change-type(pan4n, cap, $pp-ex) {} }
-
+  */
+    
+  small { @include change-type(tan4n, cap, $pp-ex) {} } 
+  
   blockquote {    
-    color: $blue-dd;  
+    @include change-type(tsi4n, ppem, $pp-em) {}
+    font-style: italic;
+    font-weight: 400;
+    color: $clr0-dd;
     @include units(margin, 1el 0);
     @include units(padding-left, 1em);
-  }    
-  */
+  }
   
   .sidebar {
     position: relative;
@@ -169,7 +211,7 @@ p {
     $top: $pp-bo - $pp-ascent;
     @include units(top, $top);
     
-    @include color-and-background-color($red-ddd, rgba($blue-lll, 0.4));
+    @include color-and-background-color($clr1-ddd, rgba($clr0-lll, 0.4));
   }
   
   .leading-4x3 {
@@ -194,20 +236,20 @@ p {
 
 .black       { color: $white; background-color: $black   ;}
 .white       { color: $black; background-color: $white   ;}
-.red-ddd     { color: $white; background-color: $red-ddd ;}
-.red-dd      { color: $white; background-color: $red-dd  ;}
-.red-d       { color: $white; background-color: $red-d   ;}
-.red         { color: $white; background-color: $red     ;}
-.red-l       { color: $black; background-color: $red-l   ;}
-.red-ll      { color: $black; background-color: $red-ll  ;}
-.red-lll     { color: $black; background-color: $red-lll ;}
-.blue-ddd    { color: $white; background-color: $blue-ddd;}
-.blue-dd     { color: $white; background-color: $blue-dd ;}
-.blue-d      { color: $white; background-color: $blue-d  ;}
-.blue        { color: $white; background-color: $blue    ;}
-.blue-l      { color: $black; background-color: $blue-l  ;}
-.blue-ll     { color: $black; background-color: $blue-ll ;}
-.blue-lll    { color: $black; background-color: $blue-lll;}
+.red-ddd     { color: $white; background-color: $clr1-ddd ;}
+.red-dd      { color: $white; background-color: $clr1-dd  ;}
+.red-d       { color: $white; background-color: $clr1-d   ;}
+.red         { color: $white; background-color: $clr1     ;}
+.red-l       { color: $black; background-color: $clr1-l   ;}
+.red-ll      { color: $black; background-color: $clr1-ll  ;}
+.red-lll     { color: $black; background-color: $clr1-lll ;}
+.blue-ddd    { color: $white; background-color: $clr0-ddd;}
+.blue-dd     { color: $white; background-color: $clr0-dd ;}
+.blue-d      { color: $white; background-color: $clr0-d  ;}
+.blue        { color: $white; background-color: $clr0    ;}
+.blue-l      { color: $black; background-color: $clr0-l  ;}
+.blue-ll     { color: $black; background-color: $clr0-ll ;}
+.blue-lll    { color: $black; background-color: $clr0-lll;}
 */
 
 
@@ -259,6 +301,6 @@ blockquote {
   width:  100%;
   heigth: $height;
   
-  @include background-image(linear-gradient(top, $black $a, $red $a, $red $c, $white $c, $white $x, $blue $baseline));
+  @include background-image(linear-gradient(top, $black $a, $clr1 $a, $clr1 $c, $white $c, $white $x, $clr0 $baseline));
   background-size: 100% $height;
 }

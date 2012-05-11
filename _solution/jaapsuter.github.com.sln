@@ -54,11 +54,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_plugins", "_plugins", "{38
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zone", "zone", "{C4A66924-C309-4A4B-B937-D6994ED2B6D6}"
 	ProjectSection(SolutionItems) = preProject
-		..\_includes\zone\archive.html.haml = ..\_includes\zone\archive.html.haml
-		..\_includes\zone\article.html.haml = ..\_includes\zone\article.html.haml
-		..\_includes\zone\footer.html.haml = ..\_includes\zone\footer.html.haml
-		..\_includes\zone\header.html.haml = ..\_includes\zone\header.html.haml
-		..\_includes\zone\menu.html.haml = ..\_includes\zone\menu.html.haml
+		..\_includes\zone\content-footer.html.haml = ..\_includes\zone\content-footer.html.haml
+		..\_includes\zone\content-header.html.haml = ..\_includes\zone\content-header.html.haml
+		..\_includes\zone\site-archive.html.haml = ..\_includes\zone\site-archive.html.haml
+		..\_includes\zone\site-header.html.haml = ..\_includes\zone\site-header.html.haml
+		..\_includes\zone\site-menu.html.haml = ..\_includes\zone\site-menu.html.haml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "component", "component", "{1336C1DB-0800-4E65-A805-7A3785F02100}"

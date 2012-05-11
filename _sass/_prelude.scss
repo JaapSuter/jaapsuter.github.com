@@ -68,20 +68,23 @@ $white: #e7e5de;
 $white: tint($white, 56);
 
 $blue:  #005869;
-$blue-d: shade($blue, 25);
-$blue-dd: shade($blue, 50);
-$blue-ddd: shade($blue, 75);
-$blue-l: tint($blue, 25);
-$blue-ll: tint($blue, 50);
-$blue-lll: tint($blue, 75);
+$rad:   #971f03;
 
-$red:   #971f03;
-$red-d: shade($red, 25);
-$red-dd: shade($red, 50);
-$red-ddd: shade($red, 75);
-$red-l: tint($red, 25);
-$red-ll: tint($red, 50);
-$red-lll: tint($red, 75);
+$clr0:  $blue;
+$clr0-d: shade($clr0, 25);
+$clr0-dd: shade($clr0, 50);
+$clr0-ddd: shade($clr0, 75);
+$clr0-l: tint($clr0, 25);
+$clr0-ll: tint($clr0, 50);
+$clr0-lll: tint($clr0, 75);
+
+$clr1:   #971f03;
+$clr1-d: shade($clr1, 25);
+$clr1-dd: shade($clr1, 50);
+$clr1-ddd: shade($clr1, 75);
+$clr1-l: tint($clr1, 25);
+$clr1-ll: tint($clr1, 50);
+$clr1-lll: tint($clr1, 75);
 
 /* 
   Remaining Imports, e.g. external libraries, globals, 

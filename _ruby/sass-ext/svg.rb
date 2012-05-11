@@ -49,7 +49,7 @@ module Jaap
         unwrap(ppem, ppgd, baseline, ascent, cap, ex, descent)
 
       path = nil # In production, return an inline data-url
-      path = "img/grid-#{family}-#{ppem}-#{ppgd}.svg" # Useful during development        
+      # path = "img/grid-#{family}-#{ppem}-#{ppgd}.svg" # Useful during development        
 
       if false
         img = %Q{

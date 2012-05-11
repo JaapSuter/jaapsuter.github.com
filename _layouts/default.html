@@ -1,13 +1,16 @@
 {% include other/head.html %}
 <body id='{{ page.id }}'>
-  {% if post.excerpt %}
-  {{ post.excerpt }}
-  {% endif %}
-  {% include zone/header.html %}
-  <div data-body-id='{{ page.id }}' id='ajax'>
-    {% include zone/article.html %}
+  {% include zone/site-header.html %}
+  <div class='ajax' data-body-id='{{ page.id }}' id='content'>
+    <article>
+      {% include zone/content-header.html %}
+      <div id='content-body'>
+        {{ content }}
+      </div>
+      {% include zone/content-footer.html %}
+    </article>
   </div>
-  {% include zone/menu.html %}
-  {% include zone/archive.html %}
+  {% include zone/site-menu.html %}
+  {% include zone/site-archive.html %}
   {% include other/tail.html %}
 </body>
