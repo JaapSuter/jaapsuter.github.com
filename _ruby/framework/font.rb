@@ -129,7 +129,7 @@ module Jaap
             
             if ['psn4n'].include? name
               if smcpify
-                cmd['name'] = name + '-smcp'
+                cmd['name'] = name + '-c2pc'
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
               end
             end

@@ -38,8 +38,8 @@ h1, h2, h3 {
 
 .caps, abbr[title] {
   @include font-family(tsn4n-c2pc);
-  letter-spacing: 0.1em;
-  font-size: 1.1em;
+  letter-spacing: 0.08em;
+  font-size: 1.15em;
 }
 
 .tnum-lnum,

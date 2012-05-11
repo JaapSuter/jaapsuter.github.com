@@ -1,3 +1,5 @@
+require_relative '../liquid-ext/musicalize'
+
 module Jaap
   module LiquidExt
     class Hamlize < Liquid::Block

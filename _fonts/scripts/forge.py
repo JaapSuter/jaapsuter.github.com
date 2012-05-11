@@ -588,12 +588,13 @@ def make_small_caps(f, is_italic, is_serif, reinstructables, unicodes):
   unicodes.extend(range(ord('A'), ord('Z') + 1))
   unicodes.extend(move_downables)
   unicodes.extend(range(ord('0'), ord('9') + 1))
+  unicodes.append(ord('.'))
   unicodes.append(ord('&'))
   unicodes.append(ord('('))
   unicodes.append(ord(')'))
   unicodes.append(ord('!'))
   unicodes.append(ord('?'))  
-  
+    
 def make_font_face_load_detection_glyph(f, unicodes, is_monospace):
   unicode = 0xA6
   width = 4 * f.em if not is_monospace else f['m'].width

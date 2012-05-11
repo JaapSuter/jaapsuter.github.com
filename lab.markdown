@@ -6,24 +6,18 @@ permalink: /lab/
 ---
 
 <div class="center-fifty">
-  <div class="rhythm">
-    <div class="melody">
-      <p class="leading-4x3">
-        The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
-        other pages on this website, typically in paragraph-sized chunks.
-      </p>
-    </div>
-    <div class="drum" role="presentational"></div>
-  </div>
-  <div class="rhythm">
-    <div class="melody">
-      <p class="leading-4x3">
-        The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
-        other pages on this website, typically in paragraph-sized chunks.
-      </p>
-    </div>
-    <div class="drum" role="presentational"></div>
-  </div>
+  {% musicalize %}
+    <p class="leading-4x3">
+      The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+      other pages on this website, typically in paragraph-sized chunks.
+    </p>
+  {% endmusicalize %}
+  {% musicalize %}
+    <p class="leading-4x3">
+      The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
+      other pages on this website, typically in paragraph-sized chunks.
+    </p>
+  {% endmusicalize %}
 </div>
 
 <div class="center-fifty">  
@@ -48,10 +42,18 @@ Let's verify that various typographies are converted -- using [Smartypants](http
 implicit 'single' and "double" quotes with their literal &lsquo;single&rsquo; and &ldquo;double&rdquo; entity counterpart. These
 words are *emphasized* and **strong** as processed by [Markdown](http://daringfireball.net/projects/markdown/). Water is H2O and 
 <span class="math"><i>e</i><sup><i>i</i>&pi;</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;0</span>, verifying sub- and superscript, as well
-as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the minus sign. Here's some
-old-style numbers: 1018, 1997, 2012. And HTML5 would mark up TLA and HMLAA -- such as WYSIWYG and IOTD -- using
+as the en&#8209;dash, the (non&#8209;breaking) hyphen, and the minus sign.
+
+The following numbers should consist of old-style proportional figures: 1018, 1997, 2012, whereas these are tabular and lining: <span class="tnum-lnum">1018, 1997, 2012</span>.
+And using HTML5 we mark up TLAS and HMLAAS -- such as WYSIWYG and IOTD -- using
 the `abbr` element, which [itself](http://en.wikipedia.org/wiki/Use-mention_distinction "Use Mention Distinction") should be
 wrapped in `code`, ad infinitum. Or stack overflow, take your pick.
+
+Abbreviations in the previous paragraph (and elsewhere) should be set in smallcaps -- slightly larger
+than the underlying petite caps, which match the body x-height -- and with slightly
+increased tracking. Note furthermore that smallcap has its own figures, rather than relying
+on the common oldstyle fallback. And lastly, that abbreviations ensure the
+pluralizing &lsquo;s&rsquo; [matches the body x-height](http://blog.fawny.org/2010/01/11/goreschoice/ "1 != l, Gore's Choice") properly.
 
 [% excerpt-end %]
 
@@ -62,24 +64,18 @@ The remainder is merely filler text for testing various layout and typographical
 other pages on this website, typically in paragraph-sized chunks.
 
 <div class="sidebar"><aside>
- <div class="rhythm">
-    <div class="melody">
-      <p class="leading-4x3">{% hyphenate %}
-        This is a multi&#x2011;paragraph sidebar block. There's not much of interest in it, but it'll be just
-        enough text to fill a sidebar alongside two main paragraphs.{% endhyphenate %}
-      </p>
-    </div>
-    <div class="drum" role="presentational"></div>
-  </div>
-  <div class="rhythm">
-    <div class="melody">
+  {% musicalize %}
+    <p class="leading-4x3">{% hyphenate %}
+      This is a multi&#x2011;paragraph sidebar block. There's not much of interest in it, but it'll be just
+      enough text to fill a sidebar alongside two main paragraphs.{% endhyphenate %}
+    </p>
+  {% endmusicalize %}
+  {% musicalize %}
       <p class="leading-4x3">{% hyphenate %}
         Here's the second paragraph. It's about as boring as the first paragraph, but it manages
         to fill up this block to a useful height for testing.{% endhyphenate %}</p>
       </p>
-    </div>
-    <div class="drum" role="presentational"></div>
-  </div>
+  {% endmusicalize %}
 </aside></div>
 
 {% hyphenate %}
@@ -96,87 +92,40 @@ other pages on this website, typically in paragraph-sized chunks.
 {% short_paragraph %}
 {% medium_paragraph %}
 
-## Some typography
-
-<span style="line-height: 0; font-family: tsi4n, serif; font-style: italic">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
-<span style="line-height: 0; font-family: tsn4n, serif; font-style: italic">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
-<span style="line-height: 0; font-family: tsn4n, serif;">0123456789 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</span><br>
-<span style="line-height: 0; font-family: georgia, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="line-height: 0; font-family: tsn4n, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="line-height: 0; font-family: tsn4n-tnum-lnum, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="line-height: 0; font-family: tsn4n-smcp, tsn4n, serif;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="line-height: 0; font-family: tsi4n, serif; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="line-height: 0; font-family: tsi4n-tnum-lnum, serif; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-<span style="line-height: 0; font-family: tsi4n-smcp, tsi4n, serif; font-style: italic;">0123456789 x0o1i2z3e4h5s6b7j8b9y 1998 2011 200 kB 1018</span><br>
-
-## Type metrics
-
-{% hamlize %}
-  .type-metrics-sample
-    Jaap Suter bHxp
-    .ascent
-    .cap
-    .ex
-    .baseline
-    .descent
-{% endhamlize %}
-
-## Lists
-
-### Unordered List
+## Unordered List
 
 <p class="line-before-list">Line before list, verifies indent match.</p>
 
-* List item 01
-    * List item 01 sublist a
-    * List item 01 sublist b
-* List item 02 is much longer and is very likely to wrap to the next line entirely. To improve the chances of this happening, I threw in some more 
-  words to make up this sentence. Boring, I know -- but heck, why not repeat this sentence a few times? To improve the chances of this happening, I threw in some more 
-  words to make up this sentence. Boring, I know -- but heck.
-* Nested Ordered List
-    1. List item 03 level 2
-        * List item 03 level 3
-        * List item 03 level 3
-    2. List item 03 level 2
-* List item 04
+* First list item
+* Nested list, unordered
+    * Subitem
+    * Another subitem
+* Longer item exists to verify how list elements handle indentation and vertical rhythm across one or more line breaks.
+* Nested list, ordered
+    1. First subitem
+    2. Second subitem
+* Last item
 
-### Ordered List
+## Ordered List
 
 <p class="line-before-list">Line before list, verifies indent match.</p>
 
-1. List item
-2. List item
-3. List item
-  1. Nested unordered list
-      * Item 3.a.star
-      * Item 3.b.star
-          1. Item 3.b.star.1
-          2. Item 3.b.star.2
-      * Item 3.c.star
-	2. List item level 2
-4. List item
+1. First item
+2. Second item
+3. Nested ordered list
+    1. First subitem
+    2. Second subitem
+4. Longer item exists to verify how list elements handle indentation and vertical rhythm across one or more line breaks.
+5. Nested list, unordered
+    * Subitem
+    * Another subitem
+4. Last item
 
-### Definition List
-
-<dl>
-	<dt>Term A</dt>
-	<dd>Description A.1</dd>
-  <dd>Description A.2</dd>
-	<dt>Term B</dt>
-	<dd>Description B</dd>
-	<dt>Term C</dt>
-	<dd>Description C.1</dd>
-  <dd>Description C.2</dd>
-  <dd>Description C.3</dd>
-</dl>
-
-## Blockquotes
-
-### Singleton
+## Short Blockquote
 
 > Duis autem vel eum iriure dolor in hendrerit in, vel illum dolore eu feugiat nulla facilisis.
 
-### Multi Paragraph
+## Long Blockquote
 
 > Metus diam sed tortor quam sit. Netus tempora sit. Habitasse velit nunc praesent ultrices porttitor dignissim sodales tincidunt orci morbi hymenaeos amet
 > luctus porttitor nec nam fermentum.

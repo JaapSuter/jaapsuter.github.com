@@ -122,48 +122,12 @@ p {
     }
   }
   
-  li {
-    display: block;
-    list-style-type: none;
-  }
-  
-  ol {      
-    counter-reset: olc;
-    li {
-      position: relative;
-      text-indent: 0;
-    
-      &:before {
-        display: inline-block;
-        text-indent: -1em;
-        width: 0;
-        counter-increment: olc;        
-        line-height: 1em;
-        color: $clr1-d;
-        text-rendering: optimizespeed;
-    
-        @include font-family(tsn4n-c2pc);
-        font-style: normal;
-        content: counter(olc) ".";        
-      }
-  
-      li {
-        margin-left: 2em;
-        &:before {
-          content: counter(olc, upper-alpha) ".";
-        }
-      }
-    }
-  }
-  
-  /*
   h2 {
     @include change-type(pan7n, ex, 1el) {
       color: $clr1-d;
       @include units(margin-top, 1el);
     }
   }
-  */
   
   h3 {
     @include change-type(tsn4n-c2pc, ex, 1cap) {
@@ -171,16 +135,64 @@ p {
       
     }
   }
-  /*
   
+  /*  
   h4, h5, h6 {
     @include change-type(pan4n, cap, 1el) {
       @include units(margin-top, 1el);
     }
-  }
-    
+  }    
   */
+  
+  li {
+    display: block;
+    list-style-type: none;
+    position: relative;
+    text-indent: 0;
     
+    &:before {
+      display: inline-block;
+      text-indent: -1em;
+      width: 0;
+      line-height: 1em;
+      color: $clr1-d;
+      text-rendering: optimizespeed;      
+    }
+  
+    li {
+      margin-left: 2em;
+    }
+  }
+  
+  ul {
+    & > li:before {
+      @include font-family(tsn4n);
+      font-family: normal;
+      content: '\2023';
+    }
+  
+    ul > li:before {
+      content: '\2022';
+    }
+  }
+  
+  ol {      
+    counter-reset: olc;
+    
+    & > li:before {
+      counter-increment: olc;        
+      @include font-family(tsn4n-c2pc);
+        
+      // @include font-family(tsi4n-c2pc);
+      // font-style: italic;
+      content: counter(olc); 
+    }
+  
+    ol > li:before {
+      content: counter(olc, upper-alpha);
+    }
+  }
+  
   small { @include change-type(tan4n, cap, $pp-ex) {} } 
   
   blockquote {    

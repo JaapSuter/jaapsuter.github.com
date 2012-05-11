@@ -37,6 +37,8 @@ GIF: <abbr title="Graphics Interchange Format (file format)">$</abbr>
 H1: H1
 H2: H2
 H2O: <span class="math">H</i><sub><span class='tnum-lnum'>2</span></sub>O</span>
+HMLAA: <abbr title="However Many Letter Acronyms or Abbreviations">$</abbr>
+HMLAAS: <abbr title="However Many Letter Acronyms or Abbreviations">HMLAA</abbr>s
 HSL: <abbr title="Hue Saturation Lightness">$</abbr>
 HTML: <abbr title="HyperText Markup Language">$</abbr>
 HTML5: <abbr title="HyperText Markup Language - Version 5">$</abbr>
@@ -56,7 +58,6 @@ KISS: <abbr title="Keep it Simple, Stupid">$</abbr>
 LAMP: <abbr title="Linux, Apache, MySQL, PHP (common server configuration)">$</abbr>
 LAZY: LAZY
 LYATAVAWAYA: LYATAVAWAYA
-HMLAA: <abbr title="However Many Letter Acronyms or Abbreviations">$</abbr>
 MP4: <abbr title="MPEG-4 Part 14 (formally ISO/IEC 14496-14:2003)">$</abbr>
 ONE: <span class="caps">$</span>
 OOP: <abbr title="Object Oriented Programming">$</abbr>
@@ -77,6 +78,7 @@ SWENG: SWENG
 SaaS: <abbr title="Software as a Service">$</abbr>
 THE: THE
 TLA: <abbr title="Three Letter Acronym">$</abbr>
+TLAS: <abbr title="Three Letter Acronym">TLA</abbr>s
 UBC: <abbr title="University of British Columbia">$</abbr>
 UI: <abbr title="User Interface">$</abbr>
 UPS: <abbr title="United Parcel Service Inc.">$</abbr>
