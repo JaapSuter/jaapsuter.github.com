@@ -1,4 +1,5 @@
 require_relative '../liquid-ext/musicalize'
+require_relative '../liquid-ext/pullquote'
 
 module Jaap
   module LiquidExt

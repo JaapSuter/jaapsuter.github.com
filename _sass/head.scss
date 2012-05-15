@@ -156,6 +156,7 @@ p {
       width: 0;
       line-height: 1em;
       color: $clr1-d;
+      font-style: normal;
       text-rendering: optimizespeed;      
     }
   
@@ -167,7 +168,6 @@ p {
   ul {
     & > li:before {
       @include font-family(tsn4n);
-      font-family: normal;
       content: '\2023';
     }
   
@@ -182,9 +182,6 @@ p {
     & > li:before {
       counter-increment: olc;        
       @include font-family(tsn4n-c2pc);
-        
-      // @include font-family(tsi4n-c2pc);
-      // font-style: italic;
       content: counter(olc); 
     }
   
@@ -204,18 +201,27 @@ p {
     @include units(padding-left, 1em);
   }
   
+  .pullquote:before {
+    content: attr(data-pullquote);
+    @include change-type(pan4n, cap, $pp-el, $line-height-override: ($pp-el * 3 / 2)) {}
+    width: 40%;
+    float: right;
+    padding-bottom: 1em;
+    padding-left: 1em;
+  }
+  
   .sidebar {
     position: relative;
-    float: right;
+    float: left;
     width: 40%;
-    margin-left: 1em;
+    margin-right: 1em;
     padding: 0 1em;
     margin-bottom: 1em;
     overflow: hidden;
     
     max-width: 12em;
-    // text-align: justify;
-    // -ms-text-justify: newspaper;
+    text-align: justify;
+    -ms-text-justify: newspaper;
     
     @include units(margin-top, 1el);
     @include units(padding, (1el 1em));
@@ -277,6 +283,11 @@ $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
   margin-right: -($margin-add-for-rhythm) * 1%;
   margin-right: -1em;
   overflow: hidden;
+
+  &:after {
+    content: '| | | | | | | | | | | | | | | | | | | | | | | | | | |';
+    visibility: hidden;
+  }
 }
                 
 .melody {
@@ -285,34 +296,24 @@ $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
   height: auto;
 }
 
-.drum {
-
+#menu-label {
+  @include font-family(pan7n);
+  font-size: 3em;
+  padding: 1em;
+  text-decoration: underline;
 }
 
-.drum:after {
-  content: '| | | | | | | | | | | | | | | | | | | | | | | | | | |';
-  // visibility: hidden;
+#menu-checkbox {
+  display: none;
 }
 
-blockquote {
-  @extend %tsi4n;
+#menu-visible {
+    position: absolute;
+    display: none;    
 }
 
-.foobar:before {
-  
-  $height: 213px;
-  $baseline: 180px;
-  $a: $baseline - 162px;
-  $c: $baseline - 155px;
-  $x: $baseline - 111px;
-  $d: $baseline +  44px;
-  
-  position: absolute;
-  top: 0;
-  left: 0;
-  width:  100%;
-  heigth: $height;
-  
-  @include background-image(linear-gradient(top, $black $a, $clr1 $a, $clr1 $c, $white $c, $white $x, $clr0 $baseline));
-  background-size: 100% $height;
+#menu-checkbox:checked + #menu-visible {
+  background-color: $black;
+  color: white;
+  display: block;
 }

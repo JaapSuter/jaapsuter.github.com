@@ -53,7 +53,7 @@ module Jaap
       ret = @@textMetrics[family][metric]
       ret = ret.index(value) if ret != nil
       if ret == nil
-        raise Sass::SyntaxError, "#{family} has no font-size where #{known_metric} equals #{known_value}."
+        raise Sass::SyntaxError, "#{family} has no font-size where #{metric} equals #{value}."
       end
       
       Sass::Script::Number.new ret, ['px']

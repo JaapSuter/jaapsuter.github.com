@@ -172,11 +172,8 @@ def make_underline(f, name, src, dst):
 
   shutil.copy2(src, dst)
 
-  m = fontforge.open(dst)  
+  m = fontforge.open(dst)    
   
-  m.selection.all()
-  remove_cvt_fpgm_and_prep(m)
-
   m.private["BlueValues"] =   f.private["BlueValues"]
   m.private["BlueScale"] =    f.private["BlueScale"]
   m.private["BlueFuzz"] =     f.private["BlueFuzz"]
@@ -185,6 +182,10 @@ def make_underline(f, name, src, dst):
   m.private["StemSnapH"] =    f.private["StemSnapH"]
   m.private["StdVW"] =        f.private["StdVW"]
   m.private["StdVW"] =        f.private["StdVW"]
+
+  f = m
+
+  log("UNDERLINE: copy made")
 
   # Quoting from http://www.microsoft.com/typography/cursivescriptguidelines.mspx
   #
@@ -216,12 +217,12 @@ def make_underline(f, name, src, dst):
   hardcoded_slash = fontforge.contour()
   hardcoded_slash.is_quadratic = True
   hardcoded_slash.moveTo(530, 1493)
-  hardcoded_slash.lineTo(60, 0)
-  hardcoded_slash.lineTo(270, 0)
   hardcoded_slash.lineTo(690, 1493)
+  hardcoded_slash.lineTo(270, 0)
+  hardcoded_slash.lineTo(60, 0)
   hardcoded_slash.closed = True
   
-  # Descender test line: ep:/ajaqug, (3241527890); JaQ-$_@.a
+  # Descender test line: p:/ajaqug, (3241527890); JaQ-$_@.a
   manual_descenders = {
     # Pair of left and right fix-ups (0 on the rhs means end of glyph, per above).
     fontforge.nameFromUnicode(ord('g')): [],
@@ -250,8 +251,33 @@ def make_underline(f, name, src, dst):
   top = vertical_pos + thickness / 2
   bottom = vertical_pos - thickness / 2
     
-  for g in m.glyphs():
+  for g in f.glyphs():
 
+    if g.glyphname.endswith('.orig') or g.glyphname.endswith('.under'):
+      continue
+
+    foreground_idx = 1
+    if g.glyphname == 'slash':
+      g.layers[foreground_idx] = hardcoded_slash
+
+    g_orig = f.createChar(-1, g.glyphname + '.orig')
+    g_under = f.createChar(-1, g.glyphname + '.under')
+
+    f.selection.select(g)
+    f.copy()
+    f.selection.select(g_orig)
+    f.paste()
+    g_orig.ttinstrs = g.ttinstrs
+    f.copyReference()
+    
+    f.selection.select(g)
+    g.ttinstrs = ""    
+    
+    f.paste()
+    f.selection.select(g_under)
+
+    g.useRefsMetrics(g_orig.glyphname)
+    
     ow, olb, orb = g.width, g.left_side_bearing, g.right_side_bearing
     
     width = g.width
@@ -279,28 +305,24 @@ def make_underline(f, name, src, dst):
       underline.closed = True
     
       foreground_idx = 1
-      if g.glyphname == 'slash':
-        g.layers[foreground_idx] = hardcoded_slash
+      g_under.layers[foreground_idx] += underline
 
-      g.layers[foreground_idx] += underline
+    correct_round_and_clean(g_under)
 
-    correct_round_and_clean(g)
+    bbox = g_under.boundingBox()    
+    g_under.left_side_bearing = bbox[0]
+    g_under.right_side_bearing = g.width - bbox[2]
 
-    bbox = g.boundingBox()    
-    g.left_side_bearing = bbox[0]
-    g.right_side_bearing = g.width - bbox[2]
-
-    nw, nlb, nrb = g.width, g.left_side_bearing, g.right_side_bearing
-
+    # nw, nlb, nrb = g.width, g.left_side_bearing, g.right_side_bearing
     # log("#{g.glyphname}: #{ow}, #{olb}, #{orb} -> #{nw}, #{nlb}, #{nrb}")
-        
-  autohint_entire_font(m, use_existing_privates = True)
-  m.selection.all()
-  m.autoInstr()
 
-  generate(m, name, dst)
+    f.copyReference()
+    f.selection.select(g)
+    f.pasteInto()
 
-  m.close()
+  generate(f, name, dst)
+
+  f.close()
 
 def make_stripe(f, name, src, dst):
 
@@ -724,6 +746,12 @@ def forge_one(name, src, dir, unicodes):
 
   autohint_entire_font(f)
 
+  for r in reinstructables:
+    if r:
+      log("REINSTRUCTABLES: #{r.glyphname}")
+    else:
+      log("REINSTRUCTABLES: NONE")
+
   if rehinstr:
     f.selection.all()
     f.autoInstr()
@@ -737,7 +765,7 @@ def forge_one(name, src, dir, unicodes):
 
   if True:
     make_underline(f, name, ttf, os.path.join(dir, name + "-underline.ttf"))
-
+    
   if True:
     if is_for_postscript:
       convert_to_postscript_curves(f)

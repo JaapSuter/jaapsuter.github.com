@@ -4,6 +4,14 @@
     %h1.visuallyhidden
       Jaap Suter
 
-    .p-like      
+    %form
+      %label(id="menu-label" for="menu-checkbox")
+        Menu
+      %input(type="checkbox" id="menu-checkbox")
+      #menu-visible
+        Bananananananananananana, banananana, banananananana, banana,
+        bananaanana, banananana, banananananana, banana, banananananana, banana,
+        bananaanana, banananana, banananananana, banana!
+    .p-like
       %a#nav-to-menu{:href => "#site-menu"} Menu
       %a#nav-to-archive{:href => "#site-archive"} Archive

@@ -65,7 +65,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "component", "component", "{
 	ProjectSection(SolutionItems) = preProject
 		..\_includes\component\figure.html.haml = ..\_includes\component\figure.html.haml
 		..\_includes\component\flash.html.haml = ..\_includes\component\flash.html.haml
-		..\_includes\component\pullquote.html.haml = ..\_includes\component\pullquote.html.haml
 		..\_includes\component\video.html.haml = ..\_includes\component\video.html.haml
 		..\_includes\component\vimeo.html.haml = ..\_includes\component\vimeo.html.haml
 	EndProjectSection
@@ -138,6 +137,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid-ext", "liquid-ext", 
 		..\_ruby\liquid-ext\hyphenate.rb = ..\_ruby\liquid-ext\hyphenate.rb
 		..\_ruby\liquid-ext\include-wildcard.rb = ..\_ruby\liquid-ext\include-wildcard.rb
 		..\_ruby\liquid-ext\musicalize.rb = ..\_ruby\liquid-ext\musicalize.rb
+		..\_ruby\liquid-ext\pullquote.rb = ..\_ruby\liquid-ext\pullquote.rb
 		..\_ruby\liquid-ext\sized-paragraph.rb = ..\_ruby\liquid-ext\sized-paragraph.rb
 	EndProjectSection
 EndProject

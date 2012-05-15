@@ -89,7 +89,7 @@
   $font-stretch-stack:  pop($font-stretch-stack);
 }
 
-@mixin change-type($to-font-family, $such-that-metric, $has-value, $leading-el-per-el: 1, $pp-bo-offset: 0) {
+@mixin change-type($to-font-family, $such-that-metric, $has-value, $leading-el-per-el: 1, $line-height-override: false) {
 
   @include font-family($to-font-family);
   
@@ -105,6 +105,11 @@
   @if $leading-el-per-el != 1 {
     $new-pp-el: floor($pp-el / $leading-el-per-el);    
   }
+
+  @if $line-height-override {
+    @debug $new-pp-el '?=' $line-height-override;
+    $new-pp-el: $line-height-override;
+  }
   
   $new-pp-half-leading: ($new-pp-el - $new-pp-em) / 2;  
   $new-pp-bo: get-font-metric-at-size($to-font-family, $new-pp-em, baseline) + $new-pp-half-leading;  
@@ -112,7 +117,7 @@
   $modulo-up: 999;
   $modulo-down: $pp-el / 1px;  
   
-  $pp-top: ceil(0 - $new-pp-bo + $pp-bo + $pp-bo-offset); 
+  $pp-top: ceil(0 - $new-pp-bo + $pp-bo); 
   $pp-top: ($pp-top + $modulo-up * $pp-el) % $modulo-down;
   
   // Think carefully here Jaap, or you know; actually write a useful comment. Sigh...

@@ -33,6 +33,7 @@ module Jaap
         html = Nokogiri::HTML text
         html = @@abbrs.abbreviate html
         html = stripeify html
+        html = fix_pullquotes html
         text = html.to_html :encoding => 'US-ASCII'
         
         # Todo:
@@ -52,8 +53,9 @@ module Jaap
         text = text.gsub /\[%\s*presentational-empty\s*%\]/, ''
         text = text.gsub /\[%\s*excerpt-begin\s*%\]/, ''
         text = text.gsub /\[%\s*excerpt-end[^%]*%\]/, ''
+        
         fix_boolean_attributes text
-                        
+                                
         dst_dir = Pathname.new(dst).parent
         Dir.mkdir(dst_dir) if not Dir.exists? dst_dir        
         
@@ -102,7 +104,16 @@ module Jaap
       ].each do |ba|
         text.gsub! "#{ba}=\"\"", ba
       end
-    end    
+    end
+
+    def self.fix_pullquotes(html)
+      html.css('[data-pullquote]').each do |pq|
+        pq['data-pullquote'] = pq.content.strip
+        pq.content = ''
+      end
+
+      html
+    end
         
     def self.add_anchor_data_content_attrs(html)
       html.css('a').each do |a|

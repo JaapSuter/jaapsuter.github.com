@@ -53,16 +53,25 @@ For now, I'm going to comment on one point only. Quoting Gil...
 >To me, "ownership and lifetime" is an important concept in software engineering.  When is something created, when is it destroyed and what higher level object is accountable for it? Garbage collection offers _one_ answer to the question of ownership and lifetime: Everyone referencing something share ownership and the lifetime lasts until it can't be referred to anymore.
  
 Read that last sentence again. Then, try to figure out what he means by "referencing" and "ownership"...
- 
+
+{% pullquote %}
+  I don't care who owns what, I just want the resources...
+{% endpullquote %}
+
 When it comes to resources, only one thing matters: "any resource that is referred to from a piece of code that *might* still run at some point in the future *must* be alive."
  
 Note this guarantee says nothing about ownership. I don't care who owns what, I just want the resources my code uses to be valid - regardless of whether subsystem X owns them,  or subsystem Y, or you, or my mom.
  
 Some people will muddle this point by mentioning weak references, but actually the fact one can validate a weak reference corroborates the above.
  
-Compare the above with: "any resource that is no longer referred to from any piece of code that *might* still run at some point *may* be alive."
+Compare the above with: "any resource that is no longer referred to from any
+piece of code that *might* still run at some point *may* be alive."
  
-That's the point where ownership becomes important; because releasing resources means other people can use them. This is particularly obvious for file- and network-handles, because they have identity. Memory on the other hand is completely anonymous. That 200 kB your system holds on to doesn't stop me from allocating the 200 kB that I need, provided there is enough memory available (I'll come back to this caveat).
+That's the point where ownership becomes important; because releasing
+resources means other people can use them. This is particularly obvious for file- and
+network-handles, because they have identity. Memory on the other hand is completely
+anonymous. That 200 kB your system holds on to doesn't stop me from allocating the 200 kB that
+I need, provided there is enough memory available (I'll come back to this caveat).
  
 This distinction between resources with or without identity underlies why most languages don't extend their GC mechanisms to cover file- and network-handles. It's why C# has the using statement and `IDisposable` pattern, something that makes C++ programmers invent smart-handle patterns in C# (and understandably so).
  

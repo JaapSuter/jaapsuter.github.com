@@ -7,7 +7,7 @@ $available-fonts: get-available-fonts();
 @each $style   in (normal, italic, oblique) {
 @each $weight  in (400, 200, 700) {
 @each $stretch in (normal, condensed) {
-@each $feature in ('', '-c2pc', '-underline', '-tnum-lnum', '-inv') {
+@each $feature in ('', '-c2pc', '-underline', '-tnum-lnum', '-inv') {  
   
   $font:  get-char-at($curve,   0) +
           get-char-at($kind,    0) +
@@ -15,9 +15,9 @@ $available-fonts: get-available-fonts();
           get-char-at('#{$weight}',  0) +
           get-char-at($stretch, 0) + $feature;
   
-  $exists: index($available-fonts, $font);  
-  
-  @include at-font-face($font, $style, $weight, $exists);
+  $exists: index($available-fonts, $font);
+    
+  @include at-font-face($font, $style, $weight, $exists);  
   
   @if in-development-mode() {
     @each $style-synth in (normal, italic, oblique) {

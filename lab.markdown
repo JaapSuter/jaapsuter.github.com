@@ -21,21 +21,15 @@ permalink: /lab/
 </div>
 
 <div class="center-fifty">  
-  <div class="rhythm">
-    <img class="melody" src="/img/aspect-ratio-4x3.png" alt="" width="800" height="600">
-    <div class="drum" role="presentational"></div>
-  </div>
+  {% musicalize %}
+    <img src="/img/aspect-ratio-4x3.png" alt="Aspect Ratio 4:3" width="800" height="600">
+  {% endmusicalize %}
 </div>
 
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); JaQ-$_@.a](#)
 
 Here's a clog &para;, isn't that neat?
 
-<div class="rhythm">
-  <div class="drum-before"></div>    
-  <div class="img-after">a b a b a b a b a b a b a</div>
-</div>
-  
 [% excerpt-begin %]
 
 Let's verify that various typographies are converted -- using [Smartypants](http://daringfireball.net/projects/smartypants/) -- by comparing
@@ -57,8 +51,9 @@ pluralizing &lsquo;s&rsquo; [matches the body x-height](http://blog.fawny.org/20
 
 [% excerpt-end %]
 
-{% assign pullquote = 'Pull&shy;quotes are used to &#x263A; grab &#x270C; attention.' %}
-{% include component/pullquote.html %}
+{% pullquote %}
+  Here's a pullquote that contains 'single' and "double" quotes.
+{% endpullquote %}
 
 The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
 other pages on this website, typically in paragraph-sized chunks.
@@ -73,7 +68,7 @@ other pages on this website, typically in paragraph-sized chunks.
   {% musicalize %}
       <p class="leading-4x3">{% hyphenate %}
         Here's the second paragraph. It's about as boring as the first paragraph, but it manages
-        to fill up this block to a useful height for testing.{% endhyphenate %}</p>
+        to fill up this block to a useful height for testing.{% endhyphenate %}
       </p>
   {% endmusicalize %}
 </aside></div>
