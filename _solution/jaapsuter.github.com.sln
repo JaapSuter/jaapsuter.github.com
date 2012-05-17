@@ -132,14 +132,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "liquid-ext", "liquid-ext", "{AA24D8C5-E899-4678-A647-60C986323EDB}"
-	ProjectSection(SolutionItems) = preProject
-		..\_ruby\liquid-ext\hamlize.rb = ..\_ruby\liquid-ext\hamlize.rb
-		..\_ruby\liquid-ext\hyphenate.rb = ..\_ruby\liquid-ext\hyphenate.rb
-		..\_ruby\liquid-ext\include-wildcard.rb = ..\_ruby\liquid-ext\include-wildcard.rb
-		..\_ruby\liquid-ext\musicalize.rb = ..\_ruby\liquid-ext\musicalize.rb
-		..\_ruby\liquid-ext\pullquote.rb = ..\_ruby\liquid-ext\pullquote.rb
-		..\_ruby\liquid-ext\sized-paragraph.rb = ..\_ruby\liquid-ext\sized-paragraph.rb
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "typogruby-fork", "typogruby-fork", "{DD145E17-90BD-4E35-8308-34DC0BE83B9E}"
 	ProjectSection(SolutionItems) = preProject
@@ -179,6 +171,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{DA4813AD
 		..\_includes\other\tail.html.haml = ..\_includes\other\tail.html.haml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "verbs", "verbs", "{5BF332D9-01F3-4281-9D3F-9FBF4E3EB1B9}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\liquid-ext\verbs\hamlerate.rb = ..\_ruby\liquid-ext\verbs\hamlerate.rb
+		..\_ruby\liquid-ext\verbs\hyphenate.rb = ..\_ruby\liquid-ext\verbs\hyphenate.rb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nouns", "nouns", "{8D4A7EEB-17E4-4DCA-A8E0-3C0B0CAC96FC}"
+	ProjectSection(SolutionItems) = preProject
+		..\_ruby\liquid-ext\nouns\image.rb = ..\_ruby\liquid-ext\nouns\image.rb
+		..\_ruby\liquid-ext\nouns\lorem.rb = ..\_ruby\liquid-ext\nouns\lorem.rb
+		..\_ruby\liquid-ext\nouns\pullquote.rb = ..\_ruby\liquid-ext\nouns\pullquote.rb
+		..\_ruby\liquid-ext\nouns\rhythm.rb = ..\_ruby\liquid-ext\nouns\rhythm.rb
+		..\_ruby\liquid-ext\nouns\video.rb = ..\_ruby\liquid-ext\nouns\video.rb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|AnyCPU = Development|AnyCPU
@@ -201,6 +208,7 @@ Global
 		{278B1B56-D9DA-44AE-B739-9BB0B42698BB} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{33B17BCB-4312-4678-B1B3-E0411188E6CA} = {268607DF-F1FD-4312-9543-365234474E47}
 		{380D19F7-B5D0-4B6C-A6A0-78A82D7EF540} = {268607DF-F1FD-4312-9543-365234474E47}
+		{5BF332D9-01F3-4281-9D3F-9FBF4E3EB1B9} = {AA24D8C5-E899-4678-A647-60C986323EDB}
 		{5C7EE667-5933-4347-B8A8-EE64836C245F} = {268607DF-F1FD-4312-9543-365234474E47}
 		{64FB1456-E4DB-475A-BAD4-DAD7CE917DD5} = {268607DF-F1FD-4312-9543-365234474E47}
 		{672BFA03-BA8D-4B7C-AAEB-BAC4824B828F} = {D97496B9-839E-422C-B9DA-F52A40413354}
@@ -209,6 +217,7 @@ Global
 		{852AA507-3D36-4C2E-B415-5A79D4E6D02C} = {268607DF-F1FD-4312-9543-365234474E47}
 		{863DBB29-E63D-4094-B38D-6FC542071F96} = {8D1165C3-726B-422E-BB82-B3D58E2ECBE2}
 		{8D1165C3-726B-422E-BB82-B3D58E2ECBE2} = {268607DF-F1FD-4312-9543-365234474E47}
+		{8D4A7EEB-17E4-4DCA-A8E0-3C0B0CAC96FC} = {AA24D8C5-E899-4678-A647-60C986323EDB}
 		{9CA4A5A2-791A-4C66-9E34-64BFBB59DF52} = {33B17BCB-4312-4678-B1B3-E0411188E6CA}
 		{9D15AB5C-F3B5-4361-AD26-99F8FA3F9210} = {D97496B9-839E-422C-B9DA-F52A40413354}
 		{A8CCBB73-7CBE-46A1-A4B1-A175ACEF17BF} = {D97496B9-839E-422C-B9DA-F52A40413354}

@@ -41,6 +41,7 @@ gem 'linecache19', '>= 0.5.13'
 gem 'ruby-debug-base19x', '0.11.30.pre10'
 gem 'ruby-debug-ide', '0.4.17.beta9'
 gem 'ruby_core_source', '0.1.5'
+gem 'tigerlily-solid', :require => 'solid'
 
 gem 'windows-pr'
 gem 'win32-changenotify'

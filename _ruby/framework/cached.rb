@@ -31,7 +31,7 @@ module Jaap
     def maybe_save()
       Jaap::Reload.try_reload
       
-      return if not @changed
+      return if File.exists?(@path) && !@changed
         
       File.open(@path, 'w') { |f| f.write @dump.call @dict }
       @mtime = File.stat(@path).mtime

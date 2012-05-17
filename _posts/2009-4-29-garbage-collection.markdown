@@ -9,7 +9,7 @@ title_mark_up: |
 Quoting from a post to the [Sweng GameDev](http://lists.midnightryder.com/listinfo.cgi/sweng-gamedev-midnightryder.com "Software Engineering, as it applies to Game Developers") mailing list...
 
 > Seems like the death of C/C++ has been proclaimed for at
-> least 20 years. The proposed benefits of higher level
+> least twenty years. The proposed benefits of higher level
 > languages strike me as naive and theoretical. In practice
 > those benefits don't materialize, in my experience anyway.
 >

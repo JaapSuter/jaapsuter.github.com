@@ -6,24 +6,9 @@ permalink: /lab/
 ---
 
 <div class="center-fifty">
-  {% musicalize %}
-    <p class="leading-4x3">
-      The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
-      other pages on this website, typically in paragraph-sized chunks.
-    </p>
-  {% endmusicalize %}
-  {% musicalize %}
-    <p class="leading-4x3">
-      The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
-      other pages on this website, typically in paragraph-sized chunks.
-    </p>
-  {% endmusicalize %}
-</div>
-
-<div class="center-fifty">  
-  {% musicalize %}
-    <img src="/img/aspect-ratio-4x3.png" alt="Aspect Ratio 4:3" width="800" height="600">
-  {% endmusicalize %}
+  {% rhythm %}
+    {% video name:"choice-surprise-focus" %}
+  {% endrhythm %}
 </div>
 
 Testing underlines and descenders; [ep:/ajaqug, (3241527890); JaQ-$_@.a](#)
@@ -55,37 +40,36 @@ pluralizing &lsquo;s&rsquo; [matches the body x-height](http://blog.fawny.org/20
   Here's a pullquote that contains 'single' and "double" quotes.
 {% endpullquote %}
 
+<br>
 The remainder is merely filler text for testing various layout and typographical matters. The contents is pulled randomly from 
 other pages on this website, typically in paragraph-sized chunks.
 
+{% lorem %}
+
 <div class="sidebar"><aside>
-  {% musicalize %}
+  {% rhythm %}
     <p class="leading-4x3">{% hyphenate %}
       This is a multi&#x2011;paragraph sidebar block. There's not much of interest in it, but it'll be just
       enough text to fill a sidebar alongside two main paragraphs.{% endhyphenate %}
     </p>
-  {% endmusicalize %}
-  {% musicalize %}
+  {% endrhythm %}
+  {% rhythm %}
       <p class="leading-4x3">{% hyphenate %}
         Here's the second paragraph. It's about as boring as the first paragraph, but it manages
         to fill up this block to a useful height for testing.{% endhyphenate %}
       </p>
-  {% endmusicalize %}
+  {% endrhythm %}
 </aside></div>
 
-{% hyphenate %}
-{% long_paragraph %}
-{% endhyphenate %}
-
-{% short_paragraph %}
-{% medium_paragraph %}
-{% short_paragraph %}
+{% lorem %}
+{% lorem %}
+{% lorem %}
 
 ## Secondary Header
 
-{% long_paragraph %}
-{% short_paragraph %}
-{% medium_paragraph %}
+{% lorem %}
+{% lorem %}
+{% lorem %}
 
 ## Unordered List
 
@@ -135,41 +119,30 @@ other pages on this website, typically in paragraph-sized chunks.
 
 Testing baseline...
 
-{% assign class = 'full-bleed' %}
-{% assign ratio = '16x9' %}
-{% capture figcontent %}
-  <img src="/img/aspect-ratio-16x9.png" alt="" width="800" height="480">
-{% endcapture %}
-{% capture figcaption %}
-  16&times;9 'full-bleed' test image.
-{% endcapture %}
-{% include component/figure.html %}
+<div class="center-fifty">
+  {% rhythm %}
+    {% img src:"aspect-ratio-16x9.png", alt:"Aspect Ratio 16x9" %}
+  {% endrhythm %}
+</div>
 
 This text should sit neatly on the baseline, typographical rhythm and all.
 
-{% assign ratio = '4x3' %}
-{% capture figcontent %}
-  <img src="/img/aspect-ratio-4x3.png" alt="" width="800" height="600">
-{% endcapture %}
-{% capture figcaption %}
-  4&times;3 test image, with a caption that is likely to span multiple lines, because it has a lot of nonsense text in it.
-{% endcapture %}
-{% include component/figure.html %}
+<div class="center-fifty">
+    {% rhythm %}
+      {% img src:"aspect-ratio-4x3.png", alt:"Aspect Ratio 4x3" %}
+    {% endrhythm %}
+</div>
 
 This text should sit neatly on the baseline, typographical rhythm and all.
 
 Now let's float a picture to the right and place some text to the left of it, unless of course there isn't really enough 
 space, in which case we should switch to full bleed instead.
 
-{% assign class = 'half-bleed-right' %}
-{% assign ratio = '6x10' %}
-{% capture figcontent %}
-  <img src="/img/sgade-demo-screens.jpg" alt="" width="480" height="800">
-{% endcapture %}
-{% capture figcaption %}
-  6&times;10 'half-bleed-right' test image.
-{% endcapture %}
-{% include component/figure.html %}
+<div class="center-fifty half-bleed-right ratio-6x10">
+  {% rhythm %}
+    {% img src:"sgade-demo-screens.jpg", alt:"Several screenshots from the Socrates demo I wrote for GBA." %}
+  {% endrhythm %}
+</div>
 
 Metus diam sed tortor quam sit. Netus tempora sit. Habitasse velit nunc praesent ultrices porttitor dignissim sodales tincidunt orci morbi hymenaeos amet
 luctus porttitor nec nam fermentum.
@@ -182,18 +155,11 @@ lacinia nunc massa arcu vitae urna semper aliquam mauris porta pellentesque tort
 
 ## Video
 
-{% assign class = 'full-bleed' %}
-{% assign name = 'choice-surprise-focus' %}
-{% assign width = '640' %}
-{% assign height = '480' %}
-{% assign title = 'Choice Surprise Focus' %}
-{% capture figcaption %}Download <i>{{ title }}</i> as 
-<a href="/videos/{{ name }}.{{ width }}x{{ height }}.mp4">MP4</a>,
-<a href="/videos/{{ name }}.{{ width }}x{{ height }}.webm">WebM</a>,
-<a href="/videos/{{ name }}.{{ width }}x{{ height }}.ogv">Ogg</a>.{% endcapture %}
-{% capture figcontent %}{% include component/video.html %}{% endcapture %}
-{% assign ratio = '4x3' %}
-{% include component/figure.html %}
+<div class="center-fifty">
+  {% rhythm %}
+    {% video name:"choice-surprise-focus" %}
+  {% endrhythm %}
+</div>
 
 ## Type Specimen
 
@@ -289,7 +255,7 @@ More...
 <span class="smcp-fake">My name is Jaap Suter. A quick&rsquo;n brown fox jumped over the lazy dog.</span><br>
 <span class="smcp-font-variant-synth">My name is Jaap Suter. A quick&rsquo;n brown fox jumped over the lazy dog.</span>
 
-{% hamlize %}
+{% hamlerate %}
   %ul#colorize
     %li.black       black
     %li.white       white
@@ -307,8 +273,8 @@ More...
     %li.blue-l      blue-l
     %li.blue-ll     blue-ll
     %li.blue-lll    blue-lll
-{% endhamlize %}
-{% hamlize %}
+{% endhamlerate %}
+{% hamlerate %}
   #rhythm
     %p
       This is a paragraph with some text in it. It goes on for a while but 
@@ -343,4 +309,4 @@ More...
       %p.installed
         Five quackin' zephyrs jolt my wax bed. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
         g 0123456789 
-{% endhamlize %}
+{% endhamlerate %}

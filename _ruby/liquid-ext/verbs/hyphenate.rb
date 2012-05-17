@@ -38,5 +38,4 @@ module Jaap
   end
 end
 
-Liquid::Template.register_filter(Jaap::LiquidExt)
 Liquid::Template.register_tag('hyphenate', Jaap::LiquidExt::Hyphenate)

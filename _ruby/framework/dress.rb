@@ -4,7 +4,11 @@ require_relative '../typogruby-fork/typogruby'
 module Jaap
   module Dress
     @@last_update_cache = Hash.new {|h, src| h[src] = Time.at(0) }
-  
+    
+    def self.first_hook_after_write(dst) 
+      # return dst if not dst.end_with? '.html'
+    end
+
     def self.last_hook_before_write(src, text, dst)
       
       # Todo, Jaap Suter, March 2012, this reload hack is rather silly...
@@ -113,27 +117,7 @@ module Jaap
       end
 
       html
-    end
-        
-    def self.add_anchor_data_content_attrs(html)
-      html.css('a').each do |a|
-        has_elements = 0 < a.children.count {|c| c.element? }
-        if has_elements
-          a.css('*').each do |c|
-            # Really, this should recurse instead of doing just one level.
-            c["data-underline"] = c.content.gsub /\s+/, ' '
-          end
-        else
-          a["data-underline"] = a.content.gsub /\s+/, ' '
-        end
-      end
-        
-      html
-    end
-    
-    def self.first_hook_after_write(dst) 
-      # return dst if not dst.end_with? '.html'
-    end
+    end    
     
     class Abbrs < ::Jaap::Cached
       def initialize()
@@ -142,6 +126,17 @@ module Jaap
       
       def abbreviate(html)
         maybe_load()
+
+        # html.css('body *').each do |elem|
+        #   elem.xpath('child::text()').each do |text|
+        #     replacement = text.content.gsub /(?:[A-Z0-9][^\s\u00A0]*){2,}/ do |word|
+        #       # "<span class='s w-#{word_idx += 1} l-#{word.length}' data-content='#{word}'>#{word}</span>"
+        #       puts word
+        #       word
+        #     end
+        #     # text.replace Nokogiri::XML::DocumentFragment.parse replacement
+        #   end
+        # end
         
         html.css('span.caps').each do |span|
           next if 0 == span.content.length or

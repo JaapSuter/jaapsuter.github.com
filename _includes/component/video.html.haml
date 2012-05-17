@@ -1,8 +1,0 @@
-%img{:alt => "{{ title }}", :height => "{{ height }}", :src => "/img/posters/{{ name }}.jpg", :title => "{{ title }}", :width => "{{ width }}"}
-{% comment %}
-%video{:controls => "", :height => "{{ height }}", :poster => "/img/posters/{{ name }}.jpg", :preload => "metadata", :width => "{{ width }}"}
-  %source{:src => "/videos/{{ name }}.{{ width }}x{{ height }}.mp4", :type => "video/mp4"}
-  %source{:src => "/videos/{{ name }}.{{ width }}x{{ height }}.webm", :type => "video/webm"}
-  %source{:src => "/videos/{{ name }}.{{ width }}x{{ height }}.ogg", :type => "video/ogg"}
-  {% include component/flash.html %}
-{% assign name = '' %}{% assign width = '' %}{% assign height = '' %}{% endcomment %}

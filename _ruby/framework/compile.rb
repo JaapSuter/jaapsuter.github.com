@@ -12,21 +12,28 @@ module Jaap
       # Compass already shows the error in the console, at some
       # point I may enjoy a notify (window flash, growl, etc.)
     end
-    
-    def self.haml(src)
-      dst = src.sub('.html.haml', '.html')
-    
+
+    def self.haml_to_string(file, locals = Hash.new)
       with_rescue do
         options = { 
           :format => :html5,
           :ugly => false,
-          :filename => src,
+          :filename => file,
           :autoclose => %w[meta img link br hr input area param col base source],
         }
         
+        engine = Haml::Engine.new File.read file, options
+        engine.render Object.new, locals
+      end
+    end
+    
+    def self.haml(src)
+      dst = src.sub('.html.haml', '.html')
+
+      with_rescue do
+        
         puts "HAML".colorize( :color => :white, :background => :red ) + ": #{src}"
-        engine = Haml::Engine.new File.read(src), options        
-        File.open(dst, 'w') {|f| f.write(engine.render) }
+        File.open(dst, 'w') {|f| f.write(haml_to_string src) }
         
         Paths.glob('**/*.{html,markdown}') { |src|
           next if src.start_with? Paths.get('_site')

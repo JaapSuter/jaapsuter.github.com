@@ -68,7 +68,7 @@ $white: #e7e5de;
 $white: tint($white, 56);
 
 $blue:  #005869;
-$rad:   #971f03;
+$red:   #971f03;
 
 $clr0:  $blue;
 $clr0-d: shade($clr0, 25);
@@ -78,7 +78,7 @@ $clr0-l: tint($clr0, 25);
 $clr0-ll: tint($clr0, 50);
 $clr0-lll: tint($clr0, 75);
 
-$clr1:   #971f03;
+$clr1: $red;
 $clr1-d: shade($clr1, 25);
 $clr1-dd: shade($clr1, 50);
 $clr1-ddd: shade($clr1, 75);

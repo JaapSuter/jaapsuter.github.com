@@ -11,15 +11,8 @@ The video starts with some photos from a visit that Roderick and Marleen made to
 
 As for the music, it's intentionally sappy. Tear up...
 
-{% assign class = 'full-bleed' %}
-{% assign name = "surprise-delivery" %}
-{% assign width = 720 %}
-{% assign height = 480 %}
-{% assign ratio = '3x2' %}
-{% assign title = 'Surprise Delivery' %}
-{% capture figcaption %}Download <i>{{ title }}</i> as 
-<a href="/videos/{{ name }}.{{ width }}x{{ height }}.mp4">MP4</a>,
-<a href="/videos/{{ name }}.{{ width }}x{{ height }}.webm">WebM</a>,
-<a href="/videos/{{ name }}.{{ width }}x{{ height }}.ogv">Ogg</a>.{% endcapture %}
-{% capture figcontent %}{% include component/video.html %}{% endcapture %}
-{% include component/figure.html %}
+<div class="center-fifty">
+  {% rhythm %}
+    {% video name:"surprise-delivery" %}
+  {% endrhythm %}
+</div>

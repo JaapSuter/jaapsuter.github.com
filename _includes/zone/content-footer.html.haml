@@ -29,8 +29,7 @@
             %abbr.country-name{:title => "Canada"} Canada
 
     %p#license
-      The content on this page is licensed under a
-      = succeed "." do
-        %a{:href => "http://creativecommons.org/licenses/by/3.0/", :rel => "license"} Creative Commons Attribution 3.0 Unported License
-      %a{:href => "http://creativecommons.org/licenses/by/3.0/", :rel => "license"}
-        %img{:alt => "Creative Commons Licence", :height => "64", :src => "/img/cc-license.png", :width => "200"}/
+      The content on this page is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">Creative Commons Attribution 3.0 Unported License</a>.
+      {% rhythm %}
+      {% img src:"cc-license.png", alt:"Creative Commons Attribution 3.0 Unported License" %}
+      {% endrhythm %}

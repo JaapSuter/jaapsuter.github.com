@@ -1,90 +1,31 @@
 --- 
-A.1: A.1
-A.2: A.2
-ABBABBABBA: ABBABBABBA
-ABBR: <abbr title="Abbreviation">$</abbr>
-ABCDE: ABCDE
 ABCDEFGHIJKLMNOPQRSTUVWXYZ: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-ABCDEFGHIJKLMNOPQRSTUVWXYZ.: ABCDEFGHIJKLMNOPQRSTUVWXYZ.
-"ABCDE\xC2\xADFGHIJKLMNOPQRSTU\xC2\xADVWXYZ": "ABCDE\xC2\xADFGHIJKLMNOPQRSTU\xC2\xADVWXYZ"
-AI: <abbr title="Adobe Illustrator (file format)">$</abbr>
-AJAX: <abbr title="Asynchronous JavaScript and XML">$</abbr>
-ASP: <abbr title="Active Server Pages">$</abbr>
-ATAVAWAYA: ATAVAWAYA
-AWT: <abbr title="Abstract Window Toolkit">$</abbr>
-BASE: <abbr title="Building Antenna Span Earth">$</abbr>
-BC: <abbr title="British Columbia">$</abbr>
+AWT: AWT
+BC: BC
 BROWN: BROWN
-C.1: C.1
-C.2: C.2
-C.3: C.3
-CMS: <abbr title="Content Management System">$</abbr>
-CRM: <abbr title="Customer Relationship Management">$</abbr>
-CSS: <abbr title="Cascading Style Sheets">$</abbr>
-DNS: <abbr title="Domain Name System">$</abbr>
+CSS: CSS
 DOG: DOG
 DOG.: DOG.
-DOM: <abbr title="Document Object Model">$</abbr>
-DRY: <abbr title="Don't Repeat Yourself (programming principal)">$</abbr>
-EA: <abbr title="Electronic Arts">$</abbr>
-ECMAScript: <abbr title="European Computer Manufacturers Association Script">$</abbr>
-FGHIJKLMNOPQRSTU: FGHIJKLMNOPQRSTU
+EA: EA
 FOX: FOX
-FTP: <abbr title="File Transfer Protocol">$</abbr>
-GC: <abbr title="Garbage Collector">$</abbr>
-GC.: <abbr title="Garbage Collector">$</abbr>.
-GIF: <abbr title="Graphics Interchange Format (file format)">$</abbr>
+GC: GC
 H1: H1
-H2: H2
-H2O: <span class="math">H</i><sub><span class='tnum-lnum'>2</span></sub>O</span>
-HMLAA: <abbr title="However Many Letter Acronyms or Abbreviations">$</abbr>
-HMLAAS: <abbr title="However Many Letter Acronyms or Abbreviations">HMLAA</abbr>s
-HSL: <abbr title="Hue Saturation Lightness">$</abbr>
-HTML: <abbr title="HyperText Markup Language">$</abbr>
-HTML5: <abbr title="HyperText Markup Language - Version 5">$</abbr>
-HTTP: <abbr title="HyperText Transfer Protocol">$</abbr>
-IOTD: <abbr title="Image of the Day">$</abbr>
-IP: <abbr title="Internet Protocol">$</abbr>
-IRC: <abbr title="Internet Relay Chat">$</abbr>
-ISO: <abbr title="International Organization for Standards">$</abbr>
-ISP: <abbr title="Internet Service Provider">$</abbr>
+H2O: H2O
+HMLAAS: HMLAAS
+HTML5: HTML5
+IOTD: IOTD
 IT: IT
-JPG: <abbr title="Joint Photographic Experts Group (file format)">$</abbr>
-JS: <abbr title="JavaScript">$</abbr>
-JSP: <abbr title="JavaServer Pages">$</abbr>
 JUMPED: JUMPED
 JUMPS: JUMPS
-KISS: <abbr title="Keep it Simple, Stupid">$</abbr>
-LAMP: <abbr title="Linux, Apache, MySQL, PHP (common server configuration)">$</abbr>
 LAZY: LAZY
 LYATAVAWAYA: LYATAVAWAYA
-MP4: <abbr title="MPEG-4 Part 14 (formally ISO/IEC 14496-14:2003)">$</abbr>
-ONE: <span class="caps">$</span>
-OOP: <abbr title="Object Oriented Programming">$</abbr>
+MB: MB
 OVER: OVER
-PDF: <abbr title="Portable Document Format">$</abbr>
-PHP: <abbr title="PHP Hypertext Preprocessor">$</abbr>
-PNG: <abbr title="Portable Networks Graphics (file format)">$</abbr>
-PSD: <abbr title="Photoshop Document (file format)">$</abbr>
+PDF: PDF
 QUICK: QUICK
-RGB: <abbr title="Red Green Blue">$</abbr>
-RSS: <abbr title="Really Simple Syndication">$</abbr>
-RoR: <abbr title="Ruby on Rails">$</abbr>
-SASS: <abbr title="Syntactically Awesome Stylesheets">$</abbr>
-SEO: <abbr title="Search Engine Optimization">$</abbr>
-SQL: <abbr title="Structured Query Language">$</abbr>
-SSL: <abbr title="Secure Sockets Layer">$</abbr>
-SWENG: SWENG
-SaaS: <abbr title="Software as a Service">$</abbr>
 THE: THE
-TLA: <abbr title="Three Letter Acronym">$</abbr>
-TLAS: <abbr title="Three Letter Acronym">TLA</abbr>s
-UBC: <abbr title="University of British Columbia">$</abbr>
-UI: <abbr title="User Interface">$</abbr>
-UPS: <abbr title="United Parcel Service Inc.">$</abbr>
-UX: <abbr title="User Experience">$</abbr>
+TLAS: TLAS
+UBC: UBC
+UPS: UPS
 V5L: V5L
-VWXYZ: VWXYZ
-WYSIWYG: <abbr title="What You See Is What You Get">$</abbr>
-XHTML: <abbr title="eXtensible HyperText Markup Language">$</abbr>
-XSS: <abbr title="Cross Site Scripting">$</abbr>
+WYSIWYG: WYSIWYG

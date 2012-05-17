@@ -1,2 +1,2 @@
-Jaap::Paths.glob('_ruby/liquid-ext/*.rb') { |rb|  require rb }
+Jaap::Paths.glob('_ruby/liquid-ext/**/*.rb') { |rb|  require rb }
 

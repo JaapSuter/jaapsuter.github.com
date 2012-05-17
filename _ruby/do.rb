@@ -72,45 +72,8 @@ module Jaap
     end
     
     def self.sandbox()
-      Paths.glob('**/*') do |filename|
-        puts "#{filename}: #{File.size(filename).to_human_ish}" if File.exists? filename
-      end
     end
-    
-    def self.calculate_gzipped_size(file)
-      require 'zlib'      
-      Zlib::Deflate.deflate(File.read(file)).length
-    end
-    
-    def self.gzip_something()
-      Paths.glob '_temp/*' do |file|
-        puts "#{File.size file}-#{self.calculate_gzipped_size file} ?= #{File.basename file}"
-      end
-    end
-    
-    def self.git_something()
-      Dir.chdir(Paths.get()) do 
-        sha_head = Tool.git "rev-list HEAD -n1 --abbrev-commit", :stdin => ''
-        sha_head.strip!
-        sha_abbrev_len_additional = 2
-        sha_abbrev_len = sha_head.length + sha_abbrev_len_additional
-        sha_abbrev_len = 4
-        puts sha_abbrev_len
-        puts sha_head.length
-        
-        sha_some_file = Tool.git "hash-object", Paths.get('_ruby/framework/server/json-servlet.rb'), :stdin => ''
-        sha_some_file.strip!
-        puts sha_head
-        puts sha_some_file
-        puts sha_some_file[0, sha_abbrev_len]
-        
-        # git _config.yml
-        # puts repo.git.rev_parse({:short => true}, "5a01a469846c693fab350b4f1cc7084c3657c744").chomp      
-        # repo.git.rev_list({:max_count => 1, :abbrev_commit => true }, "HEAD")
-        # git.rev_list({:max_count => 10, :header => true}, "master")
-      end
-    end
-    
+
     command, *args = ARGV
     if ARGV.length < 1 or not public_methods.include? command.to_sym
       puts "Usage: do command args..., where command is one of:"
@@ -120,3 +83,4 @@ module Jaap
     end
   end
 end
+
