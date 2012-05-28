@@ -33,7 +33,7 @@
   @if $style { font-style: $style; }  
   @if $weight { font-weight: $weight; }
 
-  @if is-feature-c2pc($name) {
+  @if is-feature-smcp($name) {
     text-transform: uppercase;
     text-rendering: optimizespeed;
   }
@@ -48,7 +48,7 @@
   @if $weight ==  inherited { $weight:    peek($font-weight-stack); }
   @if $stretch == inherited { $stretch:   peek($font-stretch-stack); }
 
-  @if $feature == 'c2pc' {
+  @if $feature == 'smcp' {
     text-transform: uppercase;
     text-rendering: optimizeSpeed;
   }

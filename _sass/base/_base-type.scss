@@ -36,10 +36,11 @@ h1, h2, h3 {
   overflow: hidden;  
 }
 
-.caps, abbr[title] {
-  @include font-family(tsn4n-c2pc);
+.caps, abbr {
+  @include font-family(tsn4n-smcp);
   letter-spacing: 0.08em;
-  font-size: 1.15em;
+  font-size: 1em;
+  line-height: 0.1;
 }
 
 .tnum-lnum,

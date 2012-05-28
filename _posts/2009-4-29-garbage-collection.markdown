@@ -73,9 +73,15 @@ network-handles, because they have identity. Memory on the other hand is complet
 anonymous. That 200 kB your system holds on to doesn't stop me from allocating the 200 kB that
 I need, provided there is enough memory available (I'll come back to this caveat).
  
-This distinction between resources with or without identity underlies why most languages don't extend their GC mechanisms to cover file- and network-handles. It's why C# has the using statement and `IDisposable` pattern, something that makes C++ programmers invent smart-handle patterns in C# (and understandably so).
+This distinction between resources with or without identity underlies why most
+languages don't extend their GC mechanisms to cover file- and network-handles. It's why
+C# has the using statement and `IDisposable` pattern, something that makes C++ programmers
+invent smart-handle patterns in C# (and understandably so).
  
-Now coming back to the caveat: "...provided there is enough memory", which ultimately is the real motivator for Gil's email. On most triple-A console titles, memory is at a premium. So that 200 kB that you're still holding on to *does* matter to me, because the memory manager doesn't have another 200 kB of memory lying around for me.
+Now coming back to the caveat: _"...provided there is enough memory"_, which ultimately is the real
+motivator for Gil's email. On most triple-A console titles, memory is at a premium. So that 200 kB
+that you're still holding on to *does* matter to me, because the memory manager doesn't have
+another 200 kB of memory lying around for me.
  
 So we need those 200 kB back as soon as possible, and consequently we end up adding various manual memory management schemes back into our garbage collected code-base.
  

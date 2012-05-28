@@ -24,10 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jaapsuter.github.com", "jaa
 		..\404.html = ..\404.html
 		..\CNAME = ..\CNAME
 		..\Gemfile = ..\Gemfile
-		..\_abbr.yml = ..\_abbr.yml
 		..\_config.yml = ..\_config.yml
+		..\_sass\_abbr.yml = ..\_sass\_abbr.yml
 		..\do.cmd = ..\do.cmd
-		..\favicon.ico = ..\favicon.ico
+		..\favicon-4.ico = ..\favicon-4.ico
 		..\feed.atom = ..\feed.atom
 		..\google415246fe73d6cc14.html = ..\google415246fe73d6cc14.html
 		..\humans.txt = ..\humans.txt
@@ -63,10 +63,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zone", "zone", "{C4A66924-C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "component", "component", "{1336C1DB-0800-4E65-A805-7A3785F02100}"
 	ProjectSection(SolutionItems) = preProject
-		..\_includes\component\figure.html.haml = ..\_includes\component\figure.html.haml
-		..\_includes\component\flash.html.haml = ..\_includes\component\flash.html.haml
-		..\_includes\component\video.html.haml = ..\_includes\component\video.html.haml
-		..\_includes\component\vimeo.html.haml = ..\_includes\component\vimeo.html.haml
+		..\_includes\component\figure.dynamic.haml = ..\_includes\component\figure.dynamic.haml
+		..\_includes\component\flash.dynamic.haml = ..\_includes\component\flash.dynamic.haml
+		..\_includes\component\video.dynamic.haml = ..\_includes\component\video.dynamic.haml
+		..\_includes\component\vimeo.dynamic.haml = ..\_includes\component\vimeo.dynamic.haml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_json", "_json", "{7CEDF735-0340-4CB0-B3EB-A8C21156CFF8}"
@@ -94,7 +94,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{278B1B56-D9D
 		..\_site\css\at-font-face.dev.css = ..\_site\css\at-font-face.dev.css
 		..\_site\css\head.css = ..\_site\css\head.css
 		..\_site\css\head.min.css = ..\_site\css\head.min.css
-		..\_site\css\normalize.dev.css = ..\_site\css\normalize.dev.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab", "lab", "{83DB6C1B-6560-45EB-972A-546386316CC6}"
@@ -179,7 +178,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "verbs", "verbs", "{5BF332D9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nouns", "nouns", "{8D4A7EEB-17E4-4DCA-A8E0-3C0B0CAC96FC}"
 	ProjectSection(SolutionItems) = preProject
-		..\_ruby\liquid-ext\nouns\image.rb = ..\_ruby\liquid-ext\nouns\image.rb
+		..\_ruby\liquid-ext\nouns\img.rb = ..\_ruby\liquid-ext\nouns\img.rb
 		..\_ruby\liquid-ext\nouns\lorem.rb = ..\_ruby\liquid-ext\nouns\lorem.rb
 		..\_ruby\liquid-ext\nouns\pullquote.rb = ..\_ruby\liquid-ext\nouns\pullquote.rb
 		..\_ruby\liquid-ext\nouns\rhythm.rb = ..\_ruby\liquid-ext\nouns\rhythm.rb

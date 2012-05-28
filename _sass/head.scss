@@ -130,7 +130,7 @@ p {
   }
   
   h3 {
-    @include change-type(tsn4n-c2pc, ex, 1cap) {
+    @include change-type(tsn4n-smcp, ex, 1cap) {
       @include units(margin-top, 1el);
       
     }
@@ -181,7 +181,7 @@ p {
     
     & > li:before {
       counter-increment: olc;        
-      @include font-family(tsn4n-c2pc);
+      @include font-family(tsn4n-smcp);
       content: counter(olc); 
     }
   
@@ -304,5 +304,20 @@ $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
   video {
     width: 100%;
     height: auto;
+  }
+}
+
+.type-specimen {
+  position: relative;
+  padding: 0 1em;
+  
+  &:before {
+    display: block;
+    position: absolute;
+    right:  0;
+    text-align: right;
+    bottom:  100%;
+    content: attr(data-ppem) "/" attr(data-ppel) ":" attr(data-ratio);
+    color:  $red;
   }
 }

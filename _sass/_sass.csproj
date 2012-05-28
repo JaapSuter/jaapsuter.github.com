@@ -71,6 +71,7 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
+    <None Include="_abbr.yml" />
     <None Include="_normalize.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>

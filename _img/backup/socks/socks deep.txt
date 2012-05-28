@@ -1,7 +1,6 @@
 http://kuler.adobe.com/#themeID/1796549
 
-Blue: 025373
-White: D9D9D9
+Blue: 025373 (from photo), 044848 (from manual match)
+White: D9D9D9 
 Black: 0D0400
-Red 1: A60303
-Red 2: 8C0303
+Red 1: A60303 or 8C0303 (from photo), a5240d or 9D1B02 (from manual match)

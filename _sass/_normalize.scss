@@ -55,22 +55,10 @@ sup {
   font-size: 80%;
   position: relative;
   vertical-align: baseline;
+  line-height: 0.1;
 }
 sup { top: -0.45em; }
 sub { bottom: -0.2em; }
-
-.caps,
-abbr,
-code,
-kbd,
-samp,
-cite,
-em,
-i,
-strong,
-b,
-sub,
-sup { line-height: 0.1; }
 
 svg:not(:root) { overflow: hidden; }
 

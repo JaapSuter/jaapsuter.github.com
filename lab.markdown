@@ -5,6 +5,54 @@ title_mark_up: |
 permalink: /lab/
 ---
 
+First paragraph
+
+{% hamlerate %}
+  %p(style="font-family: tsn4n;")
+    0102030405060708090 01234567890    
+  %p(style="font-family: georgia;")
+    0102030405060708090 01234567890
+  %p(style="font-family: tsi4n; font-style: italic")
+    0102030405060708090 01234567890    
+  %p(style="font-family: georgia; font-style: italic")
+    0102030405060708090 01234567890
+  %p
+    %span(style="font-family: tsn4n; font-size: 0.8em; text-transform: uppercase;")
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789
+  %p(style="font-family: tsn4n-smcp; font-size: 1em; text-transform: uppercase;")
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789
+  %p
+    %span(style="font-family: tsn4n; font-size: 0.8em; text-transform: uppercase;")
+      XAXCODXEOFOGOHOIOJOKOLOMONOOOPOQOROSOTOUOVOWOXOYOZO<br>
+      0102030405060708090
+  %p(style="font-family: tsn4n-smcp; font-size: 1em; text-transform: uppercase;")
+    XAXCODXEOFOGOHOIOJOKOLOMONOOOPOQOROSOTOUOVOWOXOYOZO<br>
+    0102030405060708090
+{% endhamlerate %}
+
+{% comment %}
+  - (14...24).each do |ppem|
+    - ((ppem * 1.3).floor()...(ppem * 1.7).ceil()).each do |ppel|
+      .type-specimen(data-ppem="#{ppem}" data-ppel="#{ppel}" data-ratio="#{(100.0 * ppel / ppem).round() / 100.0}" style="font-size: #{ppem}px; line-height: #{ppel}px;")
+        %p
+          That's the point where ownership becomes important; because releasing
+          resources means other people can use them. This is particularly obvious for file- and
+          network-handles, because they have identity. Memory on the other hand is completely
+          anonymous. That 200 kB your system holds on to doesn't stop me from allocating the 200 kB that
+          I need, provided there is enough memory available (I'll come back to this caveat).
+        %p
+          This distinction between resources with or without identity underlies why most
+          languages don't extend their GC mechanisms to cover file- and network-handles. It's why
+          C# has the using statement and `IDisposable` pattern, something that makes C++ programmers
+          invent smart-handle patterns in C# (and understandably so).
+        %p
+          Now coming back to the caveat: <em>"...provided there is enough memory"</em>, which ultimately is the real
+          motivator for Gil's email. On most triple-A console titles, memory is at a premium. So that 200 kB
+          that you're still holding on to *does* matter to me, because the memory manager doesn't have
+          another 200 kB of memory lying around for me.
+
+{% endcomment %}
+
 <div class="center-fifty">
   {% rhythm %}
     {% video name:"choice-surprise-focus" %}
@@ -207,12 +255,6 @@ More...
     </ol>
   </li>
 </ol>
-
-{% comment %}<div class="wrap">
-  <div class="indented">
-    <div class="button"><span class="label">Foo</span></div>
-  </div>
-</div>{% endcomment %}
 
 <p class="test-smcp">
   abcdefghijklmnopqrstuvwxyz<br/>

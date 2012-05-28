@@ -17,7 +17,7 @@ module Jaap
     def self.is_condensed(name) 'c' == name[4] end    
 
     def self.is_for_underline(name) name.end_with? '-underline' end    
-    def self.is_feature_c2pc(name) name.end_with? '-c2pc' end
+    def self.is_feature_smcp(name) name.end_with? '-smcp' end
     def self.is_for_tabular_lining_numerals(name) name.end_with? '-tnum-lnum' end
     
     def self.get_available_fonts()
@@ -36,7 +36,7 @@ module Jaap
       # 
       #           name = c + k + style[0] + weight[0] + stretch[0]
       #           
-      #           ['c2pc', 'underline', 'tnum-lnum', 'inv'].each do |feature|
+      #           ['smcp', 'underline', 'tnum-lnum', 'inv'].each do |feature|
       #             name_and_feature = "#{name}-#{feature}"
       #           end
       #         end
@@ -100,7 +100,7 @@ module Jaap
             
             if ['tsn4n', 'tsi4n'].include? name
               if smcpify
-                cmd['name'] = name + '-c2pc'
+                cmd['name'] = name + '-smcp'
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
               end
             
@@ -129,7 +129,7 @@ module Jaap
             
             if ['psn4n'].include? name
               if smcpify
-                cmd['name'] = name + '-c2pc'
+                cmd['name'] = name + '-smcp'
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
               end
             end

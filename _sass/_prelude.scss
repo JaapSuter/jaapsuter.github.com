@@ -20,6 +20,7 @@ $call: try-reload-extensions();
 $type-disable-font-face:                       false;
 $type-fallback-make-obvious:                   false;
 $type-fallback-common-web-safe-only:           true;
+$type-font-face-make-unavailable-explicit:     false and in-development-mode();
 
 /*
   Typographic Constants

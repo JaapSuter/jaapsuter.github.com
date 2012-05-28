@@ -22,7 +22,7 @@ module Jaap
           :autoclose => %w[meta img link br hr input area param col base source],
         }
         
-        engine = Haml::Engine.new File.read file, options
+        engine = Haml::Engine.new File.read(file), options
         engine.render Object.new, locals
       end
     end
