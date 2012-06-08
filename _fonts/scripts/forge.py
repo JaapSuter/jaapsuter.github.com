@@ -47,7 +47,7 @@ import random
 #    onum / cap: 593 / 761 = 77.92%
 #   scmcp / cap: 560 / 761 = 73.59%
 
-# tsn4n Metrics
+# tsn4n Metrics:
 #   x-height:   1063
 #   cap-height: 1493
 #   ascender:   1556, original: 1901
@@ -73,6 +73,11 @@ import random
 #   lower vertical stem thick round:  215
 #   lower vertical stem:              184
 #   lower vertical to upper ratio:    184 / 203 = 90.64%
+
+# DejavVu Serif Book Metrics:
+#    cap at 16ppem: 12
+#     ex at 16ppem: 9
+#   smcp at 16ppem: 10
 
 g_log_file = None
 

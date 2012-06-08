@@ -321,3 +321,19 @@ $margin-sub-rhythm: (100 / (100 + $margin-add-for-rhythm));
     color:  $red;
   }
 }
+
+@font-face {
+  font-family: testmcp-1;
+  font-weight: 400;
+  font-style: normal;
+  src: url(/fonts/testmcp-1.eot);
+  src: url(/fonts/testmcp-1.eot?#oldie) format("eot"), url(/fonts/testmcp-1.woff) format("woff"), url(/fonts/testmcp-1.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: testmcp-2;
+  font-weight: 400;
+  font-style: normal;
+  src: url(/fonts/testmcp-2.eot);
+  src: url(/fonts/testmcp-2.eot?#oldie) format("eot"), url(/fonts/testmcp-2.woff) format("woff"), url(/fonts/testmcp-2.ttf) format("truetype");
+}

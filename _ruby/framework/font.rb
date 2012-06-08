@@ -48,7 +48,7 @@ module Jaap
       available_fonts
     end
     
-    def self.build(filter = false, psify = true, smcpify = true, numify = true)
+    def self.build(filter = false, psify = true, smcpify = true, numify = false)
     
       psify = psify.to_bool if psify.is_a? String
       smcpify = smcpify.to_bool if smcpify.is_a? String

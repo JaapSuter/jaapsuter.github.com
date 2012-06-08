@@ -5,9 +5,21 @@ title_mark_up: |
 permalink: /lab/
 ---
 
-First paragraph
-
 {% hamlerate %}
+  %p(style="font-size: 16px; line-height: 24px; text-rendering: optimizespeed;")
+    first line of paragraph<br>
+    %span(style="font-family: Dejavu Serif;  text-transform: uppercase;")
+      small caps as all caps<br>
+    %span(style="font-family: Dejavu Serif; font-variant: small-caps; text-transform: lowercase; text-rendering: optimizespeed;")
+      small caps synthesized<br>
+    %span(style="font-family: Dejavu Serif; text-transform: uppercase; font-size: 85%;")
+      small caps fake 85% html5<br>
+    %span(style="font-family: testmcp-1, courier new; text-transform: uppercase;")
+      small caps testmcp-1 html5<br>
+    %span(style="font-family: testmcp-2, courier new; text-transform: uppercase;")
+      small caps testmcp-2 html5<br>
+    %span(style="font-family: Dejavu Serif;")
+      small caps as lower case<br>
   %p(style="font-family: tsn4n;")
     0102030405060708090 01234567890    
   %p(style="font-family: georgia;")

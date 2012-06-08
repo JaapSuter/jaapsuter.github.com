@@ -9,15 +9,19 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ.: ABCDEFGHIJKLMNOPQRSTUVWXYZ.
 "ABCDE\xC2\xADFGHIJKLMNOPQRSTU\xC2\xADVWXYZ": "ABCDE\xC2\xADFGHIJKLMNOPQRSTU\xC2\xADVWXYZ"
 AI: <abbr title="Adobe Illustrator (file format)">$</abbr>
 AJAX: <abbr title="Asynchronous JavaScript and XML">$</abbr>
+ALL: ALL
+AS: AS
 ASP: <abbr title="Active Server Pages">$</abbr>
 ATAVAWAYA: ATAVAWAYA
 AWT: <abbr title="Abstract Window Toolkit">$</abbr>
+BARSN4NMCP: BARSN4NMCP
 BASE: <abbr title="Building Antenna Span Earth">$</abbr>
 BC: <abbr title="British Columbia">$</abbr>
 BROWN: BROWN
 C.1: C.1
 C.2: C.2
 C.3: C.3
+CAPS: CAPS
 CMS: <abbr title="Content Management System">$</abbr>
 CRM: <abbr title="Customer Relationship Management">$</abbr>
 CSS: <abbr title="Cascading Style Sheets">$</abbr>
@@ -28,7 +32,9 @@ DOM: <abbr title="Document Object Model">$</abbr>
 DRY: <abbr title="Don't Repeat Yourself (programming principal)">$</abbr>
 EA: <abbr title="Electronic Arts">$</abbr>
 ECMAScript: <abbr title="European Computer Manufacturers Association Script">$</abbr>
+FAKE: FAKE
 FGHIJKLMNOPQRSTU: FGHIJKLMNOPQRSTU
+FOOTSN4N: FOOTSN4N
 FOX: FOX
 FTP: <abbr title="File Transfer Protocol">$</abbr>
 GBA.: GBA.
@@ -61,9 +67,11 @@ LAZY: LAZY
 LYATAVAWAYA: LYATAVAWAYA
 MB: <span class="caps">MB</span>
 MP4: <abbr title="MPEG-4 Part 14 (formally ISO/IEC 14496-14:2003)">$</abbr>
+MY: MY
 OGG: OGG
 ONE: <span class="caps">$</span>
 OOP: <abbr title="Object Oriented Programming">$</abbr>
+OTHER: OTHER
 OVER: OVER
 PDF: <abbr title="Portable Document Format">$</abbr>
 PHP: <abbr title="PHP Hypertext Preprocessor">$</abbr>
@@ -75,10 +83,12 @@ RSS: <abbr title="Really Simple Syndication">$</abbr>
 RoR: <abbr title="Ruby on Rails">$</abbr>
 SASS: <abbr title="Syntactically Awesome Stylesheets">$</abbr>
 SEO: <abbr title="Search Engine Optimization">$</abbr>
+SMALL: SMALL
 SQL: <abbr title="Structured Query Language">$</abbr>
 SSL: <abbr title="Secure Sockets Layer">$</abbr>
 SWENG: SWENG
 SaaS: <abbr title="Software as a Service">$</abbr>
+TESTMCP: TESTMCP
 THE: THE
 TLA: <abbr title="Three Letter Acronym">$</abbr>
 TLAS: <abbr title="Three Letter Acronym">TLA</abbr>s

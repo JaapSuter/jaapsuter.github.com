@@ -1,0 +1,1442 @@
+SplineFontDB: 3.0
+FontName: pnum-onum-tsi4n
+FullName: pnum-onum-tsi4n
+FamilyName: pnum-onum-tsi4n
+Weight: Book
+Copyright: Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved.\nDejaVu changes are in public domain\n
+Version: 2.33
+ItalicAngle: -11
+UnderlinePosition: -85
+UnderlineWidth: 90
+Ascent: 1556
+Descent: 492
+LayerCount: 2
+Layer: 0 1 "Back"  1
+Layer: 1 1 "Fore"  0
+NeedsXUIDChange: 1
+FSType: 0
+OS2Version: 0
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 0
+CreationTime: 1323091655
+ModificationTime: 1339155099
+PfmFamily: 17
+TTFWeight: 400
+TTFWidth: 5
+LineGap: 0
+VLineGap: 0
+Panose: 2 6 6 3 5 3 5 11 2 4
+OS2TypoAscent: 1556
+OS2TypoAOffset: 0
+OS2TypoDescent: -492
+OS2TypoDOffset: 0
+OS2TypoLinegap: 410
+OS2WinAscent: 1901
+OS2WinAOffset: 0
+OS2WinDescent: 483
+OS2WinDOffset: 0
+HheadAscent: 1901
+HheadAOffset: 0
+HheadDescent: -483
+HheadDOffset: 0
+OS2Vendor: 'PfEd'
+Lookup: 258 0 0 "'kern' Horizontal Kerning lookup 0"  {"'kern' Horizontal Kerning lookup 0-1" [307,30,0] } ['kern' ('DFLT' <'dflt' > ) ]
+MarkAttachClasses: 1
+DEI: 91125
+KernClass2: 1 1 "'kern' Horizontal Kerning lookup 0-1" 
+ 0 {}
+TtTable: prep
+PUSHW_1
+ 511
+SCANCTRL
+PUSHB_1
+ 1
+SCANTYPE
+SVTCA[y-axis]
+MPPEM
+PUSHB_1
+ 8
+LT
+IF
+PUSHB_2
+ 1
+ 1
+INSTCTRL
+EIF
+PUSHB_2
+ 70
+ 6
+CALL
+IF
+POP
+PUSHB_1
+ 16
+EIF
+MPPEM
+PUSHB_1
+ 20
+GT
+IF
+POP
+PUSHB_1
+ 128
+EIF
+SCVTCI
+PUSHB_1
+ 6
+CALL
+NOT
+IF
+SVTCA[y-axis]
+PUSHB_1
+ 4
+DUP
+RCVT
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 5
+DUP
+RCVT
+PUSHB_3
+ 4
+ 17
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 6
+DUP
+RCVT
+PUSHB_3
+ 5
+ 17
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 7
+DUP
+RCVT
+PUSHW_3
+ 6
+ 522
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 8
+DUP
+RCVT
+PUSHB_3
+ 7
+ 194
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 9
+DUP
+RCVT
+PUSHB_3
+ 8
+ 153
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 10
+DUP
+RCVT
+PUSHB_3
+ 9
+ 25
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 11
+DUP
+RCVT
+PUSHB_3
+ 10
+ 17
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 12
+DUP
+RCVT
+PUSHB_3
+ 11
+ 17
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+SVTCA[x-axis]
+PUSHB_1
+ 13
+DUP
+RCVT
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 14
+DUP
+RCVT
+PUSHW_3
+ 13
+ 286
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 15
+DUP
+RCVT
+PUSHB_3
+ 14
+ 15
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 16
+DUP
+RCVT
+PUSHB_3
+ 15
+ 123
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 17
+DUP
+RCVT
+PUSHB_3
+ 16
+ 30
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 18
+DUP
+RCVT
+PUSHB_3
+ 17
+ 28
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 19
+DUP
+RCVT
+PUSHB_3
+ 18
+ 23
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 20
+DUP
+RCVT
+PUSHB_3
+ 19
+ 22
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 21
+DUP
+RCVT
+PUSHB_3
+ 20
+ 21
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 22
+DUP
+RCVT
+PUSHB_3
+ 21
+ 123
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 23
+DUP
+RCVT
+PUSHB_3
+ 22
+ 20
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 24
+DUP
+RCVT
+PUSHB_3
+ 23
+ 165
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 25
+DUP
+RCVT
+PUSHB_3
+ 24
+ 28
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+EIF
+PUSHB_1
+ 20
+CALL
+EndTTInstrs
+TtTable: fpgm
+PUSHB_1
+ 0
+FDEF
+PUSHB_1
+ 0
+SZP0
+MPPEM
+PUSHB_1
+ 42
+LT
+IF
+PUSHB_1
+ 74
+SROUND
+EIF
+PUSHB_1
+ 0
+SWAP
+MIAP[rnd]
+RTG
+PUSHB_1
+ 6
+CALL
+IF
+RTDG
+EIF
+MPPEM
+PUSHB_1
+ 42
+LT
+IF
+RDTG
+EIF
+DUP
+MDRP[rp0,rnd,grey]
+PUSHB_1
+ 1
+SZP0
+MDAP[no-rnd]
+RTG
+ENDF
+PUSHB_1
+ 1
+FDEF
+DUP
+MDRP[rp0,min,white]
+PUSHB_1
+ 12
+CALL
+ENDF
+PUSHB_1
+ 2
+FDEF
+MPPEM
+GT
+IF
+RCVT
+SWAP
+EIF
+POP
+ENDF
+PUSHB_1
+ 3
+FDEF
+ROUND[Black]
+RTG
+DUP
+PUSHB_1
+ 64
+LT
+IF
+POP
+PUSHB_1
+ 64
+EIF
+ENDF
+PUSHB_1
+ 4
+FDEF
+PUSHB_1
+ 6
+CALL
+IF
+POP
+SWAP
+POP
+ROFF
+IF
+MDRP[rp0,min,rnd,black]
+ELSE
+MDRP[min,rnd,black]
+EIF
+ELSE
+MPPEM
+GT
+IF
+IF
+MIRP[rp0,min,rnd,black]
+ELSE
+MIRP[min,rnd,black]
+EIF
+ELSE
+SWAP
+POP
+PUSHB_1
+ 5
+CALL
+IF
+PUSHB_1
+ 70
+SROUND
+EIF
+IF
+MDRP[rp0,min,rnd,black]
+ELSE
+MDRP[min,rnd,black]
+EIF
+EIF
+EIF
+RTG
+ENDF
+PUSHB_1
+ 5
+FDEF
+GFV
+NOT
+AND
+ENDF
+PUSHB_1
+ 6
+FDEF
+PUSHB_2
+ 34
+ 1
+GETINFO
+LT
+IF
+PUSHB_1
+ 32
+GETINFO
+NOT
+NOT
+ELSE
+PUSHB_1
+ 0
+EIF
+ENDF
+PUSHB_1
+ 7
+FDEF
+PUSHB_2
+ 36
+ 1
+GETINFO
+LT
+IF
+PUSHB_1
+ 64
+GETINFO
+NOT
+NOT
+ELSE
+PUSHB_1
+ 0
+EIF
+ENDF
+PUSHB_1
+ 8
+FDEF
+SRP2
+SRP1
+DUP
+IP
+MDAP[rnd]
+ENDF
+PUSHB_1
+ 9
+FDEF
+DUP
+RDTG
+PUSHB_1
+ 6
+CALL
+IF
+MDRP[rnd,grey]
+ELSE
+MDRP[min,rnd,black]
+EIF
+DUP
+PUSHB_1
+ 3
+CINDEX
+MD[grid]
+SWAP
+DUP
+PUSHB_1
+ 4
+MINDEX
+MD[orig]
+PUSHB_1
+ 0
+LT
+IF
+ROLL
+NEG
+ROLL
+SUB
+DUP
+PUSHB_1
+ 0
+LT
+IF
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+ROLL
+ROLL
+SUB
+DUP
+PUSHB_1
+ 0
+GT
+IF
+SHPIX
+ELSE
+POP
+POP
+EIF
+EIF
+RTG
+ENDF
+PUSHB_1
+ 10
+FDEF
+PUSHB_1
+ 6
+CALL
+IF
+POP
+SRP0
+ELSE
+SRP0
+POP
+EIF
+ENDF
+PUSHB_1
+ 11
+FDEF
+DUP
+MDRP[rp0,white]
+PUSHB_1
+ 12
+CALL
+ENDF
+PUSHB_1
+ 12
+FDEF
+DUP
+MDAP[rnd]
+PUSHB_1
+ 7
+CALL
+NOT
+IF
+DUP
+DUP
+GC[orig]
+SWAP
+GC[cur]
+SUB
+ROUND[White]
+DUP
+IF
+DUP
+ABS
+DIV
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+POP
+EIF
+ENDF
+PUSHB_1
+ 13
+FDEF
+SRP2
+SRP1
+DUP
+DUP
+IP
+MDAP[rnd]
+DUP
+ROLL
+DUP
+GC[orig]
+ROLL
+GC[cur]
+SUB
+SWAP
+ROLL
+DUP
+ROLL
+SWAP
+MD[orig]
+PUSHB_1
+ 0
+LT
+IF
+SWAP
+PUSHB_1
+ 0
+GT
+IF
+PUSHB_1
+ 64
+SHPIX
+ELSE
+POP
+EIF
+ELSE
+SWAP
+PUSHB_1
+ 0
+LT
+IF
+PUSHB_1
+ 64
+NEG
+SHPIX
+ELSE
+POP
+EIF
+EIF
+ENDF
+PUSHB_1
+ 14
+FDEF
+PUSHB_1
+ 6
+CALL
+IF
+RTDG
+MDRP[rp0,rnd,white]
+RTG
+POP
+POP
+ELSE
+DUP
+MDRP[rp0,rnd,white]
+ROLL
+MPPEM
+GT
+IF
+DUP
+ROLL
+SWAP
+MD[grid]
+DUP
+PUSHB_1
+ 0
+NEQ
+IF
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+POP
+POP
+EIF
+EIF
+ENDF
+PUSHB_1
+ 15
+FDEF
+SWAP
+DUP
+MDRP[rp0,rnd,white]
+DUP
+MDAP[rnd]
+PUSHB_1
+ 7
+CALL
+NOT
+IF
+SWAP
+DUP
+IF
+MPPEM
+GTEQ
+ELSE
+POP
+PUSHB_1
+ 1
+EIF
+IF
+ROLL
+PUSHB_1
+ 4
+MINDEX
+MD[grid]
+SWAP
+ROLL
+SWAP
+DUP
+ROLL
+MD[grid]
+ROLL
+SWAP
+SUB
+SHPIX
+ELSE
+POP
+POP
+POP
+POP
+EIF
+ELSE
+POP
+POP
+POP
+POP
+POP
+EIF
+ENDF
+PUSHB_1
+ 16
+FDEF
+DUP
+MDRP[rp0,min,white]
+PUSHB_1
+ 18
+CALL
+ENDF
+PUSHB_1
+ 17
+FDEF
+DUP
+MDRP[rp0,white]
+PUSHB_1
+ 18
+CALL
+ENDF
+PUSHB_1
+ 18
+FDEF
+DUP
+MDAP[rnd]
+PUSHB_1
+ 7
+CALL
+NOT
+IF
+DUP
+DUP
+GC[orig]
+SWAP
+GC[cur]
+SUB
+ROUND[White]
+ROLL
+DUP
+GC[orig]
+SWAP
+GC[cur]
+SWAP
+SUB
+ROUND[White]
+ADD
+DUP
+IF
+DUP
+ABS
+DIV
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+POP
+POP
+EIF
+ENDF
+PUSHB_1
+ 19
+FDEF
+DUP
+ROLL
+DUP
+ROLL
+SDPVTL[orthog]
+DUP
+PUSHB_1
+ 3
+CINDEX
+MD[orig]
+ABS
+SWAP
+ROLL
+SPVTL[orthog]
+PUSHB_1
+ 32
+LT
+IF
+ALIGNRP
+ELSE
+MDRP[grey]
+EIF
+ENDF
+PUSHB_1
+ 20
+FDEF
+PUSHB_4
+ 0
+ 64
+ 1
+ 64
+WS
+WS
+SVTCA[x-axis]
+MPPEM
+PUSHW_1
+ 4096
+MUL
+SVTCA[y-axis]
+MPPEM
+PUSHW_1
+ 4096
+MUL
+DUP
+ROLL
+DUP
+ROLL
+NEQ
+IF
+DUP
+ROLL
+DUP
+ROLL
+GT
+IF
+SWAP
+DIV
+DUP
+PUSHB_1
+ 0
+SWAP
+WS
+ELSE
+DIV
+DUP
+PUSHB_1
+ 1
+SWAP
+WS
+EIF
+DUP
+PUSHB_1
+ 64
+GT
+IF
+PUSHB_3
+ 0
+ 32
+ 0
+RS
+MUL
+WS
+PUSHB_3
+ 1
+ 32
+ 1
+RS
+MUL
+WS
+PUSHB_1
+ 32
+MUL
+PUSHB_1
+ 25
+NEG
+JMPR
+POP
+EIF
+ELSE
+POP
+POP
+EIF
+ENDF
+PUSHB_1
+ 21
+FDEF
+PUSHB_1
+ 1
+RS
+MUL
+SWAP
+PUSHB_1
+ 0
+RS
+MUL
+SWAP
+ENDF
+EndTTInstrs
+ShortTable: cvt  30
+  0
+  1063
+  1493
+  1556
+  99
+  248
+  100
+  102
+  106
+  107
+  164
+  246
+  98
+  211
+  215
+  112
+  117
+  136
+  149
+  184
+  191
+  195
+  200
+  207
+  211
+  106
+  128
+  161
+  114
+  126
+EndShort
+ShortTable: maxp 16
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  2
+  1
+  2
+  22
+  0
+  256
+  0
+  0
+  0
+EndShort
+LangName: 1033 "" "" "" "" "" "Version 2.33" "" "" "DejaVu fonts team" "" "" "http://dejavu.sourceforge.net" "" "Fonts are (c) Bitstream (see below). DejaVu changes are in public domain.+AAoACgAA-Bitstream Vera Fonts Copyright+AAoA-------------------------------+AAoACgAA-Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc.+AAoACgAA-Permission is hereby granted, free of charge, to any person obtaining a copy of the fonts accompanying this license (+ACIA-Fonts+ACIA) and associated documentation files (the +ACIA-Font Software+ACIA), to reproduce and distribute the Font Software, including without limitation the rights to use, copy, merge, publish, distribute, and/or sell copies of the Font Software, and to permit persons to whom the Font Software is furnished to do so, subject to the following conditions:+AAoACgAA-The above copyright and trademark notices and this permission notice shall be included in all copies of one or more of the Font Software typefaces.+AAoACgAA-The Font Software may be modified, altered, or added to, and in particular the designs of glyphs or characters in the Fonts may be modified and additional glyphs or  or characters may be added to the Fonts, only if the fonts are renamed to names not containing either the words +ACIA-Bitstream+ACIA or the word +ACIA-Vera+ACIA.+AAoACgAA-This License becomes null and void to the extent applicable to Fonts or Font Software that has been modified and is distributed under the +ACIA-Bitstream Vera+ACIA names.+AAoACgAA-The Font Software may be sold as part of a larger software package but no copy of one or more of the Font Software typefaces may be sold by itself.+AAoACgAA-THE FONT SOFTWARE IS PROVIDED +ACIA-AS IS+ACIA, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL BITSTREAM OR THE GNOME FOUNDATION BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.+AAoACgAA-Except as contained in this notice, the names of Gnome, the Gnome Foundation, and Bitstream Inc., shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Font Software without prior written authorization from the Gnome Foundation or Bitstream Inc., respectively. For further information, contact: fonts at gnome dot org. +AAoA" "http://dejavu.sourceforge.net/wiki/index.php/License" "" "DejaVu Serif" "Italic" 
+Encoding: Custom
+Compacted: 1
+UnicodeInterp: none
+NameList: AGL without afii
+DisplaySize: -72
+AntiAlias: 1
+FitToEm: 1
+WidthSeparation: 300
+WinInfo: 0 14 8
+BeginPrivate: 8
+BlueValues 37 [-29 0 1063 1092 1493 1520 1556 1567]
+BlueFuzz 1 1
+BlueShift 1 7
+BlueScale 8 0.039625
+StdHW 4 [99]
+StdVW 5 [211]
+StemSnapH 35 [98 99 100 102 106 107 164 246 248]
+StemSnapV 49 [106 112 117 136 149 184 191 195 200 207 211 215]
+EndPrivate
+Grid
+-2048 1205.3 m 0
+ 4096 1205.3 l 0
+EndSplineSet
+BeginChars: 10 10
+
+StartChar: zero
+Encoding: 0 48 0
+Width: 1089
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+298 598 m 1,0,1
+ 263 446 263 446 263 359.5 c 128,-1,2
+ 263 273 263 273 278 228 c 0,3,4
+ 328 83 328 83 468.5 83 c 128,-1,5
+ 609 83 609 83 689.5 217 c 128,-1,6
+ 770 351 770 351 818 604 c 1,7,8
+ 853 756 853 756 853 844 c 0,9,10
+ 853 1119 853 1119 640 1119 c 3,11,12
+ 515 1119 515 1119 426 985 c 0,13,14
+ 350 870 350 870 298 598 c 1,0,1
+822 144 m 1,15,16
+ 685 -23 685 -23 452 -23 c 128,-1,17
+ 219 -23 219 -23 128 144 c 0,18,19
+ 79 234 79 234 79 342 c 0,20,21
+ 79 783 79 783 296 1059 c 1,22,23
+ 434 1225 434 1225 668 1225 c 128,-1,24
+ 902 1225 902 1225 989 1058 c 0,25,26
+ 1037 968 1037 968 1037 860 c 0,27,28
+ 1037 420 1037 420 822 144 c 1,15,16
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: one
+Encoding: 1 49 1
+Width: 945
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+39 0 m 1,0,-1
+ 54 106 l 1,1,-1
+ 404 106 l 1,2,-1
+ 587 1056 l 1,3,-1
+ 213 910 l 1,4,-1
+ 252 1070 l 1,5,-1
+ 664 1225 l 1,6,-1
+ 780 1225 l 5,7,-1
+ 562 106 l 1,8,-1
+ 890 106 l 1,9,-1
+ 873 0 l 1,10,-1
+ 39 0 l 1,0,-1
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: two
+Encoding: 2 50 2
+Width: 982
+VWidth: 0
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+378 914 m 1,0,-1
+ 222 914 l 1,1,-1
+ 261 1119 l 1,2,3
+ 438 1225 438 1225 617 1225 c 2,4,-1
+ 620 1225 l 2,5,6
+ 800 1225 800 1225 881 1102 c 0,7,8
+ 927 1032 927 1032 927 948 c 0,9,10
+ 927 632 927 632 285 120 c 1,11,-1
+ 696 120 l 1,12,-1
+ 735 282 l 1,13,-1
+ 891 282 l 1,14,-1
+ 821 0 l 1,15,-1
+ 42 0 l 1,16,-1
+ 66 131 l 1,17,18
+ 758 666 758 666 758 944 c 0,19,20
+ 758 1009 758 1009 717.5 1064 c 128,-1,21
+ 677 1119 677 1119 578 1119 c 2,22,-1
+ 575 1119 l 2,23,24
+ 436 1119 436 1119 378 914 c 1,0,-1
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: three
+Encoding: 3 51 3
+Width: 1168
+VWidth: 2155
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+718 1101 m 6,0,1
+ 447 1101 447 1101 372 846 c 5,2,-1
+ 260 846 l 5,3,-1
+ 311 1109 l 5,4,5
+ 569 1199 569 1199 771.5 1199 c 132,-1,6
+ 974 1199 974 1199 1078 1105 c 4,7,8
+ 1158 1033 1158 1033 1158 918 c 4,9,10
+ 1158 736 1158 736 1021 616 c 4,11,12
+ 919 526 919 526 757 494 c 5,13,14
+ 936 469 936 469 1016 361 c 4,15,16
+ 1073 285 1073 285 1073 176 c 4,17,18
+ 1073 131 1073 131 1063 82 c 4,19,20
+ 1022 -127 1022 -127 860 -238.5 c 132,-1,21
+ 698 -350 698 -350 434 -350 c 4,22,23
+ 202 -350 202 -350 4 -249 c 5,24,-1
+ 60 41 l 5,25,-1
+ 172 41 l 5,26,27
+ 168 12 168 12 169 -13 c 5,28,29
+ 169 -251 169 -251 458 -251 c 4,30,31
+ 611 -251 611 -251 716.5 -162.5 c 132,-1,32
+ 822 -74 822 -74 852 80 c 4,33,34
+ 863 136 863 136 863 183 c 4,35,36
+ 863 437 863 437 563 437 c 6,37,-1
+ 468 437 l 5,38,-1
+ 488 539 l 5,39,-1
+ 538 539 l 6,40,41
+ 887 539 887 539 945 830 c 4,42,43
+ 953 870 953 870 953 904 c 4,44,45
+ 953 983 953 983 912 1031 c 4,46,47
+ 854 1101 854 1101 720 1101 c 6,48,-1
+ 718 1101 l 6,0,1
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: four
+Encoding: 4 52 4
+Width: 1288
+VWidth: 2155
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+747 186 m 1,0,-1
+ 901 950 l 1,1,-1
+ 237 186 l 1,2,-1
+ 747 186 l 1,0,-1
+637 -378 m 1,3,-1
+ 726 79 l 1,4,-1
+ 48 79 l 5,5,-1
+ 69 188 l 5,6,-1
+ 920 1170 l 5,7,-1
+ 1144 1170 l 1,8,-1
+ 947 186 l 1,9,-1
+ 1232 186 l 1,10,-1
+ 1211 79 l 1,11,-1
+ 926 79 l 1,12,-1
+ 837 -378 l 1,13,-1
+ 637 -378 l 1,3,-1
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: five
+Encoding: 5 53 5
+Width: 1191
+VWidth: 2155
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+189 -20 m 0,0,1
+ 189 -248 189 -248 452 -248 c 2,2,-1
+ 454 -248 l 2,3,4
+ 612 -248 612 -248 718 -147 c 128,-1,5
+ 824 -46 824 -46 862 149 c 0,6,7
+ 876 221 876 221 876 301 c 128,-1,8
+ 876 381 876 381 835 447 c 0,9,10
+ 772 550 772 550 615 550 c 2,11,-1
+ 612 550 l 2,12,13
+ 435 550 435 550 306 419 c 1,14,-1
+ 186 419 l 1,15,-1
+ 332 1170 l 1,16,-1
+ 1156 1170 l 1,17,-1
+ 1124 1064 l 1,18,-1
+ 466 1064 l 1,19,-1
+ 383 584 l 1,20,21
+ 501 656 501 656 648 656 c 0,22,23
+ 887 656 887 656 1004 515 c 0,24,25
+ 1083 420 1083 420 1083 329 c 0,26,27
+ 1083 203 1083 203 1073 149 c 0,28,29
+ 1027 -88 1027 -88 859.5 -220.5 c 128,-1,30
+ 692 -353 692 -353 436 -353 c 0,31,32
+ 228 -353 228 -353 24 -252 c 1,33,-1
+ 80 38 l 1,34,-1
+ 193 38 l 1,35,36
+ 189 7 189 7 189 -20 c 0,0,1
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: six
+Encoding: 6 54 6
+Width: 1240
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+515 70 m 132,-1,1
+ 656 70 656 70 752 173.5 c 128,-1,2
+ 848 277 848 277 886 471 c 0,3,4
+ 901 549 901 549 901 627.5 c 128,-1,5
+ 901 706 901 706 867 768 c 0,6,7
+ 811 872 811 872 669.5 872 c 128,-1,8
+ 528 872 528 872 433.5 772 c 128,-1,9
+ 339 672 339 672 302 483 c 0,10,11
+ 286 401 286 401 286 320.5 c 128,-1,12
+ 286 240 286 240 318 177 c 0,13,0
+ 374 70 374 70 515 70 c 132,-1,1
+335 822 m 1,14,15
+ 500 971 500 971 717.5 971 c 128,-1,16
+ 935 971 935 971 1038 837 c 0,17,18
+ 1110 744 1110 744 1110 603 c 0,19,20
+ 1110 542 1110 542 1097 471 c 0,21,22
+ 1053 244 1053 244 887 108 c 128,-1,23
+ 721 -28 721 -28 479 -29 c 0,24,25
+ 478 -28 478 -28 477 -28 c 4,26,27
+ 234 -28 234 -28 135 160 c 0,28,29
+ 76 272 76 272 76 414 c 128,-1,30
+ 76 556 76 556 104 698 c 0,31,32
+ 180 1090 180 1090 383 1305 c 128,-1,33
+ 586 1520 586 1520 879 1520 c 0,34,35
+ 1041 1520 1041 1520 1211 1460 c 1,36,-1
+ 1163 1214 l 1,37,-1
+ 1050 1214 l 1,38,39
+ 1051 1226 1051 1226 1051 1238 c 0,40,41
+ 1051 1321 1051 1321 999.5 1371 c 128,-1,42
+ 948 1421 948 1421 838 1421 c 0,43,44
+ 644 1421 644 1421 520.5 1274 c 128,-1,45
+ 397 1127 397 1127 335 822 c 1,14,15
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: seven
+Encoding: 7 55 7
+Width: 1159
+VWidth: 2155
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+1113 1101.3 m 5,0,-1
+ 259 -289.7 l 5,1,-1
+ 110 -289.7 l 5,2,-1
+ 925.001 1039.3 l 5,3,-1
+ 235 1039.3 l 5,4,-1
+ 199 855.3 l 5,5,-1
+ 82 855.3 l 5,6,-1
+ 150 1203.3 l 5,7,-1
+ 1133 1203.3 l 5,8,-1
+ 1113 1101.3 l 5,0,-1
+EndSplineSet
+Validated: 527361
+EndChar
+
+StartChar: eight
+Encoding: 8 56 8
+Width: 1228
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+893 531 m 0,0,1
+ 893 599 893 599 851 656 c 0,2,3
+ 789 744 789 744 645 744 c 1,4,-1
+ 643 745 l 1,5,6
+ 500 744 500 744 403.5 656 c 128,-1,7
+ 307 568 307 568 276 408 c 0,8,9
+ 266 354 266 354 266 285 c 128,-1,10
+ 266 216 266 216 307 158 c 0,11,12
+ 369 70 369 70 513.5 70 c 128,-1,13
+ 658 70 658 70 755 158 c 0,14,15
+ 892 284 892 284 893 531 c 0,0,1
+991 1236 m 0,16,17
+ 991 1294 991 1294 955 1345 c 0,18,19
+ 901 1421 901 1421 777 1421 c 128,-1,20
+ 653 1421 653 1421 569 1345 c 128,-1,21
+ 485 1269 485 1269 458 1133 c 0,22,23
+ 450 1094 450 1094 450 1074 c 2,24,-1
+ 450 1050 l 2,25,26
+ 450 971 450 971 486 920 c 0,27,28
+ 541 844 541 844 664.5 844 c 128,-1,29
+ 788 844 788 844 872 920 c 0,30,31
+ 991 1029 991 1029 991 1236 c 0,16,17
+809 795 m 1,32,33
+ 975 772 975 772 1049 670 c 0,34,35
+ 1102 597 1102 597 1102 496 c 0,36,37
+ 1102 454 1102 454 1093 408 c 0,38,39
+ 1052 198 1052 198 897 84.5 c 128,-1,40
+ 742 -29 742 -29 494 -29 c 0,41,42
+ 492 -29 492 -29 490 -29 c 0,43,44
+ 246 -29 246 -29 136 84 c 0,45,46
+ 54 167 54 167 54 302 c 0,47,48
+ 54 530 54 530 211 670 c 0,49,50
+ 326 772 326 772 502 795 c 1,51,52
+ 356 822 356 822 292 910 c 0,53,54
+ 248 971 248 971 248 1032 c 0,55,56
+ 248 1282 248 1282 435 1416 c 0,57,58
+ 579 1520 579 1520 796 1520 c 128,-1,59
+ 1013 1520 1013 1520 1116 1416 c 1,60,61
+ 1194 1339 1194 1339 1194 1219 c 0,62,63
+ 1194 1028 1194 1028 1062 910 c 0,64,65
+ 964 822 964 822 809 795 c 1,32,33
+EndSplineSet
+Validated: 3073
+EndChar
+
+StartChar: nine
+Encoding: 9 57 9
+Width: 1223
+VWidth: 2155
+Flags: MW
+LayerCount: 2
+Fore
+SplineSet
+899.998 374.8 m 1,0,1
+ 616 224.8 616 224.8 532 224.8 c 0,2,3
+ 525 224.8 525 224.8 518 225.8 c 1,4,5
+ 299 225.8 299 225.8 197 359.8 c 0,6,7
+ 126 452.8 126 452.8 126 592.8 c 0,8,9
+ 126 654.8 126 654.8 139 725.8 c 0,10,11
+ 183 952.8 183 952.8 349.5 1089.3 c 128,-1,12
+ 516 1225.8 516 1225.8 759 1225.8 c 132,-1,13
+ 1002 1225.8 1002 1225.8 1100 1037.8 c 0,14,15
+ 1159 925.8 1159 925.8 1159 783.8 c 128,-1,16
+ 1159 641.8 1159 641.8 1131 498.8 c 0,17,18
+ 1055 106.8 1055 106.8 852 -108.2 c 128,-1,19
+ 649 -323.2 649 -323.2 357 -323.2 c 0,20,21
+ 195 -323.2 195 -323.2 25 -263.2 c 1,22,-1
+ 73 -15.2002 l 1,23,-1
+ 185 -15.2002 l 1,24,25
+ 184 -26.2002 184 -26.2002 185 -36.2002 c 1,26,27
+ 185 -121.2 185 -121.2 236.5 -172.7 c 128,-1,28
+ 288 -224.2 288 -224.2 397 -224.2 c 0,29,30
+ 591 -224.2 591 -224.2 714.5 -77.7002 c 128,-1,31
+ 838 68.7998 838 68.7998 899.998 374.8 c 1,0,1
+917.998 1019.8 m 0,32,33
+ 862 1126.8 862 1126.8 720.5 1126.8 c 128,-1,34
+ 579 1126.8 579 1126.8 483.5 1023.3 c 128,-1,35
+ 388 919.8 388 919.8 350 725.8 c 0,36,37
+ 335 646.8 335 646.8 335 567.8 c 128,-1,38
+ 335 488.8 335 488.8 368 427.8 c 0,39,40
+ 423 323.8 423 323.8 565 323.8 c 128,-1,41
+ 707 323.8 707 323.8 802 424.3 c 128,-1,42
+ 897 524.8 897 524.8 933.998 713.8 c 0,43,44
+ 949.998 795.8 949.998 795.8 949.998 876.3 c 128,-1,45
+ 949.998 956.8 949.998 956.8 917.998 1019.8 c 0,32,33
+EndSplineSet
+Validated: 527361
+EndChar
+EndChars
+EndSplineFont
