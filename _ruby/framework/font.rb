@@ -18,37 +18,15 @@ module Jaap
 
     def self.is_for_underline(name) name.end_with? '-underline' end    
     def self.is_feature_smcp(name) name.end_with? '-smcp' end
-    def self.is_for_tabular_lining_numerals(name) name.end_with? '-tnum-lnum' end
     
     def self.get_available_fonts()
       Jaap::Reload.try_reload
       
       available_fonts = Paths.glob('fonts/*.woff').map { |file| File.basename(file, File.extname(file)) }
-
-      # ['truetype', 'postscript'].each do          |curve|
-      #   ['serif', 'sans', 'mono'].each do         |kind|
-      #     ['italic', 'normal', 'oblique'].each do |style|
-      #       ['200', '400', '700'].each do         |weight|
-      #         ['normal', 'condensed'].each do     |stretch|
-      #         
-      #           c = curve[0]
-      #           k = kind == 'sans' ? 'a' : kind[0]              
-      # 
-      #           name = c + k + style[0] + weight[0] + stretch[0]
-      #           
-      #           ['smcp', 'underline', 'tnum-lnum', 'inv'].each do |feature|
-      #             name_and_feature = "#{name}-#{feature}"
-      #           end
-      #         end
-      #       end
-      #     end
-      #   end
-      # end
-
       available_fonts
     end
     
-    def self.build(filter = false, psify = true, smcpify = true, numify = false)
+    def self.build(filter = false, psify = true, smcpify = true, numify = true)
     
       psify = psify.to_bool if psify.is_a? String
       smcpify = smcpify.to_bool if smcpify.is_a? String
@@ -98,14 +76,20 @@ module Jaap
                          
             forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
             
-            if ['tsn4n', 'tsi4n'].include? name
+            manual_src = Paths.get "_fonts/manual-glyphs/#{name}-smcp-onum-pnum.sfd"
+            puts manual_src
+            puts manual_src
+            puts manual_src
+            if File.exists? manual_src
+              cmd['src'] = Paths.to_xming manual_src
+                
               if smcpify
                 cmd['name'] = name + '-smcp'
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
               end
             
               if numify
-                cmd['name'] = name + '-tnum-lnum'
+                cmd['name'] = name + '-onum-pnum'
                 cmd['unicodes'] = ("0".codepoints.first.."9".codepoints.first + 1).to_a
                 forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
               end
@@ -126,17 +110,10 @@ module Jaap
                        'unicodes' => @@subsets[name]['unicodes']]
             
             forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
-            
-            if ['psn4n'].include? name
-              if smcpify
-                cmd['name'] = name + '-smcp'
-                forge_cmd_file.puts cmd.to_s.gsub '=>', ': '
-              end
-            end
           end
         }        
       end
-      
+            
       Tool.font_forge "-script", Paths.get('_fonts/scripts/forge.py'), Paths.to_xming(forge_cmd_path)
       
       Paths.glob(forge_temp_dir, '**/*.{ttf,otf}').each do |src|

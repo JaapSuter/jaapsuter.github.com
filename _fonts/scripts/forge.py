@@ -1,6 +1,3 @@
-# Todo, Jaap Suter, February 2012, investigate INSTCTRL 3, 4, see
-# here for more information: http://www.microsoft.com/typography/cleartype/truetypecleartype.aspx
-
 import sys, re
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -14,70 +11,6 @@ import psMat
 import fontforge
 import math
 import random
-
-# 0x002d = hyphen-minus
-# 0x00ad = soft hyphen
-# 0x2010 = non ambiguous hyphen
-# 0x2010 = non breaking hyphen
-# 0x2212 = non ambiguous minus
-
-# IE9               shy = 0x002d
-# Firefox 8         shy = 0x2010
-# Chrome 16         shy = 0x2010
-# Opera 11          shy = 0x00ad
-# iPhone 4.2        shy = 0x002d
-# Safari 5.1.2 Win  shy = 0x2010
-# Safari 3.1.2 Mac  shy = 0x00ad
-
-# Georgia Metrics:
-#   ascender:    1548
-#   descender:   -444
-#   cap-height:  1419
-#   x-height:     986
-#   onum-height: 1105
-
-# Georgia Pro Metrics:
-#   cap-height:  761 * (1419 / 761)  = 1419
-#   x-height:    528 * (1419 / 761) ~=  986 (above)
-#   onum-height: 593 * (1419 / 761) ~= 1105
-#   smcp-height: 560 * (1419 / 761) ~= 1044
-
-# Georgia Pro Ratios:
-#       x / cap: 528 / 761 = 69.38%
-#    onum / cap: 593 / 761 = 77.92%
-#   scmcp / cap: 560 / 761 = 73.59%
-
-# tsn4n Metrics:
-#   x-height:   1063
-#   cap-height: 1493
-#   ascender:   1556, original: 1901
-#   descender:  -426, original: -483
-
-# tsn4n Ratios:
-#       x / cap: 1063 / 1493 = 71.20%
-#    onum / cap:  593 / 1419 = 41.79%
-#   scmcp / cap:  560 / 1419 = 39.46%
-
-# tsn4n-smcp Metrics:
-#   min-good-looking-ppem-support:  15
-#   em-units-per-px:         2048 / 15 = 137 <= 140
-#   smcp-height:             x-height + 140 = 1063 + 140 = 1203
-#   cap-to-smcp-ratio:       1203 / 1493 = 80.58%
-#   H-counter-width:          774
-#   h.smcp-counter-width:     623
-#   counter-ratio:            623 / 774 = 80.49
-#   horizontal serif height:  107
-#   upper vertical stem thick round:  230
-#   upper vertical stem thick:        203
-#   upper vertical stem thin:         123
-#   lower vertical stem thick round:  215
-#   lower vertical stem:              184
-#   lower vertical to upper ratio:    184 / 203 = 90.64%
-
-# DejavVu Serif Book Metrics:
-#    cap at 16ppem: 12
-#     ex at 16ppem: 9
-#   smcp at 16ppem: 10
 
 g_log_file = None
 
@@ -288,11 +221,11 @@ def make_underline(f, name, src, dst):
     fontforge.nameFromUnicode(ord('@')): [(0, 300), (1720, 0)],
     fontforge.nameFromUnicode(ord('J')): [],
     fontforge.nameFromUnicode(ord('Q')): [(0, 728), (1478, 0)],
-    fontforge.nameFromUnicode(ord('3')): [],
-    fontforge.nameFromUnicode(ord('4')): [(0, 567), (1036, 0)],
-    fontforge.nameFromUnicode(ord('5')): [],
-    fontforge.nameFromUnicode(ord('7')): [(0, 312), (682, 0)],
-    fontforge.nameFromUnicode(ord('9')): [],
+    # disabled for tnum-lnum, only works for pnum-onum: fontforge.nameFromUnicode(ord('3')): [],
+    # disabled for tnum-lnum, only works for pnum-onum: fontforge.nameFromUnicode(ord('4')): [(0, 567), (1036, 0)],
+    # disabled for tnum-lnum, only works for pnum-onum: fontforge.nameFromUnicode(ord('5')): [],
+    # disabled for tnum-lnum, only works for pnum-onum: fontforge.nameFromUnicode(ord('7')): [(0, 312), (682, 0)],
+    # disabled for tnum-lnum, only works for pnum-onum: fontforge.nameFromUnicode(ord('9')): [],
     fontforge.nameFromUnicode(ord('_')): [],
   }
 
@@ -737,8 +670,9 @@ def forge_one(name, src, dir, unicodes):
   is_sans = name[1] == 'a'
   is_monospace = name[1] == 'm'
   is_italic = name[2] == 'i'
-  is_condensed = name[4] == 'c'  
-  is_for_small_caps = name.endswith('-smcp')  
+  is_condensed = name[4] == 'c'
+  is_for_small_caps = name.endswith('-smcp')
+  is_for_old_numerals = name.endswith('-onum-pnum')
     
   rehinstr = is_italic or is_condensed or is_for_small_caps
   
