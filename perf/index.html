@@ -67,9 +67,60 @@
 			uniform float alphaCorrection;
 			const int MAX_STEPS = 1024;
 
+            //Acts like a texture3D using Z slices and trilinear filtering.
+			float scalarAs3DTexture( vec3 texCoord )
+			{
+				float slice1, slice2;
+				vec2 texCoordSlice1, texCoordSlice2;
+
+				//The z coordinate determines which Z slice we have to look for.
+				//Z slice number goes from 0 to 255.
+				float zSliceNumber1 = floor(texCoord.z  * 255.0);
+
+				//As we use trilinear we go the next Z slice.
+				float zSliceNumber2 = min( zSliceNumber1 + 1.0, 255.0); //Clamp to 255
+
+                //The Z slices are stored in a matrix of 16x16 of Z slices.
+				//The original UV coordinates have to be rescaled by the tile numbers in each row and column.
+				texCoord.xy /= 16.0;
+
+				texCoordSlice1 = texCoordSlice2 = texCoord.xy;
+
+				//Add an offset to the original UV coordinates depending on the row and column number.
+				texCoordSlice1.x += (mod(zSliceNumber1, 16.0) / 16.0);
+				texCoordSlice1.y += floor((255.0 - zSliceNumber1) / 16.0) / 16.0;
+
+				texCoordSlice2.x += (mod(zSliceNumber2, 16.0 ) / 16.0);
+				texCoordSlice2.y += floor((255.0 - zSliceNumber2) / 16.0) / 16.0;
+
+				//Get the opacity value from the 2D texture.
+				//Bilinear filtering is done at each texture2D by default.
+				slice1 = texture2D( cubeTex, texCoordSlice1 ).r;
+				slice2 = texture2D( cubeTex, texCoordSlice2 ).r;
+
+                float zDifference = mod(texCoord.z * 255.0, 1.0);
+
+				//Finally interpolate between the two intermediate colors of each Z slice.
+				return mix(slice1, slice2, zDifference) ;
+			}
+
+            vec3 sampleNormal(vec3 texCoord)
+            {
+                float b = scalarAs3DTexture(texCoord);
+                float dd = 1.0 / 256.0  * 4.0;
+                float dx = b - scalarAs3DTexture(texCoord + vec3(dd, 0, 0));
+                float dy = b - scalarAs3DTexture(texCoord + vec3(0, dd, 0));
+                float dz = b - scalarAs3DTexture(texCoord + vec3(0, 0, dd));
+
+                vec3 n = vec3(dx, dy, dz);
+
+                return n;
+            }
+
 			//Acts like a texture3D using Z slices and trilinear filtering.
 			vec4 sampleAs3DTexture( vec3 texCoord )
 			{
+                
 				vec4 colorSlice1, colorSlice2;
 				vec2 texCoordSlice1, texCoordSlice2;
 
@@ -158,6 +209,12 @@
 				{
 					//Get the voxel intensity value from the 3D texture.
 					colorSample = sampleAs3DTexture( currentPosition );
+                    vec3 normal = sampleNormal(currentPosition);
+                    vec3 light = normalize(vec3(1, 4, 10));
+
+                    float len = length(normal) * 6.0;
+                    
+                    float lighting = len > 0.0001 ? abs(dot(normalize(normal), normalize(dir))) : 0.0001;
 
 					//Allow the alpha correction customization.
 					alphaSample = colorSample.a * alphaCorrection;
@@ -169,7 +226,7 @@
 					alphaSample *= alphaScaleFactor;
 
 					//Perform the composition.
-					accumulatedColor += colorSample * alphaSample;
+					accumulatedColor += (colorSample * alphaSample) * lighting * len;
 
 					//Store the alpha accumulated so far.
 					accumulatedAlpha += alphaSample;
